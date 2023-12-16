@@ -1,0 +1,654 @@
+ISim log file
+Running: /home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+
+-----------------
+
+clock count :   0 
+
+reset : 0 
+
+Parking fee :   x 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :   1 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :   2 
+
+reset : 0 
+
+Parking fee :   x 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :   3 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :   4 
+
+reset : 0 
+
+Parking fee :   x 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :   5 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :   6 
+
+reset : 0 
+
+Parking fee :   x 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :   7 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :   8 
+
+reset : 0 
+
+Parking fee :   x 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :   9 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :  10 
+
+reset : 0 
+
+Parking fee :   x 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :  11 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :  12 
+
+reset : 0 
+
+Parking fee :   x 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :  13 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :  14 
+
+reset : 0 
+
+Parking fee :   x 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :  15 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :  16 
+
+reset : 0 
+
+Parking fee :   x 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :  17 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :  18 
+
+reset : 0 
+
+Parking fee :   x 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+
+-----------------
+
+clock count :  19 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  x 
+
+moving  :   x  x  x  x
+
+floor 7  : x |  x  x  x  x |  x  x  x  x 
+
+floor 6  : x |  x  x  x  x |  x  x  x  x 
+
+floor 5  : x |  x  x  x  x |  x  x  x  x 
+
+floor 4  : x |  x  x  x  x |  x  x  x  x 
+
+floor 3  : x |  x  x  x  x |  x  x  x  x 
+
+floor 2  : x |  x  x  x  x |  x  x  x  x 
+
+floor 1  : x |  x  x  x  x |  x  x  x  x 
+
+floor 0  : x 
+
+------------------------------------------
+
+
+Stopped at time : 205 ns : File "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top_tb.v" Line 150

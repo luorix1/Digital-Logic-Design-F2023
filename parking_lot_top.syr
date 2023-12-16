@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: parking_lot_top.prj
@@ -1860,12 +1860,12 @@ Delay:               9.239ns (Levels of Logic = 3)
 
 
 Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 9.05 secs
+Total CPU time to Xst completion: 8.60 secs
  
 --> 
 
 
-Total memory usage is 531312 kilobytes
+Total memory usage is 531524 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings : 1086 (   0 filtered)

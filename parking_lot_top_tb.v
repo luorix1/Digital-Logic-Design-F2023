@@ -36,8 +36,8 @@ module parking_lot_top_tb (
 	wire [15:0] moving;
 	wire plate_type;
 	wire [7:0] fee;
-	wire empty_suv;
-	wire empty_sedan;
+	wire [3:0] empty_suv;
+	wire [3:0] empty_sedan;
 	wire full_suv;
 	wire full_sedan;
 	
