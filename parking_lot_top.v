@@ -539,27 +539,27 @@ module parking_lot_top(
 	 always @(*) begin
         if (reset) begin
             parked_1[31:0] = 0;
-				parked_2[31:0] = 0;
-				parked_3[31:0] = 0;
-				parked_4[31:0] = 0;
-				parked_5[31:0] = 0;
-				parked_6[31:0] = 0;
-				parked_7[31:0] = 0;
-				current_floor[2:0] = 0;
-				moving[15:0] = 0;
-				plate_type = 0;
-				fee[7:0] = 0;
-				empty_suv = 1;
-				empty_sedan = 1;
-				full_suv = 0;
-				full_sedan = 0;
+			parked_2[31:0] = 0;
+			parked_3[31:0] = 0;
+			parked_4[31:0] = 0;
+			parked_5[31:0] = 0;
+			parked_6[31:0] = 0;
+			parked_7[31:0] = 0;
+			current_floor[2:0] = 0;
+			moving[15:0] = 0;
+			plate_type = 0;
+			fee[7:0] = 0;
+			empty_suv = 1;
+			empty_sedan = 1;
+			full_suv = 0;
+			full_sedan = 0;
         end
         else begin
             
         end
     end
 	 
-	 // JYH: Fee 출력 logic
+	 // JYH: Fee output logic
 	 reg car_out_ready; // elevator_controller needs signal that car is ready to be removed
 	 wire fee;
 	 assign fee = car_out_ready ? fee_internal : 0;
