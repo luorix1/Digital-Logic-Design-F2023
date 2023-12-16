@@ -192,99 +192,93 @@ module order_queue(
 	output reg in_mode_internal, out_mode_internal,
 	output reg [15:0] order_license_plate
 );
-	parameter CARS_BUFF_SIZE = 112; //16*7
-	parameter ORDER_BUFF_SIZE = 14; // order: in=1 out=2 -> 2 bits required * 7  = 14 bit
-	
-	reg [CARS_BUFF_SIZE-1:0] license_plates;
-	reg [ORDER_BUFF_SIZE-1:0] orders;
+	reg [111:0] license_plates;
+	reg [13:0] orders;
 	reg [2:0] tail; //# of orders in QUEUE, used for tail
-	
-	always @(reset) begin
-		if (reset) begin
+
+	// Using Dual Edge
+	always @(posedge clock or negedge reset) begin // At POSEDGE, push order
+		if (!reset) begin
 			license_plates = 0;
 			orders = 0;
 			tail = 0;
 		end
+		else if (clock) begin
+			if (in_mode | out_mode) begin
+				case (tail)
+					0: begin
+							orders[1:0] = {out_mode, in_mode};
+							license_plates[15:0] = license_plate;
+						end
+					1: begin
+							orders[3:2] = {out_mode, in_mode};
+							license_plates[31:16] = license_plate;
+						end
+					2: begin
+							orders[5:4] = {out_mode, in_mode};
+							license_plates[47:32] = license_plate;
+						end
+					3: begin
+							orders[7:6] = {out_mode, in_mode};
+							license_plates[63:48] = license_plate;
+						end
+					4: begin
+							orders[9:8] = {out_mode, in_mode};
+							license_plates[79:64] = license_plate;
+						end
+					5: begin
+							orders[11:10] = {out_mode, in_mode};
+							license_plates[95:80] = license_plate;
+						end
+					6: begin
+							orders[13:12] = {out_mode, in_mode};
+							license_plates[111:96] = license_plate;
+						end
+					default: begin
+							orders[1:0] = {out_mode, in_mode};
+							license_plates[15:0] = license_plate;
+						end
+				endcase
+				
+				tail = tail + 1;
+			end
+		end
+		
+		else begin
+			if (ready & tail != 0) begin // SYSTEM READY TO ACCEPT ORDER and ORRDER QUEUE not empty, POP
+				tail = tail - 1;
+			
+				//license_plates POP
+				order_license_plate[15:0] = license_plates[15:0];
+				
+				license_plates[15:0] = license_plates[31:16];
+				license_plates[31:16] = license_plates[47:32];
+				license_plates[47:32] = license_plates[63:48];
+				license_plates[63:48] = license_plates[79:64];
+				license_plates[79:64] = license_plates[95:80];
+				license_plates[95:80] = license_plates[111:96];
+				license_plates[111:96] = 0;
+				
+				//orders POP
+				in_mode_internal = orders[0]; // in = 2'b01, out = 2'b10
+				out_mode_internal = orders[1]; // in = 2'b01, out = 2'b10
+				
+				orders[1:0] = orders[3:2];
+				orders[3:2] = orders[5:4];
+				orders[5:4] = orders[7:6];
+				orders[7:6] = orders[9:8];
+				orders[9:8] = orders[11:10];
+				orders[11:10] = orders[13:12];
+				orders[13:12] = 0;
+			end
+			
+			else begin //SYSTEM NOT READY FOR NEW ORDER
+				//in_mode_internal = 0;
+				//out_mode_internal = 0;
+				//order_license_plate[15:0] = 0;
+			end
+		end
 	end
-
-	// Using Dual Edge
-	always @(posedge clock) begin // At POSEDGE, push order
-      if (in_mode | out_mode) begin
-			case (tail)
-				0: begin
-						orders[1:0] = {out_mode, in_mode};
-						license_plates[15:0] = license_plate;
-					end
-				1: begin
-						orders[3:2] = {out_mode, in_mode};
-						license_plates[31:16] = license_plate;
-					end
-				2: begin
-						orders[5:4] = {out_mode, in_mode};
-						license_plates[47:32] = license_plate;
-					end
-				3: begin
-						orders[7:6] = {out_mode, in_mode};
-						license_plates[63:48] = license_plate;
-					end
-				4: begin
-						orders[9:8] = {out_mode, in_mode};
-						license_plates[79:64] = license_plate;
-					end
-				5: begin
-						orders[11:10] = {out_mode, in_mode};
-						license_plates[95:80] = license_plate;
-					end
-				6: begin
-						orders[13:12] = {out_mode, in_mode};
-						license_plates[111:96] = license_plate;
-					end
-				default: begin
-						orders[1:0] = {out_mode, in_mode};
-						license_plates[15:0] = license_plate;
-					end
-			endcase
-			
-			tail = tail + 1;
-		end
-   end
-	
-	always @(negedge clock) begin // At NEGEDGE, fetch order
-		  
-		if (ready & tail != 0) begin // SYSTEM READY TO ACCEPT ORDER and ORRDER QUEUE not empty, POP
-			tail = tail - 1;
-		
-			//license_plates POP
-			order_license_plate[15:0] = license_plates[15:0];
-			
-			license_plates[15:0] = license_plates[31:16];
-			license_plates[31:16] = license_plates[47:32];
-			license_plates[47:32] = license_plates[63:48];
-			license_plates[63:48] = license_plates[79:64];
-			license_plates[79:64] = license_plates[95:80];
-			license_plates[95:80] = license_plates[111:96];
-			license_plates[111:96] = 0;
-			
-			//orders POP
-			in_mode_internal = orders[0]; // in = 2'b01, out = 2'b10
-			out_mode_internal = orders[1]; // in = 2'b01, out = 2'b10
-			
-			orders[1:0] = orders[3:2];
-			orders[3:2] = orders[5:4];
-			orders[5:4] = orders[7:6];
-			orders[7:6] = orders[9:8];
-			orders[9:8] = orders[11:10];
-			orders[11:10] = orders[13:12];
-			orders[13:12] = 0;
-		end
-		
-		else begin //SYSTEM NOT READY FOR NEW ORDER
-			in_mode_internal = 0;
-			out_mode_internal = 0;
-			order_license_plate[15:0] = 0;
-		end
-   end
-
 endmodule
 
 
