@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2023-12-14T22:00:50</DateModified>
+  <DateModified>2023-12-16T11:37:42</DateModified>
   <ModuleName>tlc_top</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Xilinx_projects/Final/Elevator/iseconfig/tlc_top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Xilinx_projects/Final/Elevator\</ImplementationReportsDirectory>
+  <SavedFilePath>/home/luorix/Desktop/Digital-Logic-Design-F2023/iseconfig/tlc_top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/luorix/Desktop/Digital-Logic-Design-F2023/</ImplementationReportsDirectory>
   <DateInitialized>2023-12-14T19:23:25</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

@@ -8,40 +8,22 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/Xilinx_projects/Final/Elevator/data_reg.v&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.v&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/Xilinx_projects/Final/Elevator/make_clk.v&quot; into library work</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.v</arg>&quot; Line <arg fmt="%d" index="2">43</arg>. <arg fmt="%s" index="3">Syntax error near &quot;reg&quot;.</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/Xilinx_projects/Final/Elevator/output_logic.v&quot; into library work</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.v</arg>&quot; Line <arg fmt="%d" index="2">49</arg>. <arg fmt="%s" index="3">Syntax error near &quot;STATE_CAR_REASSIGN&quot;.</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/Xilinx_projects/Final/Elevator/parking_lot_top.v&quot; into library work</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.v</arg>&quot; Line <arg fmt="%d" index="2">68</arg>. <arg fmt="%s" index="3">Syntax error near &quot;ü©°™´€ç»½ü…½¹°&quot;.</arg>
 </msg>
 
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Xilinx_projects/Final/Elevator/parking_lot_top.v</arg>&quot; Line <arg fmt="%d" index="2">43</arg>. <arg fmt="%s" index="3">Syntax error near &quot;reg&quot;.</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.v</arg>&quot; Line <arg fmt="%d" index="2">135</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
 </msg>
 
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Xilinx_projects/Final/Elevator/parking_lot_top.v</arg>&quot; Line <arg fmt="%d" index="2">49</arg>. <arg fmt="%s" index="3">Syntax error near &quot;STATE_CAR_REASSIGN&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Xilinx_projects/Final/Elevator/parking_lot_top.v</arg>&quot; Line <arg fmt="%d" index="2">51</arg>. <arg fmt="%s" index="3">Syntax error near &quot;}&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Xilinx_projects/Final/Elevator/parking_lot_top.v</arg>&quot; Line <arg fmt="%d" index="2">134</arg>. <arg fmt="%s" index="3">Syntax error near &quot;=&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Xilinx_projects/Final/Elevator/parking_lot_top.v</arg>&quot; Line <arg fmt="%d" index="2">135</arg>. <arg fmt="%s" index="3">Syntax error near &quot;;&quot;.</arg>
-</msg>
-
-<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">C:/Users/Xilinx_projects/Final/Elevator/parking_lot_top.v</arg>&quot; Line <arg fmt="%d" index="2">136</arg>. <arg fmt="%s" index="3">Syntax error near &quot;;&quot;.</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/Xilinx_projects/Final/Elevator/tlc_fsm.v&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/Xilinx_projects/Final/Elevator/tlc_top.v&quot; into library work</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.v</arg>&quot; Line <arg fmt="%d" index="2">136</arg>. <arg fmt="%s" index="3">Syntax error near &quot;;&quot;.</arg>
 </msg>
 
 </messages>

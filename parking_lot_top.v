@@ -1,7 +1,7 @@
 module parking_fee_calculator(
     input clock,
     input reset,
-	 input [15:0] license_plate, // JYH: Â÷Á¾ ¹× Àå¾ÖÀÎ Â÷·® ¿©ºÎ¿¡ µû¸¥ ¿ä±Ý °è»êÀ» À§ÇØ
+	 input [15:0] license_plate, // JYH: required for getting car type, handicapped status, fee calculation
     input enable_counting,
     output reg [7:0] fee
 );
@@ -13,11 +13,11 @@ module parking_fee_calculator(
             cycle_count <= 0;
             fee <= 0;
         end
-        else if (enable_counting) begin // JYH: fee °è»ê logic Ãß°¡
+        else if (enable_counting) begin // JYH: fee  logic
 				cycle_count <= cycle_count + 1;
-				if (license_plate[15:12] == 4'b1001) fee <= 0; // Àå¾ÖÀÎ Â÷·® fee 0 
-				else if (license_plate[15:12] == 4'b1000) fee <= cycle_count; // Hybrid Â÷·® cycle ´ç 1 cent
-            else fee <= cycle_count*2;  // ÀÏ¹Ý Â÷·® cycle ´ç 2 cent
+				if (license_plate[15:12] == 4'b1001) fee <= 0; // fee 0 for handicapped
+				else if (license_plate[15:12] == 4'b1000) fee <= cycle_count; // fee 1 per cycle for hybrid
+            else fee <= cycle_count*2;  // fee 2 per cycle for other cars
         end
     end
 
@@ -42,17 +42,16 @@ module elevator_controller(
     // States
     typedef enum reg [2:0] {
         STATE_RESET = 3'b000,
-        STATE_CAR_IN = 3'b001, // JYH: Â÷·® ÀÔ°í ÀÛ¾÷ 'Áß' state
-        STATE_CAR_OUT_SEARCH = 3'b010, // JYH: Â÷·® Ãâ°í ÀÛ¾÷ Áß ÇØ´ç Â÷·®À» Ã£À¸·¯ °¡´Â state
-		  STATE_CAR_OUT_EXPORT = 3'b010, // JYH: Â÷·® Ãâ°í ÀÛ¾÷ Áß ÇØ´ç Â÷·®À» ³»º¸³»´Â state
-		  STATE_NO_ORDER = 3'b011 // JYH: ¸í·É ´ë±â 'Áß' state, ¾î¶°ÇÑ ¸í·Éµµ ¾ø´Âµ¥ current_floor != 0 ÀÎ °æ¿ì 0ÃþÀ¸·Î ³»·Á°¨
-        STATE_CAR_REASSIGN = 3'b011, // plate ¹Ù²Ù±â
-        STATE_WAIT_FOR_LEAKAGE = 3'b100 // JYH: ÀÌ°Ç ¿Ö ÇÊ¿äÇÑ°Å¾ß? 
+        STATE_CAR_IN = 3'b001, // JYH: elevator is entering car into parking lot
+        STATE_CAR_OUT_SEARCH = 3'b010, // JYH: elevator is moving to floor to remove car
+		  STATE_CAR_OUT_EXPORT = 3'b010, // JYH: elevator is removing car from parking lot
+		  STATE_NO_ORDER = 3'b011 // JYH: awaiting order (elevator should move to floor 0 if at other floor)
+        STATE_CAR_REASSIGN = 3'b011, // changing elevator plate type (sedan, SUV)
     } state_type;
 
     state_type current_state, next_state;
 	 
-	 reg [2:0] next_floor; // JYH: ¿¤·¹º£ÀÌÅÍ°¡ ´ÙÀ½À¸·Î ÀÌµ¿ÇÒ Ãþ
+	 reg [2:0] next_floor; // JYH: next floor elevator will move to
 
     // State transition logic
     always @(posedge clock or posedge reset) begin
@@ -65,7 +64,8 @@ module elevator_controller(
     // Next state logic
     always @(*) begin
         case (current_state)
-            STATE_RESET: next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_RESET; // in/out ¾îµð·Îµç °¥ ¼ö ÀÖµµ·Ï
+				// STATE_RESET can transition to both STATE_CAR_IN, STATE_CAR_OUT
+            STATE_RESET: next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_RESET; Öµ
             STATE_CAR_IN: 
 					if (current_floor == target_floor) begin 
 						case ({target_floor, target_place})
@@ -86,12 +86,12 @@ module elevator_controller(
 							default: parked_1[31:16] = moving[15:0];
 						endcase
 						
-						moving[15:0] = 0; //Â÷ ³»¸²
+						moving[15:0] = 0; // 
 						next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_NO_ORDER;
 					end
 					
 					else if (current_floor > target_floor) begin
-						next_floor = current_floor - 1; // ÇöÀç ÃþÀÌ Å¸ÄÏ Ãþº¸´Ù ³ôÀº °æ¿ì
+						next_floor = current_floor - 1; // current floor is higher than target floor
 						next_state = STATE_CAR_IN;
 					end
 					else begin
@@ -100,7 +100,8 @@ module elevator_controller(
 					end	
 
             STATE_CAR_OUT: 
-					if (current_floor == target_floor) begin  // Ãâ°í ¸ðµå¿¡¼­´Â target_floor ¹× target place¸¦ Ãâ°í Â÷·®ÀÇ ÃþÀ¸·Î, 
+					// In STATE_CAR_OUT, (target_floor, target_place) denote position of car to be removed
+					if (current_floor == target_floor) begin
 							case ({target_floor, target_place})
 								4'b0010: parked_1[31:16] = moving[15:0];
 								4'b0011: parked_1[15:0] = moving[15:0];
@@ -119,12 +120,12 @@ module elevator_controller(
 								default: parked_1[31:16] = moving[15:0];
 							endcase
 							
-							moving[15:0] = 0; //Â÷ ³»¸²
+							moving[15:0] = 0; // 
 							next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_NO_ORDER;
 						end
 						
 						else if (current_floor > target_floor) begin
-							next_floor = current_floor - 1; // ÇöÀç ÃþÀÌ Å¸ÄÏ Ãþº¸´Ù ³ôÀº °æ¿ì
+							next_floor = current_floor - 1; //   Å¸   
 							next_state = STATE_CAR_IN;
 						end
 						else begin
@@ -133,7 +134,6 @@ module elevator_controller(
 						end	
 				next_state = /* Logic to transition from car_out */;
             STATE_CAR_REASSIGN: next_state = /* Logic to transition from car_reassign */;
-            STATE_WAIT_FOR_LEAKAGE: next_state = /* Logic to handle leakage */;
             default: next_state = STATE_RESET;
         endcase
     end
@@ -145,20 +145,6 @@ module elevator_controller(
         end
         // ... other states
     end
-
-endmodule
-
-
-module leakage_detection_system(
-    input clock,
-    input reset,
-    input leakage,
-    input [2:0] leakage_floor,
-    output reg leak_detected
-);
-
-    // Leakage detection logic
-    // ...
 
 endmodule
 
@@ -182,8 +168,8 @@ module parking_lot_top(
     output [15:0] moving,
     output plate_type,
     output [7:0] fee,
-    output [3:0] empty_suv, //PPT¿¡¼± 4-bit binary ¿ä±¸ÇØ¼­ °íÄ§, test bench¿¡¼± 1bit, ¸Ó°¡ ¸Â´ÂÁø ¸ô·ç
-    output [3:0] empty_sedan, //PPT¿¡¼± 4-bit binary ¿ä±¸ÇØ¼­ °íÄ§, test bench¿¡¼± 1bit, ¸Ó°¡ ¸Â´ÂÁø ¸ô·ç
+    output [3:0] empty_suv, // 4-bit (in reality, only use 3 bits
+	 output [3:0] empty_sedan, // 4-bit (in reality, only use 3 bits
     output full_suv,
     output full_sedan
 );
@@ -194,21 +180,23 @@ module parking_lot_top(
     wire leak_detected_internal;
 	 
 	 
-	 // ÇÊ¿äÇÒ °ÍÀ¸·Î ¿¹»óµÇ´Â º¯¼öµé
-	 reg current_work_done; // ÇöÀç ÀÛ¾÷ ¿Ï·á
-	 reg in_car_waiting; // ÀÔ°í Â÷·® ´ë±âÁß (in_mode ½ÅÈ£°¡ 1 cycle¸¸ ÁÖ¾îÁö¹Ç·Î)
-	 reg out_car_waiting; //Ãâ°í Â÷·® ´ë±âÁß (out_mode ½ÅÈ£°¡ 1 cycle¸¸ ÁÖ¾îÁö¹Ç·Î)
+	 // Variables
+	 reg current_work_done; // current task (car_in, car_out, etc.) complete
+	 reg in_car_waiting; // in_mode is given for 1 cycle, need to keep track via register
+	 reg out_car_waiting; // out_mode is given for 1 cycle, need to keep track via register
 	 
 	 // JYH: Destination Plate
 	 wire [2:0] destination_floor;
 	 
 	 
-	 // JYH: ÁÖÂ÷ ¿ä±Ý °è»ê ·ÎÁ÷, °¢ ÁÖÂ÷ ÀÚ¸®º° ÁÖÂ÷ ¿ä±Ý Á¤»ê±â ¹èÁ¤. Parking Fee wire, 15:8 left parking fee, 7:0 right parking fee
+	 // JYH: Logic for parking fee calculation
+	 // Parking fee calculator for each parking space
+	 // Parking Fee wire -> 15:8 (left), 7:0 (right)
 	 wire [15:0] parked_1_fee, parked_2_fee, parked_3_fee, parked_4_fee, parked_5_fee, parked_6_fee, parked_7_fee;
 	 
-	 parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(parked_1[31:16]==0), .fee(parked_1_fee[15:8])); // Àå¾ÖÀÎ ÀÚ¸®¶ó »ç½Ç enable counting ²¨µµ µÉ·Á³ª1
-	 parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(parked_2[31:16]==0), .fee(parked_2_fee[15:8])); // Àå¾ÖÀÎ ÀÚ¸®¶ó »ç½Ç enable counting ²¨µµ µÉ·Á³ª2
-	 parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(parked_3[31:16]==0), .fee(parked_3_fee[15:8])); // º°°³·Î ÀÌ ÁþÀÌ °¡´ÉÇÑÁö´Â ¸ô?·ç...? .enable_counting(parked_2[31:16]==0) wire¿¡ µû·Î assignÀ» ÇÏ´Â°Ô ³ªÀ»¶ó³ª... 
+	 parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(parked_1[31:16]==0), .fee(parked_1_fee[15:8])); //  Ú¸  enable counting  É·1
+	 parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(parked_2[31:16]==0), .fee(parked_2_fee[15:8])); //  Ú¸  enable counting  É·2
+	 parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(parked_3[31:16]==0), .fee(parked_3_fee[15:8])); //     ?...? .enable_counting(parked_2[31:16]==0) wire  assign Ï´Â° ... 
 	 parking_fee_calculator parked_4_left ( .clock(clock), .reset(reset), .license_plate(parked_4[31:16]), .enable_counting(parked_4[31:16]==0), .fee(parked_4_fee[15:8])); 
 	 parking_fee_calculator parked_5_left ( .clock(clock), .reset(reset), .license_plate(parked_5[31:16]), .enable_counting(parked_5[31:16]==0), .fee(parked_5_fee[15:8])); 
 	 parking_fee_calculator parked_6_left ( .clock(clock), .reset(reset), .license_plate(parked_6[31:16]), .enable_counting(parked_6[31:16]==0), .fee(parked_6_fee[15:8])); 
@@ -222,7 +210,7 @@ module parking_lot_top(
 	 parking_fee_calculator parked_6_right ( .clock(clock), .reset(reset), .license_plate(parked_6[15:0]), .enable_counting(parked_6[15:0]==0), .fee(parked_6_fee[7:0])); 
 	 parking_fee_calculator parked_7_right ( .clock(clock), .reset(reset), .license_plate(parked_7[15:0]), .enable_counting(parked_7[15:0]==0), .fee(parked_7_fee[7:0])); 
 	 
-	 // JYH: LOGIC of full_suv, full_sedan, empty_suv, empty_sedan Å×½ºÆ®º¥Ä¡ ÆÄÀÏ¿¡¼± empty_suv, empty_sedan°¡ 1bitÂ¥¸® True FalseÀÎµ¥ PPT ¿¡¼± 4-bit binary ¿ä±¸... ¸Ö±î
+	 // JYH: LOGIC of full_suv, full_sedan, empty_suv, empty_sedan
 	 wire full_suv, full_sedan;
 	 wire [3:0] empty_suv, empty_sedan;
 	 assign empty_suv = (parked_1[15:0]==0) + (parked_3[31:16]==0 + parked_3[15:0]==0) + (parked_5[31:16]==0 + parked_5[15:0]==0) + (parked_7[31:16]==0 + parked_7[15:0]==0);
@@ -244,7 +232,7 @@ module parking_lot_top(
     elevator_controller elevator_ctrl (
         .clock(clock),
         .reset(reset),
-		  .in_mode(in_mode), // JYH: ¿©±â ´Ü¼øÈ÷ in_mode ÇÏ¸é ¾ÈµÉµí. in_mode°¡ 1 cycle¸¸ À¯ÁöµÇ¾î¼­ in_car_waiting µû·Î ¸¸µé¾î¾ßÇÒµí
+		  .in_mode(in_mode), // JYH: should not simply use in_mode since in_mode only lasts 1 CLK cycle
         .target_floor( /* Logic to determine target floor */ ),
         .current_floor(current_floor_internal),
         .moving(moving_internal)
@@ -273,8 +261,8 @@ module parking_lot_top(
 				moving[15:0] = 0;
 				plate_type = 0;
 				fee[7:0] = 0;
-				empty_suv = 1;
-				empty_sedan = 1;
+				empty_suv = 4'b0111; // max number of SUV parking spaces is 8 - 1 = 7
+				empty_sedan = 4'b0101; // max number of sedan parking spaces is 6 - 1 = 5
 				full_suv = 0;
 				full_sedan = 0;
         end
@@ -283,8 +271,8 @@ module parking_lot_top(
         end
     end
 	 
-	 // JYH: Fee Ãâ·Â logic
-	 reg car_out_ready; // elevator_controller¿¡¼­ Â÷·® Ãâ°í ÁØºñ ¿Ï·á signalÀÌ ÇÊ¿äÇÒµí
+	 // JYH: Fee output logic
+	 reg car_out_ready; // elevator_controller probably needs this signal (ready to perform car_out)
 	 wire fee;
 	 assign fee = car_out_ready ? fee_internal : 0;
 	 

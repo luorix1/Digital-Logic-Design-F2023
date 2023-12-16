@@ -1,0 +1,146 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to /home/luorix/Desktop/Digital-Logic-Design-F2023/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Parameter xsthdpdir set to /home/luorix/Desktop/Digital-Logic-Design-F2023/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "parking_lot_top.v" in library work
+Module <parking_fee_calculator> compiled
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 43 unexpected token: 'enum'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 43 expecting 'IDENTIFIER', found '{'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 49 unexpected token: 'STATE_CAR_REASSIGN'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 50 expecting 'IDENTIFIER', found '}'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 52 unexpected token: ','
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 57 unexpected token: 'posedge'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 57 expecting ';', found 'begin'
+Module <elevator_controller> compiled
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 58 expecting 'endmodule', found 'if'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 65 unexpected token: ')'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 70 unexpected token: 'target_place'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 103 unexpected token: 'target_place'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 153 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 154 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 155 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 156 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 167 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 168 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 169 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 170 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 171 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 172 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 173 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 174 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 175 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 176 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 177 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 178 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 179 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 180 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 181 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 182 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 183 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 184 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 185 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 186 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 187 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 206 unexpected token: 'parked_7_fee'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 208 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 208 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 208 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 208 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 209 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 209 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 209 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 209 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 210 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 210 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 210 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 210 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 211 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 211 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 211 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 211 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 212 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 212 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 212 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 212 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 213 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 213 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 213 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 213 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 214 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 214 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 214 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 214 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 216 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 216 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 216 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 216 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 217 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 217 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 217 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 217 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 218 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 218 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 218 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 218 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 219 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 219 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 219 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 219 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 220 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 220 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 220 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 220 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 221 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 221 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 221 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 221 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 222 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 222 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 222 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 222 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 225 unexpected token: 'full_sedan'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 226 unexpected token: 'empty_sedan'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 235 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 236 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 237 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 238 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 239 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 245 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 246 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 247 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 248 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 249 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 255 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 256 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 257 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 258 unexpected token: '.'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 291 expecting '*)', found 'EOF'
+ERROR:HDLCompilers:26 - "parking_lot_top.v" line 291 unexpected token: 'EOF'
+Analysis of file <"parking_lot_top.prj"> failed.
+--> 
+
+
+Total memory usage is 470192 kilobytes
+
+Number of errors   :  111 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

@@ -1,0 +1,5 @@
+set -tmpdir "/home/luorix/Desktop/Digital-Logic-Design-F2023/xst/projnav.tmp"
+set -xsthdpdir "/home/luorix/Desktop/Digital-Logic-Design-F2023/xst"
+elaborate
+-ifn parking_lot_top.prj
+-ifmt mixed
