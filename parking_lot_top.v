@@ -346,15 +346,22 @@ module elevator_controller(
 			//       Otherwise, stay in STATE_RESET
             STATE_RESET: begin
 					newly_parked = 0;
+		    			car_out_ready = 1;
 					next_state = in_mode ? STATE_CAR_REASSIGN : out_mode? STATE_CAR_OUT_SEARCH : STATE_RESET;
 				end
 				
 			// NOTE: STATE_CAR_IN
             STATE_CAR_IN: begin
-					if (current_floor == 0 & moving[15:0] == 0) begin
+		    			if (lisence_plate[0]!=plate_type) begin
+			    			plate_type = ~plate_type;
+						next_floor = current_floor;
+						next_state = STATE_CAR_IN;
+					end
+		    			if (current_floor == 0 & moving[15:0] == 0) begin
 						// Move car onto plate
 						moving = license_plate;
 						next_state = STATE_CAR_IN;
+						next_floor = current_floor;
 					end
 					else if (current_floor == target_floor) begin 
 						// Designated parking spot now contains car
@@ -364,7 +371,8 @@ module elevator_controller(
 						newly_parked_spot[0] = target_place;
 						
 						moving[15:0] = 0; // car has left elevator (now parked)
-						next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT_SEARCH : STATE_NO_ORDER; //CJY: next_state = leakage&!leak_empty ? STATE_CAR_OUT_SEARCH : in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_NO_ORDER; (~leak_emapty === binary value representing if leakage floor is empty. empty=1)
+						next_state = (leakage && !leak_empty)||out_mode? STATE_CAR_OUTSEARCH: in_mode ? STATE_CAR_IN : STATE_NO_ORDER; // CJY: next_state = (if leak&not empty - OUT_SEARCH. if out_mode - OUT_SEARCH, if in_mode - IN, else - NO_ORDER
+						next_floor = current_floor;
 					end
 					
 					else if (current_floor > target_floor) begin
@@ -375,6 +383,9 @@ module elevator_controller(
 					else begin
 						newly_parked = 0;
 						next_floor = current_floor + 1; // current floor < target floor
+						if (next_floor == target_floor) begin
+							car_out_ready=1;
+						end
 						next_state = STATE_CAR_IN;
 					end	
 			end
@@ -407,6 +418,12 @@ module elevator_controller(
 						endcase
 						
 						next_state = STATE_CAR_OUT_EXPORT;
+						next_floor = current_floor;
+					end
+
+					else if (current_floor ==0 && license_plate[0] != plate_type) begin
+						plate_type = ~plate_type;
+						next_floor = current_floor;
 					end
 						
 					else if (current_floor > target_floor) begin
@@ -427,24 +444,38 @@ module elevator_controller(
 					newly_parked = 0;
 					if (current_floor == target_floor) begin  // target_floor = 0 for STATE_CAR_OUT_EXPORT
 						next_floor = current_floor;
-						car_out_ready = 1; // Means that the car is ready to be removed from parking lot
-						if((in_mode == out_mode) & ~(leakage & leak_empty)) begin // no order, leakage NAND leak_floor_empty 
+						//car_out_ready = 1; // Means that the car is ready to be removed from parking lot
+						if((in_mode == out_mode) & !(leakage & !leak_empty)) begin // no order, no leak or leak but empty
 						     next_state = STATE_NO_ORDER;
 						end
-						else if(license_plate[0] != plate_type) begin // plate needs to be changed
-						     next_state = STATE_CAR_REASSIGN;
+						else if(leakage & !leak_empty) begin
+							next_state = STATE_OUT_SEARCH;
 						end
-						else if(in_mode && (license_plate[0] != plate_type)) begin // incoming car and no leakage
-						     next_state = STATE_CAR_IN;
+						else if(in_mode) begin
+							next_state = STATE_CAR_IN;
 						end
+						else if(out_mode) begin
+							next_state = STATE_CAR_OUT_SEARCH;
+						end
+
+						
+						//else if(license_plate[0] != plate_type) begin // plate needs to be changed
+						//     next_state = STATE_CAR_REASSIGN;
+						//end
+						//else if(in_mode && (license_plate[0] != plate_type)) begin // incoming car and no leakage
+						//    next_state = STATE_CAR_IN;
+						//end
 						else begin
-						     next_state = STATE_CAR_OUT_SEARCH;
+						     next_state = STATE_NO_ORDER;
 						end
 					end
 						
 					else if (current_floor > target_floor) begin
 						car_out_ready = 0;
 						next_floor = current_floor - 1; // current floor > target floor
+						if (next_floor == target_floor) begin
+							car out_ready = 1;
+						end
 						next_state = STATE_CAR_OUT_EXPORT;
 					end
 
@@ -460,7 +491,9 @@ module elevator_controller(
 					newly_parked = 0;
 					car_out_ready = 0;
 					if (current_floor == target_floor) begin  // target_floor ==0;
-						plate_type = ~plate_type;
+						if(license_plate[0] != plate_type) begin
+							plate_type = ~plate_type;
+						end
 						next_floor = current_floor;
 						next_state = (!leakage && in_mode) ? STATE_CAR_IN : STATE_CAR_OUT_SEARCH;
 				        end
@@ -474,7 +507,26 @@ module elevator_controller(
 						next_floor = current_floor - 1; //CJY : default, should not happen
 						next_state = STATE_CAR_REASSIGN;
 					end
-			end
+				    end
+		STATE_NO_ORDER: begin
+					car_out_ready=1;
+				    if(current_floor!=0) begin //이미 no order로 1층 가는 길 출발한 상태
+				    	next_floor = current_floor-1;
+					next_state=STATE_NO_ORDER;
+				    end
+				    else if(in_mode) begin
+					next_floor = current_floor;
+					next_state=STATE_CAR_IN;
+				    end
+				    else if(out_mode) begin
+					next_floor=current_floor;
+					next_state = STATE_CAR_OUT_SEARCH;
+				    end
+				    else begin
+					next_floor = current_floor;
+					next_state = STATE_NO_ORDER;
+				    end
+				end
 			
 			// NOTE: Default case to ensure combinational logic
 	    	default: begin
