@@ -50,8 +50,8 @@ module target_floor(
 	 always @(*) begin
 		 //finding_closest_floor
 		 disabled = (license_plate[15:12] == 4'b1001);
-		 sedan =    (license_plate[0] == 0); // even number = sedan
-		 suv =      (license_plate[0] == 1); // odd number = suv
+		 sedan =(license_plate[0] == 0); // even number = sedan
+		 suv = (license_plate[0] == 1); // odd number = suv
 		 
 		 // possible[i] = 1 : i floor parkable
 		 // possible[i] = 0 : i floor cannot park
@@ -82,6 +82,7 @@ module target_floor(
 			  3'b101 : visit[20:0] = {n4,n6,n3,n7,n2,n1,n0};
 			  3'b110 : visit[20:0] = {n5,n7,n4,n3,n2,n1,n0};
 			  3'b111 : visit[20:0] = {n6,n5,n4,n3,n2,n1,n0};
+			  default: visit[20:0] = {n6,n5,n4,n3,n2,n1,n0}; // Useless default case for combinational logic
 		 endcase
 		 
 		 if(possible[visit[20:18]]) begin
@@ -106,7 +107,9 @@ module target_floor(
 			  closest_floor=visit[2:0];
 		 end
 	 end
-    always @(in_mode or out_mode or leakage) begin
+    
+	 //always @(in_mode or out_mode or leakage) begin
+	 always @(*) begin
         if(in_mode) begin
             case(moving)
                 0 : target_floor = 3'b000; // no car -> go to 0 floor
@@ -129,6 +132,7 @@ module target_floor(
                 3'b101 : target_floor = (moving==0)? (parked_5[31:16]==0&parked_5[15:0]==0?0:3'b101) : closest_floor;
                 3'b110 : target_floor = (moving==0)? (parked_6[31:16]==0&parked_6[15:0]==0?0:3'b110) : closest_floor;
                 3'b111 : target_floor = (moving==0)? (parked_7[31:16]==0&parked_7[15:0]==0?0:3'b111) : closest_floor;
+					 default: target_floor = (moving==0)? (parked_7[31:16]==0&parked_7[15:0]==0?0:3'b111) : closest_floor; // Useless default case for combinational logic
             endcase
         end
     end
@@ -262,7 +266,8 @@ module elevator_controller(
 	 input leak_empty, // variable to track whether leakage floor is empty
 	 input [2:0] target_floor, // destination floor
 	 input target_place, // destination left or right? 0 -> left / 1 -> right
-    output reg [2:0] current_floor,
+    output reg car_out_ready,
+	 output reg [2:0] current_floor,
     output reg [15:0] moving,
 	 output reg newly_parked,
 	 output reg [15:0] newly_parked_license_plate,
@@ -287,8 +292,8 @@ module elevator_controller(
         if (reset) begin
 					current_state <= STATE_RESET;
 					current_floor = 0;
-					moving = 0;
-					plate_type = 0;
+					//moving = 0;
+					//plate_type = 0;
 				end
         else
             current_state <= next_state;
@@ -337,6 +342,7 @@ module elevator_controller(
 			// NOTE: STATE_CAR_OUT_SEARCH
 			// 		 In STATE_CAR_OUT_SEARCH, target_floor & target_place denote position of car to be removed from parking lot
 			STATE_CAR_OUT_SEARCH: begin //CJY: out_mode==1, moving==0
+					car_out_ready = 0;
 					if (current_floor == target_floor) begin
 						newly_parked = 1;
 						newly_parked_license_plate = 0;
@@ -381,6 +387,7 @@ module elevator_controller(
 					newly_parked = 0;
 					if (current_floor == target_floor) begin  // target_floor = 0 for STATE_CAR_OUT_EXPORT
 						next_floor = current_floor;
+						car_out_ready = 1; // Means that the car is ready to be removed from parking lot
 						if((in_mode == out_mode) & ~(leakage & leak_empty)) begin // no order, leakage NAND leak_floor_empty 
 						     next_state = STATE_NO_ORDER;
 						end
@@ -396,11 +403,13 @@ module elevator_controller(
 					end
 						
 					else if (current_floor > target_floor) begin
+						car_out_ready = 0;
 						next_floor = current_floor - 1; // current floor > target floor
 						next_state = STATE_CAR_OUT_EXPORT;
 					end
 
 					else begin
+						car_out_ready = 0;
 						next_floor = current_floor + 1; // SHOULD NOT HAPPEN since target floor = 0
 						next_state = STATE_CAR_OUT_EXPORT;
 					end	
@@ -409,6 +418,7 @@ module elevator_controller(
 			// NOTE: STATE_CAR_REASSIGN
 	    	STATE_CAR_REASSIGN: begin
 					newly_parked = 0;
+					car_out_ready = 0;
 					if (current_floor == target_floor) begin  // target_floor ==0;
 						plate_type = ~plate_type;
 						next_floor = current_floor;
@@ -429,19 +439,11 @@ module elevator_controller(
 			// NOTE: Default case to ensure combinational logic
 	    	default: begin
 				newly_parked = 0;
+				car_out_ready = 0;
 				next_state = STATE_RESET;
 			end
         endcase
     end
-
-    // Output logic
-    always @(posedge clock) begin
-        if (current_state == STATE_CAR_IN) begin
-            // Logic for car_in
-        end
-        // ... other states
-    end
-
 endmodule
 
 
@@ -463,16 +465,12 @@ module parking_lot_top(
     output [2:0] current_floor,
     output [15:0] moving,
     output reg plate_type,
-    output [7:0] fee,
+    output reg [7:0] fee,
     output [3:0] empty_suv, // max value of empty_suv is 4'b0111
     output [3:0] empty_sedan, // max value of empty_sedan is 4'b0101
     output full_suv,
     output full_sedan
 );
-    // Internal signals for inter-module communication
-    wire [7:0] fee_internal;
-    //wire [2:0] current_floor_internal;
-
 	 wire in_mode_internal; // JYH
 	 wire out_mode_internal; // JYH
 	 wire [15:0] license_plate_internal; // JYH
@@ -520,6 +518,8 @@ module parking_lot_top(
 	 // NOTE: Add logic for checking if leakage floor has parked cars
 	 //       Parked cars must be removed!
 	 reg leak_empty;
+	 
+	 wire car_out_ready; // elevator_controller needs signal that car is ready to be removed
 	 
 	 always @(*) begin
 		case(leakage_floor)
@@ -572,6 +572,7 @@ module parking_lot_top(
 		  .in_mode(in_mode_internal),
 		  .out_mode(out_mode_internal),
         .target_floor(target_floor),
+		  .target_place(target_place),
 		  .leak_empty(leak_empty),
 		  .leakage(leakage),
 		  .leakage_floor(leakage_floor),
@@ -579,32 +580,45 @@ module parking_lot_top(
         .moving(moving),
 		  
 		  // Outputs
+		  .car_out_ready(car_out_ready),
 		  .newly_parked(newly_parked),
 		  .newly_parked_license_plate(newly_parked_license_plate),
 		  .newly_parked_spot(newly_parked_spot)
     );
 	 
+	 // JYH: RESET logic here
 	 always @(*) begin
-		if (newly_parked) begin
-			case (newly_parked_spot)
-				4'b0010: parked_1[31:16] = newly_parked_license_plate[15:0];
-				4'b0011: parked_1[15:0] = newly_parked_license_plate[15:0];
-				4'b0100: parked_2[31:16] = newly_parked_license_plate[15:0];
-				4'b0101: parked_2[15:0] = newly_parked_license_plate[15:0];
-				4'b0110: parked_3[31:16] = newly_parked_license_plate[15:0];
-				4'b0111: parked_3[15:0] = newly_parked_license_plate[15:0];
-				4'b1000: parked_4[31:16] = newly_parked_license_plate[15:0];
-				4'b1001: parked_4[15:0] = newly_parked_license_plate[15:0];
-				4'b1010: parked_5[31:16] = newly_parked_license_plate[15:0];
-				4'b1011: parked_5[15:0] = newly_parked_license_plate[15:0];
-				4'b1100: parked_6[31:16] = newly_parked_license_plate[15:0];
-				4'b1101: parked_6[15:0] = newly_parked_license_plate[15:0];
-				4'b1110: parked_7[31:16] = newly_parked_license_plate[15:0];
-				4'b1111: parked_7[15:0] = newly_parked_license_plate[15:0];
-				default: parked_1[31:16] = newly_parked_license_plate[15:0];
-			endcase
-		end
-	 end
+        if (reset) begin
+					parked_1[31:0] = 0;
+					parked_2[31:0] = 0;
+					parked_3[31:0] = 0;
+					parked_4[31:0] = 0;
+					parked_5[31:0] = 0;
+					parked_6[31:0] = 0;
+					parked_7[31:0] = 0;
+				end
+        else begin
+            if (newly_parked) begin
+					case (newly_parked_spot)
+						4'b0010: parked_1[31:16] = newly_parked_license_plate[15:0];
+						4'b0011: parked_1[15:0] = newly_parked_license_plate[15:0];
+						4'b0100: parked_2[31:16] = newly_parked_license_plate[15:0];
+						4'b0101: parked_2[15:0] = newly_parked_license_plate[15:0];
+						4'b0110: parked_3[31:16] = newly_parked_license_plate[15:0];
+						4'b0111: parked_3[15:0] = newly_parked_license_plate[15:0];
+						4'b1000: parked_4[31:16] = newly_parked_license_plate[15:0];
+						4'b1001: parked_4[15:0] = newly_parked_license_plate[15:0];
+						4'b1010: parked_5[31:16] = newly_parked_license_plate[15:0];
+						4'b1011: parked_5[15:0] = newly_parked_license_plate[15:0];
+						4'b1100: parked_6[31:16] = newly_parked_license_plate[15:0];
+						4'b1101: parked_6[15:0] = newly_parked_license_plate[15:0];
+						4'b1110: parked_7[31:16] = newly_parked_license_plate[15:0];
+						4'b1111: parked_7[15:0] = newly_parked_license_plate[15:0];
+						default: parked_1[31:16] = newly_parked_license_plate[15:0];
+					endcase
+				end
+        end
+    end
 
 	// JYH ORDER QUEUE
 	order_queue ORDERS (
@@ -621,24 +635,29 @@ module parking_lot_top(
 		.out_mode_internal(out_mode_internal),
 		.order_license_plate(license_plate_internal)
 	);
-
-    // JYH: RESET logic here
-	 always @(*) begin
-        if (reset) begin
-					parked_1[31:0] = 0;
-					parked_2[31:0] = 0;
-					parked_3[31:0] = 0;
-					parked_4[31:0] = 0;
-					parked_5[31:0] = 0;
-					parked_6[31:0] = 0;
-					parked_7[31:0] = 0;
-				end
-        else begin
-            
-        end
-    end
 	 
 	 // JYH: Fee output logic
-	 reg car_out_ready; // elevator_controller needs signal that car is ready to be removed
-	 assign fee = car_out_ready ? fee_internal : 0;
+	 always @(*) begin
+		if (car_out_ready) begin
+			case (newly_parked_spot)
+				4'b0010: fee = parked_1_fee[15:8];
+				4'b0011: fee = parked_1_fee[7:0];
+				4'b0100: fee = parked_2_fee[15:8];
+				4'b0101: fee = parked_2_fee[7:0];
+				4'b0110: fee = parked_3_fee[15:8];
+				4'b0111: fee = parked_3_fee[7:0];
+				4'b1000: fee = parked_4_fee[15:8];
+				4'b1001: fee = parked_4_fee[7:0];
+				4'b1010: fee = parked_5_fee[15:8];
+				4'b1011: fee = parked_5_fee[7:0];
+				4'b1100: fee = parked_6_fee[15:8];
+				4'b1101: fee = parked_6_fee[7:0];
+				4'b1110: fee = parked_7_fee[15:8];
+				4'b1111: fee = parked_7_fee[7:0];
+				default: fee = parked_1_fee[15:8]; // Useless default case for combinational logic
+			endcase
+		end
+		
+		else fee = 0;
+	 end
 endmodule
