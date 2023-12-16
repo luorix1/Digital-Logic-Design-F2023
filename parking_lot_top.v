@@ -39,89 +39,128 @@ module target_floor(
     input [2:0] current_floor,
     input full_sedan,
     input [15:0] moving,
-    output reg [2:0] target_floor
+    output reg [2:0] target_floor,
+    output reg target_place
 );
-	 reg disabled, sedan, suv;
-	 reg [2:0] closest_floor;
-	 reg [2:0] n0, n1, n2, n3, n4, n5, n6, n7;
-	 reg [7:0] possible; // one-hot for each parking space
-	 reg [20:0] visit; // visit sequence
+    reg disabled, sedan, suv;
+    reg [2:0] closest_floor;
+    reg [2:0] n0, n1, n2, n3, n4, n5, n6, n7;
+    reg [7:0] possible; // one-hot for each parking space
+    reg [20:0] visit; // visit sequence
 
-	 always @(*) begin
-		 //finding_closest_floor
-		 disabled = (license_plate[15:12] == 4'b1001);
-		 sedan =(license_plate[0] == 0); // even number = sedan
-		 suv = (license_plate[0] == 1); // odd number = suv
-		 
-		 // possible[i] = 1 : i floor parkable
-		 // possible[i] = 0 : i floor cannot park
-		 possible [0] = 1'b1; //always reachable
-		 possible [1] = (suv | full_sedan) & ((parked_1[31:16]==0)&(disabled) | (parked_1[15:0]==0));
-		 possible [2] = (sedan) &             ((parked_2[31:16]==0)&(disabled) | (parked_2[15:0]==0));
-		 possible [3] = (suv | full_sedan) & ((parked_3[31:16]==0)            | (parked_3[15:0]==0));
-		 possible [4] = (sedan) &             ((parked_4[31:16]==0)            | (parked_4[15:0]==0));
-		 possible [5] = (suv | full_sedan) & ((parked_5[31:16]==0)            | (parked_5[15:0]==0));
-		 possible [6] = (sedan) &             ((parked_6[31:16]==0)            | (parked_6[15:0]==0));
-		 possible [7] = (suv | full_sedan) & ((parked_7[31:16]==0)            | (parked_7[15:0]==0));
-			  
-		 n0 = 3'b000;
-		 n1 = 3'b001;
-		 n2 = 3'b010;
-		 n3 = 3'b011;
-		 n4 = 3'b100;
-		 n5 = 3'b101;
-		 n6 = 3'b110;
-		 n7 = 3'b111;
-		 
-		 case(current_floor)
-			  3'b000 : visit[20:0] = {n1,n2,n3,n4,n5,n6,n7};
-			  3'b001 : visit[20:0] = {n2,n3,n4,n5,n6,n7,n0};
-			  3'b010 : visit[20:0] = {n1,n3,n4,n5,n6,n7,n0};
-			  3'b011 : visit[20:0] = {n2,n4,n1,n5,n6,n7,n0};
-			  3'b100 : visit[20:0] = {n3,n5,n2,n6,n1,n7,n0};
-			  3'b101 : visit[20:0] = {n4,n6,n3,n7,n2,n1,n0};
-			  3'b110 : visit[20:0] = {n5,n7,n4,n3,n2,n1,n0};
-			  3'b111 : visit[20:0] = {n6,n5,n4,n3,n2,n1,n0};
-			  default: visit[20:0] = {n6,n5,n4,n3,n2,n1,n0}; // Useless default case for combinational logic
-		 endcase
-		 
-		 if(possible[visit[20:18]]) begin
-			  closest_floor=visit[20:18];
-		 end
-		 else if(possible[visit[17:15]]) begin
-			  closest_floor=visit[17:15];
-		 end
-		 else if(possible[visit[14:12]]) begin
-			  closest_floor=visit[14:12];
-		 end
-		 else if(possible[visit[11:9]]) begin
-			  closest_floor=visit[11:9];
-		 end
-		 else if(possible[visit[8:6]]) begin
-			  closest_floor=visit[8:6];
-		 end
-		 else if(possible[visit[5:3]]) begin
-			  closest_floor=visit[5:3];
-		 end
-		 else if(possible[visit[2:0]]) begin
-			  closest_floor=visit[2:0];
-		 end
-	 end
-    
-	 //always @(in_mode or out_mode or leakage) begin
-	 always @(*) begin
+    always @(*) begin
+       //finding_closest_floor
+       disabled = (license_plate[15:12] == 4'b1001);
+       sedan =    (license_plate[0] == 0); // even number = sedan
+       suv =      (license_plate[0] == 1); // odd number = suv
+       
+       // possible[i] = 1 : i floor parkable
+       // possible[i] = 0 : i floor cannot park
+       possible [0] = 1'b1; //always reachable
+       possible [1] = (suv | full_sedan) & ((parked_1[31:16]==0)&(disabled) | (parked_1[15:0]==0));
+       possible [2] = (sedan) &             ((parked_2[31:16]==0)&(disabled) | (parked_2[15:0]==0));
+       possible [3] = (suv | full_sedan) & ((parked_3[31:16]==0)            | (parked_3[15:0]==0));
+       possible [4] = (sedan) &             ((parked_4[31:16]==0)            | (parked_4[15:0]==0));
+       possible [5] = (suv | full_sedan) & ((parked_5[31:16]==0)            | (parked_5[15:0]==0));
+       possible [6] = (sedan) &             ((parked_6[31:16]==0)            | (parked_6[15:0]==0));
+       possible [7] = (suv | full_sedan) & ((parked_7[31:16]==0)            | (parked_7[15:0]==0));
+           
+       n0 = 3'b000;
+       n1 = 3'b001;
+       n2 = 3'b010;
+       n3 = 3'b011;
+       n4 = 3'b100;
+       n5 = 3'b101;
+       n6 = 3'b110;
+       n7 = 3'b111;
+       
+       case(current_floor)
+           3'b000 : visit[20:0] = {n1,n2,n3,n4,n5,n6,n7};
+           3'b001 : visit[20:0] = {n2,n3,n4,n5,n6,n7,n0};
+           3'b010 : visit[20:0] = {n1,n3,n4,n5,n6,n7,n0};
+           3'b011 : visit[20:0] = {n2,n4,n1,n5,n6,n7,n0};
+           3'b100 : visit[20:0] = {n3,n5,n2,n6,n1,n7,n0};
+           3'b101 : visit[20:0] = {n4,n6,n3,n7,n2,n1,n0};
+           3'b110 : visit[20:0] = {n5,n7,n4,n3,n2,n1,n0};
+           3'b111 : visit[20:0] = {n6,n5,n4,n3,n2,n1,n0};
+			  default: visit[20:0] = {n1,n2,n3,n4,n5,n6,n7}; // Useless defualt case for combinational logic
+       endcase
+       
+       if(possible[visit[20:18]]) begin
+           closest_floor=visit[20:18];
+           target_place = (parked_1[31:16]==0)&(disabled) ? 0:1;
+       end
+       else if(possible[visit[17:15]]) begin
+           closest_floor=visit[17:15];
+           target_place = (parked_2[31:16]==0)&(disabled) ? 0:1;
+       end
+       else if(possible[visit[14:12]]) begin
+           closest_floor=visit[14:12];
+           target_place = (parked_3[31:16]==0) ? 0:1;
+       end
+       else if(possible[visit[11:9]]) begin
+           closest_floor=visit[11:9];
+           target_place = (parked_4[31:16]==0) ? 0:1;
+       end
+       else if(possible[visit[8:6]]) begin
+           closest_floor=visit[8:6];
+           target_place = (parked_5[31:16]==0) ? 0:1;
+       end
+       else if(possible[visit[5:3]]) begin
+           closest_floor=visit[5:3];
+           target_place = (parked_6[31:16]==0) ? 0:1;
+       end
+       else if(possible[visit[2:0]]) begin
+           closest_floor=visit[2:0];
+           target_place = (parked_7[31:16]==0) ? 0:1;
+       end
+    end
+    always @(in_mode or out_mode or leakage) begin
         if(in_mode) begin
             case(moving)
                 0 : target_floor = 3'b000; // no car -> go to 0 floor
                 default : target_floor = closest_floor; // car -> find closest_floor
             endcase
-		  end
+        end
         else if(out_mode) begin
+            if(license_plate[15:0]==parked_1[31:16] | license_plate[15:0]==parked_1[15:0]) begin
+               closest_floor = 3'b001;
+               target_place = license_plate[15:0]==parked_1[31:16] ? 0:1;
+            end
+            else if(license_plate[15:0]==parked_2[31:16] | license_plate[15:0]==parked_2[15:0]) begin
+               closest_floor = 3'b010;
+               target_place = license_plate[15:0]==parked_2[31:16] ? 0:1;
+            end
+            else if(license_plate[15:0]==parked_3[31:16] | license_plate[15:0]==parked_3[15:0]) begin
+               closest_floor = 3'b011;
+               target_place = license_plate[15:0]==parked_3[31:16] ? 0:1;
+            end
+            else if(license_plate[15:0]==parked_4[31:16] | license_plate[15:0]==parked_4[15:0]) begin
+               closest_floor = 3'b100;
+               target_place = license_plate[15:0]==parked_4[31:16] ? 0:1;
+            end
+            else if(license_plate[15:0]==parked_5[31:16] | license_plate[15:0]==parked_5[15:0]) begin
+               closest_floor = 3'b101;
+               target_place = license_plate[15:0]==parked_5[31:16] ? 0:1;
+            end
+            else if(license_plate[15:0]==parked_6[31:16] | license_plate[15:0]==parked_6[15:0]) begin
+               closest_floor = 3'b110;
+               target_place = license_plate[15:0]==parked_6[31:16] ? 0:1;
+            end
+            else if (license_plate[15:0]==parked_7[31:16] | license_plate[15:0]==parked_7[15:0]) begin
+               closest_floor = 3'b111;
+               target_place = license_plate[15:0]==parked_7[31:16] ? 0:1;
+            end
+				else begin // should NEVER happen
+					closest_floor = 3'b000;
+					target_place = 0;
+				end
+				
             case(moving)
                 0 : target_floor = closest_floor; // no car -> go to floor with car to move
                 default : target_floor = 3'b000;
             endcase
-		  end
+        end
         else if(leakage) begin
             case(leakage_floor)
                 3'b000 : target_floor = 0;
@@ -132,12 +171,13 @@ module target_floor(
                 3'b101 : target_floor = (moving==0)? (parked_5[31:16]==0&parked_5[15:0]==0?0:3'b101) : closest_floor;
                 3'b110 : target_floor = (moving==0)? (parked_6[31:16]==0&parked_6[15:0]==0?0:3'b110) : closest_floor;
                 3'b111 : target_floor = (moving==0)? (parked_7[31:16]==0&parked_7[15:0]==0?0:3'b111) : closest_floor;
-					 default: target_floor = (moving==0)? (parked_7[31:16]==0&parked_7[15:0]==0?0:3'b111) : closest_floor; // Useless default case for combinational logic
+					 default: target_floor = 0; // Useless default case for combinational logic
             endcase
         end
     end
 
 endmodule
+
 // JYH: ORDER QUEUE
 module order_queue(
 	input [15:0] license_plate,
@@ -481,8 +521,9 @@ module parking_lot_top(
 	 reg in_car_internal; // car awaiting parking exists (in_mode only lasts 1 CLK cycle)
 	 reg out_car_internal; // car awaiting removal exists (out_mode only lasts 1 CLK cycle)
 	 
-	 // JYH: Destination Plate
+	 // JYH: Destination position
 	 wire [2:0] target_floor;
+	 wire target_place;
 	 
 	 // HJW: Wires for newly parked car info
 	 wire newly_parked;
@@ -553,7 +594,8 @@ module parking_lot_top(
 		.current_floor(current_floor),
 		.full_sedan(full_sedan),
 		.moving(moving),
-		.target_floor(target_floor)
+		.target_floor(target_floor),
+		.target_place(target_place)
 	 );
 
     // Instantiate Elevator Controller
