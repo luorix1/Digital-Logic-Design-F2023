@@ -284,8 +284,12 @@ module elevator_controller(
 
     // State transition logic
     always @(posedge clock or posedge reset) begin
-        if (reset)
-            current_state <= STATE_RESET;
+        if (reset) begin
+					current_state <= STATE_RESET;
+					current_floor = 0;
+					moving = 0;
+					plate_type = 0;
+				end
         else
             current_state <= next_state;
     end
@@ -297,12 +301,17 @@ module elevator_controller(
 			//       Otherwise, stay in STATE_RESET
             STATE_RESET: begin
 					newly_parked = 0;
-					next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT_SEARCH : STATE_RESET;
+					next_state = in_mode ? STATE_CAR_REASSIGN : out_mode? STATE_CAR_OUT_SEARCH : STATE_RESET;
 				end
 				
 			// NOTE: STATE_CAR_IN
             STATE_CAR_IN: begin
-					if (current_floor == target_floor) begin 
+					if (current_floor == 0 & moving[15:0] == 0) begin
+						// Move car onto plate
+						moving = license_plate;
+						next_state = STATE_CAR_IN;
+					end
+					else if (current_floor == target_floor) begin 
 						// Designated parking spot now contains car
 						newly_parked = 1; // only allowed to be TRUE in this case!
 						newly_parked_license_plate = moving[15:0];
@@ -332,6 +341,25 @@ module elevator_controller(
 						newly_parked = 1;
 						newly_parked_license_plate = 0;
 						newly_parked_spot = {target_floor, target_place};
+						
+						case ({target_floor, target_place})
+							4'b0010: moving = parked_1[31:16];
+							4'b0011: moving = parked_1[15:0];
+							4'b0100: moving = parked_2[31:16];
+							4'b0101: moving = parked_2[15:0];
+							4'b0110: moving = parked_3[31:16];
+							4'b0111: moving = parked_3[15:0];
+							4'b1000: moving = parked_4[31:16];
+							4'b1001: moving = parked_4[15:0];
+							4'b1010: moving = parked_5[31:16];
+							4'b1011: moving = parked_5[15:0];
+							4'b1100: moving = parked_6[31:16];
+							4'b1101: moving = parked_6[15:0];
+							4'b1110: moving = parked_7[31:16];
+							4'b1111: moving = parked_7[15:0];
+							default: moving = parked_1[15:0]; // Useless default case for combinational logic
+						endcase
+						
 						next_state = STATE_CAR_OUT_EXPORT;
 					end
 						
@@ -384,7 +412,7 @@ module elevator_controller(
 					if (current_floor == target_floor) begin  // target_floor ==0;
 						plate_type = ~plate_type;
 						next_floor = current_floor;
-						next_state = (!leakage && in_mode)? STATE_CAR_IN : STATE_CAR_OUT_SEARCH;
+						next_state = (!leakage && in_mode) ? STATE_CAR_IN : STATE_CAR_OUT_SEARCH;
 				        end
 						
 					else if (current_floor > target_floor) begin
@@ -432,8 +460,8 @@ module parking_lot_top(
     output reg [31:0] parked_5,
     output reg [31:0] parked_6,
     output reg [31:0] parked_7,
-    output reg [2:0] current_floor,
-    output reg [15:0] moving,
+    output [2:0] current_floor,
+    output [15:0] moving,
     output reg plate_type,
     output [7:0] fee,
     output [3:0] empty_suv, // max value of empty_suv is 4'b0111
@@ -443,9 +471,7 @@ module parking_lot_top(
 );
     // Internal signals for inter-module communication
     wire [7:0] fee_internal;
-    wire [2:0] current_floor_internal;
-    wire [15:0] moving_internal;
-    wire leak_detected_internal;
+    //wire [2:0] current_floor_internal;
 
 	 wire in_mode_internal; // JYH
 	 wire out_mode_internal; // JYH
@@ -507,6 +533,28 @@ module parking_lot_top(
 			default: leak_empty = parked_1[31:0] == 0;
 		endcase
 	 end
+	 
+	 target_floor target_flr (
+		// Inputs
+		.license_plate(license_plate_internal),
+		.in_mode(in_mode_internal),
+		.out_mode(out_mode_internal),
+		.leakage(leakage),
+		.leakage_floor(leakage_floor),
+		
+		// Outputs
+		.parked_1(parked_1),
+		.parked_2(parked_2),
+		.parked_3(parked_3),
+		.parked_4(parked_4),
+		.parked_5(parked_5),
+		.parked_6(parked_6),
+		.parked_7(parked_7),
+		.current_floor(current_floor),
+		.full_sedan(full_sedan),
+		.moving(moving),
+		.target_floor(target_floor)
+	 );
 
     // Instantiate Elevator Controller
     elevator_controller elevator_ctrl (
@@ -520,14 +568,15 @@ module parking_lot_top(
 		  .parked_5(parked_5),
 		  .parked_6(parked_6),
 		  .parked_7(parked_7),
+		  .license_plate(license_plate_internal),
 		  .in_mode(in_mode_internal),
 		  .out_mode(out_mode_internal),
         .target_floor(target_floor),
 		  .leak_empty(leak_empty),
 		  .leakage(leakage),
 		  .leakage_floor(leakage_floor),
-        .current_floor(current_floor_internal),
-        .moving(moving_internal),
+        .current_floor(current_floor),
+        .moving(moving),
 		  
 		  // Outputs
 		  .newly_parked(newly_parked),
@@ -576,17 +625,14 @@ module parking_lot_top(
     // JYH: RESET logic here
 	 always @(*) begin
         if (reset) begin
-            parked_1[31:0] = 0;
-			parked_2[31:0] = 0;
-			parked_3[31:0] = 0;
-			parked_4[31:0] = 0;
-			parked_5[31:0] = 0;
-			parked_6[31:0] = 0;
-			parked_7[31:0] = 0;
-			current_floor[2:0] = 0;
-			moving[15:0] = 0;
-			plate_type = 0;
-        end
+					parked_1[31:0] = 0;
+					parked_2[31:0] = 0;
+					parked_3[31:0] = 0;
+					parked_4[31:0] = 0;
+					parked_5[31:0] = 0;
+					parked_6[31:0] = 0;
+					parked_7[31:0] = 0;
+				end
         else begin
             
         end
