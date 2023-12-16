@@ -129,6 +129,83 @@ module target_floor(
     end
 
 endmodule
+// JYH: ORDER QUEUE
+module order_queue(
+	input [15:0] license_plate,
+	input in_mode,
+	input out_mode,
+	input ready, // SYSTEM READY TO ACCEPT ORDER, STATE =  STARE_RESET
+	input clock,
+	input reset,
+	
+	//output reg [CARS_BUFF_SIZE-1:0] license_plates;
+	//output reg [ORDER_BUFF_SIZE-1:0] orders;
+	output reg in_mode_internal, out_mode_internal,
+	output reg [15:0] order_license_plate
+);
+	parameter CARS_BUFF_SIZE = 112; //16*7
+	parameter ORDER_BUFF_SIZE = 14; // order: in=1 out=2 -> 2 bits required * 7  = 14 bit
+	
+	reg [CARS_BUFF_SIZE-1:0] license_plates;
+	reg [ORDER_BUFF_SIZE-1:0] orders;
+	reg [2:0] tail; //# of orders in QUEUE, used for tail
+	
+	always @(reset) begin
+		if (reset) begin
+			license_plates = 0;
+			orders = 0;
+			tail = 0;
+		end
+	end
+
+	// Using Dual Edge
+	always @(posedge clock) begin // At POSEDGE, push order
+      if (in_mode || out_mode) begin //                         
+			orders[2*tail+1:2*tail] = {out_mode, in_mode};
+			license_plates[15+tail*16:tail*16] = license_plate[15:0];
+			
+			tail = tail + 1;
+		end
+   end
+	
+	always @(negedge clock) begin // At NEGEDGE, fetch order
+		  
+		if (ready and tail != 0) begin // SYSTEM READY TO ACCEPT ORDER and ORRDER QUEUE not empty, POP
+			tail = tail - 1;
+		
+			//license_plates POP
+			order_license_plate[15:0] = license_plates[15:0];
+			
+			license_plates[15:0] = license_plates[31:16];
+			license_plates[31:16] = license_plates[47:32];
+			license_plates[47:32] = license_plates[63:48];
+			license_plates[63:48] = license_plates[79:64];
+			license_plates[79:64] = license_plates[95:80];
+			license_plates[95:80] = license_plates[111:96];
+			license_plates[111:96] = 0;
+			
+			//orders POP
+			in_mode_internal = orders[0] // in = 2'b01, out = 2'b10
+			out_mode_internal = orders[1] // in = 2'b01, out = 2'b10
+			
+			orders[1:0] = orders[3:2];
+			orders[3:2] = orders[5:4];
+			orders[5:4] = orders[7:6];
+			orders[7:6] = orders[9:8];
+			orders[9:8] = orders[11:10];
+			orders[11:10] = orders[13:12];
+			orders[13:12] = 0;
+		end
+		
+		else begin //SYSTEM NOT READY FOR NEW ORDER
+			in_mode_internal = 0;
+			out_mode_internal = 0;
+			order_license_plate[15:0] = 0;
+		end
+   end
+
+endmodule
+
 
 module elevator_controller(
     input clock,
@@ -380,6 +457,10 @@ module parking_lot_top(
     wire [2:0] current_floor_internal;
     wire [15:0] moving_internal;
     wire leak_detected_internal;
+
+	wire in_mode_internal; // JYH
+	wire out_mode_internal; // JYH
+	wire [15:0] license_plate_internal; // JYH
 	 
 	 
 	 // 필요할 것으로 예상되는 변수들
@@ -446,6 +527,22 @@ module parking_lot_top(
         .leakage_floor(leakage_floor),
         .leak_detected(leak_detected_internal)
     );
+
+	// JYH ORDER QUEUE
+	order_queue ORDERS (
+		// inputs
+		.clock(clock),
+		.reset(reset),
+		.in_mode(in_mode),
+		.out_mode(out_mode),
+		.ready(current_work_done), //current_work_done LOGIC 구현 필요, Elevator에서 state을 output으로 가져옴,  current_work_done = (state == STATE_RESET || state == STATE_NO_ORDER);
+		.license_plate(license_plate),
+		
+		// outputs
+		.in_mode_internal(in_mode_internal),
+		.out_mode_internal(out_mode_internal),
+		.license_plate_internal(license_plate_internal)
+	);
 
     // JYH: RESET logic here
 	 always @(*) begin
