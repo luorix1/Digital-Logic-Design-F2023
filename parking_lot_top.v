@@ -1,7 +1,7 @@
 module parking_fee_calculator(
     input clock,
     input reset,
-	 input [15:0] license_plate, // JYH: Â÷Á¾ ¹× Àå¾ÖÀÎ Â÷·® ¿©ºÎ¿¡ µû¸¥ ¿ä±İ °è»êÀ» À§ÇØ
+	 input [15:0] license_plate, // JYH: ì°¨ì¢… ë° ì¥ì• ì¸ ì°¨ëŸ‰ ì—¬ë¶€ì— ë”°ë¥¸ ìš”ê¸ˆ ê³„ì‚°ì„ ìœ„í•´
     input enable_counting,
     output reg [7:0] fee
 );
@@ -13,11 +13,11 @@ module parking_fee_calculator(
             cycle_count <= 0;
             fee <= 0;
         end
-        else if (enable_counting) begin // JYH: fee °è»ê logic Ãß°¡
+        else if (enable_counting) begin // JYH: fee ê³„ì‚° logic ì¶”ê°€
 				cycle_count <= cycle_count + 1;
-				if (license_plate[15:12] == 4'b1001) fee <= 0; // Àå¾ÖÀÎ Â÷·® fee 0 
-				else if (license_plate[15:12] == 4'b1000) fee <= cycle_count; // Hybrid Â÷·® cycle ´ç 1 cent
-            else fee <= cycle_count*2;  // ÀÏ¹İ Â÷·® cycle ´ç 2 cent
+				if (license_plate[15:12] == 4'b1001) fee <= 0; // ì¥ì• ì¸ ì°¨ëŸ‰ fee 0 
+				else if (license_plate[15:12] == 4'b1000) fee <= cycle_count; // Hybrid ì°¨ëŸ‰ cycle ë‹¹ 1 cent
+            else fee <= cycle_count*2;  // ì¼ë°˜ ì°¨ëŸ‰ cycle ë‹¹ 2 cent
         end
     end
 
@@ -42,17 +42,17 @@ module elevator_controller(
     // States
     typedef enum reg [2:0] {
         STATE_RESET = 3'b000,
-        STATE_CAR_IN = 3'b001, // JYH: Â÷·® ÀÔ°í ÀÛ¾÷ 'Áß' state
-        STATE_CAR_OUT_SEARCH = 3'b010, // JYH: Â÷·® Ãâ°í ÀÛ¾÷ Áß ÇØ´ç Â÷·®À» Ã£À¸·¯ °¡´Â state
-		  STATE_CAR_OUT_EXPORT = 3'b010, // JYH: Â÷·® Ãâ°í ÀÛ¾÷ Áß ÇØ´ç Â÷·®À» ³»º¸³»´Â state
-		  STATE_NO_ORDER = 3'b011 // JYH: ¸í·É ´ë±â 'Áß' state, ¾î¶°ÇÑ ¸í·Éµµ ¾ø´Âµ¥ current_floor != 0 ÀÎ °æ¿ì 0ÃşÀ¸·Î ³»·Á°¨
-        STATE_CAR_REASSIGN = 3'b011, // plate ¹Ù²Ù±â
-        STATE_WAIT_FOR_LEAKAGE = 3'b100 // JYH: ÀÌ°Ç ¿Ö ÇÊ¿äÇÑ°Å¾ß? 
+        STATE_CAR_IN = 3'b001, // JYH: ì°¨ëŸ‰ ì…ê³  ì‘ì—… 'ì¤‘' state
+        STATE_CAR_OUT_SEARCH = 3'b010, // JYH: ì°¨ëŸ‰ ì¶œê³  ì‘ì—… ì¤‘ í•´ë‹¹ ì°¨ëŸ‰ì„ ì°¾ìœ¼ëŸ¬ ê°€ëŠ” state
+		  STATE_CAR_OUT_EXPORT = 3'b010, // JYH: ì°¨ëŸ‰ ì¶œê³  ì‘ì—… ì¤‘ í•´ë‹¹ ì°¨ëŸ‰ì„ ë‚´ë³´ë‚´ëŠ” state
+		  STATE_NO_ORDER = 3'b011 // JYH: ëª…ë ¹ ëŒ€ê¸° 'ì¤‘' state, ì–´ë– í•œ ëª…ë ¹ë„ ì—†ëŠ”ë° current_floor != 0 ì¸ ê²½ìš° 0ì¸µìœ¼ë¡œ ë‚´ë ¤ê°
+        STATE_CAR_REASSIGN = 3'b011, // plate ë°”ê¾¸ê¸°
+        STATE_WAIT_FOR_LEAKAGE = 3'b100 // JYH: ì´ê±´ ì™œ í•„ìš”í•œê±°ì•¼? 
     } state_type;
 
     state_type current_state, next_state;
 	 
-	 reg [2:0] next_floor; // JYH: ¿¤·¹º£ÀÌÅÍ°¡ ´ÙÀ½À¸·Î ÀÌµ¿ÇÒ Ãş
+	 reg [2:0] next_floor; // JYH: ì—˜ë ˆë² ì´í„°ê°€ ë‹¤ìŒìœ¼ë¡œ ì´ë™í•  ì¸µ
 
     // State transition logic
     always @(posedge clock or posedge reset) begin
@@ -65,7 +65,7 @@ module elevator_controller(
     // Next state logic
     always @(*) begin
         case (current_state)
-            STATE_RESET: next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_RESET; // in/out ¾îµğ·Îµç °¥ ¼ö ÀÖµµ·Ï
+            STATE_RESET: next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_RESET; // in/out ì–´ë””ë¡œë“  ê°ˆ ìˆ˜ ìˆë„ë¡
             STATE_CAR_IN: 
 					if (current_floor == target_floor) begin 
 						case ({target_floor, target_place})
@@ -86,12 +86,12 @@ module elevator_controller(
 							default: parked_1[31:16] = moving[15:0];
 						endcase
 						
-						moving[15:0] = 0; //Â÷ ³»¸²
-						next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_NO_ORDER;
+						moving[15:0] = 0; //ì°¨ ë‚´ë¦¼
+						next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_NO_ORDER; //CJY: next_state =  leakage&!leak_empty ? STATE_CAR_OUT_SEARCH : in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_NO_ORDER; (~leak_emapty === binary value representing if leakage floor is empty. empty=1)
 					end
 					
 					else if (current_floor > target_floor) begin
-						next_floor = current_floor - 1; // ÇöÀç ÃşÀÌ Å¸ÄÏ Ãşº¸´Ù ³ôÀº °æ¿ì
+						next_floor = current_floor - 1; // í˜„ì¬ ì¸µì´ íƒ€ì¼“ ì¸µë³´ë‹¤ ë†’ì€ ê²½ìš°
 						next_state = STATE_CAR_IN;
 					end
 					else begin
@@ -99,42 +99,124 @@ module elevator_controller(
 						next_state = STATE_CAR_IN;
 					end	
 
-            STATE_CAR_OUT: 
-					if (current_floor == target_floor) begin  // Ãâ°í ¸ğµå¿¡¼­´Â target_floor ¹× target place¸¦ Ãâ°í Â÷·®ÀÇ ÃşÀ¸·Î, 
-							case ({target_floor, target_place})
-								4'b0010: parked_1[31:16] = moving[15:0];
-								4'b0011: parked_1[15:0] = moving[15:0];
-								4'b0100: parked_2[31:16] = moving[15:0];
-								4'b0101: parked_2[15:0] = moving[15:0];
-								4'b0110: parked_3[31:16] = moving[15:0];
-								4'b0111: parked_3[15:0] = moving[15:0];
-								4'b1000: parked_4[31:16] = moving[15:0];
-								4'b1001: parked_4[15:0] = moving[15:0];
-								4'b1010: parked_5[31:16] = moving[15:0];
-								4'b1011: parked_5[15:0] = moving[15:0];
-								4'b1100: parked_6[31:16] = moving[15:0];
-								4'b1101: parked_6[15:0] = moving[15:0];
-								4'b1110: parked_7[31:16] = moving[15:0];
-								4'b1111: parked_7[15:0] = moving[15:0];
-								default: parked_1[31:16] = moving[15:0];
-							endcase
-							
-							moving[15:0] = 0; //Â÷ ³»¸²
-							next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_NO_ORDER;
-						end
+	    STATE_CAR_OUT_SEARCH: //CJY: out_mode==1, moving==0
+					if (current_floor == target_floor) begin  // ì¶œê³  ëª¨ë“œì—ì„œëŠ” target_floor ë° target placeë¥¼ ì¶œê³  ì°¨ëŸ‰ì˜ ì¸µìœ¼ë¡œ, 
+						case ({target_floor, target_place}) // CJY : moving = parked car, parked car = 0
+							4'b0010: begin
+							            moving[15:0] = parked_1[31:16];
+							            parked_1[31:16] = 0;
+							         end
+							4'b0011: begin
+							            moving[15:0] = parked_1[15:0];
+							            parked_1[15:0]=0;
+							         end
+							4'b0100: begin
+							            moving[15:0] = parked_2[31:16];
+							            parked_2[31:16]=0;
+							         end
+							4'b0101: begin
+							            moving[15:0] = parked_2[15:0];
+							            parked_2[15:0]=0;
+							         end
+							4'b0110: begin
+							            moving[15:0] = parked_3[31:16];
+							            parked_3[31:16]=0;
+							         end
+							4'b0111: begin
+							            moving[15:0] = parked_3[15:0];
+							            parked_3[15:0]=0;
+							         end
+							4'b1000: begin
+							            moving[15:0] = parked_4[31:16];
+							            parked_4[31:16]=0;
+							         end
+							4'b1001: begin
+							            moving[15:0] = parked_4[15:0];
+							            parked_4[15:0]=0;
+							         end
+							4'b1010: begin
+							            moving[15:0] = parked_5[31:16];
+							            parked_5[31:16]=0;
+							         end
+							4'b1011: begin
+							            moving[15:0] = parked_5[15:0];
+							            parked_5[15:0]=0;
+							         end
+							4'b1100: begin
+							            moving[15:0] = parked_6[31:16];
+							            parked_6[31:16]=0;
+							         end
+							4'b1101: begin
+							            moving[15:0] = parked_6[15:0];
+							            parked_6[15:0]=0;
+							         end
+							4'b1110: begin
+							            moving[15:0] = parked_7[31:16];
+							            parked_7[31:16]=0;
+							         end
+							4'b1111: begin
+							            moving[15:0] = parked_7[15:0];
+							            parked_7[15:0]=0;
+							         end
+							default: begin
+							            moving[15:0] = parked_1[31:16];
+							            parked_1[31:16]=0;
+							         end
+						endcase
+						next_state = STATE_CAR_OUT_EXPORT;
+					end
 						
-						else if (current_floor > target_floor) begin
-							next_floor = current_floor - 1; // ÇöÀç ÃşÀÌ Å¸ÄÏ Ãşº¸´Ù ³ôÀº °æ¿ì
-							next_state = STATE_CAR_IN;
+					else if (current_floor > target_floor) begin
+						next_floor = current_floor - 1; // í˜„ì¬ ì¸µì´ íƒ€ì¼“ ì¸µë³´ë‹¤ ë†’ì€ ê²½ìš°
+						next_state = STATE_CAR_OUT_SEARCH;
+					end
+					else begin
+						next_floor = current_floor + 1;
+					   	next_state = STATE_CAR_OUT_SEARCH;
+					end	
+	    STATE_CAR_OUT_EXPORT:
+			            	if (current_floor == target_floor) begin  // target_floorëŠ” 0ì¸µ, 
+						next_floor = current_floor;
+						if(in_mode==out_mode && (leakage~&leak_empty)) begin // no order,leakage or leakage+leak_floor_empty 
+						     next_state = STATE_NO_ORDER;
+						end
+						else if(license_plate[0] != plate_type) begin // plate needs change
+						     next_state = STATE_CAR_REASSIGN;
+						end
+						else if(in_mode && (license_plate[0] != plate_type)) begin // leak ì²˜ë¦¬í•  ê²ƒ ì—†ê³  in
+						     next_state = STATE_CAR_IN;
 						end
 						else begin
-							next_floor = current_floor + 1;
-							next_state = STATE_CAR_IN;
-						end	
-				next_state = /* Logic to transition from car_out */;
-            STATE_CAR_REASSIGN: next_state = /* Logic to transition from car_reassign */;
-            STATE_WAIT_FOR_LEAKAGE: next_state = /* Logic to handle leakage */;
-            default: next_state = STATE_RESET;
+						     next_state = STATE_CAR_OUT_SEARCH;
+						end
+					end
+						
+					else if (current_floor > target_floor) begin
+						next_floor = current_floor - 1; // í˜„ì¬ ì¸µì´ íƒ€ì¼“ ì¸µë³´ë‹¤ ë†’ì€ ê²½ìš°
+						next_state = STATE_CAR_OUT_EXPORT;
+					end
+					else begin
+						next_floor = current_floor + 1; // SHOULD NOT HAPPEN
+						next_state = STATE_CAR_OUT_EXPORT;
+					end	
+	    STATE_CAR_REASSIGN:
+        		                if (current_floor == target_floor) begin  // target_floor ==0;
+						plate_type = ~plate_type;
+						next_floor = current_floor;
+						next_state = (!leakage && in_mode)? STATE_CAR_IN : STATE_CAR_OUT_SEARCH;
+				        end
+						
+					else if (current_floor > target_floor) begin
+						next_floor = current_floor - 1;
+						next_state = STATE_CAR_REASSIGN;
+					end
+					else begin
+						next_floor = current_floor - 1; //CJY : default, should not happen
+						next_state = STATE_CAR_REASSIGN;
+					end	
+                       
+            //STATE_WAIT_FOR_LEAKAGE: next_state = /* Logic to handle leakage */;
+	    default: next_state = STATE_RESET;
         endcase
     end
 
@@ -182,8 +264,8 @@ module parking_lot_top(
     output [15:0] moving,
     output plate_type,
     output [7:0] fee,
-    output [3:0] empty_suv, //PPT¿¡¼± 4-bit binary ¿ä±¸ÇØ¼­ °íÄ§, test bench¿¡¼± 1bit, ¸Ó°¡ ¸Â´ÂÁø ¸ô·ç
-    output [3:0] empty_sedan, //PPT¿¡¼± 4-bit binary ¿ä±¸ÇØ¼­ °íÄ§, test bench¿¡¼± 1bit, ¸Ó°¡ ¸Â´ÂÁø ¸ô·ç
+    output [3:0] empty_suv, //PPTì—ì„  4-bit binary ìš”êµ¬í•´ì„œ ê³ ì¹¨, test benchì—ì„  1bit, ë¨¸ê°€ ë§ëŠ”ì§„ ëª°ë£¨
+    output [3:0] empty_sedan, //PPTì—ì„  4-bit binary ìš”êµ¬í•´ì„œ ê³ ì¹¨, test benchì—ì„  1bit, ë¨¸ê°€ ë§ëŠ”ì§„ ëª°ë£¨
     output full_suv,
     output full_sedan
 );
@@ -194,21 +276,21 @@ module parking_lot_top(
     wire leak_detected_internal;
 	 
 	 
-	 // ÇÊ¿äÇÒ °ÍÀ¸·Î ¿¹»óµÇ´Â º¯¼öµé
-	 reg current_work_done; // ÇöÀç ÀÛ¾÷ ¿Ï·á
-	 reg in_car_waiting; // ÀÔ°í Â÷·® ´ë±âÁß (in_mode ½ÅÈ£°¡ 1 cycle¸¸ ÁÖ¾îÁö¹Ç·Î)
-	 reg out_car_waiting; //Ãâ°í Â÷·® ´ë±âÁß (out_mode ½ÅÈ£°¡ 1 cycle¸¸ ÁÖ¾îÁö¹Ç·Î)
+	 // í•„ìš”í•  ê²ƒìœ¼ë¡œ ì˜ˆìƒë˜ëŠ” ë³€ìˆ˜ë“¤
+	 reg current_work_done; // í˜„ì¬ ì‘ì—… ì™„ë£Œ
+	 reg in_car_waiting; // ì…ê³  ì°¨ëŸ‰ ëŒ€ê¸°ì¤‘ (in_mode ì‹ í˜¸ê°€ 1 cycleë§Œ ì£¼ì–´ì§€ë¯€ë¡œ)
+	 reg out_car_waiting; //ì¶œê³  ì°¨ëŸ‰ ëŒ€ê¸°ì¤‘ (out_mode ì‹ í˜¸ê°€ 1 cycleë§Œ ì£¼ì–´ì§€ë¯€ë¡œ)
 	 
 	 // JYH: Destination Plate
 	 wire [2:0] destination_floor;
 	 
 	 
-	 // JYH: ÁÖÂ÷ ¿ä±İ °è»ê ·ÎÁ÷, °¢ ÁÖÂ÷ ÀÚ¸®º° ÁÖÂ÷ ¿ä±İ Á¤»ê±â ¹èÁ¤. Parking Fee wire, 15:8 left parking fee, 7:0 right parking fee
+	 // JYH: ì£¼ì°¨ ìš”ê¸ˆ ê³„ì‚° ë¡œì§, ê° ì£¼ì°¨ ìë¦¬ë³„ ì£¼ì°¨ ìš”ê¸ˆ ì •ì‚°ê¸° ë°°ì •. Parking Fee wire, 15:8 left parking fee, 7:0 right parking fee
 	 wire [15:0] parked_1_fee, parked_2_fee, parked_3_fee, parked_4_fee, parked_5_fee, parked_6_fee, parked_7_fee;
 	 
-	 parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(parked_1[31:16]==0), .fee(parked_1_fee[15:8])); // Àå¾ÖÀÎ ÀÚ¸®¶ó »ç½Ç enable counting ²¨µµ µÉ·Á³ª1
-	 parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(parked_2[31:16]==0), .fee(parked_2_fee[15:8])); // Àå¾ÖÀÎ ÀÚ¸®¶ó »ç½Ç enable counting ²¨µµ µÉ·Á³ª2
-	 parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(parked_3[31:16]==0), .fee(parked_3_fee[15:8])); // º°°³·Î ÀÌ ÁşÀÌ °¡´ÉÇÑÁö´Â ¸ô?·ç...? .enable_counting(parked_2[31:16]==0) wire¿¡ µû·Î assignÀ» ÇÏ´Â°Ô ³ªÀ»¶ó³ª... 
+	 parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(parked_1[31:16]==0), .fee(parked_1_fee[15:8])); // ì¥ì• ì¸ ìë¦¬ë¼ ì‚¬ì‹¤ enable counting êº¼ë„ ë ë ¤ë‚˜1
+	 parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(parked_2[31:16]==0), .fee(parked_2_fee[15:8])); // ì¥ì• ì¸ ìë¦¬ë¼ ì‚¬ì‹¤ enable counting êº¼ë„ ë ë ¤ë‚˜2
+	 parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(parked_3[31:16]==0), .fee(parked_3_fee[15:8])); // ë³„ê°œë¡œ ì´ ì§“ì´ ê°€ëŠ¥í•œì§€ëŠ” ëª°?ë£¨...? .enable_counting(parked_2[31:16]==0) wireì— ë”°ë¡œ assignì„ í•˜ëŠ”ê²Œ ë‚˜ì„ë¼ë‚˜... 
 	 parking_fee_calculator parked_4_left ( .clock(clock), .reset(reset), .license_plate(parked_4[31:16]), .enable_counting(parked_4[31:16]==0), .fee(parked_4_fee[15:8])); 
 	 parking_fee_calculator parked_5_left ( .clock(clock), .reset(reset), .license_plate(parked_5[31:16]), .enable_counting(parked_5[31:16]==0), .fee(parked_5_fee[15:8])); 
 	 parking_fee_calculator parked_6_left ( .clock(clock), .reset(reset), .license_plate(parked_6[31:16]), .enable_counting(parked_6[31:16]==0), .fee(parked_6_fee[15:8])); 
@@ -222,7 +304,7 @@ module parking_lot_top(
 	 parking_fee_calculator parked_6_right ( .clock(clock), .reset(reset), .license_plate(parked_6[15:0]), .enable_counting(parked_6[15:0]==0), .fee(parked_6_fee[7:0])); 
 	 parking_fee_calculator parked_7_right ( .clock(clock), .reset(reset), .license_plate(parked_7[15:0]), .enable_counting(parked_7[15:0]==0), .fee(parked_7_fee[7:0])); 
 	 
-	 // JYH: LOGIC of full_suv, full_sedan, empty_suv, empty_sedan Å×½ºÆ®º¥Ä¡ ÆÄÀÏ¿¡¼± empty_suv, empty_sedan°¡ 1bitÂ¥¸® True FalseÀÎµ¥ PPT ¿¡¼± 4-bit binary ¿ä±¸... ¸Ö±î
+	 // JYH: LOGIC of full_suv, full_sedan, empty_suv, empty_sedan í…ŒìŠ¤íŠ¸ë²¤ì¹˜ íŒŒì¼ì—ì„  empty_suv, empty_sedanê°€ 1bitì§œë¦¬ True Falseì¸ë° PPT ì—ì„  4-bit binary ìš”êµ¬... ë©€ê¹Œ
 	 wire full_suv, full_sedan;
 	 wire [3:0] empty_suv, empty_sedan;
 	 assign empty_suv = (parked_1[15:0]==0) + (parked_3[31:16]==0 + parked_3[15:0]==0) + (parked_5[31:16]==0 + parked_5[15:0]==0) + (parked_7[31:16]==0 + parked_7[15:0]==0);
@@ -244,7 +326,7 @@ module parking_lot_top(
     elevator_controller elevator_ctrl (
         .clock(clock),
         .reset(reset),
-		  .in_mode(in_mode), // JYH: ¿©±â ´Ü¼øÈ÷ in_mode ÇÏ¸é ¾ÈµÉµí. in_mode°¡ 1 cycle¸¸ À¯ÁöµÇ¾î¼­ in_car_waiting µû·Î ¸¸µé¾î¾ßÇÒµí
+		  .in_mode(in_mode), // JYH: ì—¬ê¸° ë‹¨ìˆœíˆ in_mode í•˜ë©´ ì•ˆë ë“¯. in_modeê°€ 1 cycleë§Œ ìœ ì§€ë˜ì–´ì„œ in_car_waiting ë”°ë¡œ ë§Œë“¤ì–´ì•¼í• ë“¯
         .target_floor( /* Logic to determine target floor */ ),
         .current_floor(current_floor_internal),
         .moving(moving_internal)
@@ -283,8 +365,8 @@ module parking_lot_top(
         end
     end
 	 
-	 // JYH: Fee Ãâ·Â logic
-	 reg car_out_ready; // elevator_controller¿¡¼­ Â÷·® Ãâ°í ÁØºñ ¿Ï·á signalÀÌ ÇÊ¿äÇÒµí
+	 // JYH: Fee ì¶œë ¥ logic
+	 reg car_out_ready; // elevator_controllerì—ì„œ ì°¨ëŸ‰ ì¶œê³  ì¤€ë¹„ ì™„ë£Œ signalì´ í•„ìš”í• ë“¯
 	 wire fee;
 	 assign fee = car_out_ready ? fee_internal : 0;
 	 
