@@ -26,9 +26,10 @@
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="parking_lot_top.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="parking_lot_top.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="parking_lot_top.ngc"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="parking_lot_top.ngr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="parking_lot_top.prj"/>
-    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="parking_lot_top.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="parking_lot_top.stx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="parking_lot_top.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="parking_lot_top.xst"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="parking_lot_top_xst.xrpt"/>
@@ -72,15 +73,17 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1702737140" xil_pn:in_ck="7295901302188641844" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="9173474415765171891" xil_pn:start_ts="1702737132">
-      <status xil_pn:value="FailedRun"/>
+    <transform xil_pn:end_ts="1702738826" xil_pn:in_ck="7295901302188641844" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="9173474415765171891" xil_pn:start_ts="1702738815">
+      <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name=".lso"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="parking_lot_top.lso"/>
+      <outfile xil_pn:name="parking_lot_top.ngc"/>
       <outfile xil_pn:name="parking_lot_top.ngr"/>
       <outfile xil_pn:name="parking_lot_top.prj"/>
+      <outfile xil_pn:name="parking_lot_top.stx"/>
       <outfile xil_pn:name="parking_lot_top.syr"/>
       <outfile xil_pn:name="parking_lot_top.xst"/>
       <outfile xil_pn:name="parking_lot_top_xst.xrpt"/>

@@ -141,8 +141,8 @@ Analyzing module <parking_fee_calculator> in library <work>.
 Module <parking_fee_calculator> is correct for synthesis.
  
 Analyzing module <target_floor> in library <work>.
-WARNING:Xst:905 - "parking_lot_top.v" line 118: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <moving>, <closest_floor>, <license_plate>, <parked_1>, <parked_2>, <parked_3>, <parked_4>, <parked_5>, <parked_6>, <parked_7>, <leakage_floor>
+WARNING:Xst:905 - "parking_lot_top.v" line 157: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <moving>, <closest_floor>, <leakage_floor>, <parked_1>, <parked_2>, <parked_3>, <parked_4>, <parked_5>, <parked_6>, <parked_7>
 Module <target_floor> is correct for synthesis.
  
 Analyzing module <elevator_controller> in library <work>.
@@ -176,38 +176,28 @@ WARNING:Xst:646 - Signal <visit> is assigned but never used. This unconnected si
 WARNING:Xst:646 - Signal <suv> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <sedan> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <possible> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <n7> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <n6> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <n5> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <n4> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <n3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <n2> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <n1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <n0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <n7> is used but never assigned. This sourceless signal will be automatically connected to value 111.
+WARNING:Xst:653 - Signal <n6> is used but never assigned. This sourceless signal will be automatically connected to value 110.
+WARNING:Xst:653 - Signal <n5> is used but never assigned. This sourceless signal will be automatically connected to value 101.
+WARNING:Xst:653 - Signal <n4> is used but never assigned. This sourceless signal will be automatically connected to value 100.
+WARNING:Xst:653 - Signal <n3> is used but never assigned. This sourceless signal will be automatically connected to value 011.
+WARNING:Xst:653 - Signal <n2> is used but never assigned. This sourceless signal will be automatically connected to value 010.
+WARNING:Xst:653 - Signal <n1> is used but never assigned. This sourceless signal will be automatically connected to value 001.
+WARNING:Xst:653 - Signal <n0> is used but never assigned. This sourceless signal will be automatically connected to value 000.
 WARNING:Xst:646 - Signal <disabled> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:737 - Found 3-bit latch for signal <closest_floor>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 3-bit latch for signal <closest_floor>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <target_place>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <target_place>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 3-bit latch for signal <target_floor>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Found 8x21-bit ROM for signal <$old_visit_3>.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0000> created at line 126.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0001> created at line 126.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0002> created at line 130.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0003> created at line 130.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0004> created at line 134.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0005> created at line 134.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0006> created at line 138.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0007> created at line 138.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0008> created at line 142.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0009> created at line 142.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0010> created at line 146.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0011> created at line 146.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0012> created at line 150.
-    Found 16-bit comparator equal for signal <old_closest_floor_18$cmp_eq0013> created at line 150.
+    Found 16-bit comparator equal for signal <target_place$cmp_eq0000> created at line 92.
+    Found 16-bit comparator equal for signal <target_place$cmp_eq0001> created at line 95.
+    Found 16-bit comparator equal for signal <target_place$cmp_eq0002> created at line 98.
+    Found 16-bit comparator equal for signal <target_place$cmp_eq0003> created at line 101.
+    Found 16-bit comparator equal for signal <target_place$cmp_eq0004> created at line 104.
+    Found 16-bit comparator equal for signal <target_place$cmp_eq0005> created at line 107.
+    Found 16-bit comparator equal for signal <target_place$cmp_eq0006> created at line 110.
     Summary:
 	inferred   1 ROM(s).
-	inferred  14 Comparator(s).
+	inferred   7 Comparator(s).
 	inferred   7 Multiplexer(s).
 Unit <target_floor> synthesized.
 
@@ -237,8 +227,8 @@ INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and 
 WARNING:Xst:737 - Found 1-bit latch for signal <newly_parked_spot_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
     Found 6-bit register for signal <current_state>.
-    Found 1-bit xor2 for signal <next_state$xor0000> created at line 428.
-    Found 1-bit xor2 for signal <next_state$xor0001> created at line 425.
+    Found 1-bit xor2 for signal <next_state$xor0000> created at line 434.
+    Found 1-bit xor2 for signal <next_state$xor0001> created at line 431.
     Summary:
 	inferred   6 D-type flip-flop(s).
 Unit <elevator_controller> synthesized.
@@ -745,16 +735,16 @@ WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_3>. Latches may be gene
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-    Found 2-bit adder for signal <empty_sedan$add0000> created at line 549.
-    Found 1-bit adder carry out for signal <empty_sedan$addsub0001> created at line 549.
-    Found 16-bit comparator equal for signal <empty_sedan$cmp_eq0000> created at line 549.
-    Found 16-bit comparator equal for signal <empty_sedan$cmp_eq0001> created at line 549.
-    Found 2-bit adder for signal <empty_suv$addsub0001> created at line 548.
-    Found 2-bit adder carry out for signal <empty_suv$addsub0002> created at line 548.
-    Found 1-bit adder carry out for signal <empty_suv$addsub0003> created at line 548.
-    Found 16-bit comparator equal for signal <empty_suv$cmp_eq0000> created at line 548.
-    Found 16-bit comparator equal for signal <empty_suv$cmp_eq0001> created at line 548.
-    Found 16-bit comparator equal for signal <empty_suv$cmp_eq0002> created at line 548.
+    Found 2-bit adder for signal <empty_sedan$add0000> created at line 555.
+    Found 1-bit adder carry out for signal <empty_sedan$addsub0001> created at line 555.
+    Found 16-bit comparator equal for signal <empty_sedan$cmp_eq0000> created at line 555.
+    Found 16-bit comparator equal for signal <empty_sedan$cmp_eq0001> created at line 555.
+    Found 2-bit adder for signal <empty_suv$addsub0001> created at line 554.
+    Found 2-bit adder carry out for signal <empty_suv$addsub0002> created at line 554.
+    Found 1-bit adder carry out for signal <empty_suv$addsub0003> created at line 554.
+    Found 16-bit comparator equal for signal <empty_suv$cmp_eq0000> created at line 554.
+    Found 16-bit comparator equal for signal <empty_suv$cmp_eq0001> created at line 554.
+    Found 16-bit comparator equal for signal <empty_suv$cmp_eq0002> created at line 554.
     Found 1-bit 8-to-1 multiplexer for signal <leak_empty>.
     Summary:
 	inferred   5 Adder/Subtractor(s).
@@ -780,12 +770,12 @@ Macro Statistics
  1-bit register                                        : 134
  16-bit register                                       : 1
  8-bit register                                        : 14
-# Latches                                              : 236
- 1-bit latch                                           : 231
+# Latches                                              : 233
+ 1-bit latch                                           : 229
  16-bit latch                                          : 2
- 3-bit latch                                           : 3
-# Comparators                                          : 19
- 16-bit comparator equal                               : 19
+ 3-bit latch                                           : 2
+# Comparators                                          : 12
+ 16-bit comparator equal                               : 12
 # Multiplexers                                         : 8
  1-bit 8-to-1 multiplexer                              : 8
 # Xors                                                 : 2
@@ -911,7 +901,6 @@ WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 i
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_7_30>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_7_29>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_7_28>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <order_license_plate_11> (without init value) has a constant value of 0 in block <ORDERS>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <order_license_plate_12> (without init value) has a constant value of 0 in block <ORDERS>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <order_license_plate_13> (without init value) has a constant value of 0 in block <ORDERS>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <order_license_plate_14> (without init value) has a constant value of 0 in block <ORDERS>. This FF/Latch will be trimmed during the optimization process.
@@ -939,6 +928,7 @@ WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 i
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_14>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_13>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_11>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <fee_0> (without init value) has a constant value of 0 in block <parked_2_left>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <fee_0> (without init value) has a constant value of 0 in block <parked_3_left>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <fee_0> (without init value) has a constant value of 0 in block <parked_4_left>. This FF/Latch will be trimmed during the optimization process.
@@ -954,7 +944,6 @@ WARNING:Xst:1710 - FF/Latch <fee_0> (without init value) has a constant value of
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <target_place_ren>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <newly_parked_spot_1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <newly_parked_spot_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <order_license_plate_0> (without init value) has a constant value of 0 in block <ORDERS>. This FF/Latch will be trimmed during the optimization process.
@@ -968,7 +957,7 @@ WARNING:Xst:1710 - FF/Latch <order_license_plate_7> (without init value) has a c
 WARNING:Xst:1710 - FF/Latch <order_license_plate_8> (without init value) has a constant value of 0 in block <ORDERS>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <order_license_plate_9> (without init value) has a constant value of 0 in block <ORDERS>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <order_license_plate_10> (without init value) has a constant value of 0 in block <ORDERS>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_3_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <order_license_plate_11> (without init value) has a constant value of 0 in block <ORDERS>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_3_13>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_3_12>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_3_11>. This FF/Latch will be trimmed during the optimization process.
@@ -997,7 +986,6 @@ WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 i
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_4_20>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_4_19>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_4_18>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_11>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_10>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_9>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_8>. This FF/Latch will be trimmed during the optimization process.
@@ -1026,21 +1014,24 @@ WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 i
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_3_17>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_3_16>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_3_15>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_15>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_14>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_13>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_12>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_11>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_10>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_9>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_7>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_5>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_3_14>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_7>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_8>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_9>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_13>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_15>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <fee_1> of sequential type is unconnected in block <parked_2_left>.
 WARNING:Xst:2677 - Node <fee_2> of sequential type is unconnected in block <parked_2_left>.
 WARNING:Xst:2677 - Node <fee_3> of sequential type is unconnected in block <parked_2_left>.
@@ -1259,6 +1250,59 @@ WARNING:Xst:2677 - Node <orders_3> of sequential type is unconnected in block <O
 WARNING:Xst:2677 - Node <orders_2> of sequential type is unconnected in block <ORDERS>.
 WARNING:Xst:2677 - Node <orders_1> of sequential type is unconnected in block <ORDERS>.
 WARNING:Xst:2677 - Node <orders_0> of sequential type is unconnected in block <ORDERS>.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <8>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <9>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <13>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_30>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_28>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_27>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_25>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_24>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_23>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_22>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_21>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_20>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_19>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <7>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <8>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <9>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <13>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <15>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <7>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <fee_0> (without init value) has a constant value of 0 in block <parked_1_left>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <15>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_31>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_18>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <plate_type>.
+WARNING:Xst:1290 - Hierarchical block <target_flr> is unconnected in block <parking_lot_top>.
+   It will be removed from the design.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -1275,12 +1319,12 @@ Macro Statistics
  32-bit up counter                                     : 14
 # Registers                                            : 262
  Flip-Flops                                            : 262
-# Latches                                              : 236
- 1-bit latch                                           : 231
+# Latches                                              : 233
+ 1-bit latch                                           : 229
  16-bit latch                                          : 2
- 3-bit latch                                           : 3
-# Comparators                                          : 19
- 16-bit comparator equal                               : 19
+ 3-bit latch                                           : 2
+# Comparators                                          : 12
+ 16-bit comparator equal                               : 12
 # Multiplexers                                         : 8
  1-bit 8-to-1 multiplexer                              : 8
 # Xors                                                 : 2
@@ -1291,37 +1335,893 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:1710 - FF/Latch <out_mode_internal> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <in_mode_internal> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_15> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_14> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_13> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_12> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_11> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_10> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_9> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_8> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_7> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_6> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_5> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_4> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_3> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_2> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_1> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <order_license_plate_0> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <license_plates_109> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_111> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_110> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_108> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_107> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_106> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_105> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_104> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_103> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_102> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_101> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_100> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_99> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_98> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_97> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_96> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_95> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_94> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_93> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_92> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_91> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_90> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_89> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_88> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_87> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_86> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_85> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_84> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_83> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_82> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_81> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_80> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_79> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_78> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_77> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_76> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_75> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_74> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_73> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_72> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_71> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_70> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_69> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_68> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_67> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_66> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_65> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_64> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_63> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_62> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_61> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_60> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_59> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_58> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_57> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_56> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_55> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_54> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_53> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_52> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_51> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_50> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_49> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_48> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_47> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_44> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_46> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_45> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_43> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_42> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_41> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_40> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_39> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_38> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_37> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_36> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_35> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_34> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_33> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_32> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_31> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_30> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_29> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_28> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_27> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_26> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_25> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_24> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_23> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_22> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_21> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_20> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_19> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_18> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_17> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_16> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_15> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_14> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_13> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_12> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_11> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_10> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_9> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_8> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_7> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_6> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_5> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_4> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_3> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_2> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_1> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_0> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_13> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_12> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_11> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_10> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_9> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_8> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_7> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_6> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_5> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_4> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_3> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_2> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_1> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <orders_0> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:1710 - FF/Latch <newly_parked_spot_1> (without init value) has a constant value of 0 in block <elevator_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <cycle_count_8> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_9> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_10> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_11> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_12> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_13> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_14> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_15> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_16> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_17> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_18> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_19> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_20> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_21> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_22> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_23> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_24> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_25> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_26> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_27> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_28> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_29> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_30> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_31> of sequential type is unconnected in block <parking_fee_calculator>.
 
-ERROR:Xst:528 - Multi-source in Unit <target_floor> on signal <target_place>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of LDCP instance <target_flr/target_place/0>
-   Output signal of LDE instance <target_flr/target_place_ren/0>
+Optimizing unit <parking_lot_top> ...
 
-ERROR:Xst:528 - Multi-source in Unit <target_floor> on signal <closest_floor<2>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of LDCP instance <target_flr/closest_floor/2/0>
-   Output signal of LDE_1 instance <target_flr/closest_floor_ren/2/0>
+Optimizing unit <parking_fee_calculator> ...
 
-ERROR:Xst:528 - Multi-source in Unit <target_floor> on signal <closest_floor<1>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of LDCP instance <target_flr/closest_floor/1/0>
-   Output signal of LDE_1 instance <target_flr/closest_floor_ren/1/0>
+Optimizing unit <target_floor> ...
 
-ERROR:Xst:528 - Multi-source in Unit <target_floor> on signal <closest_floor<0>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of LDCP instance <target_flr/closest_floor/0/0>
-   Output signal of LDE_1 instance <target_flr/closest_floor_ren/0/0>
+Optimizing unit <elevator_controller> ...
+WARNING:Xst:1710 - FF/Latch <target_flr/closest_floor_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_flr/closest_floor_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_flr/closest_floor_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_spot_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_31> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_16> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_17> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_18> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_19> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_20> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_21> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_22> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_23> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_24> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_16> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_17> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_18> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_19> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_20> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_21> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_22> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_23> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_24> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_25> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_26> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_27> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_28> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_29> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_30> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_20> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_21> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_22> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_23> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_24> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_25> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_26> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_27> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_28> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_29> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_30> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_right/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_right/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_right/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_right/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_right/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_right/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_right/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_left/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_left/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_left/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_left/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_left/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_left/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_flr/target_floor_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_25> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_26> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_27> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_28> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_29> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_30> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_31> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_16> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_18> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_19> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_16> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_17> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_31> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_30> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_29> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_28> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_27> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_26> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_25> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_24> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_23> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_22> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_21> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_20> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_19> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_18> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_16> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_31> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_30> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_29> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_28> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_27> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_26> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_25> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_24> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_23> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_22> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_21> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_20> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_19> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_18> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_17> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_16> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_17> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_18> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_19> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_20> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_31> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_30> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_29> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_28> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_27> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_26> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_25> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_24> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_23> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_22> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_21> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_19> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_18> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_17> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_16> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_31> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_30> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_29> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_28> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_27> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_26> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_25> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_24> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_23> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_22> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_21> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_20> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <parked_7_right/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_right/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_right/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_right/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_right/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_right/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_right/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_right/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_7_left/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_6_left/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_5_left/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_4_left/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_3_left/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/cycle_count_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/cycle_count_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/cycle_count_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/cycle_count_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/cycle_count_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/fee_7> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/fee_6> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/fee_5> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/fee_4> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/fee_3> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/fee_2> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_2_left/fee_1> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_17> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_31> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_left/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_flr/target_floor_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_flr/target_floor_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <elevator_ctrl/newly_parked> is unconnected in block <parking_lot_top>.
+WARNING:Xst:1294 - Latch <elevator_ctrl/plate_type> is equivalent to a wire in block <parking_lot_top>.
+WARNING:Xst:2677 - Node <parked_1_left/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
+
+Mapping all equations...
+WARNING:Xst:2170 - Unit parking_lot_top : the following signal(s) form a combinatorial loop: elevator_ctrl/plate_type.
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block parking_lot_top, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 19
+ Flip-Flops                                            : 19
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : parking_lot_top.ngr
+Top Level Output File Name         : parking_lot_top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 286
+
+Cell Usage :
+# BELS                             : 46
+#      GND                         : 1
+#      INV                         : 2
+#      LUT1                        : 6
+#      LUT2                        : 7
+#      LUT2_L                      : 1
+#      LUT3                        : 1
+#      LUT3_D                      : 1
+#      LUT4                        : 8
+#      LUT4_L                      : 3
+#      MUXCY                       : 6
+#      MUXF5                       : 2
+#      VCC                         : 1
+#      XORCY                       : 7
+# FlipFlops/Latches                : 20
+#      FDCE                        : 14
+#      FDCP                        : 5
+#      LDCP_1                      : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 263
+#      IBUF                        : 2
+#      OBUF                        : 261
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s200ft256-4 
+
+ Number of Slices:                       16  out of   1920     0%  
+ Number of Slice Flip Flops:             20  out of   3840     0%  
+ Number of 4 input LUTs:                 29  out of   3840     0%  
+ Number of IOs:                         286
+ Number of bonded IOBs:                 264  out of    173   152% (*) 
+ Number of GCLKs:                         1  out of      8    12%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.21 secs
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+----------------------------------------------------------------------------+-------------------------------------+-------+
+Clock Signal                                                                | Clock buffer(FF name)               | Load  |
+----------------------------------------------------------------------------+-------------------------------------+-------+
+clock                                                                       | BUFGP                               | 19    |
+elevator_ctrl/car_out_ready_or0000(elevator_ctrl/car_out_ready_or00001_f5:O)| NONE(*)(elevator_ctrl/car_out_ready)| 1     |
+----------------------------------------------------------------------------+-------------------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-------------------------------------------------------------------------------+------------------------------------+-------+
+Control Signal                                                                 | Buffer(FF name)                    | Load  |
+-------------------------------------------------------------------------------+------------------------------------+-------+
+reset                                                                          | IBUF                               | 19    |
+elevator_ctrl/current_state_1(XST_GND:G)                                       | NONE(elevator_ctrl/current_state_0)| 5     |
+elevator_ctrl/car_out_ready__and0000(elevator_ctrl/car_out_ready_cmp_eq00001:O)| NONE(elevator_ctrl/car_out_ready)  | 1     |
+elevator_ctrl/car_out_ready__or0000(elevator_ctrl/car_out_ready__or00001_f5:O) | NONE(elevator_ctrl/car_out_ready)  | 1     |
+-------------------------------------------------------------------------------+------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 4.350ns (Maximum Frequency: 229.885MHz)
+   Minimum input arrival time before clock: 3.540ns
+   Maximum output required time after clock: 9.034ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clock'
+  Clock period: 4.350ns (frequency: 229.885MHz)
+  Total number of paths / destination ports: 60 / 19
+-------------------------------------------------------------------------
+Delay:               4.350ns (Levels of Logic = 7)
+  Source:            parked_1_left/cycle_count_1 (FF)
+  Destination:       parked_1_left/cycle_count_6 (FF)
+  Source Clock:      clock rising
+  Destination Clock: clock rising
+
+  Data Path: parked_1_left/cycle_count_1 to parked_1_left/cycle_count_6
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.720   1.216  parked_1_left/cycle_count_1 (parked_1_left/cycle_count_1)
+     LUT1:I0->O            1   0.551   0.000  parked_1_left/Mcount_cycle_count_cy<1>_rt (parked_1_left/Mcount_cycle_count_cy<1>_rt)
+     MUXCY:S->O            1   0.500   0.000  parked_1_left/Mcount_cycle_count_cy<1> (parked_1_left/Mcount_cycle_count_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  parked_1_left/Mcount_cycle_count_cy<2> (parked_1_left/Mcount_cycle_count_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  parked_1_left/Mcount_cycle_count_cy<3> (parked_1_left/Mcount_cycle_count_cy<3>)
+     MUXCY:CI->O           1   0.064   0.000  parked_1_left/Mcount_cycle_count_cy<4> (parked_1_left/Mcount_cycle_count_cy<4>)
+     MUXCY:CI->O           0   0.064   0.000  parked_1_left/Mcount_cycle_count_cy<5> (parked_1_left/Mcount_cycle_count_cy<5>)
+     XORCY:CI->O           1   0.904   0.000  parked_1_left/Mcount_cycle_count_xor<6> (parked_1_left/Result<6>)
+     FDCE:D                    0.203          parked_1_left/cycle_count_6
+    ----------------------------------------
+    Total                      4.350ns (3.134ns logic, 1.216ns route)
+                                       (72.0% logic, 28.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clock'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              3.540ns (Levels of Logic = 3)
+  Source:            leakage (PAD)
+  Destination:       elevator_ctrl/current_state_4 (FF)
+  Destination Clock: clock rising
+
+  Data Path: leakage to elevator_ctrl/current_state_4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   0.821   1.246  leakage_IBUF (leakage_IBUF)
+     LUT4_L:I0->LO         1   0.551   0.168  elevator_ctrl/next_state<4>_SW0_SW0 (N17)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/next_state<4> (elevator_ctrl/next_state<4>)
+     FDCP:D                    0.203          elevator_ctrl/current_state_4
+    ----------------------------------------
+    Total                      3.540ns (2.126ns logic, 1.414ns route)
+                                       (60.1% logic, 39.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'elevator_ctrl/car_out_ready_or0000'
+  Total number of paths / destination ports: 7 / 7
+-------------------------------------------------------------------------
+Offset:              9.034ns (Levels of Logic = 2)
+  Source:            elevator_ctrl/car_out_ready (LATCH)
+  Destination:       fee<7> (PAD)
+  Source Clock:      elevator_ctrl/car_out_ready_or0000 rising
+
+  Data Path: elevator_ctrl/car_out_ready to fee<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCP_1:G->Q           7   0.633   1.405  elevator_ctrl/car_out_ready (elevator_ctrl/car_out_ready)
+     LUT2:I0->O            1   0.551   0.801  fee<7>1 (fee_7_OBUF)
+     OBUF:I->O                 5.644          fee_7_OBUF (fee<7>)
+    ----------------------------------------
+    Total                      9.034ns (6.828ns logic, 2.206ns route)
+                                       (75.6% logic, 24.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clock'
+  Total number of paths / destination ports: 7 / 7
+-------------------------------------------------------------------------
+Offset:              8.712ns (Levels of Logic = 2)
+  Source:            parked_1_left/fee_7 (FF)
+  Destination:       fee<7> (PAD)
+  Source Clock:      clock rising
+
+  Data Path: parked_1_left/fee_7 to fee<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             1   0.720   0.996  parked_1_left/fee_7 (parked_1_left/fee_7)
+     LUT2:I1->O            1   0.551   0.801  fee<7>1 (fee_7_OBUF)
+     OBUF:I->O                 5.644          fee_7_OBUF (fee<7>)
+    ----------------------------------------
+    Total                      8.712ns (6.915ns logic, 1.797ns route)
+                                       (79.4% logic, 20.6% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 7.92 secs
  
 --> 
 
 
-Total memory usage is 527656 kilobytes
+Total memory usage is 532748 kilobytes
 
-Number of errors   :    4 (   0 filtered)
-Number of warnings :  982 (   0 filtered)
-Number of infos    :    6 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
+Number of warnings : 1678 (   0 filtered)
+Number of infos    :    7 (   0 filtered)
 
