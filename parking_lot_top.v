@@ -23,6 +23,112 @@ module parking_fee_calculator(
 
 endmodule
 
+module target_floor(
+    input [15:0] license_plate,
+    input in_mode,
+    input out_mode,
+    input leakage,
+    input [2:0] leakage_floor,
+    input [31:0] parked_1,
+    input [31:0] parked_2,
+    input [31:0] parked_3,
+    input [31:0] parked_4,
+    input [31:0] parked_5,
+    input [31:0] parked_6,
+    input [31:0] parked_7,
+    input [2:0] current_floor,
+    input full_sedan
+    input [15:0] moving,
+    output reg [2:0] destination_floor
+);
+    //finding_closest_floor
+    wire disabled = (license_plate[15:12] == 4'b1001);
+    wire sedan =    (license_plate[0] == 0); // even number = sedan
+    wire suv =      (license_plate[0] == 1); // odd number = suv
+    wire [2:0] closest_floor
+    
+    wire [7:0] possible
+    // one-hot for each parking space
+    // possible[i] = 1 : i floor parkable
+    // possible[i] = 0 : i floor cannot park
+    wire[0] = 1 //always reachable
+    wire[1] = (suv || full_sedan) & ((parked_1[31:16]==0)&(disabled) | (parked_1[15:0] ==0))
+    wire[2] = (sedan) &             ((parked_2[31:16]==0)&(disabled) | (parked_2[15:0] ==0))
+    wire[3] = (suv || full_sedan) & ((parked_3[31:16]==0)            | (parked_3[15:0] ==0))
+    wire[4] = (sedan) &             ((parked_4[31:16]==0)            | (parked_4[15:0] ==0))
+    wire[5] = (suv || full_sedan) & ((parked_5[31:16]==0)            | (parked_5[15:0] ==0))
+    wire[6] = (sedan) &             ((parked_6[31:16]==0)            | (parked_6[15:0] ==0))
+    wire[7] = (suv || full_sedan) & ((parked_7[31:16]==0)            | (parked_7[15:0] ==0))
+        
+    possible [2:0] n0 = 1'b000
+    possible [2:0] n1 = 1'b001
+    possible [2:0] n2 = 1'b010
+    possible [2:0] n3 = 1'b011
+    possible [2:0] n4 = 1'b100
+    possible [2:0] n5 = 1'b101
+    possible [2:0] n6 = 1'b110
+    possible [2:0] n7 = 1'b111
+    
+    wire[20:0] visit // visit sequence
+    case(current_floor)
+        3'000 : visit[20:0] = {n1,n2,n3,n4,n5,n6,n7}
+        3'001 : visit[20:0] = {n2,n3,n4,n5,n6,n7,n0}
+        3'010 : visit[20:0] = {n1,n3,n4,n5,n6,n7,n0}
+        3'011 : visit[20:0] = {n2,n4,n1,n5,n6,n7,n0}
+        3'100 : visit[20:0] = {n3,n5,n2,n6,n1,n7,n0}
+        3'101 : visit[20:0] = {n4,n6,n3,n7,n2,n1,n0}
+        3'110 : visit[20:0] = {n5,n7,n4,n3,n2,n1,n0}
+        3'111 : visit[20:0] = {n6,n5,n4,n3,n2,n1,n0}
+    endcase
+    
+    if(possible[visit[20:18]]) begin
+        closest_floor=visit[20:18]
+    end
+    else if(possible[visit[17:15]]) begin
+        closest_floor=visit[17:15]
+    end
+    else if(possible[visit[14:12]]) begin
+        closest_floor=visit[14:12]
+    end
+    else if(possible[visit[11:9]]) begin
+        closest_floor=visit[11:9]
+    end
+    else if(possible[visit[8:6]]) begin
+        closest_floor=visit[8:6]
+    end
+    else if(possible[visit[5:3]]) begin
+        closest_floor=visit[5:3]
+    end
+    else if(possible[visit[2:0]]) begin
+        closest_floor=visit[2:0]
+    end
+    
+    always @(in_mode or out_mode or leakage) begin
+        if(in_mode) begin
+            case(moving)
+                0 : 3b'000; // no car -> go to 0 floor
+                default : destination_floor = closest_floor; // car -> find closest_floor
+            endcase
+        else if(out_mode) begin
+            case(moving)
+                0 : destination_floor = closest_floor; // no car -> go to floor with car to move
+                default : 3b'000;
+            endcase
+        else if(leakage) begin
+            case(leakage_floor)
+                3'000 : destination_floor = 0;
+                3'001 : destination_floor = (moving==0)? (parked_1[31:16]==0&parked_1[15:0]==0?0:3'001) : closest_floor;
+                3'010 : destination_floor = (moving==0)? (parked_2[31:16]==0&parked_2[15:0]==0?0:3'010) : closest_floor;
+                3'011 : destination_floor = (moving==0)? (parked_3[31:16]==0&parked_3[15:0]==0?0:3'011) : closest_floor;
+                3'100 : destination_floor = (moving==0)? (parked_4[31:16]==0&parked_4[15:0]==0?0:3'100) : closest_floor;
+                3'101 : destination_floor = (moving==0)? (parked_5[31:16]==0&parked_5[15:0]==0?0:3'101) : closest_floor;
+                3'110 : destination_floor = (moving==0)? (parked_6[31:16]==0&parked_6[15:0]==0?0:3'110) : closest_floor;
+                3'111 : destination_floor = (moving==0)? (parked_7[31:16]==0&parked_7[15:0]==0?0:3'111) : closest_floor;
+            endcase
+        endcase
+    end
+
+endmodule
 
 module elevator_controller(
     input clock,
