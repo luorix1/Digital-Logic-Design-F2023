@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">parking_lot_top.v</arg>&quot; line <arg fmt="%d" index="2">386</arg> <arg fmt="%s" index="3">unexpected token: &apos;leakage&apos;</arg>
+</msg>
+
+<msg type="error" file="HDLCompilers" num="27" delta="old" ><arg fmt="%s" index="1">&quot;parking_lot_top.v&quot; line 509 </arg>Illegal redeclaration of &apos;<arg fmt="%s" index="2">full_suv</arg>&apos;
+</msg>
+
+<msg type="error" file="HDLCompilers" num="27" delta="old" ><arg fmt="%s" index="1">&quot;parking_lot_top.v&quot; line 509 </arg>Illegal redeclaration of &apos;<arg fmt="%s" index="2">full_sedan</arg>&apos;
+</msg>
+
+<msg type="error" file="HDLCompilers" num="27" delta="old" ><arg fmt="%s" index="1">&quot;parking_lot_top.v&quot; line 510 </arg>Illegal redeclaration of &apos;<arg fmt="%s" index="2">empty_suv</arg>&apos;
+</msg>
+
+<msg type="error" file="HDLCompilers" num="27" delta="old" ><arg fmt="%s" index="1">&quot;parking_lot_top.v&quot; line 510 </arg>Illegal redeclaration of &apos;<arg fmt="%s" index="2">empty_sedan</arg>&apos;
+</msg>
+
+<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">parking_lot_top.v</arg>&quot; line <arg fmt="%d" index="2">562</arg> <arg fmt="%s" index="3">expecting &apos;.&apos;, found &apos;)&apos;</arg>
+</msg>
+
+<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">parking_lot_top.v</arg>&quot; line <arg fmt="%d" index="2">568</arg> <arg fmt="%s" index="3">unexpected token: &apos;.&apos;</arg>
+</msg>
+
+<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">parking_lot_top.v</arg>&quot; line <arg fmt="%d" index="2">569</arg> <arg fmt="%s" index="3">unexpected token: &apos;.&apos;</arg>
+</msg>
+
+<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">parking_lot_top.v</arg>&quot; line <arg fmt="%d" index="2">570</arg> <arg fmt="%s" index="3">unexpected token: &apos;.&apos;</arg>
+</msg>
+
+<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">parking_lot_top.v</arg>&quot; line <arg fmt="%d" index="2">571</arg> <arg fmt="%s" index="3">unexpected token: &apos;.&apos;</arg>
+</msg>
+
+<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">parking_lot_top.v</arg>&quot; line <arg fmt="%d" index="2">572</arg> <arg fmt="%s" index="3">unexpected token: &apos;.&apos;</arg>
+</msg>
+
+<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">parking_lot_top.v</arg>&quot; line <arg fmt="%d" index="2">575</arg> <arg fmt="%s" index="3">unexpected token: &apos;.&apos;</arg>
+</msg>
+
+<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">parking_lot_top.v</arg>&quot; line <arg fmt="%d" index="2">576</arg> <arg fmt="%s" index="3">unexpected token: &apos;.&apos;</arg>
+</msg>
+
+<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">parking_lot_top.v</arg>&quot; line <arg fmt="%d" index="2">577</arg> <arg fmt="%s" index="3">unexpected token: &apos;.&apos;</arg>
+</msg>
+
+<msg type="error" file="HDLCompilers" num="27" delta="old" ><arg fmt="%s" index="1">&quot;parking_lot_top.v&quot; line 606 </arg>Illegal redeclaration of &apos;<arg fmt="%s" index="2">fee</arg>&apos;
+</msg>
+
+</messages>
+
