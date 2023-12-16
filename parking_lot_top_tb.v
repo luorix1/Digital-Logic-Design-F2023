@@ -102,7 +102,7 @@ module parking_lot_top_tb (
 	// Initialize Inputs
 	initial begin
 		# 5
-		reset=0;
+		reset=1;
 
 		# 10
 		license_plate = 16'b1000_0111_0101_0100; // 8754

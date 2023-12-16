@@ -1136,7 +1136,7 @@ LAB4:    xsi_set_current_line(104, ng0);
 
 LAB1:    return;
 LAB5:    xsi_set_current_line(105, ng0);
-    t3 = ((char*)((ng1)));
+    t3 = ((char*)((ng7)));
     t4 = (t0 + 5416);
     xsi_vlogvar_assign_value(t4, t3, 0, 0, 1);
     xsi_set_current_line(107, ng0);

@@ -237,6 +237,7 @@ module order_queue(
 endmodule
 
 module elevator_controller(
+	 // Inputs
     input clock,
     input reset,
     input in_mode,
@@ -254,9 +255,12 @@ module elevator_controller(
 	 input leak_empty, // variable to track whether leakage floor is empty
 	 input [2:0] target_floor, // destination floor
 	 input target_place, // destination left or right? 0 -> left / 1 -> right
+	 
+	 // Outputs
     output reg car_out_ready,
 	 output reg [2:0] current_floor,
     output reg [15:0] moving,
+	 output reg plate_type,
 	 output reg newly_parked,
 	 output reg [15:0] newly_parked_license_plate,
 	 output reg [3:0] newly_parked_spot // first 3 bits are floor, last 1 bit is spot
@@ -272,8 +276,6 @@ module elevator_controller(
     reg [2:0] current_state, next_state;
 	 
 	 reg [2:0] next_floor; // JYH: next floor elevator will go to
-	 
-	 reg plate_type;
 
     // State transition logic
     always @(posedge clock or posedge reset) begin
@@ -293,8 +295,11 @@ module elevator_controller(
 			// NOTE: STATE_RESET can go to either STATE_CAR_IN if in_mode = 1, or STATE_CAR_OUT if out_mode = 1
 			//       Otherwise, stay in STATE_RESET
             STATE_RESET: begin
+					moving = 0;
+					current_floor = 0;
 					newly_parked = 0;
-		    			car_out_ready = 1;
+					car_out_ready = 1;
+					plate_type = 0;
 					next_state = in_mode ? STATE_CAR_REASSIGN : out_mode? STATE_CAR_OUT_SEARCH : STATE_RESET;
 				end
 				
@@ -617,10 +622,11 @@ module parking_lot_top(
 		  .leakage(leakage),
 		  .leakage_floor(leakage_floor),
         .current_floor(current_floor),
-        .moving(moving),
 		  
 		  // Outputs
 		  .car_out_ready(car_out_ready),
+		  .moving(moving),
+		  .plate_type(plate_type),
 		  .newly_parked(newly_parked),
 		  .newly_parked_license_plate(newly_parked_license_plate),
 		  .newly_parked_spot(newly_parked_spot)
