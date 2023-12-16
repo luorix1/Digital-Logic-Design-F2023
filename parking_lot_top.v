@@ -88,6 +88,7 @@ module target_floor(
        
         //setting target_place
         target_place =0; //default
+		  closest_floor = 0; // FIXME: default value, temporary fix for latch creation
         if(out_mode) begin
             if(license_plate[15:0]==parked_1[15:0]) begin
                 target_place = 1;
@@ -150,8 +151,8 @@ module target_floor(
 				end
        end
        else begin
-            closest_floor=0;
-        end
+            closest_floor = 0;
+       end
 
     end
     always @(in_mode or out_mode or leakage) begin // FIXME: missing signals in sensitivity list. maybe replace with "*"?
@@ -180,6 +181,9 @@ module target_floor(
 					 default: target_floor = 0; // Useless default case for combinational logic
             endcase
         end
+		  else begin // FIXME: should NEVER happen! temporary fix for latch creation
+				target_floor = 0;
+		  end
     end
 
 endmodule
@@ -209,6 +213,7 @@ module order_queue(
 			orders = 0;
 			tail = 0;
 		end
+		
 		else if (clock) begin
 			if (in_mode | out_mode) begin
 				case (tail)
@@ -332,8 +337,6 @@ module elevator_controller(
         if (reset) begin
 					current_state <= STATE_RESET;
 					current_floor = 0;
-					//moving = 0;
-					//plate_type = 0;
 				end
         else
             current_state <= next_state;
@@ -346,6 +349,7 @@ module elevator_controller(
 			//       Otherwise, stay in STATE_RESET
             STATE_RESET: begin
 					newly_parked = 0;
+					car_out_ready = 1; // this means that the system is ready to process new requests
 					next_state = in_mode ? STATE_CAR_REASSIGN : out_mode? STATE_CAR_OUT_SEARCH : STATE_RESET;
 				end
 				
@@ -355,6 +359,7 @@ module elevator_controller(
 						// Move car onto plate
 						moving = license_plate;
 						next_state = STATE_CAR_IN;
+						newly_parked = 0;
 					end
 					else if (current_floor == target_floor) begin 
 						// Designated parking spot now contains car
@@ -518,8 +523,6 @@ module parking_lot_top(
 	 
 	 // Custom variables
 	 reg current_work_done; // current task complete
-	 reg in_car_internal; // car awaiting parking exists (in_mode only lasts 1 CLK cycle)
-	 reg out_car_internal; // car awaiting removal exists (out_mode only lasts 1 CLK cycle)
 	 
 	 // JYH: Destination position
 	 wire [2:0] target_floor;
@@ -534,13 +537,13 @@ module parking_lot_top(
 	 // Parking Fee wire -> 15:8 (left), 7:0 (right)
 	 wire [15:0] parked_1_fee, parked_2_fee, parked_3_fee, parked_4_fee, parked_5_fee, parked_6_fee, parked_7_fee;
 	 
-	 parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(parked_1[31:16]==0), .fee(parked_1_fee[15:8])); // 장애인 자리라 사실 enable counting 꺼도 될려나1
-	 parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(parked_2[31:16]==0), .fee(parked_2_fee[15:8])); // 장애인 자리라 사실 enable counting 꺼도 될려나2
-	 parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(parked_3[31:16]==0), .fee(parked_3_fee[15:8])); // 별개로 이 짓이 가능한지는 몰?루...? .enable_counting(parked_2[31:16]==0) wire에 따로 assign을 하는게 나을라나... 
-	 parking_fee_calculator parked_4_left ( .clock(clock), .reset(reset), .license_plate(parked_4[31:16]), .enable_counting(parked_4[31:16]==0), .fee(parked_4_fee[15:8])); 
-	 parking_fee_calculator parked_5_left ( .clock(clock), .reset(reset), .license_plate(parked_5[31:16]), .enable_counting(parked_5[31:16]==0), .fee(parked_5_fee[15:8])); 
-	 parking_fee_calculator parked_6_left ( .clock(clock), .reset(reset), .license_plate(parked_6[31:16]), .enable_counting(parked_6[31:16]==0), .fee(parked_6_fee[15:8])); 
-	 parking_fee_calculator parked_7_left ( .clock(clock), .reset(reset), .license_plate(parked_7[31:16]), .enable_counting(parked_7[31:16]==0), .fee(parked_7_fee[15:8])); 
+	 parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(parked_1[31:16]!=0), .fee(parked_1_fee[15:8])); // 장애인 자리라 사실 enable counting 꺼도 될려나1
+	 parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(parked_2[31:16]!=0), .fee(parked_2_fee[15:8])); // 장애인 자리라 사실 enable counting 꺼도 될려나2
+	 parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(parked_3[31:16]!=0), .fee(parked_3_fee[15:8])); // 별개로 이 짓이 가능한지는 몰?루...? .enable_counting(parked_2[31:16]==0) wire에 따로 assign을 하는게 나을라나... 
+	 parking_fee_calculator parked_4_left ( .clock(clock), .reset(reset), .license_plate(parked_4[31:16]), .enable_counting(parked_4[31:16]!=0), .fee(parked_4_fee[15:8])); 
+	 parking_fee_calculator parked_5_left ( .clock(clock), .reset(reset), .license_plate(parked_5[31:16]), .enable_counting(parked_5[31:16]!=0), .fee(parked_5_fee[15:8])); 
+	 parking_fee_calculator parked_6_left ( .clock(clock), .reset(reset), .license_plate(parked_6[31:16]), .enable_counting(parked_6[31:16]!=0), .fee(parked_6_fee[15:8])); 
+	 parking_fee_calculator parked_7_left ( .clock(clock), .reset(reset), .license_plate(parked_7[31:16]), .enable_counting(parked_7[31:16]!=0), .fee(parked_7_fee[15:8])); 
 	 
 	 parking_fee_calculator parked_1_right ( .clock(clock), .reset(reset), .license_plate(parked_1[15:0]), .enable_counting(parked_1[15:0]==0), .fee(parked_1_fee[7:0])); 
 	 parking_fee_calculator parked_2_right ( .clock(clock), .reset(reset), .license_plate(parked_2[15:0]), .enable_counting(parked_2[15:0]==0), .fee(parked_2_fee[7:0])); 
@@ -551,8 +554,8 @@ module parking_lot_top(
 	 parking_fee_calculator parked_7_right ( .clock(clock), .reset(reset), .license_plate(parked_7[15:0]), .enable_counting(parked_7[15:0]==0), .fee(parked_7_fee[7:0])); 
 	 
 	 // JYH: LOGIC of full_suv, full_sedan, empty_suv, empty_sedan
-	 assign empty_suv = (parked_1[15:0]==0) + (parked_3[31:16]==0 + parked_3[15:0]==0) + (parked_5[31:16]==0 + parked_5[15:0]==0) + (parked_7[31:16]==0 + parked_7[15:0]==0);
-	 assign empty_sedan = (parked_2[15:0]==0) + (parked_4[31:16]==0 + parked_4[15:0]==0) + (parked_6[31:16]==0 + parked_6[15:0]==0);
+	 assign empty_suv = (leakage_floor != 1 & parked_1[15:0]==0) + (leakage_floor != 3 & parked_3[31:16]==0) + (leakage_floor != 3 & parked_3[15:0]==0) + (leakage_floor != 5 & parked_5[31:16]==0) + (leakage_floor != 5 & parked_5[15:0]==0) + (leakage_floor != 7 & parked_7[31:16]==0) + (leakage_floor != 7 & parked_7[15:0]==0); // FIXME: Apply leakage
+	 assign empty_sedan = (leakage_floor != 2 & parked_2[15:0]==0) + (leakage_floor != 4 & parked_4[31:16]==0) + (leakage_floor != 4 & parked_4[15:0]==0) + (leakage_floor != 6 & parked_6[31:16]==0) + (leakage_floor != 6 & parked_6[15:0]==0); // FIXME: Apply leakage
 	 assign full_suv = (empty_suv == 0);
 	 assign full_sedan = (empty_sedan == 0);
 	 
@@ -669,7 +672,7 @@ module parking_lot_top(
 		.reset(reset),
 		.in_mode(in_mode),
 		.out_mode(out_mode),
-		.ready(current_work_done), //current_work_done LOGIC needed, Elevator takes state to output,  current_work_done = (state == STATE_RESET | state == STATE_NO_ORDER);
+		.ready(car_out_ready), //current_work_done LOGIC needed, Elevator takes state to output,  current_work_done = (state == STATE_RESET | state == STATE_NO_ORDER);
 		.license_plate(license_plate),
 		
 		// outputs
