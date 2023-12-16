@@ -190,108 +190,51 @@ endmodule
 
 // JYH: ORDER QUEUE
 module order_queue(
-	input [15:0] license_plate,
-	input in_mode,
-	input out_mode,
-	input ready, // SYSTEM READY TO ACCEPT ORDER, STATE =  STARE_RESET
-	input clock,
-	input reset,
-	
-	//output reg [CARS_BUFF_SIZE-1:0] license_plates;
-	//output reg [ORDER_BUFF_SIZE-1:0] orders;
-	output reg in_mode_internal, out_mode_internal,
-	output reg [15:0] order_license_plate
+    input [15:0] license_plate,
+    input in_mode,
+    input out_mode,
+    input ready, // SYSTEM READY TO ACCEPT ORDER, STATE =  STARE_RESET
+    input clock,
+    input reset,
+
+    //output reg [CARS_BUFF_SIZE-1:0] license_plates;
+    //output reg [ORDER_BUFF_SIZE-1:0] orders;
+    output reg in_mode_internal, out_mode_internal,
+    output reg [15:0] order_license_plate
 );
-	reg [111:0] license_plates;
-	reg [13:0] orders;
-	reg [2:0] tail; //# of orders in QUEUE, used for tail
+    reg [15:0] license_plates [0:7];
+    reg [1:0] orders [0:7];
+    reg [2:0] front, rear; //# of orders in QUEUE, used for tail
+    reg empty_reg;
 
-	// Using Dual Edge
-	always @(posedge clock or negedge reset) begin // At POSEDGE, push order
-		if (!reset) begin
-			license_plates = 0;
-			orders = 0;
-			tail = 0;
-		end
-		
-		else if (clock) begin
-			if (in_mode | out_mode) begin
-				case (tail)
-					0: begin
-							orders[1:0] = {out_mode, in_mode};
-							license_plates[15:0] = license_plate;
-						end
-					1: begin
-							orders[3:2] = {out_mode, in_mode};
-							license_plates[31:16] = license_plate;
-						end
-					2: begin
-							orders[5:4] = {out_mode, in_mode};
-							license_plates[47:32] = license_plate;
-						end
-					3: begin
-							orders[7:6] = {out_mode, in_mode};
-							license_plates[63:48] = license_plate;
-						end
-					4: begin
-							orders[9:8] = {out_mode, in_mode};
-							license_plates[79:64] = license_plate;
-						end
-					5: begin
-							orders[11:10] = {out_mode, in_mode};
-							license_plates[95:80] = license_plate;
-						end
-					6: begin
-							orders[13:12] = {out_mode, in_mode};
-							license_plates[111:96] = license_plate;
-						end
-					default: begin
-							orders[1:0] = {out_mode, in_mode};
-							license_plates[15:0] = license_plate;
-						end
-				endcase
-				
-				tail = tail + 1;
-			end
-		end
-		
-		else begin
-			if (ready & tail != 0) begin // SYSTEM READY TO ACCEPT ORDER and ORRDER QUEUE not empty, POP
-				tail = tail - 1;
-			
-				//license_plates POP
-				order_license_plate[15:0] = license_plates[15:0];
-				
-				license_plates[15:0] = license_plates[31:16];
-				license_plates[31:16] = license_plates[47:32];
-				license_plates[47:32] = license_plates[63:48];
-				license_plates[63:48] = license_plates[79:64];
-				license_plates[79:64] = license_plates[95:80];
-				license_plates[95:80] = license_plates[111:96];
-				license_plates[111:96] = 0;
-				
-				//orders POP
-				in_mode_internal = orders[0]; // in = 2'b01, out = 2'b10
-				out_mode_internal = orders[1]; // in = 2'b01, out = 2'b10
-				
-				orders[1:0] = orders[3:2];
-				orders[3:2] = orders[5:4];
-				orders[5:4] = orders[7:6];
-				orders[7:6] = orders[9:8];
-				orders[9:8] = orders[11:10];
-				orders[11:10] = orders[13:12];
-				orders[13:12] = 0;
-			end
-			
-			else begin //SYSTEM NOT READY FOR NEW ORDER
-				//in_mode_internal = 0;
-				//out_mode_internal = 0;
-				//order_license_plate[15:0] = 0;
-			end
-		end
-	end
+    always @(posedge clock) begin 
+        if (reset) begin
+            // license_plates <= 0;
+            // orders <= 0;
+            front = 3'b0;
+            rear = 3'b0;
+            // full_reg = 1'b0;
+            // empty_reg = 1'b1;
+            {in_mode_internal, out_mode_internal} = 2'b0;
+            order_license_plate = 16'b0;
+        end
+
+        else begin
+            if ((out_mode | in_mode)) begin
+                license_plates[rear] = license_plate;
+                orders[rear] = {out_mode, in_mode};
+                rear = rear + 1;
+            end
+            // full_reg = (rear == front + 8);
+             empty_reg = (front == rear);
+            if (ready && !empty_reg) begin
+                {in_mode_internal, out_mode_internal} = orders[front];
+                order_license_plate = license_plates[front];
+                front = front + 1;
+            end
+        end
+    end
 endmodule
-
 
 module elevator_controller(
     input clock,
@@ -337,6 +280,8 @@ module elevator_controller(
         if (reset) begin
 					current_state <= STATE_RESET;
 					current_floor = 0;
+					//moving = 0;
+					//plate_type = 0;
 				end
         else
             current_state <= next_state;
@@ -349,17 +294,22 @@ module elevator_controller(
 			//       Otherwise, stay in STATE_RESET
             STATE_RESET: begin
 					newly_parked = 0;
-					car_out_ready = 1; // this means that the system is ready to process new requests
+		    			car_out_ready = 1;
 					next_state = in_mode ? STATE_CAR_REASSIGN : out_mode? STATE_CAR_OUT_SEARCH : STATE_RESET;
 				end
 				
 			// NOTE: STATE_CAR_IN
             STATE_CAR_IN: begin
-					if (current_floor == 0 & moving[15:0] == 0) begin
+		    			if (license_plate[0]!=plate_type) begin
+			    			plate_type = ~plate_type;
+						next_floor = current_floor;
+						next_state = STATE_CAR_IN;
+					end
+		    			if (current_floor == 0 & moving[15:0] == 0) begin
 						// Move car onto plate
 						moving = license_plate;
 						next_state = STATE_CAR_IN;
-						newly_parked = 0;
+						next_floor = current_floor;
 					end
 					else if (current_floor == target_floor) begin 
 						// Designated parking spot now contains car
@@ -369,7 +319,8 @@ module elevator_controller(
 						newly_parked_spot[0] = target_place;
 						
 						moving[15:0] = 0; // car has left elevator (now parked)
-						next_state = in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT_SEARCH : STATE_NO_ORDER; //CJY: next_state = leakage&!leak_empty ? STATE_CAR_OUT_SEARCH : in_mode ? STATE_CAR_IN : out_mode? STATE_CAR_OUT : STATE_NO_ORDER; (~leak_emapty === binary value representing if leakage floor is empty. empty=1)
+						next_state = (leakage && !leak_empty)||out_mode? STATE_CAR_OUT_SEARCH: in_mode ? STATE_CAR_IN : STATE_NO_ORDER; // CJY: next_state = (if leak&not empty - OUT_SEARCH. if out_mode - OUT_SEARCH, if in_mode - IN, else - NO_ORDER
+						next_floor = current_floor;
 					end
 					
 					else if (current_floor > target_floor) begin
@@ -380,6 +331,9 @@ module elevator_controller(
 					else begin
 						newly_parked = 0;
 						next_floor = current_floor + 1; // current floor < target floor
+						if (next_floor == target_floor) begin
+							car_out_ready=1;
+						end
 						next_state = STATE_CAR_IN;
 					end	
 			end
@@ -412,6 +366,12 @@ module elevator_controller(
 						endcase
 						
 						next_state = STATE_CAR_OUT_EXPORT;
+						next_floor = current_floor;
+					end
+
+					else if (current_floor ==0 && license_plate[0] != plate_type) begin
+						plate_type = ~plate_type;
+						next_floor = current_floor;
 					end
 						
 					else if (current_floor > target_floor) begin
@@ -432,24 +392,38 @@ module elevator_controller(
 					newly_parked = 0;
 					if (current_floor == target_floor) begin  // target_floor = 0 for STATE_CAR_OUT_EXPORT
 						next_floor = current_floor;
-						car_out_ready = 1; // Means that the car is ready to be removed from parking lot
-						if((in_mode == out_mode) & ~(leakage & leak_empty)) begin // no order, leakage NAND leak_floor_empty 
+						//car_out_ready = 1; // Means that the car is ready to be removed from parking lot
+						if((in_mode == out_mode) & !(leakage & !leak_empty)) begin // no order, no leak or leak but empty
 						     next_state = STATE_NO_ORDER;
 						end
-						else if(license_plate[0] != plate_type) begin // plate needs to be changed
-						     next_state = STATE_CAR_REASSIGN;
+						else if(leakage & !leak_empty) begin
+							next_state = STATE_CAR_OUT_SEARCH;
 						end
-						else if(in_mode && (license_plate[0] != plate_type)) begin // incoming car and no leakage
-						     next_state = STATE_CAR_IN;
+						else if(in_mode) begin
+							next_state = STATE_CAR_IN;
 						end
+						else if(out_mode) begin
+							next_state = STATE_CAR_OUT_SEARCH;
+						end
+
+						
+						//else if(license_plate[0] != plate_type) begin // plate needs to be changed
+						//     next_state = STATE_CAR_REASSIGN;
+						//end
+						//else if(in_mode && (license_plate[0] != plate_type)) begin // incoming car and no leakage
+						//    next_state = STATE_CAR_IN;
+						//end
 						else begin
-						     next_state = STATE_CAR_OUT_SEARCH;
+						     next_state = STATE_NO_ORDER;
 						end
 					end
 						
 					else if (current_floor > target_floor) begin
 						car_out_ready = 0;
 						next_floor = current_floor - 1; // current floor > target floor
+						if (next_floor == target_floor) begin
+							car_out_ready = 1;
+						end
 						next_state = STATE_CAR_OUT_EXPORT;
 					end
 
@@ -465,7 +439,9 @@ module elevator_controller(
 					newly_parked = 0;
 					car_out_ready = 0;
 					if (current_floor == target_floor) begin  // target_floor ==0;
-						plate_type = ~plate_type;
+						if(license_plate[0] != plate_type) begin
+							plate_type = ~plate_type;
+						end
 						next_floor = current_floor;
 						next_state = (!leakage && in_mode) ? STATE_CAR_IN : STATE_CAR_OUT_SEARCH;
 				        end
@@ -479,7 +455,26 @@ module elevator_controller(
 						next_floor = current_floor - 1; //CJY : default, should not happen
 						next_state = STATE_CAR_REASSIGN;
 					end
-			end
+				    end
+		STATE_NO_ORDER: begin
+					car_out_ready=1;
+				    if(current_floor!=0) begin //이미 no order로 1층 가는 길 출발한 상태
+				    	next_floor = current_floor-1;
+					next_state=STATE_NO_ORDER;
+				    end
+				    else if(in_mode) begin
+					next_floor = current_floor;
+					next_state=STATE_CAR_IN;
+				    end
+				    else if(out_mode) begin
+					next_floor=current_floor;
+					next_state = STATE_CAR_OUT_SEARCH;
+				    end
+				    else begin
+					next_floor = current_floor;
+					next_state = STATE_NO_ORDER;
+				    end
+				end
 			
 			// NOTE: Default case to ensure combinational logic
 	    	default: begin

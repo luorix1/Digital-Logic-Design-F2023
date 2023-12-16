@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: parking_lot_top.prj
@@ -212,9 +212,13 @@ WARNING:Xst:653 - Signal <STATE_CAR_OUT_EXPORT> is used but never assigned. This
 WARNING:Xst:653 - Signal <STATE_CAR_IN> is used but never assigned. This sourceless signal will be automatically connected to value 001.
     Register <newly_parked_spot<2>> equivalent to <newly_parked_spot<1>> has been removed
     Register <newly_parked_spot<3>> equivalent to <newly_parked_spot<1>> has been removed
-INFO:Xst:1608 - Relative priorities of control signals on register <car_out_ready> differ from those commonly found in the selected device family. This will result in additional logic around the register.
+WARNING:Xst:737 - Found 6-bit latch for signal <next_state>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <newly_parked>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 1-bit latch for signal <car_out_ready>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 1-bit latch for signal <plate_type>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 16-bit latch for signal <moving>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 16-bit latch for signal <newly_parked_license_plate>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -224,8 +228,8 @@ INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and 
 WARNING:Xst:737 - Found 1-bit latch for signal <newly_parked_spot_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
     Found 6-bit register for signal <current_state>.
-    Found 1-bit xor2 for signal <next_state$xor0000> created at line 439.
-    Found 1-bit xor2 for signal <next_state$xor0001> created at line 436.
+    Found 1-bit xor2 for signal <mux0000$xor0000> created at line 396.
+    Found 1-bit xor2 for signal <newly_parked$xor0000> created at line 372.
     Summary:
 	inferred   6 D-type flip-flop(s).
 Unit <elevator_controller> synthesized.
@@ -233,272 +237,23 @@ Unit <elevator_controller> synthesized.
 
 Synthesizing Unit <order_queue>.
     Related source file is "parking_lot_top.v".
-WARNING:Xst:2110 - Clock of register <license_plates_111> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_111> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_110> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_110> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_109> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_109> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_108> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_108> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_107> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_107> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_106> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_106> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_105> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_105> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_104> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_104> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_103> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_103> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_102> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_102> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_101> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_101> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_100> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_100> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_99> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_99> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_98> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_98> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_97> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_97> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_96> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_96> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_95> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_95> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_94> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_94> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_93> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_93> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_92> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_92> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_91> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_91> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_90> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_90> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_89> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_89> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_88> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_88> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_87> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_87> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_86> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_86> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_85> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_85> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_84> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_84> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_83> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_83> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_82> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_82> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_81> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_81> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_80> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_80> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_79> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_79> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_78> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_78> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_77> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_77> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_76> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_76> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_75> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_75> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_74> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_74> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_73> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_73> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_72> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_72> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_71> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_71> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_70> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_70> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_69> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_69> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_68> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_68> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_67> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_67> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_66> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_66> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_65> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_65> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_64> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_64> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_63> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_63> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_62> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_62> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_61> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_61> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_60> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_60> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_59> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_59> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_58> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_58> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_57> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_57> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_56> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_56> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_55> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_55> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_54> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_54> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_53> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_53> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_52> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_52> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_51> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_51> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_50> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_50> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_49> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_49> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_48> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_48> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_47> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_47> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_46> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_46> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_45> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_45> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_44> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_44> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_43> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_43> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_42> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_42> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_41> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_41> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_40> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_40> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_39> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_39> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_38> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_38> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_37> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_37> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_36> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_36> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_35> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_35> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_34> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_34> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_33> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_33> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_32> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_32> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_31> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_31> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_30> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_30> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_29> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_29> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_28> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_28> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_27> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_27> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_26> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_26> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_25> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_25> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_24> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_24> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_23> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_23> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_22> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_22> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_21> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_21> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_20> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_20> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_19> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_19> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_18> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_18> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_17> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_17> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_16> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_16> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_15> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_15> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_14> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_14> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_13> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_13> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_12> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_12> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_11> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_11> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_10> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_10> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_9> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_9> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_8> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_8> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_7> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_7> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_6> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_6> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_5> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_5> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_4> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_4> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_3> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_3> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_2> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_2> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_1> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_1> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_0> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <license_plates_0> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_13> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_13> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_12> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_12> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_11> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_11> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_10> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_10> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_9> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_9> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_8> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_8> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_7> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_7> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_6> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_6> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_5> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_5> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_4> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_4> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_3> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_3> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_2> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_2> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_1> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_1> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_0> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <orders_0> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2111 - Clock of counter <tail> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2111 - Clock of counter <tail> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <order_license_plate> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <in_mode_internal> seems to be also used in the data or control logic of that element.
-WARNING:Xst:2110 - Clock of register <out_mode_internal> seems to be also used in the data or control logic of that element.
+WARNING:Xst:646 - Signal <empty_reg> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 1-bit register for signal <out_mode_internal>.
     Found 16-bit register for signal <order_license_plate>.
     Found 1-bit register for signal <in_mode_internal>.
-    Found 112-bit register for signal <license_plates>.
-    Found 14-bit register for signal <orders>.
-    Found 3-bit updown counter for signal <tail>.
+    Found 1-bit 8-to-1 multiplexer for signal <AUX_24$varindex0000>.
+    Found 3-bit up counter for signal <front>.
+    Found 128-bit register for signal <license_plates>.
+    Found 3-bit adder for signal <old_rear_21$addsub0000> created at line 226.
+    Found 1-bit 8-to-1 multiplexer for signal <order_license_plate$varindex0000>.
+    Found 16-bit register for signal <orders>.
+    Found 3-bit register for signal <rear>.
     Summary:
 	inferred   1 Counter(s).
-	inferred 144 D-type flip-flop(s).
+	inferred 165 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   2 Multiplexer(s).
 Unit <order_queue> synthesized.
 
 
@@ -730,16 +485,16 @@ WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_3>. Latches may be gene
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-    Found 3-bit adder for signal <empty_sedan$add0000> created at line 558.
-    Found 2-bit adder for signal <empty_sedan$addsub0001> created at line 558.
-    Found 1-bit adder carry out for signal <empty_sedan$addsub0003> created at line 558.
-    Found 2-bit adder carry out for signal <empty_sedan$addsub0004> created at line 558.
-    Found 2-bit adder for signal <empty_suv$addsub0001> created at line 557.
-    Found 3-bit adder for signal <empty_suv$addsub0003> created at line 557.
-    Found 3-bit adder for signal <empty_suv$addsub0004> created at line 557.
-    Found 3-bit adder carry out for signal <empty_suv$addsub0005> created at line 557.
-    Found 1-bit adder carry out for signal <empty_suv$addsub0006> created at line 557.
-    Found 2-bit adder carry out for signal <empty_suv$addsub0007> created at line 557.
+    Found 3-bit adder for signal <empty_sedan$add0000> created at line 553.
+    Found 2-bit adder for signal <empty_sedan$addsub0001> created at line 553.
+    Found 1-bit adder carry out for signal <empty_sedan$addsub0003> created at line 553.
+    Found 2-bit adder carry out for signal <empty_sedan$addsub0004> created at line 553.
+    Found 2-bit adder for signal <empty_suv$addsub0001> created at line 552.
+    Found 3-bit adder for signal <empty_suv$addsub0003> created at line 552.
+    Found 3-bit adder for signal <empty_suv$addsub0004> created at line 552.
+    Found 3-bit adder carry out for signal <empty_suv$addsub0005> created at line 552.
+    Found 1-bit adder carry out for signal <empty_suv$addsub0006> created at line 552.
+    Found 2-bit adder carry out for signal <empty_suv$addsub0007> created at line 552.
     Found 1-bit 8-to-1 multiplexer for signal <leak_empty>.
     Summary:
 	inferred  10 Adder/Subtractor(s).
@@ -753,26 +508,30 @@ HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 1
  8x21-bit ROM                                          : 1
-# Adders/Subtractors                                   : 10
+# Adders/Subtractors                                   : 11
  1-bit adder carry out                                 : 2
  2-bit adder                                           : 2
  2-bit adder carry out                                 : 2
- 3-bit adder                                           : 3
+ 3-bit adder                                           : 4
  3-bit adder carry out                                 : 1
 # Counters                                             : 15
- 3-bit updown counter                                  : 1
+ 3-bit up counter                                      : 1
  32-bit up counter                                     : 14
-# Registers                                            : 149
- 1-bit register                                        : 134
- 16-bit register                                       : 1
+# Registers                                            : 40
+ 1-bit register                                        : 8
+ 16-bit register                                       : 9
+ 2-bit register                                        : 8
+ 3-bit register                                        : 1
  8-bit register                                        : 14
-# Latches                                              : 230
- 1-bit latch                                           : 228
+# Latches                                              : 232
+ 1-bit latch                                           : 229
  16-bit latch                                          : 2
-# Comparators                                          : 7
+ 6-bit latch                                           : 1
+# Comparators                                          : 8
  16-bit comparator equal                               : 7
-# Multiplexers                                         : 8
- 1-bit 8-to-1 multiplexer                              : 8
+ 3-bit comparator equal                                : 1
+# Multiplexers                                         : 10
+ 1-bit 8-to-1 multiplexer                              : 10
 # Xors                                                 : 2
  1-bit xor2                                            : 2
 
@@ -782,6 +541,7 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+INFO:Xst:2261 - The FF/Latch <in_mode_internal> in Unit <ORDERS> is equivalent to the following 15 FFs/Latches, which will be removed : <order_license_plate_1> <order_license_plate_2> <order_license_plate_3> <order_license_plate_4> <order_license_plate_5> <order_license_plate_6> <order_license_plate_7> <order_license_plate_8> <order_license_plate_9> <order_license_plate_10> <order_license_plate_11> <order_license_plate_12> <order_license_plate_13> <order_license_plate_14> <order_license_plate_15> 
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_5_28>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_5_27>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_5_26>. This FF/Latch will be trimmed during the optimization process.
@@ -930,13 +690,13 @@ WARNING:Xst:1710 - FF/Latch <fee_0> (without init value) has a constant value of
 WARNING:Xst:1710 - FF/Latch <fee_0> (without init value) has a constant value of 0 in block <parked_6_right>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <fee_0> (without init value) has a constant value of 0 in block <parked_7_right>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <newly_parked_spot_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <in_mode_internal> (without init value) has a constant value of 0 in block <ORDERS>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_31>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_30>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_29>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_28>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_27>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_26>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <fee_0> (without init value) has a constant value of 0 in block <parked_2_left>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <fee_1> (without init value) has a constant value of 0 in block <parked_2_left>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <fee_2> (without init value) has a constant value of 0 in block <parked_2_left>. This FF/Latch will be trimmed during the optimization process.
@@ -999,6 +759,7 @@ WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 i
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_4_30>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_4_29>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_4_28>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_26>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_25>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_24>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_2_23>. This FF/Latch will be trimmed during the optimization process.
@@ -1030,6 +791,14 @@ WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 i
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_3_29>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_3_28>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_3_27>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <license_plates_0_0> of sequential type is unconnected in block <ORDERS>.
+WARNING:Xst:2677 - Node <license_plates_0_1> of sequential type is unconnected in block <ORDERS>.
+WARNING:Xst:2677 - Node <license_plates_0_2> of sequential type is unconnected in block <ORDERS>.
+WARNING:Xst:2677 - Node <license_plates_0_3> of sequential type is unconnected in block <ORDERS>.
+WARNING:Xst:2677 - Node <license_plates_0_4> of sequential type is unconnected in block <ORDERS>.
+WARNING:Xst:2677 - Node <license_plates_0_5> of sequential type is unconnected in block <ORDERS>.
+WARNING:Xst:2677 - Node <license_plates_0_6> of sequential type is unconnected in block <ORDERS>.
+WARNING:Xst:2677 - Node <license_plates_0_7> of sequential type is unconnected in block <ORDERS>.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_15>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_14>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <parked_1_13>. This FF/Latch will be trimmed during the optimization process.
@@ -1107,6 +876,15 @@ WARNING:Xst:2677 - Node <fee_4> of sequential type is unconnected in block <park
 WARNING:Xst:2677 - Node <fee_5> of sequential type is unconnected in block <parked_7_right>.
 WARNING:Xst:2677 - Node <fee_6> of sequential type is unconnected in block <parked_7_right>.
 WARNING:Xst:2677 - Node <fee_7> of sequential type is unconnected in block <parked_7_right>.
+WARNING:Xst:2404 -  FFs/Latches <order_license_plate<15:1>> (without init value) have a constant value of 0 in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_0_0> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_0_1> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_0_2> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_0_3> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_0_4> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_0_5> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_0_6> of sequential type is unconnected in block <order_queue>.
+WARNING:Xst:2677 - Node <license_plates_0_7> of sequential type is unconnected in block <order_queue>.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -1114,24 +892,26 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 1
  8x21-bit ROM                                          : 1
-# Adders/Subtractors                                   : 10
+# Adders/Subtractors                                   : 11
  1-bit adder carry out                                 : 2
  2-bit adder                                           : 2
  2-bit adder carry out                                 : 2
- 3-bit adder                                           : 3
+ 3-bit adder                                           : 4
  3-bit adder carry out                                 : 1
 # Counters                                             : 15
- 3-bit updown counter                                  : 1
+ 3-bit up counter                                      : 1
  32-bit up counter                                     : 14
-# Registers                                            : 262
- Flip-Flops                                            : 262
-# Latches                                              : 230
- 1-bit latch                                           : 228
+# Registers                                            : 140
+ Flip-Flops                                            : 140
+# Latches                                              : 232
+ 1-bit latch                                           : 229
  16-bit latch                                          : 2
-# Comparators                                          : 7
+ 6-bit latch                                           : 1
+# Comparators                                          : 8
  16-bit comparator equal                               : 7
-# Multiplexers                                         : 8
- 1-bit 8-to-1 multiplexer                              : 8
+ 3-bit comparator equal                                : 1
+# Multiplexers                                         : 10
+ 1-bit 8-to-1 multiplexer                              : 10
 # Xors                                                 : 2
  1-bit xor2                                            : 2
 
@@ -1140,6 +920,7 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:1710 - FF/Latch <in_mode_internal> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <newly_parked_spot_1> (without init value) has a constant value of 0 in block <elevator_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <cycle_count_8> of sequential type is unconnected in block <parking_fee_calculator>.
 WARNING:Xst:2677 - Node <cycle_count_9> of sequential type is unconnected in block <parking_fee_calculator>.
@@ -1185,7 +966,6 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_right/fee_
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_right/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_right/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_right/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_31> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_30> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_29> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1193,6 +973,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_28> (witho
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_27> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_26> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_25> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_24> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_left/cycle_count_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_left/cycle_count_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_left/cycle_count_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1211,7 +992,6 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_left/cycle
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_left/cycle_count_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_left/cycle_count_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_left/cycle_count_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1229,7 +1009,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_23> (witho
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_22> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_21> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_20> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_24> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_19> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_23> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_22> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_21> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1248,6 +1028,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_9> (withou
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_2_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_left/fee_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_left/fee_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_left/fee_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1340,7 +1121,6 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_8> (withou
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_6_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1396,7 +1176,6 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_21> (witho
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_20> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_19> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_7_18> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_31> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_30> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_29> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1414,7 +1193,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_18> (witho
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_17> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_16> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_19> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_18> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_17> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_16> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1433,7 +1212,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_4> (withou
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_27> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_3_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_26> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_25> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_24> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1451,7 +1230,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_13> (witho
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_4_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1470,22 +1249,40 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_31> (witho
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_30> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_29> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_28> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_5_27> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1898 - Due to constant pushing, FF/Latch <elevator_ctrl/newly_parked_spot_0> is unconnected in block <parking_lot_top>.
-WARNING:Xst:1710 - FF/Latch <parked_1_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_17> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_1> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <parked_7_right/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
 WARNING:Xst:2677 - Node <parked_7_right/cycle_count_6> of sequential type is unconnected in block <parking_lot_top>.
 WARNING:Xst:2677 - Node <parked_7_right/cycle_count_5> of sequential type is unconnected in block <parking_lot_top>.
@@ -1592,25 +1389,41 @@ WARNING:Xst:2677 - Node <parked_1_right/fee_3> of sequential type is unconnected
 WARNING:Xst:2677 - Node <parked_1_right/fee_2> of sequential type is unconnected in block <parking_lot_top>.
 WARNING:Xst:2677 - Node <parked_1_right/fee_1> of sequential type is unconnected in block <parking_lot_top>.
 WARNING:Xst:2677 - Node <parked_1_right/fee_0> of sequential type is unconnected in block <parking_lot_top>.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_2> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_3> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_4> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_5> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_6> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_7> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_8> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_9> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_10> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_11> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_12> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_13> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_15> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/moving_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_left/fee_0> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_31> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_29> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_28> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_27> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_26> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_25> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_24> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_23> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_22> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_21> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_20> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_19> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_18> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <elevator_ctrl/newly_parked_license_plate_14> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <parked_1_30> (without init value) has a constant value of 0 in block <parking_lot_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <parked_1_left/cycle_count_7> of sequential type is unconnected in block <parking_lot_top>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block parking_lot_top, actual ratio is 9.
-Latch parked_1_31 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_30 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_29 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_28 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_27 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_26 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_25 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_24 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_23 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_22 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_21 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_20 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_19 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_18 has been replicated 1 time(s) to handle iob=true attribute.
-Latch parked_1_17 has been replicated 1 time(s) to handle iob=true attribute.
+Found area constraint ratio of 100 (+ 5) on block parking_lot_top, actual ratio is 3.
 Latch parked_1_16 has been replicated 1 time(s) to handle iob=true attribute.
 
 Final Macro Processing ...
@@ -1619,8 +1432,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 169
- Flip-Flops                                            : 169
+# Registers                                            : 44
+ Flip-Flops                                            : 44
 
 =========================================================================
 
@@ -1649,35 +1462,31 @@ Design Statistics
 # IOs                              : 286
 
 Cell Usage :
-# BELS                             : 327
+# BELS                             : 126
 #      GND                         : 1
 #      INV                         : 4
-#      LUT1                        : 7
-#      LUT2                        : 35
-#      LUT2_L                      : 1
-#      LUT3                        : 155
-#      LUT3_D                      : 4
-#      LUT3_L                      : 2
-#      LUT4                        : 69
-#      LUT4_D                      : 6
-#      LUT4_L                      : 7
-#      MUXCY                       : 7
-#      MUXF5                       : 19
-#      MUXF6                       : 1
+#      LUT1                        : 6
+#      LUT2                        : 17
+#      LUT3                        : 33
+#      LUT4                        : 40
+#      MUXCY                       : 6
+#      MUXF5                       : 8
+#      MUXF6                       : 3
 #      VCC                         : 1
-#      XORCY                       : 8
-# FlipFlops/Latches                : 235
-#      FDCE                        : 145
+#      XORCY                       : 7
+# FlipFlops/Latches                : 57
+#      FDCE                        : 14
 #      FDCP                        : 6
-#      FDE                         : 18
-#      LD                          : 32
-#      LDC                         : 32
-#      LDCP_1                      : 1
-#      LDE_1                       : 1
+#      FDE                         : 16
+#      FDR                         : 3
+#      FDRE                        : 5
+#      LD                          : 5
+#      LDC                         : 2
+#      LDCP                        : 6
 # Clock Buffers                    : 1
-#      BUFG                        : 1
-# IO Buffers                       : 285
-#      IBUF                        : 24
+#      BUFGP                       : 1
+# IO Buffers                       : 276
+#      IBUF                        : 15
 #      OBUF                        : 261
 =========================================================================
 
@@ -1686,12 +1495,12 @@ Device utilization summary:
 
 Selected Device : 3s200ft256-4 
 
- Number of Slices:                      160  out of   1920     8%  
- Number of Slice Flip Flops:            219  out of   3840     5%  
- Number of 4 input LUTs:                290  out of   3840     7%  
+ Number of Slices:                       57  out of   1920     2%  
+ Number of Slice Flip Flops:             56  out of   3840     1%  
+ Number of 4 input LUTs:                100  out of   3840     2%  
  Number of IOs:                         286
- Number of bonded IOBs:                 285  out of    173   164% (*) 
-    IOB Flip Flops:                      16
+ Number of bonded IOBs:                 277  out of    173   160% (*) 
+    IOB Flip Flops:                       1
  Number of GCLKs:                         1  out of      8    12%  
 
 WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
@@ -1714,17 +1523,19 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
---------------------------------------------------------------------------------+-----------------------------------------------------+-------+
-Clock Signal                                                                    | Clock buffer(FF name)                               | Load  |
---------------------------------------------------------------------------------+-----------------------------------------------------+-------+
-newly_parked(elevator_ctrl/newly_parked1:O)                                     | NONE(*)(parked_1_16)                                | 32    |
-clock                                                                           | IBUF+BUFG                                           | 169   |
-elevator_ctrl/moving_not0001(elevator_ctrl/moving_not00011:O)                   | NONE(*)(elevator_ctrl/moving_15)                    | 16    |
-elevator_ctrl/newly_parked_license_plate_not0001(elevator_ctrl/newly_parked21:O)| NONE(*)(elevator_ctrl/newly_parked_license_plate_15)| 16    |
-elevator_ctrl/car_out_ready_cmp_eq0000(elevator_ctrl/moving_mux0000<0>221:O)    | NONE(*)(elevator_ctrl/car_out_ready)                | 1     |
-elevator_ctrl/plate_type_not0002(elevator_ctrl/plate_type_not00021:O)           | NONE(*)(elevator_ctrl/plate_type)                   | 1     |
---------------------------------------------------------------------------------+-----------------------------------------------------+-------+
-(*) These 5 clock signal(s) are generated by combinatorial logic,
+----------------------------------------------------------------------------------------+----------------------------------------------------+-------+
+Clock Signal                                                                            | Clock buffer(FF name)                              | Load  |
+----------------------------------------------------------------------------------------+----------------------------------------------------+-------+
+elevator_ctrl/newly_parked                                                              | NONE(parked_1_16)                                  | 2     |
+clock                                                                                   | BUFGP                                              | 44    |
+elevator_ctrl/moving_not0001(elevator_ctrl/moving_not00011:O)                           | NONE(*)(elevator_ctrl/moving_0)                    | 1     |
+elevator_ctrl/newly_parked_license_plate_not0001(elevator_ctrl/newly_parked_mux000021:O)| NONE(*)(elevator_ctrl/newly_parked_license_plate_0)| 1     |
+elevator_ctrl/next_state_not0001(elevator_ctrl/next_state_not00011:O)                   | NONE(*)(elevator_ctrl/next_state_5)                | 6     |
+elevator_ctrl/newly_parked_not0001(elevator_ctrl/newly_parked_not000149:O)              | NONE(*)(elevator_ctrl/newly_parked)                | 1     |
+elevator_ctrl/car_out_ready_not0001(elevator_ctrl/car_out_ready_not0001:O)              | NONE(*)(elevator_ctrl/car_out_ready)               | 1     |
+elevator_ctrl/plate_type_not0001(elevator_ctrl/plate_type_not00011:O)                   | NONE(*)(elevator_ctrl/plate_type)                  | 1     |
+----------------------------------------------------------------------------------------+----------------------------------------------------+-------+
+(*) These 6 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -1734,21 +1545,30 @@ Asynchronous Control Signals Information:
 ---------------------------------------------------------------------------+------------------------------------+-------+
 Control Signal                                                             | Buffer(FF name)                    | Load  |
 ---------------------------------------------------------------------------+------------------------------------+-------+
-ORDERS/reset_inv(ORDERS/reset_inv1271_INV_0:O)                             | NONE(ORDERS/license_plates_0)      | 129   |
-reset                                                                      | IBUF                               | 54    |
+reset                                                                      | IBUF                               | 22    |
 full_suv_OBUF(XST_GND:G)                                                   | NONE(elevator_ctrl/current_state_0)| 6     |
-elevator_ctrl/car_out_ready__or0000(elevator_ctrl/car_out_ready__or0000:O) | NONE(elevator_ctrl/car_out_ready)  | 1     |
-elevator_ctrl/car_out_ready__or0001(elevator_ctrl/car_out_ready__or00011:O)| NONE(elevator_ctrl/car_out_ready)  | 1     |
+elevator_ctrl/next_state_0__and0000(elevator_ctrl/next_state_0__and00002:O)| NONE(elevator_ctrl/next_state_0)   | 1     |
+elevator_ctrl/next_state_0__and0001(elevator_ctrl/next_state_0__and00011:O)| NONE(elevator_ctrl/next_state_0)   | 1     |
+elevator_ctrl/next_state_1__and0000(elevator_ctrl/next_state_1__and00001:O)| NONE(elevator_ctrl/next_state_1)   | 1     |
+elevator_ctrl/next_state_1__and0001(elevator_ctrl/next_state_1__and00011:O)| NONE(elevator_ctrl/next_state_1)   | 1     |
+elevator_ctrl/next_state_2__and0000(elevator_ctrl/next_state_2__and00001:O)| NONE(elevator_ctrl/next_state_2)   | 1     |
+elevator_ctrl/next_state_2__and0001(elevator_ctrl/next_state_2__and00011:O)| NONE(elevator_ctrl/next_state_2)   | 1     |
+elevator_ctrl/next_state_3__and0000(elevator_ctrl/next_state_3__and00001:O)| NONE(elevator_ctrl/next_state_3)   | 1     |
+elevator_ctrl/next_state_3__and0001(elevator_ctrl/next_state_mux0000<3>:O) | NONE(elevator_ctrl/next_state_3)   | 1     |
+elevator_ctrl/next_state_4__and0000(elevator_ctrl/next_state_4__and00001:O)| NONE(elevator_ctrl/next_state_4)   | 1     |
+elevator_ctrl/next_state_4__and0001(elevator_ctrl/next_state_4__and00011:O)| NONE(elevator_ctrl/next_state_4)   | 1     |
+elevator_ctrl/next_state_5__and0000(elevator_ctrl/next_state_5__and00001:O)| NONE(elevator_ctrl/next_state_5)   | 1     |
+elevator_ctrl/next_state_5__and0001(elevator_ctrl/next_state_5__and00011:O)| NONE(elevator_ctrl/next_state_5)   | 1     |
 ---------------------------------------------------------------------------+------------------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 8.546ns (Maximum Frequency: 117.014MHz)
-   Minimum input arrival time before clock: 9.519ns
-   Maximum output required time after clock: 9.092ns
-   Maximum combinational path delay: 9.222ns
+   Minimum period: 6.824ns (Maximum Frequency: 146.542MHz)
+   Minimum input arrival time before clock: 10.724ns
+   Maximum output required time after clock: 9.051ns
+   Maximum combinational path delay: 9.239ns
 
 Timing Detail:
 --------------
@@ -1756,188 +1576,231 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock'
-  Clock period: 8.546ns (frequency: 117.014MHz)
-  Total number of paths / destination ports: 1271 / 298
+  Clock period: 6.824ns (frequency: 146.542MHz)
+  Total number of paths / destination ports: 170 / 43
 -------------------------------------------------------------------------
-Delay:               8.546ns (Levels of Logic = 5)
-  Source:            elevator_ctrl/current_state_1 (FF)
-  Destination:       elevator_ctrl/current_state_2 (FF)
+Delay:               6.824ns (Levels of Logic = 3)
+  Source:            ORDERS/rear_1 (FF)
+  Destination:       ORDERS/front_2 (FF)
   Source Clock:      clock rising
   Destination Clock: clock rising
 
-  Data Path: elevator_ctrl/current_state_1 to elevator_ctrl/current_state_2
+  Data Path: ORDERS/rear_1 to ORDERS/front_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCP:C->Q             8   0.720   1.278  elevator_ctrl/current_state_1 (elevator_ctrl/current_state_1)
-     LUT3_D:I1->O          5   0.551   0.947  elevator_ctrl/moving_mux0000<0>111 (elevator_ctrl/N8)
-     LUT4:I3->O            5   0.551   0.947  elevator_ctrl/next_state_cmp_eq00011 (elevator_ctrl/next_state_cmp_eq0001)
-     LUT4:I3->O            1   0.551   0.869  elevator_ctrl/next_state<2>311 (elevator_ctrl/next_state<2>31)
-     LUT4:I2->O            1   0.551   0.827  elevator_ctrl/next_state<2>72 (elevator_ctrl/next_state<2>72)
-     LUT4:I3->O            1   0.551   0.000  elevator_ctrl/next_state<2>98 (elevator_ctrl/next_state<2>)
-     FDCP:D                    0.203          elevator_ctrl/current_state_2
+     FDR:C->Q              6   0.720   1.198  ORDERS/rear_1 (ORDERS/rear_1)
+     LUT3:I1->O            2   0.551   0.903  ORDERS/_old_rear_21<1>1 (ORDERS/_old_rear_21<1>)
+     LUT4:I3->O            1   0.551   0.827  ORDERS/front_and0000_SW0 (N11)
+     LUT4:I3->O            5   0.551   0.921  ORDERS/front_and0000 (ORDERS/front_and0000)
+     FDRE:CE                   0.602          ORDERS/out_mode_internal
     ----------------------------------------
-    Total                      8.546ns (3.678ns logic, 4.868ns route)
-                                       (43.0% logic, 57.0% route)
+    Total                      6.824ns (2.975ns logic, 3.849ns route)
+                                       (43.6% logic, 56.4% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'elevator_ctrl/moving_not0001'
-  Clock period: 6.745ns (frequency: 148.264MHz)
-  Total number of paths / destination ports: 256 / 16
+  Clock period: 2.850ns (frequency: 350.877MHz)
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Delay:               6.745ns (Levels of Logic = 3)
-  Source:            elevator_ctrl/moving_7 (LATCH)
-  Destination:       elevator_ctrl/moving_15 (LATCH)
+Delay:               2.850ns (Levels of Logic = 1)
+  Source:            elevator_ctrl/moving_0 (LATCH)
+  Destination:       elevator_ctrl/moving_0 (LATCH)
   Source Clock:      elevator_ctrl/moving_not0001 falling
   Destination Clock: elevator_ctrl/moving_not0001 falling
 
-  Data Path: elevator_ctrl/moving_7 to elevator_ctrl/moving_15
+  Data Path: elevator_ctrl/moving_0 to elevator_ctrl/moving_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LD:G->Q               3   0.633   1.246  elevator_ctrl/moving_7 (elevator_ctrl/moving_7)
-     LUT4:I0->O            1   0.551   0.996  target_flr/target_floor_cmp_eq000012 (elevator_ctrl/newly_parked_cmp_eq000225)
-     LUT4:I1->O           26   0.551   2.014  elevator_ctrl/newly_parked_cmp_eq000276 (elevator_ctrl/newly_parked_cmp_eq0002)
-     LUT3:I1->O            1   0.551   0.000  elevator_ctrl/moving_mux0000<9>1 (elevator_ctrl/moving_mux0000<9>)
-     LD:D                      0.203          elevator_ctrl/moving_9
+     LD:G->Q               9   0.633   1.463  elevator_ctrl/moving_0 (elevator_ctrl/moving_0)
+     LUT3:I0->O            1   0.551   0.000  elevator_ctrl/moving_mux0000<0>1 (elevator_ctrl/moving_mux0000<0>)
+     LD:D                      0.203          elevator_ctrl/moving_0
     ----------------------------------------
-    Total                      6.745ns (2.489ns logic, 4.256ns route)
-                                       (36.9% logic, 63.1% route)
+    Total                      2.850ns (1.387ns logic, 1.463ns route)
+                                       (48.7% logic, 51.3% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'elevator_ctrl/plate_type_not0002'
-  Clock period: 3.095ns (frequency: 323.102MHz)
+Timing constraint: Default period analysis for Clock 'elevator_ctrl/plate_type_not0001'
+  Clock period: 2.643ns (frequency: 378.358MHz)
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Delay:               3.095ns (Levels of Logic = 1)
+Delay:               2.643ns (Levels of Logic = 1)
   Source:            elevator_ctrl/plate_type (LATCH)
   Destination:       elevator_ctrl/plate_type (LATCH)
-  Source Clock:      elevator_ctrl/plate_type_not0002 rising
-  Destination Clock: elevator_ctrl/plate_type_not0002 rising
+  Source Clock:      elevator_ctrl/plate_type_not0001 falling
+  Destination Clock: elevator_ctrl/plate_type_not0001 falling
 
   Data Path: elevator_ctrl/plate_type to elevator_ctrl/plate_type
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LDE_1:G->Q            3   0.633   0.907  elevator_ctrl/plate_type (elevator_ctrl/plate_type)
-     INV:I->O              1   0.551   0.801  elevator_ctrl/plate_type_not00031_INV_0 (elevator_ctrl/plate_type_not0003)
-     LDE_1:D                   0.203          elevator_ctrl/plate_type
+     LD:G->Q               4   0.633   1.256  elevator_ctrl/plate_type (elevator_ctrl/plate_type)
+     LUT3:I0->O            1   0.551   0.000  elevator_ctrl/plate_type_mux00002 (elevator_ctrl/plate_type_mux0000)
+     LD:D                      0.203          elevator_ctrl/plate_type
     ----------------------------------------
-    Total                      3.095ns (1.387ns logic, 1.708ns route)
-                                       (44.8% logic, 55.2% route)
+    Total                      2.643ns (1.387ns logic, 1.256ns route)
+                                       (52.5% logic, 47.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock'
-  Total number of paths / destination ports: 868 / 280
+  Total number of paths / destination ports: 108 / 48
 -------------------------------------------------------------------------
-Offset:              9.519ns (Levels of Logic = 8)
-  Source:            leakage_floor<1> (PAD)
-  Destination:       elevator_ctrl/current_state_2 (FF)
+Offset:              8.899ns (Levels of Logic = 5)
+  Source:            out_mode (PAD)
+  Destination:       ORDERS/front_2 (FF)
   Destination Clock: clock rising
 
-  Data Path: leakage_floor<1> to elevator_ctrl/current_state_2
+  Data Path: out_mode to ORDERS/front_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             7   0.821   1.405  out_mode_IBUF (out_mode_IBUF)
+     LUT2:I0->O            2   0.551   1.216  ORDERS/old_rear_21_or00001 (ORDERS/old_rear_21_or0000)
+     LUT3:I0->O            2   0.551   0.903  ORDERS/_old_rear_21<1>1 (ORDERS/_old_rear_21<1>)
+     LUT4:I3->O            1   0.551   0.827  ORDERS/front_and0000_SW0 (N11)
+     LUT4:I3->O            5   0.551   0.921  ORDERS/front_and0000 (ORDERS/front_and0000)
+     FDRE:CE                   0.602          ORDERS/out_mode_internal
+    ----------------------------------------
+    Total                      8.899ns (3.627ns logic, 5.272ns route)
+                                       (40.8% logic, 59.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/next_state_not0001'
+  Total number of paths / destination ports: 29 / 4
+-------------------------------------------------------------------------
+Offset:              10.724ns (Levels of Logic = 8)
+  Source:            leakage_floor<1> (PAD)
+  Destination:       elevator_ctrl/next_state_2 (LATCH)
+  Destination Clock: elevator_ctrl/next_state_not0001 falling
+
+  Data Path: leakage_floor<1> to elevator_ctrl/next_state_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             5   0.821   0.921  leakage_floor_1_IBUF (leakage_floor_1_IBUF)
      MUXF5:S->O            1   0.621   0.000  Mmux_leak_empty_4_f5 (Mmux_leak_empty_4_f5)
-     MUXF6:I0->O           1   0.342   0.996  Mmux_leak_empty_2_f6 (leak_empty)
-     LUT4_D:I1->LO         1   0.551   0.168  elevator_ctrl/next_state_and00011 (N83)
-     LUT3:I2->O            1   0.551   0.996  elevator_ctrl/next_state<2>21 (elevator_ctrl/next_state<2>21)
-     LUT4:I1->O            1   0.551   0.869  elevator_ctrl/next_state<2>311 (elevator_ctrl/next_state<2>31)
-     LUT4:I2->O            1   0.551   0.827  elevator_ctrl/next_state<2>72 (elevator_ctrl/next_state<2>72)
-     LUT4:I3->O            1   0.551   0.000  elevator_ctrl/next_state<2>98 (elevator_ctrl/next_state<2>)
-     FDCP:D                    0.203          elevator_ctrl/current_state_2
+     MUXF6:I0->O           2   0.342   1.216  Mmux_leak_empty_2_f6 (leak_empty)
+     LUT2:I0->O            2   0.551   0.903  elevator_ctrl/mux0000_and00001 (elevator_ctrl/mux0000_and0000)
+     LUT4:I3->O            1   0.551   0.869  elevator_ctrl/next_state_mux0000<2>47 (elevator_ctrl/next_state_mux0000<2>47)
+     LUT3:I2->O            1   0.551   0.827  elevator_ctrl/next_state_mux0000<2>71_SW1 (N25)
+     LUT4:I3->O            3   0.551   1.246  elevator_ctrl/next_state_mux0000<2>71 (elevator_ctrl/next_state_mux0000<2>71)
+     LUT3:I0->O            1   0.551   0.000  elevator_ctrl/next_state_mux0000<2>100 (elevator_ctrl/next_state_mux0000<2>)
+     LDCP:D                    0.203          elevator_ctrl/next_state_2
     ----------------------------------------
-    Total                      9.519ns (4.742ns logic, 4.777ns route)
-                                       (49.8% logic, 50.2% route)
+    Total                     10.724ns (4.742ns logic, 5.982ns route)
+                                       (44.2% logic, 55.8% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/newly_parked_license_plate_not0001'
-  Total number of paths / destination ports: 64 / 16
--------------------------------------------------------------------------
-Offset:              6.816ns (Levels of Logic = 4)
-  Source:            leakage_floor<2> (PAD)
-  Destination:       elevator_ctrl/newly_parked_license_plate_15 (LATCH)
-  Destination Clock: elevator_ctrl/newly_parked_license_plate_not0001 falling
-
-  Data Path: leakage_floor<2> to elevator_ctrl/newly_parked_license_plate_15
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             7   0.821   1.405  leakage_floor_2_IBUF (leakage_floor_2_IBUF)
-     LUT4:I0->O            2   0.551   1.216  elevator_ctrl/moving_mux0000<0>13240 (elevator_ctrl/moving_mux0000<0>13240)
-     LUT4_D:I0->O         19   0.551   1.518  elevator_ctrl/moving_mux0000<0>13271 (elevator_ctrl/moving_mux0000<0>13271)
-     LUT4:I2->O            1   0.551   0.000  elevator_ctrl/newly_parked_license_plate_mux0000<9>1 (elevator_ctrl/newly_parked_license_plate_mux0000<9>)
-     LD:D                      0.203          elevator_ctrl/newly_parked_license_plate_9
-    ----------------------------------------
-    Total                      6.816ns (2.677ns logic, 4.139ns route)
-                                       (39.3% logic, 60.7% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/car_out_ready_cmp_eq0000'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/newly_parked_not0001'
   Total number of paths / destination ports: 4 / 1
 -------------------------------------------------------------------------
-Offset:              6.023ns (Levels of Logic = 4)
-  Source:            leakage_floor<2> (PAD)
-  Destination:       elevator_ctrl/car_out_ready (LATCH)
-  Destination Clock: elevator_ctrl/car_out_ready_cmp_eq0000 rising
+Offset:              8.128ns (Levels of Logic = 5)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       elevator_ctrl/newly_parked (LATCH)
+  Destination Clock: elevator_ctrl/newly_parked_not0001 falling
 
-  Data Path: leakage_floor<2> to elevator_ctrl/car_out_ready
+  Data Path: leakage_floor<0> to elevator_ctrl/newly_parked
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             7   0.821   1.405  leakage_floor_2_IBUF (leakage_floor_2_IBUF)
-     LUT4:I0->O            2   0.551   0.945  elevator_ctrl/moving_mux0000<0>13240 (elevator_ctrl/moving_mux0000<0>13240)
-     LUT4:I2->O            1   0.551   0.996  elevator_ctrl/next_state<4>110_SW1 (N69)
-     LUT4:I1->O            4   0.551   0.000  elevator_ctrl/next_state<4>110 (elevator_ctrl/car_out_ready_mux0000)
-     LDCP_1:D                  0.203          elevator_ctrl/car_out_ready
+     IBUF:I->O             6   0.821   1.342  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT4:I0->O            2   0.551   0.903  target_flr/target_floor<0>_SW0 (N9)
+     LUT4:I3->O           21   0.551   1.583  target_flr/target_floor<0> (target_floor<0>)
+     LUT4:I2->O            2   0.551   1.072  elevator_ctrl/newly_parked_mux000021 (elevator_ctrl/newly_parked_license_plate_not0001)
+     LUT2:I1->O            1   0.551   0.000  elevator_ctrl/newly_parked_mux00001 (elevator_ctrl/newly_parked_mux0000)
+     LD:D                      0.203          elevator_ctrl/newly_parked
     ----------------------------------------
-    Total                      6.023ns (2.677ns logic, 3.346ns route)
-                                       (44.4% logic, 55.6% route)
+    Total                      8.128ns (3.228ns logic, 4.900ns route)
+                                       (39.7% logic, 60.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/car_out_ready_not0001'
+  Total number of paths / destination ports: 4 / 1
+-------------------------------------------------------------------------
+Offset:              6.776ns (Levels of Logic = 4)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       elevator_ctrl/car_out_ready (LATCH)
+  Destination Clock: elevator_ctrl/car_out_ready_not0001 falling
+
+  Data Path: leakage_floor<0> to elevator_ctrl/car_out_ready
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   0.821   1.342  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT4:I0->O            2   0.551   0.903  target_flr/target_floor<0>_SW0 (N9)
+     LUT4:I3->O           21   0.551   1.854  target_flr/target_floor<0> (target_floor<0>)
+     LUT4:I0->O            1   0.551   0.000  elevator_ctrl/car_out_ready_mux0000 (elevator_ctrl/car_out_ready_mux0000)
+     LD:D                      0.203          elevator_ctrl/car_out_ready
+    ----------------------------------------
+    Total                      6.776ns (2.677ns logic, 4.099ns route)
+                                       (39.5% logic, 60.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/plate_type_not0001'
+  Total number of paths / destination ports: 4 / 1
+-------------------------------------------------------------------------
+Offset:              8.128ns (Levels of Logic = 5)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       elevator_ctrl/plate_type (LATCH)
+  Destination Clock: elevator_ctrl/plate_type_not0001 falling
+
+  Data Path: leakage_floor<0> to elevator_ctrl/plate_type
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   0.821   1.342  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT4:I0->O            2   0.551   0.903  target_flr/target_floor<0>_SW0 (N9)
+     LUT4:I3->O           21   0.551   1.710  target_flr/target_floor<0> (target_floor<0>)
+     LUT4:I1->O            2   0.551   0.945  elevator_ctrl/plate_type_mux000011 (elevator_ctrl/N3)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/plate_type_mux00002 (elevator_ctrl/plate_type_mux0000)
+     LD:D                      0.203          elevator_ctrl/plate_type
+    ----------------------------------------
+    Total                      8.128ns (3.228ns logic, 4.900ns route)
+                                       (39.7% logic, 60.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'elevator_ctrl/moving_not0001'
-  Total number of paths / destination ports: 16 / 16
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              7.184ns (Levels of Logic = 1)
-  Source:            elevator_ctrl/moving_15 (LATCH)
-  Destination:       moving<15> (PAD)
+Offset:              7.401ns (Levels of Logic = 1)
+  Source:            elevator_ctrl/moving_0 (LATCH)
+  Destination:       moving<0> (PAD)
   Source Clock:      elevator_ctrl/moving_not0001 falling
 
-  Data Path: elevator_ctrl/moving_15 to moving<15>
+  Data Path: elevator_ctrl/moving_0 to moving<0>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LD:G->Q               3   0.633   0.907  elevator_ctrl/moving_15 (elevator_ctrl/moving_15)
-     OBUF:I->O                 5.644          moving_15_OBUF (moving<15>)
+     LD:G->Q               9   0.633   1.124  elevator_ctrl/moving_0 (elevator_ctrl/moving_0)
+     OBUF:I->O                 5.644          moving_0_OBUF (moving<0>)
     ----------------------------------------
-    Total                      7.184ns (6.277ns logic, 0.907ns route)
-                                       (87.4% logic, 12.6% route)
+    Total                      7.401ns (6.277ns logic, 1.124ns route)
+                                       (84.8% logic, 15.2% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'elevator_ctrl/car_out_ready_cmp_eq0000'
-  Total number of paths / destination ports: 8 / 8
+Timing constraint: Default OFFSET OUT AFTER for Clock 'elevator_ctrl/car_out_ready_not0001'
+  Total number of paths / destination ports: 7 / 7
 -------------------------------------------------------------------------
-Offset:              9.092ns (Levels of Logic = 2)
+Offset:              9.051ns (Levels of Logic = 2)
   Source:            elevator_ctrl/car_out_ready (LATCH)
   Destination:       fee<7> (PAD)
-  Source Clock:      elevator_ctrl/car_out_ready_cmp_eq0000 rising
+  Source Clock:      elevator_ctrl/car_out_ready_not0001 falling
 
   Data Path: elevator_ctrl/car_out_ready to fee<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LDCP_1:G->Q           9   0.633   1.463  elevator_ctrl/car_out_ready (elevator_ctrl/car_out_ready)
+     LD:G->Q               8   0.633   1.422  elevator_ctrl/car_out_ready (elevator_ctrl/car_out_ready)
      LUT2:I0->O            1   0.551   0.801  fee<7>1 (fee_7_OBUF)
      OBUF:I->O                 5.644          fee_7_OBUF (fee<7>)
     ----------------------------------------
-    Total                      9.092ns (6.828ns logic, 2.264ns route)
-                                       (75.1% logic, 24.9% route)
+    Total                      9.051ns (6.828ns logic, 2.223ns route)
+                                       (75.4% logic, 24.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock'
-  Total number of paths / destination ports: 8 / 8
+  Total number of paths / destination ports: 7 / 7
 -------------------------------------------------------------------------
 Offset:              8.712ns (Levels of Logic = 2)
   Source:            parked_1_left/fee_7 (FF)
@@ -1956,20 +1819,20 @@ Offset:              8.712ns (Levels of Logic = 2)
                                        (79.4% logic, 20.6% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'newly_parked'
-  Total number of paths / destination ports: 16 / 16
+Timing constraint: Default OFFSET OUT AFTER for Clock 'elevator_ctrl/newly_parked'
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
 Offset:              7.078ns (Levels of Logic = 1)
-  Source:            parked_1_31_1 (LATCH)
-  Destination:       parked_1<31> (PAD)
-  Source Clock:      newly_parked falling
+  Source:            parked_1_16_1 (LATCH)
+  Destination:       parked_1<16> (PAD)
+  Source Clock:      elevator_ctrl/newly_parked falling
 
-  Data Path: parked_1_31_1 to parked_1<31>
+  Data Path: parked_1_16_1 to parked_1<16>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LDC:G->Q              1   0.633   0.801  parked_1_31_1 (parked_1_31_1)
-     OBUF:I->O                 5.644          parked_1_31_OBUF (parked_1<31>)
+     LDC:G->Q              1   0.633   0.801  parked_1_16_1 (parked_1_16_1)
+     OBUF:I->O                 5.644          parked_1_16_OBUF (parked_1<16>)
     ----------------------------------------
     Total                      7.078ns (6.277ns logic, 0.801ns route)
                                        (88.7% logic, 11.3% route)
@@ -1978,7 +1841,7 @@ Offset:              7.078ns (Levels of Logic = 1)
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 13 / 5
 -------------------------------------------------------------------------
-Delay:               9.222ns (Levels of Logic = 3)
+Delay:               9.239ns (Levels of Logic = 3)
   Source:            leakage_floor<2> (PAD)
   Destination:       empty_sedan<2> (PAD)
 
@@ -1986,25 +1849,25 @@ Delay:               9.222ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             7   0.821   1.405  leakage_floor_2_IBUF (leakage_floor_2_IBUF)
+     IBUF:I->O             8   0.821   1.422  leakage_floor_2_IBUF (leakage_floor_2_IBUF)
      LUT2:I0->O            1   0.551   0.801  Madd_empty_sedan_addsub0004_cy<1>11 (Madd_empty_sedan_addsub0004_cy<1>)
      OBUF:I->O                 5.644          empty_sedan_2_OBUF (empty_sedan<2>)
     ----------------------------------------
-    Total                      9.222ns (7.016ns logic, 2.206ns route)
-                                       (76.1% logic, 23.9% route)
+    Total                      9.239ns (7.016ns logic, 2.223ns route)
+                                       (75.9% logic, 24.1% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 9.92 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.05 secs
  
 --> 
 
 
-Total memory usage is 533688 kilobytes
+Total memory usage is 531312 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1274 (   0 filtered)
-Number of infos    :    7 (   0 filtered)
+Number of warnings : 1086 (   0 filtered)
+Number of infos    :   10 (   0 filtered)
 
