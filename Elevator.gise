@@ -42,7 +42,7 @@
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="parking_lot_top_envsettings.html"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="parking_lot_top_ngdbuild.xrpt"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="parking_lot_top_summary.html"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="parking_lot_top_tb_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="parking_lot_top_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="parking_lot_top_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="parking_lot_top_tb_isim_beh.wdb"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="parking_lot_top_tb_stx_beh.prj"/>
@@ -69,13 +69,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1702770245" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1702770245">
+    <transform xil_pn:end_ts="1702777508" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1702777508">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="data_reg.v"/>
       <outfile xil_pn:name="make_clk.v"/>
       <outfile xil_pn:name="output_logic.v"/>
@@ -94,11 +90,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1702770245" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1702770245">
+    <transform xil_pn:end_ts="1702777431" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1702777431">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
@@ -108,7 +103,7 @@
       <outfile xil_pn:name="parking_lot_top.v"/>
       <outfile xil_pn:name="parking_lot_top_tb.v"/>
     </transform>
-    <transform xil_pn:end_ts="1702770247" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="8551814472324103724" xil_pn:start_ts="1702770245">
+    <transform xil_pn:end_ts="1702777433" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="8551814472324103724" xil_pn:start_ts="1702777431">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
@@ -123,7 +118,7 @@
       <outfile xil_pn:name="parking_lot_top_tb_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1702770349" xil_pn:in_ck="8947851608213634992" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="8605055020675548047" xil_pn:start_ts="1702770349">
+    <transform xil_pn:end_ts="1702777433" xil_pn:in_ck="8947851608213634992" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="8605055020675548047" xil_pn:start_ts="1702777433">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
@@ -161,18 +156,24 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1702776742" xil_pn:in_ck="-4118926422805046680" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="9173474415765171891" xil_pn:start_ts="1702776739">
-      <status xil_pn:value="FailedRun"/>
+    <transform xil_pn:end_ts="1702776762" xil_pn:in_ck="-4118926422805046680" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="9173474415765171891" xil_pn:start_ts="1702776751">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name=".lso"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="parking_lot_top.lso"/>
       <outfile xil_pn:name="parking_lot_top.ngc"/>
       <outfile xil_pn:name="parking_lot_top.ngr"/>
       <outfile xil_pn:name="parking_lot_top.prj"/>
+      <outfile xil_pn:name="parking_lot_top.stx"/>
       <outfile xil_pn:name="parking_lot_top.syr"/>
       <outfile xil_pn:name="parking_lot_top.xst"/>
-      <outfile xil_pn:name="parking_lot_top_tb_beh.prj"/>
       <outfile xil_pn:name="parking_lot_top_tb_stx_beh.prj"/>
       <outfile xil_pn:name="parking_lot_top_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>

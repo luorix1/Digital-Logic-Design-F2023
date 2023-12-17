@@ -321,6 +321,7 @@ module elevator_controller(
 
    // State transition logic
    always @(posedge clock or posedge reset) begin
+		$display("Elevator module state transition");
 		if (reset) begin
 			current_state <= STATE_RESET;
 			current_floor = 0;
@@ -348,13 +349,14 @@ module elevator_controller(
 					
 			// NOTE: STATE_CAR_IN
 			STATE_CAR_IN: begin
-				if (license_plate[0]!=plate_type) begin
+				if (license_plate[0] != plate_type) begin
 					plate_type = ~plate_type;
 					next_floor = current_floor;
 					next_state = STATE_CAR_IN;
 				end
 				
 				else if (current_floor == 0 & moving[15:0] == 0) begin
+					$display("car has been loaded onto plate");
 					// Move car onto plate
 					moving = license_plate;
 					next_state = STATE_CAR_IN;
