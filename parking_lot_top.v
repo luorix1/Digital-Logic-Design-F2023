@@ -99,14 +99,14 @@ module target_floor(
          3'b110 : visit[20:0] = {n5,n7,n4,n3,n2,n1,n0};
          3'b111 : visit[20:0] = {n6,n5,n4,n3,n2,n1,n0};
 			default: visit[20:0] = {n1,n2,n3,n4,n5,n6,n7}; // Useless default case for combinational logic
-       endcase
+      endcase
        
        // Set target_place, either 0 or 1, denoting parking spot on target_floor
-       target_place = 0; //default
-	    closest_floor = 0; // FIXME: default value, temporary fix for latch creation
+       //target_place = 0; //default
+	    //closest_floor = 0; // FIXME: default value, temporary fix for latch creation
 		 
 		 // For out_mode, we use target_floor, target_place as parking spot occupied by desired car
-       if(out_mode) begin
+		if(out_mode) begin
 			if(license_plate[15:0]==parked_1[15:0]) begin
 				target_place = 1;
          end
@@ -138,11 +138,12 @@ module target_floor(
 			else begin
             target_place = 0;
          end
-		 end
+		end
         
 		 // For in_mode, find the target_place to park incoming car
-		 else if(in_mode) begin
+		else if(in_mode) begin
 			if(possible[visit[20:18]]) begin
+				$display("This should happen!");
 				closest_floor=visit[20:18];
             target_place = (parked_1[31:16]==0)&(disabled) ? 0:1;
          end
@@ -183,14 +184,14 @@ module target_floor(
 				target_place = 0;
 			end
 		end
-		
       else begin
 			closest_floor = 0;
       end
     end
 	 
 	 // Output logic
-    always @(in_mode or out_mode or leakage) begin // FIXME: missing signals in sensitivity list. maybe replace with "*"?
+    //always @(in_mode or out_mode or leakage) begin // FIXME: missing signals in sensitivity list. maybe replace with "*"?
+	 always @(*) begin // FIXME: missing signals in sensitivity list. maybe replace with "*"?
 		if(in_mode) begin
 			case(moving)
 				0 : target_floor = 3'b000; // no car -> go to 0 floor
@@ -365,7 +366,7 @@ module elevator_controller(
 				end
 				
 				else if (current_floor == 0 & moving[15:0] == 0) begin
-					$display("car has been loaded onto plate");
+					//$display("car has been loaded onto plate");
 					// Move car onto plate
 					moving = license_plate;
 					next_state = STATE_CAR_IN;

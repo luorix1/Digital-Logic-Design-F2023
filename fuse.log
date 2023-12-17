@@ -18,5 +18,5 @@ Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 7 Verilog Units
 Built simulation executable C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.exe
-Fuse Memory Usage: 31044 KB
-Fuse CPU Usage: 265 ms
+Fuse Memory Usage: 31048 KB
+Fuse CPU Usage: 187 ms
