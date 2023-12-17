@@ -45,6 +45,7 @@ endmodule
 // Return position
 // Module for returning position of car based on license plate
 module return_position(
+	input out_mode,
 	input[15:0] license_plate,
 	input [31:0] parked_1,
 	input [31:0] parked_2,
@@ -56,62 +57,63 @@ module return_position(
 	output reg [3:0] position
 );
 	always @(*) begin
-		if(license_plate[15:0] == parked_1[15:0]) begin
-			position = 4'b0001;
-		end
-		
-		else if(license_plate[15:0]==parked_1[31:16]) begin
-			position = 4'b0000;
-		end
+		if (!out_mode) begin
+			if(license_plate[15:0] == parked_1[15:0]) begin
+				position = 4'b0001;
+			end
+			
+			else if(license_plate[15:0]==parked_1[31:16]) begin
+				position = 4'b0000;
+			end
 
-		else if(license_plate[15:0]==parked_2[15:0]) begin
-			position = 4'b0101;
-		end
+			else if(license_plate[15:0]==parked_2[15:0]) begin
+				position = 4'b0101;
+			end
 
-		else if(license_plate[15:0]==parked_2[31:16]) begin
-			position = 4'b0100;
-		end
+			else if(license_plate[15:0]==parked_2[31:16]) begin
+				position = 4'b0100;
+			end
 
-		else if(license_plate[15:0]==parked_3[15:0]) begin
-			position = 4'b0111;
-		end
+			else if(license_plate[15:0]==parked_3[15:0]) begin
+				position = 4'b0111;
+			end
 
-		else if(license_plate[15:0]==parked_3[31:16]) begin
-			position = 4'b0110;
-		end
+			else if(license_plate[15:0]==parked_3[31:16]) begin
+				position = 4'b0110;
+			end
 
-		else if(license_plate[15:0]==parked_4[15:0]) begin
-			position = 4'b1001;
-		end
+			else if(license_plate[15:0]==parked_4[15:0]) begin
+				position = 4'b1001;
+			end
 
-		else if(license_plate[15:0]==parked_4[31:16]) begin
-			position = 4'b1000;
-		end
+			else if(license_plate[15:0]==parked_4[31:16]) begin
+				position = 4'b1000;
+			end
 
-		else if(license_plate[15:0]==parked_5[15:0]) begin
-			position = 4'b1011;
-		end
+			else if(license_plate[15:0]==parked_5[15:0]) begin
+				position = 4'b1011;
+			end
 
-		else if(license_plate[15:0]==parked_5[31:16]) begin
-			position = 4'b1010;
-		end
+			else if(license_plate[15:0]==parked_5[31:16]) begin
+				position = 4'b1010;
+			end
 
-		else if(license_plate[15:0]==parked_6[15:0]) begin
-			position = 4'b1101;
-		end
+			else if(license_plate[15:0]==parked_6[15:0]) begin
+				position = 4'b1101;
+			end
 
-		else if(license_plate[15:0]==parked_6[31:16]) begin
-			position = 4'b1100;
-		end
+			else if(license_plate[15:0]==parked_6[31:16]) begin
+				position = 4'b1100;
+			end
 
-		else if(license_plate[15:0]==parked_7[15:0]) begin
-			position = 4'b1111;
-		end
+			else if(license_plate[15:0]==parked_7[15:0]) begin
+				position = 4'b1111;
+			end
 
-		else if(license_plate[15:0]==parked_7[31:16]) begin
-			position = 4'b1110;
+			else if(license_plate[15:0]==parked_7[31:16]) begin
+				position = 4'b1110;
+			end
 		end
-		
 		else begin
 			position = 4'b0000;
 		end
@@ -161,7 +163,7 @@ module target_floor(
    reg [7:0] possible; // one-hot for each parking space
    reg [20:0] visit; // visit sequence
 
-   always @(*) begin
+   always @(posedge clock) begin
 		// finding_closest_floor
       disabled = (license_plate[15:12] == 4'b1001);
       sedan =    (license_plate[0] == 0); // even number = sedan
@@ -501,7 +503,7 @@ module elevator_controller(
 					
 			// NOTE: STATE_CAR_IN
 			STATE_CAR_IN: begin
-				if (current_floor == 0 & moving[15:0] == 0) begin
+				if (current_floor == 0 && moving[15:0] == 0) begin
 					$display("1st");
 					if (license_plate == 0) begin
 						current_work_done = 1;
@@ -533,7 +535,7 @@ module elevator_controller(
 						current_work_done = 1;
 						
 						moving[15:0] = 0; // car has left elevator (now parked)
-						next_state = (leakage && !leak_empty) | out_mode ? STATE_CAR_OUT_SEARCH : STATE_NO_ORDER;
+						next_state = ((leakage && !leak_empty) || out_mode ) ? STATE_CAR_OUT_SEARCH : STATE_NO_ORDER;
 					end
 					
 					else begin
@@ -541,7 +543,8 @@ module elevator_controller(
 						current_work_done = 0;
 						
 						moving = license_plate;
-						next_state = STATE_CAR_IN;
+						next_state = ((leakage && !leak_empty) || out_mode ) ? STATE_CAR_OUT_SEARCH : STATE_NO_ORDER;
+						//next_state = STATE_CAR_IN;
 					end
 					
 					next_floor = current_floor;
@@ -552,17 +555,24 @@ module elevator_controller(
 					$display("3rd");
 					newly_parked = 0;
 					next_floor = current_floor - 1; // current floor > target floor
-					next_state = (in_mode | out_mode) ? STATE_CAR_IN : STATE_NO_ORDER;
+					if (in_mode) next_state = STATE_CAR_IN;
+					else if (out_mode) next_state = STATE_CAR_OUT_SEARCH; 
+					else next_state = STATE_NO_ORDER;
+					//next_state = (in_mode | out_mode) ? STATE_CAR_IN : STATE_NO_ORDER;
 				end
 
 				else begin
-						$display("4th");
+					$display("4th");
+					current_work_done = 0;
 					newly_parked = 0;
 					next_floor = current_floor + 1; // current floor < target floor
 					if (next_floor == target_floor) begin
 						car_out_ready=1;
 					end
-					next_state = (in_mode | out_mode) ? STATE_CAR_IN : STATE_NO_ORDER;
+					if (in_mode) next_state = STATE_CAR_IN;
+					else if (out_mode) next_state = STATE_CAR_OUT_SEARCH;
+					else next_state = STATE_NO_ORDER;
+					//next_state = (in_mode | out_mode) ? STATE_CAR_IN : STATE_NO_ORDER;
 				end	
 			end
 
@@ -572,7 +582,7 @@ module elevator_controller(
 				current_work_done = 0;
 				car_out_ready = 0;
 				if (target_floor == 0) begin
-					current_work_done = 1;
+					//current_work_done = 1;
 				end
 				else if (current_floor != 0 & plate_type != license_plate[0]) begin
 					next_state = STATE_CAR_OUT_SEARCH;
@@ -640,7 +650,7 @@ module elevator_controller(
 					moving = 0;
 					
 					next_floor = current_floor;
-					//car_out_ready = 1; // Means that the car is ready to be removed from parking lot
+					car_out_ready = 1; // Means that the car is ready to be removed from parking lot
 					
 					if((in_mode == out_mode) & !(leakage & !leak_empty)) begin // no order, no leak or leak but empty
 						  next_state = STATE_NO_ORDER;
@@ -939,6 +949,7 @@ module parking_lot_top(
 	 );
 	 
 	 return_position return_pos (
+		.out_mode(out_mode),
 		.license_plate(license_plate),
 		.parked_1(parked_1),
 		.parked_2(parked_2),
