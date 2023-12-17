@@ -2,9 +2,9 @@ Command line:
    parking_lot_top_tb_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  41117
+     -socket  35025
 
-Sun Dec 17 19:05:19 2023
+Sun Dec 17 19:07:00 2023
 
 
  Elaboration Time: 0.03 sec
@@ -21,9 +21,9 @@ Sun Dec 17 19:05:19 2023
  Total Scalar Nets and Variables : 2932
 Total Line Count : 746
 
- Total Simulation Time: 0.04 sec
+ Total Simulation Time: 0.05 sec
 
  Current Memory Usage: 261.071 Meg
 
-Sun Dec 17 19:05:31 2023
+Sun Dec 17 19:07:06 2023
 
