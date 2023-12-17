@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top_tb_isim_beh.exe" -prj "/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top_tb_beh.prj" "work.parking_lot_top_tb" "work.glbl" 
