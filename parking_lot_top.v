@@ -233,7 +233,7 @@ module order_queue(
 	input [15:0] license_plate,
    input in_mode,
    input out_mode,
-   input ready, // SYSTEM READY TO ACCEPT ORDER, STATE =  STARE_RESET
+   input ready, // SYSTEM READY TO ACCEPT ORDER, STATE =  STATE_RESET
    input clock,
 	input reset,
 	
@@ -275,6 +275,14 @@ module order_queue(
             order_license_plate = license_plates[front];
             front = front + 1;
          end
+			
+			if (ready && empty_reg) begin
+				$display("Dequeue zeros");
+				{out_mode_internal, in_mode_internal} = 2'b0;
+            order_license_plate = 16'b0;
+            //front = front + 1;dd
+         end
+
 		end
 	end
 endmodule
@@ -328,11 +336,14 @@ module elevator_controller(
    // State transition logic
    always @(posedge clock or posedge reset) begin
 		if (current_state!=next_state) $display("Elevator module state transition %d -> %d", current_state, next_state);
+		else $display("Elevator module same state %d -> %d", current_state, next_state);
+		
 		if (reset) begin
 			current_state <= STATE_RESET;
 			current_floor <= 0;
 			//moving = 0;
 			//plate_type = 0;
+			//next_floor =0 ;
 		end
 		else begin
 			current_state <= next_state;
@@ -351,24 +362,32 @@ module elevator_controller(
 				newly_parked = 0;
 				car_out_ready = 1;
 				plate_type = 0;
-				current_work_done = 1;
+				if (in_mode | out_mode) current_work_done = 0;
+				else current_work_done = 1;
 				next_state = in_mode ? STATE_CAR_REASSIGN : out_mode? STATE_CAR_OUT_SEARCH : STATE_RESET;
-				next_floor =0 ;
+				next_floor = current_floor ;
 			end
 					
 			// NOTE: STATE_CAR_IN
 			STATE_CAR_IN: begin
-				current_work_done = 0;
-				if (license_plate[0] != plate_type) begin
-					plate_type = ~plate_type;
-					next_floor = current_floor;
-					next_state = STATE_CAR_IN;
-				end
-				
-				else if (current_floor == 0 & moving[15:0] == 0) begin
+				if (current_floor == 0 & moving[15:0] == 0) begin
 					//$display("car has been loaded onto plate");
-					// Move car onto plate
-					moving = license_plate;
+					if (license_plate == 0) begin
+						current_work_done = 1;
+					end
+					else if (license_plate[0] != plate_type) begin
+						// Move car onto plate
+						if (in_mode | out_mode) current_work_done = 0;
+						else current_work_done = 1;
+						plate_type = ~plate_type;
+					end
+					else begin
+						// Move car onto plate
+						if (in_mode | out_mode) current_work_done = 0;
+						else current_work_done = 1;
+						moving = license_plate;
+					end
+					
 					next_state = STATE_CAR_IN;
 					next_floor = current_floor;
 				end
@@ -383,6 +402,7 @@ module elevator_controller(
 					moving[15:0] = 0; // car has left elevator (now parked)
 					next_state = (leakage && !leak_empty)||out_mode? STATE_CAR_OUT_SEARCH: in_mode ? STATE_CAR_IN : STATE_NO_ORDER; // CJY: next_state = (if leak&not empty - OUT_SEARCH. if out_mode - OUT_SEARCH, if in_mode - IN, else - NO_ORDER
 					next_floor = current_floor;
+					current_work_done = 1;
 				end
 				
 				else if (current_floor > target_floor) begin
@@ -752,7 +772,7 @@ module parking_lot_top(
 		.reset(reset),
 		.in_mode(in_mode),
 		.out_mode(out_mode),
-		.ready(car_out_ready), //current_work_done LOGIC needed, Elevator takes state to output,  current_work_done = (state == STATE_RESET | state == STATE_NO_ORDER);
+		.ready(current_work_done), //current_work_done LOGIC needed, Elevator takes state to output,  current_work_done = (state == STATE_RESET | state == STATE_NO_ORDER);
 		.license_plate(license_plate),
 		
 		// Outputs
