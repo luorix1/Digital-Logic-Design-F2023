@@ -35,6 +35,7 @@ endmodule
 // Target floor
 // Module for calculating target floor of elevator (used for parking car, removing car, and moving car to deal with leakage)
 module target_floor(
+	// Inputs
 	input [15:0] license_plate,
    input in_mode,
    input out_mode,
@@ -50,6 +51,8 @@ module target_floor(
    input [2:0] current_floor,
    input full_sedan,
    input [15:0] moving,
+	
+	// Outputs
    output reg [2:0] target_floor,
    output reg target_place
 );
@@ -232,8 +235,7 @@ module target_floor(
     end
 	 
 	 // Output logic
-    //always @(in_mode or out_mode or leakage) begin // FIXME: missing signals in sensitivity list. maybe replace with "*"?
-	 always @(*) begin // FIXME: missing signals in sensitivity list. maybe replace with "*"?
+	 always @(*) begin
 		if(in_mode) begin
 			case(moving)
 				0 : target_floor = 3'b000; // no car -> go to 0 floor
@@ -413,7 +415,6 @@ module elevator_controller(
 			// NOTE: STATE_CAR_IN
 			STATE_CAR_IN: begin
 				if (current_floor == 0 & moving[15:0] == 0) begin
-					//$display("car has been loaded onto plate");
 					if (license_plate == 0) begin
 						current_work_done = 1;
 					end
@@ -436,15 +437,24 @@ module elevator_controller(
 				
 				else if (current_floor == target_floor) begin 
 					// Designated parking spot now contains car
-					newly_parked = 1; // only allowed to be TRUE in this case!
-					newly_parked_license_plate = moving[15:0];
-					newly_parked_spot[3:1] = target_floor;
-					newly_parked_spot[0] = target_place;
+					if (moving != 0) begin
+						$display("hello");
+						newly_parked = 1; // only allowed to be TRUE in this case!
+						newly_parked_license_plate = moving[15:0];
+						newly_parked_spot[3:1] = target_floor;
+						newly_parked_spot[0] = target_place;
+						current_work_done = 1;
+					end
+
+					else begin
+						newly_parked = 0;
+						current_work_done = 0;
+					end
 					
 					moving[15:0] = 0; // car has left elevator (now parked)
 					next_state = (leakage && !leak_empty) | out_mode ? STATE_CAR_OUT_SEARCH : in_mode ? STATE_CAR_IN : STATE_NO_ORDER; // CJY: next_state = (if leak&not empty - OUT_SEARCH. if out_mode - OUT_SEARCH, if in_mode - IN, else - NO_ORDER
 					next_floor = current_floor;
-					current_work_done = 1;
+					//current_work_done = 1;
 				end
 				
 				else if (current_floor > target_floor) begin
@@ -468,7 +478,17 @@ module elevator_controller(
 			STATE_CAR_OUT_SEARCH: begin //CJY: out_mode==1, moving==0
 				current_work_done = 0;
 				car_out_ready = 0;
-				if (current_floor == target_floor) begin
+				if (current_floor != 0 & plate_type != license_plate[0]) begin
+					next_state = STATE_CAR_OUT_SEARCH;
+					next_floor = current_floor - 1;
+				end
+				
+				else if (current_floor == 0 && license_plate[0] != plate_type) begin
+					plate_type = ~plate_type;
+					next_floor = current_floor;
+				end
+				
+				else if (current_floor == target_floor) begin
 					newly_parked = 1;
 					newly_parked_license_plate = 0;
 					newly_parked_spot = {target_floor, target_place};
@@ -494,11 +514,6 @@ module elevator_controller(
 					next_state = STATE_CAR_OUT_EXPORT;
 					next_floor = current_floor;
 				end
-
-				else if (current_floor ==0 && license_plate[0] != plate_type) begin
-					plate_type = ~plate_type;
-					next_floor = current_floor;
-				end
 					
 				else if (current_floor > target_floor) begin
 					newly_parked = 0;
@@ -518,6 +533,7 @@ module elevator_controller(
 				current_work_done = 0;
 				newly_parked = 0;
 				if (current_floor == target_floor) begin  // target_floor = 0 for STATE_CAR_OUT_EXPORT
+					current_work_done = 1; // NEW
 					next_floor = current_floor;
 					//car_out_ready = 1; // Means that the car is ready to be removed from parking lot
 					
