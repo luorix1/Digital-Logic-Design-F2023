@@ -2,28 +2,9 @@ Command line:
    parking_lot_top_tb_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  50659
+     -socket  55897
 
-Sun Dec 17 12:21:53 2023
+Sun Dec 17 12:31:18 2023
 
 
- Elaboration Time: 0.015625 sec
-
- Current Memory Usage: 5158.81 Meg
-
- Total Signals          : 161
- Total Nets             : 1146
- Total Signal Drivers   : 95
- Total Blocks           : 24
- Total Primitive Blocks : 22
- Total Processes        : 122
- Total Traceable Variables  : 126
- Total Scalar Nets and Variables : 2686
-Total Line Count : 564
-
- Total Simulation Time: 136.547 sec
-
- Current Memory Usage: 4686.95 Meg
-
-Sun Dec 17 12:24:12 2023
-
+ Elaboration Time: 0.03 sec

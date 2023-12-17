@@ -327,7 +327,7 @@ module elevator_controller(
 	
    // State transition logic
    always @(posedge clock or posedge reset) begin
-		if (current_state!=next_state) $display("Elevator module state transition");
+		if (current_state!=next_state) $display("Elevator module state transition %d -> %d", current_state, next_state);
 		if (reset) begin
 			current_state <= STATE_RESET;
 			current_floor <= 0;
@@ -613,9 +613,9 @@ module parking_lot_top(
 	// Parking Fee wire -> 15:8 (left), 7:0 (right)
 	wire [15:0] parked_1_fee, parked_2_fee, parked_3_fee, parked_4_fee, parked_5_fee, parked_6_fee, parked_7_fee;
 	 
-	parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(parked_1[31:16]!=0), .fee(parked_1_fee[15:8])); // �애�리�실 enable counting 꺼도 �려
-	parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(parked_2[31:16]!=0), .fee(parked_2_fee[15:8])); // �애�리�실 enable counting 꺼도 �려
-	parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(parked_3[31:16]!=0), .fee(parked_3_fee[15:8])); // 별개�짓이 가�한지��..? .enable_counting(parked_2[31:16]==0) wire�로 assign�는겘을�나... 
+	parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(parked_1[31:16]!=0), .fee(parked_1_fee[15:8])); // 애리실 enable counting 꺼도 려
+	parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(parked_2[31:16]!=0), .fee(parked_2_fee[15:8])); // 애리실 enable counting 꺼도 려
+	parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(parked_3[31:16]!=0), .fee(parked_3_fee[15:8])); // 별개짓이 가한지..? .enable_counting(parked_2[31:16]==0) wire로 assign는겘을나... 
 	parking_fee_calculator parked_4_left ( .clock(clock), .reset(reset), .license_plate(parked_4[31:16]), .enable_counting(parked_4[31:16]!=0), .fee(parked_4_fee[15:8])); 
 	parking_fee_calculator parked_5_left ( .clock(clock), .reset(reset), .license_plate(parked_5[31:16]), .enable_counting(parked_5[31:16]!=0), .fee(parked_5_fee[15:8])); 
 	parking_fee_calculator parked_6_left ( .clock(clock), .reset(reset), .license_plate(parked_6[31:16]), .enable_counting(parked_6[31:16]!=0), .fee(parked_6_fee[15:8])); 

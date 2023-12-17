@@ -244,7 +244,7 @@ module parking_lot_top_tb (
 	task check_in(input[15:0] pre_moving, input[15:0] moving, input[2:0] current_floor);
 		begin
 			if((pre_moving != moving) & moving > 0) begin
-				$display("%d %d %d %d is boarding on elevator. Current floor : %d\n", moving[15:12], moving[11:8], moving[7:4], moving[3:0], current_floor);
+				$display("%d %d %d %d is onboard elevator. Current floor : %d\n", moving[15:12], moving[11:8], moving[7:4], moving[3:0], current_floor);
 			end
 		end
 	endtask
@@ -253,7 +253,7 @@ module parking_lot_top_tb (
 	task check_out(input[15:0] pre_moving, input[15:0] moving, input[2:0] current_floor, input[7:0] fee);
 		begin
 			if((pre_moving != moving) & moving==0) begin
-				$display("%d %d %d %d is getting out elevator. Current floor : %d\n", pre_moving[15:12], pre_moving[11:8], pre_moving[7:4], pre_moving[3:0], current_floor);
+				$display("%d %d %d %d is getting out of elevator. Current floor : %d\n", pre_moving[15:12], pre_moving[11:8], pre_moving[7:4], pre_moving[3:0], current_floor);
 				$display("Parking fee = %d cents\n", fee);
 			end
 		end

@@ -10,7 +10,7 @@
 /*  \___\/\___\                                                    */
 /***********************************************************************/
 
-/* This file is designed for use with ISim build 0x7708f090 */
+/* This file is designed for use with ISim build 0xfbc00daa */
 
 #define XSI_HIDE_SYMBOL_SPEC true
 #include "xsi.h"
@@ -21,8 +21,8 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top.v";
-static const char *ng1 = "Elevator module state transition";
+static const char *ng0 = "/home/luorix/Desktop/DLD/Digital-Logic-Design-F2023/parking_lot_top.v";
+static const char *ng1 = "Elevator module state transition %d -> %d";
 static int ng2[] = {0, 0};
 static int ng3[] = {1, 0};
 static int ng4[] = {3, 0};
@@ -64,7 +64,7 @@ static void Cont_325_0(char *t0)
     unsigned int t17;
     char *t18;
 
-LAB0:    t1 = (t0 + 7648U);
+LAB0:    t1 = (t0 + 7640U);
     t2 = *((char **)t1);
     if (t2 == 0)
         goto LAB2;
@@ -75,7 +75,7 @@ LAB2:    xsi_set_current_line(325, ng0);
     t2 = (t0 + 6408);
     t3 = (t2 + 56U);
     t4 = *((char **)t3);
-    t5 = (t0 + 8576);
+    t5 = (t0 + 8568);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
     t8 = (t7 + 56U);
@@ -94,7 +94,7 @@ LAB2:    xsi_set_current_line(325, ng0);
     t17 = *((unsigned int *)t15);
     *((unsigned int *)t15) = (t17 | t11);
     xsi_driver_vfirst_trans(t5, 0, 2);
-    t18 = (t0 + 8464);
+    t18 = (t0 + 8456);
     *((int *)t18) = 1;
 
 LAB1:    return;
@@ -133,8 +133,14 @@ static void Always_329_1(char *t0)
     unsigned int t29;
     unsigned int t30;
     unsigned int t31;
+    char *t32;
+    char *t33;
+    char *t34;
+    char *t35;
+    char *t36;
+    char *t37;
 
-LAB0:    t1 = (t0 + 7896U);
+LAB0:    t1 = (t0 + 7888U);
     t2 = *((char **)t1);
     if (t2 == 0)
         goto LAB2;
@@ -142,9 +148,9 @@ LAB0:    t1 = (t0 + 7896U);
 LAB3:    goto *t2;
 
 LAB2:    xsi_set_current_line(329, ng0);
-    t2 = (t0 + 8480);
+    t2 = (t0 + 8472);
     *((int *)t2) = 1;
-    t3 = (t0 + 7928);
+    t3 = (t0 + 7920);
     *((char **)t3) = t2;
     *((char **)t1) = &&LAB4;
 
@@ -227,7 +233,13 @@ LAB8:    t25 = (t10 + 4);
     goto LAB9;
 
 LAB10:    xsi_set_current_line(330, ng0);
-    xsi_vlogfile_write(1, 0, 0, ng1, 1, t0);
+    t32 = (t0 + 6408);
+    t33 = (t32 + 56U);
+    t34 = *((char **)t33);
+    t35 = (t0 + 6568);
+    t36 = (t35 + 56U);
+    t37 = *((char **)t36);
+    xsi_vlogfile_write(1, 0, 0, ng1, 3, t0, (char)118, t34, 3, (char)118, t37, 3);
     goto LAB12;
 
 LAB13:    xsi_set_current_line(331, ng0);
@@ -412,7 +424,7 @@ static void Always_344_2(char *t0)
     char *t162;
     char *t163;
 
-LAB0:    t1 = (t0 + 8144U);
+LAB0:    t1 = (t0 + 8136U);
     t2 = *((char **)t1);
     if (t2 == 0)
         goto LAB2;
@@ -420,9 +432,9 @@ LAB0:    t1 = (t0 + 8144U);
 LAB3:    goto *t2;
 
 LAB2:    xsi_set_current_line(344, ng0);
-    t2 = (t0 + 8496);
+    t2 = (t0 + 8488);
     *((int *)t2) = 1;
-    t3 = (t0 + 8176);
+    t3 = (t0 + 8168);
     *((char **)t3) = t2;
     *((char **)t1) = &&LAB4;
 
@@ -3426,9 +3438,9 @@ LAB399:    xsi_set_current_line(539, ng0);
 }
 
 
-extern void work_m_00000000001187760805_3092705115_init()
+extern void work_m_09005016368865331877_3092705115_init()
 {
 	static char *pe[] = {(void *)Cont_325_0,(void *)Always_329_1,(void *)Always_344_2};
-	xsi_register_didat("work_m_00000000001187760805_3092705115", "isim/parking_lot_top_tb_isim_beh.exe.sim/work/m_00000000001187760805_3092705115.didat");
+	xsi_register_didat("work_m_09005016368865331877_3092705115", "isim/parking_lot_top_tb_isim_beh.exe.sim/work/m_09005016368865331877_3092705115.didat");
 	xsi_register_executes(pe);
 }

@@ -1,6 +1,6 @@
 ISim log file
-Running: C:\Users\Xilinx_projects\Digital-Logic-Design-F2023\parking_lot_top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.wdb 
-ISim P.20131013 (signature 0x7708f090)
+Running: /home/luorix/Desktop/DLD/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/luorix/Desktop/DLD/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
@@ -220,7 +220,7 @@ floor 0  : 1
 ------------------------------------------
 
 
-Elevator module state transition
+Elevator module state transition 0 -> 5
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 
@@ -273,8 +273,8 @@ floor 0  : 1
 ------------------------------------------
 
 
-Elevator module state transition
- 9  4  2  3 is boarding on elevator. Current floor : 0
+Elevator module state transition 5 -> 1
+ 9  4  2  3 is onboard elevator. Current floor : 0
 
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
@@ -328,7 +328,7 @@ floor 0  : 1
 ------------------------------------------
 
 
- 9  4  2  3 is getting out elevator. Current floor : 1
+ 9  4  2  3 is getting out of elevator. Current floor : 1
 
 Parking fee =   0 cents
 
@@ -387,7 +387,7 @@ floor 0  : 0
 
 
 This should happen!
- 9  4  2  3 is boarding on elevator. Current floor : 0
+ 9  4  2  3 is onboard elevator. Current floor : 0
 
 Elevator position: 1 --> 0
 
@@ -498,7 +498,7 @@ floor 0  : 0
 ------------------------------------------
 
 
- 9  4  2  3 is getting out elevator. Current floor : 2
+ 9  4  2  3 is getting out of elevator. Current floor : 2
 
 Parking fee =  14 cents
 
@@ -608,4 +608,3 @@ floor 0  : 0
 
 Enqueue
 Dequeue
-Stopped at time : 110 ns : File "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top.v" Line 194
