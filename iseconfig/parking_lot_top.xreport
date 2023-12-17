@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2023-12-17T11:02:47</DateModified>
+  <DateModified>2023-12-17T14:14:16</DateModified>
   <ModuleName>parking_lot_top</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/iseconfig/parking_lot_top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Xilinx_projects/Digital-Logic-Design-F2023</ImplementationReportsDirectory>
+  <SavedFilePath>/home/luorix/Desktop/DLD/Digital-Logic-Design-F2023/iseconfig/parking_lot_top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/luorix/Desktop/DLD/Digital-Logic-Design-F2023/</ImplementationReportsDirectory>
   <DateInitialized>2023-12-17T11:02:47</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

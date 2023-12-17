@@ -1,5 +1,0 @@
-verilog work "tlc_fsm.v"
-verilog work "output_logic.v"
-verilog work "make_clk.v"
-verilog work "data_reg.v"
-verilog work "tlc_top.v"

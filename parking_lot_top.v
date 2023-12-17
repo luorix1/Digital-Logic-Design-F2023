@@ -80,13 +80,13 @@ module target_floor(
       // possible[i] = 1 : ith floor empty & without leakage
       // possible[i] = 0 : ith floor occupied
       possible [0] = 1'b1; //always reachable
-      possible [1] = (suv | full_sedan) & ((parked_1[31:16]==0)&(disabled) | (parked_1[15:0]==0));
-      possible [2] = (sedan) &             ((parked_2[31:16]==0)&(disabled) | (parked_2[15:0]==0));
-      possible [3] = (suv | full_sedan) & ((parked_3[31:16]==0)            | (parked_3[15:0]==0));
-      possible [4] = (sedan) &             ((parked_4[31:16]==0)            | (parked_4[15:0]==0));
-      possible [5] = (suv | full_sedan) & ((parked_5[31:16]==0)            | (parked_5[15:0]==0));
-      possible [6] = (sedan) &             ((parked_6[31:16]==0)            | (parked_6[15:0]==0));
-      possible [7] = (suv | full_sedan) & ((parked_7[31:16]==0)            | (parked_7[15:0]==0));
+      possible [1] = (leakage_floor != 3'b001) & ((suv | full_sedan) & ((parked_1[31:16] == 0) & (disabled) | (parked_1[15:0] == 0)));
+      possible [2] = (leakage_floor != 3'b010) & ((sedan) & ((parked_2[31:16]==0) & (disabled) | (parked_2[15:0] == 0)));
+      possible [3] = (leakage_floor != 3'b011) & ((suv | full_sedan) & ((parked_3[31:16] == 0) | (parked_3[15:0] == 0)));
+      possible [4] = (leakage_floor != 3'b100) & ((sedan) & ((parked_4[31:16] == 0) | (parked_4[15:0] == 0)));
+      possible [5] = (leakage_floor != 3'b101) & ((suv | full_sedan) & ((parked_5[31:16] == 0) | (parked_5[15:0] == 0)));
+      possible [6] = (leakage_floor != 3'b110) & ((sedan) & ((parked_6[31:16] == 0) | (parked_6[15:0] == 0)));
+      possible [7] = (leakage_floor != 3'b111) & ((suv | full_sedan) & ((parked_7[31:16] == 0) | (parked_7[15:0] == 0)));
       
 		// Case statement to define ordering of floors based on close to far
       case(current_floor)
@@ -101,46 +101,88 @@ module target_floor(
 			default: visit[20:0] = {n1,n2,n3,n4,n5,n6,n7}; // Useless default case for combinational logic
       endcase
        
-       // Set target_place, either 0 or 1, denoting parking spot on target_floor
-       //target_place = 0; //default
-	    //closest_floor = 0; // FIXME: default value, temporary fix for latch creation
+      // Set target_place, either 0 or 1, denoting parking spot on target_floor
+      //target_place = 0; //default
+	   //closest_floor = 0; // FIXME: default value, temporary fix for latch creation
 		 
-		 // For out_mode, we use target_floor, target_place as parking spot occupied by desired car
+		// For out_mode, we use target_floor, target_place as parking spot occupied by desired car
 		if(out_mode) begin
 			if(license_plate[15:0]==parked_1[15:0]) begin
 				target_place = 1;
-         end
+				closest_floor = 3'b001;
+			end
          
-			else if(license_plate[15:0]==parked_2[15:0]) begin
+			else if(license_plate[15:0]==parked_1[31:16]) begin
+				target_place = 0;
+				closest_floor = 3'b001;
+			end
+			
+         else if(license_plate[15:0]==parked_2[15:0]) begin
 				target_place = 1;
-         end
-         
+            closest_floor = 3'b010;
+			end
+			
+			else if(license_plate[15:0]==parked_2[31:16]) begin
+				target_place = 0;
+				closest_floor = 3'b010;
+			end
+			
 			else if(license_plate[15:0]==parked_3[15:0]) begin
 				target_place = 1;
-         end
-         
+				closest_floor = 3'b011;
+			end
+			
+			else if(license_plate[15:0]==parked_3[31:16]) begin
+				target_place = 0;
+				closest_floor = 3'b011;
+			end
+			
 			else if(license_plate[15:0]==parked_4[15:0]) begin
 				target_place = 1;
-         end
-         
+				closest_floor = 3'b100;
+			end
+			
+			else if(license_plate[15:0]==parked_4[31:16]) begin
+				target_place = 0;
+				closest_floor = 3'b100;
+			end
+			
 			else if(license_plate[15:0]==parked_5[15:0]) begin
 				target_place = 1;
-         end
-         
+				closest_floor = 3'b101;
+			end
+			
+			else if(license_plate[15:0]==parked_5[31:16]) begin
+				target_place = 0;
+				closest_floor = 3'b101;
+			end
+			
 			else if(license_plate[15:0]==parked_6[15:0]) begin
-            target_place = 1;
-         end
-         
+				target_place = 1;
+				closest_floor = 3'b110;
+			end
+			
+			else if(license_plate[15:0]==parked_6[31:16]) begin
+				target_place = 0;
+				closest_floor = 3'b110;
+			end
+			
 			else if(license_plate[15:0]==parked_7[15:0]) begin
 				target_place = 1;
-         end
-         
+				closest_floor = 3'b111;
+			end
+			
+			else if(license_plate[15:0]==parked_7[31:16]) begin
+				target_place = 0;
+				closest_floor = 3'b111;
+			end
+			
 			else begin
-            target_place = 0;
-         end
+				closest_floor=0;
+			end
 		end
         
-		 // For in_mode, find the target_place to park incoming car
+		// For in_mode, find the target_place to park incoming car
 		else if(in_mode) begin
 			if(possible[visit[20:18]]) begin
 				$display("This should happen!");
@@ -400,7 +442,7 @@ module elevator_controller(
 					newly_parked_spot[0] = target_place;
 					
 					moving[15:0] = 0; // car has left elevator (now parked)
-					next_state = (leakage && !leak_empty)||out_mode? STATE_CAR_OUT_SEARCH: in_mode ? STATE_CAR_IN : STATE_NO_ORDER; // CJY: next_state = (if leak&not empty - OUT_SEARCH. if out_mode - OUT_SEARCH, if in_mode - IN, else - NO_ORDER
+					next_state = (leakage && !leak_empty) | out_mode ? STATE_CAR_OUT_SEARCH : in_mode ? STATE_CAR_IN : STATE_NO_ORDER; // CJY: next_state = (if leak&not empty - OUT_SEARCH. if out_mode - OUT_SEARCH, if in_mode - IN, else - NO_ORDER
 					next_floor = current_floor;
 					current_work_done = 1;
 				end

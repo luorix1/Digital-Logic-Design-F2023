@@ -1,18 +1,21 @@
-Release 14.7 - xst P.20131013 (nt64)
+Release 14.7 - xst P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
---> Parameter TMPDIR set to xst/projnav.tmp
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
---> Parameter xsthdpdir set to xst
+--> 
+Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
---> Reading design: parking_lot_top.prj
+--> 
+Reading design: parking_lot_top.prj
 
 TABLE OF CONTENTS
   1) Synthesis Options Summary
@@ -138,18 +141,19 @@ Analyzing module <parking_fee_calculator> in library <work>.
 Module <parking_fee_calculator> is correct for synthesis.
  
 Analyzing module <target_floor> in library <work>.
-WARNING:Xst:905 - "parking_lot_top.v" line 193: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <moving>, <closest_floor>, <leakage_floor>, <parked_1>, <parked_2>, <parked_3>, <parked_4>, <parked_5>, <parked_6>, <parked_7>
+"parking_lot_top.v" line 146: $display : This should happen!
 Module <target_floor> is correct for synthesis.
  
 Analyzing module <elevator_controller> in library <work>.
-"parking_lot_top.v" line 329: $display : Elevator module state transition
-"parking_lot_top.v" line 368: $display : car has been loaded onto plate
+WARNING:Xst:2323 - "parking_lot_top.v" line 338: Parameter 2 is not constant in call of system task $display.
+WARNING:Xst:2323 - "parking_lot_top.v" line 338: Parameter 3 is not constant in call of system task $display.
+"parking_lot_top.v" line 338: $display : Elevator module state transition %d -> %d
 Module <elevator_controller> is correct for synthesis.
  
 Analyzing module <order_queue> in library <work>.
-"parking_lot_top.v" line 262: $display : Enqueue
-"parking_lot_top.v" line 272: $display : Dequeue
+"parking_lot_top.v" line 263: $display : Enqueue
+"parking_lot_top.v" line 273: $display : Dequeue
+"parking_lot_top.v" line 280: $display : Dequeue zeros
 Module <order_queue> is correct for synthesis.
  
 
@@ -158,7 +162,6 @@ Module <order_queue> is correct for synthesis.
 =========================================================================
 
 Performing bidirectional port resolution...
-INFO:Xst:2679 - Register <next_floor> in unit <elevator_controller> has a constant value of 000 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <parking_fee_calculator>.
     Related source file is "parking_lot_top.v".
@@ -186,14 +189,16 @@ WARNING:Xst:653 - Signal <n2> is used but never assigned. This sourceless signal
 WARNING:Xst:653 - Signal <n1> is used but never assigned. This sourceless signal will be automatically connected to value 001.
 WARNING:Xst:653 - Signal <n0> is used but never assigned. This sourceless signal will be automatically connected to value 000.
 WARNING:Xst:646 - Signal <disabled> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:737 - Found 1-bit latch for signal <target_place>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 3-bit latch for signal <closest_floor>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Found 8x21-bit ROM for signal <$old_visit_3>.
-    Found 16-bit comparator equal for signal <target_place$cmp_eq0000> created at line 110.
-    Found 16-bit comparator equal for signal <target_place$cmp_eq0001> created at line 114.
-    Found 16-bit comparator equal for signal <target_place$cmp_eq0002> created at line 118.
-    Found 16-bit comparator equal for signal <target_place$cmp_eq0003> created at line 122.
-    Found 16-bit comparator equal for signal <target_place$cmp_eq0004> created at line 126.
-    Found 16-bit comparator equal for signal <target_place$cmp_eq0005> created at line 130.
-    Found 16-bit comparator equal for signal <target_place$cmp_eq0006> created at line 134.
+    Found 16-bit comparator equal for signal <mux0000$cmp_eq0000> created at line 110.
+    Found 16-bit comparator equal for signal <mux0000$cmp_eq0001> created at line 114.
+    Found 16-bit comparator equal for signal <mux0000$cmp_eq0002> created at line 118.
+    Found 16-bit comparator equal for signal <mux0000$cmp_eq0003> created at line 122.
+    Found 16-bit comparator equal for signal <mux0000$cmp_eq0004> created at line 126.
+    Found 16-bit comparator equal for signal <mux0000$cmp_eq0005> created at line 130.
+    Found 16-bit comparator equal for signal <mux0000$cmp_eq0006> created at line 134.
     Summary:
 	inferred   1 ROM(s).
 	inferred   7 Comparator(s).
@@ -210,8 +215,10 @@ WARNING:Xst:653 - Signal <STATE_CAR_REASSIGN> is used but never assigned. This s
 WARNING:Xst:653 - Signal <STATE_CAR_OUT_SEARCH> is used but never assigned. This sourceless signal will be automatically connected to value 010.
 WARNING:Xst:653 - Signal <STATE_CAR_OUT_EXPORT> is used but never assigned. This sourceless signal will be automatically connected to value 011.
 WARNING:Xst:653 - Signal <STATE_CAR_IN> is used but never assigned. This sourceless signal will be automatically connected to value 001.
-WARNING:Xst:737 - Found 3-bit latch for signal <next_floor>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:1608 - Relative priorities of control signals on register <current_work_done> differ from those commonly found in the selected device family. This will result in additional logic around the register.
+WARNING:Xst:737 - Found 1-bit latch for signal <current_work_done>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 3-bit latch for signal <next_state>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 3-bit latch for signal <next_floor>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 16-bit latch for signal <moving>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 1-bit latch for signal <newly_parked>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -231,17 +238,17 @@ INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and 
 WARNING:Xst:737 - Found 1-bit latch for signal <newly_parked_spot_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
     Found 3-bit register for signal <current_floor>.
-    Found 3-bit comparator equal for signal <car_out_ready$cmp_eq0000> created at line 396.
-    Found 3-bit comparator equal for signal <car_out_ready$cmp_eq0001> created at line 485.
-    Found 3-bit comparator greater for signal <car_out_ready$cmp_gt0000> created at line 387.
-    Found 3-bit comparator not equal for signal <car_out_ready$cmp_ne0000> created at line 396.
+    Found 3-bit comparator equal for signal <car_out_ready$cmp_eq0000> created at line 410.
+    Found 3-bit comparator equal for signal <car_out_ready$cmp_eq0001> created at line 499.
+    Found 3-bit comparator greater for signal <car_out_ready$cmp_gt0000> created at line 401.
+    Found 3-bit comparator not equal for signal <car_out_ready$cmp_ne0000> created at line 410.
     Found 3-bit register for signal <current_state>.
-    Found 3-bit comparator equal for signal <moving$cmp_eq0002> created at line 408.
-    Found 3-bit comparator not equal for signal <moving$cmp_ne0001> created at line 375.
-    Found 1-bit xor2 for signal <moving$xor0000> created at line 361.
-    Found 1-bit xor2 for signal <mux0001$xor0000> created at line 461.
-    Found 3-bit adder for signal <old_next_floor_18$add0000> created at line 395.
-    Found 3-bit subtractor for signal <old_next_floor_20$sub0000> created at line 484.
+    Found 3-bit comparator equal for signal <moving$cmp_eq0003> created at line 422.
+    Found 3-bit comparator not equal for signal <moving$cmp_ne0001> created at line 388.
+    Found 1-bit xor2 for signal <moving$xor0000> created at line 372.
+    Found 1-bit xor2 for signal <mux0001$xor0000> created at line 475.
+    Found 3-bit adder for signal <old_next_floor_18$add0000> created at line 409.
+    Found 3-bit subtractor for signal <old_next_floor_20$sub0000> created at line 498.
     Summary:
 	inferred   6 D-type flip-flop(s).
 	inferred   2 Adder/Subtractor(s).
@@ -258,7 +265,7 @@ WARNING:Xst:646 - Signal <empty_reg> is assigned but never used. This unconnecte
     Found 1-bit 8-to-1 multiplexer for signal <AUX_24$varindex0000>.
     Found 3-bit up counter for signal <front>.
     Found 128-bit register for signal <license_plates>.
-    Found 3-bit adder for signal <old_rear_21$addsub0000> created at line 265.
+    Found 3-bit adder for signal <old_rear_21$addsub0000> created at line 266.
     Found 1-bit 8-to-1 multiplexer for signal <order_license_plate$varindex0000>.
     Found 16-bit register for signal <orders>.
     Found 3-bit register for signal <rear>.
@@ -273,7 +280,6 @@ Unit <order_queue> synthesized.
 
 Synthesizing Unit <parking_lot_top>.
     Related source file is "parking_lot_top.v".
-WARNING:Xst:646 - Signal <current_work_done> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_1_31>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_1_30>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_1_29>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -498,16 +504,16 @@ WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_3>. Latches may be gene
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <parked_7_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-    Found 3-bit adder for signal <empty_sedan$add0000> created at line 631.
-    Found 2-bit adder for signal <empty_sedan$addsub0001> created at line 631.
-    Found 1-bit adder carry out for signal <empty_sedan$addsub0003> created at line 631.
-    Found 2-bit adder carry out for signal <empty_sedan$addsub0004> created at line 631.
-    Found 2-bit adder for signal <empty_suv$addsub0001> created at line 630.
-    Found 3-bit adder for signal <empty_suv$addsub0003> created at line 630.
-    Found 3-bit adder for signal <empty_suv$addsub0004> created at line 630.
-    Found 3-bit adder carry out for signal <empty_suv$addsub0005> created at line 630.
-    Found 1-bit adder carry out for signal <empty_suv$addsub0006> created at line 630.
-    Found 2-bit adder carry out for signal <empty_suv$addsub0007> created at line 630.
+    Found 3-bit adder for signal <empty_sedan$add0000> created at line 647.
+    Found 2-bit adder for signal <empty_sedan$addsub0001> created at line 647.
+    Found 1-bit adder carry out for signal <empty_sedan$addsub0003> created at line 647.
+    Found 2-bit adder carry out for signal <empty_sedan$addsub0004> created at line 647.
+    Found 2-bit adder for signal <empty_suv$addsub0001> created at line 646.
+    Found 3-bit adder for signal <empty_suv$addsub0003> created at line 646.
+    Found 3-bit adder for signal <empty_suv$addsub0004> created at line 646.
+    Found 3-bit adder carry out for signal <empty_suv$addsub0005> created at line 646.
+    Found 1-bit adder carry out for signal <empty_suv$addsub0006> created at line 646.
+    Found 2-bit adder carry out for signal <empty_suv$addsub0007> created at line 646.
     Found 1-bit 8-to-1 multiplexer for signal <leak_empty>.
     Summary:
 	inferred  10 Adder/Subtractor(s).
@@ -537,10 +543,10 @@ Macro Statistics
  2-bit register                                        : 8
  3-bit register                                        : 2
  8-bit register                                        : 14
-# Latches                                              : 235
- 1-bit latch                                           : 231
+# Latches                                              : 238
+ 1-bit latch                                           : 233
  16-bit latch                                          : 2
- 3-bit latch                                           : 2
+ 3-bit latch                                           : 3
 # Comparators                                          : 14
  16-bit comparator equal                               : 7
  3-bit comparator equal                                : 4
@@ -567,6 +573,9 @@ WARNING:Xst:2677 - Node <license_plates_0_4> of sequential type is unconnected i
 WARNING:Xst:2677 - Node <license_plates_0_5> of sequential type is unconnected in block <ORDERS>.
 WARNING:Xst:2677 - Node <license_plates_0_6> of sequential type is unconnected in block <ORDERS>.
 WARNING:Xst:2677 - Node <license_plates_0_7> of sequential type is unconnected in block <ORDERS>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <0>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <1>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <2>.
 WARNING:Xst:2404 -  FFs/Latches <order_license_plate<15:1>> (without init value) have a constant value of 0 in block <order_queue>.
 WARNING:Xst:2677 - Node <license_plates_0_0> of sequential type is unconnected in block <order_queue>.
 WARNING:Xst:2677 - Node <license_plates_0_1> of sequential type is unconnected in block <order_queue>.
@@ -595,10 +604,10 @@ Macro Statistics
  32-bit up counter                                     : 14
 # Registers                                            : 140
  Flip-Flops                                            : 140
-# Latches                                              : 235
- 1-bit latch                                           : 231
+# Latches                                              : 238
+ 1-bit latch                                           : 233
  16-bit latch                                          : 2
- 3-bit latch                                           : 2
+ 3-bit latch                                           : 3
 # Comparators                                          : 14
  16-bit comparator equal                               : 7
  3-bit comparator equal                                : 4
@@ -615,31 +624,1569 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 WARNING:Xst:1710 - FF/Latch <out_mode_internal> (without init value) has a constant value of 0 in block <order_queue>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <cycle_count_8> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_9> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_10> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_11> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_12> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_13> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_14> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_15> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_16> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_17> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_18> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_19> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_20> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_21> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_22> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_23> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_24> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_25> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_26> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_27> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_28> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_29> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_30> of sequential type is unconnected in block <parking_fee_calculator>.
+WARNING:Xst:2677 - Node <cycle_count_31> of sequential type is unconnected in block <parking_fee_calculator>.
 
-ERROR:Xst:528 - Multi-source in Unit <elevator_controller> on signal <next_floor<2>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of LDCP instance <elevator_ctrl/next_floor/2/0>
-   Signal <elevator_ctrl/next_floor<2>> in Unit <elevator_controller> is assigned to GND
+Optimizing unit <parking_lot_top> ...
 
-ERROR:Xst:528 - Multi-source in Unit <elevator_controller> on signal <next_floor<1>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of LDCP instance <elevator_ctrl/next_floor/1/0>
-   Signal <elevator_ctrl/next_floor<1>> in Unit <elevator_controller> is assigned to GND
+Optimizing unit <parking_fee_calculator> ...
 
-ERROR:Xst:528 - Multi-source in Unit <elevator_controller> on signal <next_floor<0>>; this signal is connected to multiple drivers.
-Drivers are: 
-   Output signal of LDCP instance <elevator_ctrl/next_floor/0/0>
-   Signal <elevator_ctrl/next_floor<0>> in Unit <elevator_controller> is assigned to GND
+Optimizing unit <order_queue> ...
+
+Optimizing unit <target_floor> ...
+
+Optimizing unit <elevator_controller> ...
+WARNING:Xst:1294 - Latch <target_flr/closest_floor_2> is equivalent to a wire in block <parking_lot_top>.
+WARNING:Xst:1294 - Latch <target_flr/closest_floor_1> is equivalent to a wire in block <parking_lot_top>.
+WARNING:Xst:1294 - Latch <target_flr/closest_floor_0> is equivalent to a wire in block <parking_lot_top>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block parking_lot_top, actual ratio is 28.
+Latch target_flr/target_place has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop elevator_ctrl/current_floor_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop elevator_ctrl/current_floor_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop elevator_ctrl/current_floor_0 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_31 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_30 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_29 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_28 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_27 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_26 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_25 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_24 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_23 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_22 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_21 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_20 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_19 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_18 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_17 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_16 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_15 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_14 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_13 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_12 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_11 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_10 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_9 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_8 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_7 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_6 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_5 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_4 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_3 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_2 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_1 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_1_0 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_31 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_30 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_29 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_28 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_27 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_26 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_25 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_24 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_23 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_22 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_21 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_20 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_19 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_18 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_17 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_16 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_15 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_14 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_13 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_12 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_11 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_10 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_9 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_8 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_7 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_6 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_5 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_4 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_3 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_2 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_1 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_2_0 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_31 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_30 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_29 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_28 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_27 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_26 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_25 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_24 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_23 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_22 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_21 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_20 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_19 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_18 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_17 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_16 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_15 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_14 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_13 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_12 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_11 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_10 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_9 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_8 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_7 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_6 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_5 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_4 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_3 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_2 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_1 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_3_0 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_31 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_30 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_29 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_28 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_27 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_26 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_25 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_24 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_23 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_22 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_21 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_20 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_19 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_18 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_17 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_16 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_15 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_14 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_13 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_12 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_11 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_10 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_9 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_8 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_7 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_6 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_5 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_4 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_3 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_2 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_1 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_4_0 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_31 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_30 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_29 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_28 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_27 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_26 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_25 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_24 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_23 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_22 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_21 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_20 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_19 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_18 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_17 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_16 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_15 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_14 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_13 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_12 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_11 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_10 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_9 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_8 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_7 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_6 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_5 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_4 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_3 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_2 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_1 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_5_0 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_31 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_30 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_29 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_28 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_27 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_26 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_25 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_24 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_23 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_22 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_21 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_20 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_19 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_18 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_17 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_16 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_15 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_14 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_13 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_12 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_11 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_10 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_9 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_8 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_7 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_6 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_5 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_4 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_3 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_2 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_1 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_6_0 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_31 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_30 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_29 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_28 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_27 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_26 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_25 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_24 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_23 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_22 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_21 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_20 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_19 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_18 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_17 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_16 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_15 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_14 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_13 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_12 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_11 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_10 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_9 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_8 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_7 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_6 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_5 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_4 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_3 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_2 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_1 has been replicated 1 time(s) to handle iob=true attribute.
+Latch parked_7_0 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop elevator_ctrl/current_state_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop elevator_ctrl/current_state_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop elevator_ctrl/current_state_0 has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 260
+ Flip-Flops                                            : 260
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : parking_lot_top.ngr
+Top Level Output File Name         : parking_lot_top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 311
+
+Cell Usage :
+# BELS                             : 1278
+#      GND                         : 1
+#      INV                         : 18
+#      LUT1                        : 99
+#      LUT2                        : 74
+#      LUT2_D                      : 1
+#      LUT3                        : 134
+#      LUT4                        : 605
+#      LUT4_D                      : 5
+#      LUT4_L                      : 33
+#      MUXCY                       : 108
+#      MUXF5                       : 77
+#      MUXF6                       : 10
+#      VCC                         : 1
+#      XORCY                       : 112
+# FlipFlops/Latches                : 756
+#      FDC                         : 6
+#      FDCE                        : 224
+#      FDCP                        : 6
+#      FDE                         : 16
+#      FDR                         : 3
+#      FDRE                        : 5
+#      LD                          : 39
+#      LDCE                        : 448
+#      LDCP                        : 9
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 302
+#      IBUF                        : 15
+#      OBUF                        : 287
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s200ft256-4 
+
+ Number of Slices:                      531  out of   1920    27%  
+ Number of Slice Flip Flops:            525  out of   3840    13%  
+ Number of 4 input LUTs:                969  out of   3840    25%  
+ Number of IOs:                         311
+ Number of bonded IOBs:                 303  out of    173   175% (*) 
+    IOB Flip Flops:                     231
+ Number of GCLKs:                         2  out of      8    25%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.46 secs
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------+-------+
+Clock Signal                                                                                         | Clock buffer(FF name)                               | Load  |
+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------+-------+
+parked_7_15_cmp_eq0000(parked_7_15_cmp_eq00001:O)                                                    | NONE(*)(parked_7_0)                                 | 32    |
+parked_7_31_cmp_eq0000(parked_7_31_cmp_eq00001:O)                                                    | NONE(*)(parked_7_16)                                | 32    |
+parked_6_15_cmp_eq0000(parked_6_15_cmp_eq000021:O)                                                   | NONE(*)(parked_6_0)                                 | 32    |
+parked_6_31_cmp_eq0000(parked_6_31_cmp_eq000011:O)                                                   | NONE(*)(parked_6_16)                                | 32    |
+parked_5_15_cmp_eq0000(parked_5_15_cmp_eq00001:O)                                                    | NONE(*)(parked_5_0)                                 | 32    |
+parked_5_31_cmp_eq0000(parked_5_31_cmp_eq00002:O)                                                    | NONE(*)(parked_5_16)                                | 32    |
+parked_4_15_cmp_eq0000(parked_4_15_cmp_eq00002:O)                                                    | NONE(*)(parked_4_0)                                 | 32    |
+parked_4_31_cmp_eq0000(parked_4_31_cmp_eq00001:O)                                                    | NONE(*)(parked_4_16)                                | 32    |
+parked_3_15_cmp_eq0000(parked_3_15_cmp_eq00001:O)                                                    | NONE(*)(parked_3_0)                                 | 32    |
+parked_3_31_cmp_eq0000(parked_3_31_cmp_eq00002:O)                                                    | NONE(*)(parked_3_16)                                | 32    |
+parked_2_15_cmp_eq0000(parked_2_15_cmp_eq00001:O)                                                    | NONE(*)(parked_2_0)                                 | 32    |
+parked_2_31_cmp_eq0000(parked_2_31_cmp_eq00001:O)                                                    | NONE(*)(parked_2_16)                                | 32    |
+parked_1_15_cmp_eq0000(parked_1_15_cmp_eq00001:O)                                                    | NONE(*)(parked_1_0)                                 | 32    |
+clock                                                                                                | BUFGP                                               | 260   |
+ORDERS/in_mode_internal                                                                              | NONE(target_flr/target_place)                       | 2     |
+elevator_ctrl/moving_not0001(elevator_ctrl/moving_not0001:O)                                         | NONE(*)(elevator_ctrl/moving_15)                    | 16    |
+elevator_ctrl/newly_parked_license_plate_not00011(elevator_ctrl/newly_parked_license_plate_not0001:O)| BUFG(*)(elevator_ctrl/newly_parked_license_plate_15)| 20    |
+elevator_ctrl/next_state_not0001(elevator_ctrl/next_state_not00011:O)                                | NONE(*)(elevator_ctrl/next_state_2)                 | 3     |
+elevator_ctrl/newly_parked_cmp_eq0002(elevator_ctrl/newly_parked_cmp_eq00021:O)                      | NONE(*)(elevator_ctrl/next_floor_2)                 | 3     |
+elevator_ctrl/current_work_done_not0002(elevator_ctrl/current_work_done_not00021:O)                  | NONE(*)(elevator_ctrl/current_work_done)            | 1     |
+elevator_ctrl/newly_parked_not0001(elevator_ctrl/newly_parked_not000125:O)                           | NONE(*)(elevator_ctrl/newly_parked)                 | 1     |
+elevator_ctrl/car_out_ready_not0001(elevator_ctrl/car_out_ready_not000143:O)                         | NONE(*)(elevator_ctrl/car_out_ready)                | 1     |
+elevator_ctrl/plate_type_not0001(elevator_ctrl/plate_type_not000124:O)                               | NONE(*)(elevator_ctrl/plate_type)                   | 1     |
+elevator_ctrl/newly_parked                                                                           | NONE(parked_1_16)                                   | 32    |
+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------+-------+
+(*) These 21 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-------------------------------------------------------------------------------------+--------------------------------------+-------+
+Control Signal                                                                       | Buffer(FF name)                      | Load  |
+-------------------------------------------------------------------------------------+--------------------------------------+-------+
+reset                                                                                | IBUF                                 | 684   |
+empty_sedan_3_OBUF(XST_GND:G)                                                        | NONE(elevator_ctrl/current_state_0)  | 10    |
+elevator_ctrl/current_work_done__and0000(elevator_ctrl/current_work_done__and00001:O)| NONE(elevator_ctrl/current_work_done)| 1     |
+elevator_ctrl/current_work_done__or0000(elevator_ctrl/current_work_done__or00001:O)  | NONE(elevator_ctrl/current_work_done)| 1     |
+elevator_ctrl/next_floor_0__and0000(elevator_ctrl/next_floor_0__and00001:O)          | NONE(elevator_ctrl/next_floor_0)     | 1     |
+elevator_ctrl/next_floor_0__and0001(elevator_ctrl/next_floor_0__and00011:O)          | NONE(elevator_ctrl/next_floor_0)     | 1     |
+elevator_ctrl/next_floor_1__and0000(elevator_ctrl/next_floor_1__and00001:O)          | NONE(elevator_ctrl/next_floor_1)     | 1     |
+elevator_ctrl/next_floor_1__and0001(elevator_ctrl/next_floor_1__and00011:O)          | NONE(elevator_ctrl/next_floor_1)     | 1     |
+elevator_ctrl/next_floor_2__and0000(elevator_ctrl/next_floor_2__and00001:O)          | NONE(elevator_ctrl/next_floor_2)     | 1     |
+elevator_ctrl/next_floor_2__and0001(elevator_ctrl/next_floor_2__and00011:O)          | NONE(elevator_ctrl/next_floor_2)     | 1     |
+elevator_ctrl/next_state_0__and0000(elevator_ctrl/next_state_0__and00001:O)          | NONE(elevator_ctrl/next_state_0)     | 1     |
+elevator_ctrl/next_state_0__and0001(elevator_ctrl/next_state_0__and00011:O)          | NONE(elevator_ctrl/next_state_0)     | 1     |
+elevator_ctrl/next_state_1__and0000(elevator_ctrl/next_state_1__and00001:O)          | NONE(elevator_ctrl/next_state_1)     | 1     |
+elevator_ctrl/next_state_1__and0001(elevator_ctrl/next_state_1__and00011:O)          | NONE(elevator_ctrl/next_state_1)     | 1     |
+elevator_ctrl/next_state_2__and0000(elevator_ctrl/next_state_2__and00001:O)          | NONE(elevator_ctrl/next_state_2)     | 1     |
+elevator_ctrl/next_state_2__and0001(elevator_ctrl/next_state_2__and00011:O)          | NONE(elevator_ctrl/next_state_2)     | 1     |
+-------------------------------------------------------------------------------------+--------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 13.219ns (Maximum Frequency: 75.648MHz)
+   Minimum input arrival time before clock: 31.242ns
+   Maximum output required time after clock: 31.282ns
+   Maximum combinational path delay: 29.401ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clock'
+  Clock period: 8.016ns (frequency: 124.750MHz)
+  Total number of paths / destination ports: 867 / 255
+-------------------------------------------------------------------------
+Delay:               8.016ns (Levels of Logic = 4)
+  Source:            ORDERS/rear_0 (FF)
+  Destination:       ORDERS/order_license_plate (FF)
+  Source Clock:      clock rising
+  Destination Clock: clock rising
+
+  Data Path: ORDERS/rear_0 to ORDERS/order_license_plate
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              7   0.720   1.261  ORDERS/rear_0 (ORDERS/rear_0)
+     LUT3:I1->O            2   0.551   1.216  ORDERS/_old_rear_21<0>1 (ORDERS/_old_rear_21<0>)
+     LUT4:I0->O            2   0.551   0.903  ORDERS/_old_empty_reg_223_SW0 (N6)
+     LUT4:I3->O            1   0.551   0.000  ORDERS/out_mode_internal_or000011 (ORDERS/out_mode_internal_or00001)
+     MUXF5:I0->O           2   0.360   0.877  ORDERS/out_mode_internal_or00001_f5 (ORDERS/out_mode_internal_or0000)
+     FDRE:R                    1.026          ORDERS/in_mode_internal
+    ----------------------------------------
+    Total                      8.016ns (3.759ns logic, 4.257ns route)
+                                       (46.9% logic, 53.1% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'elevator_ctrl/moving_not0001'
+  Clock period: 13.219ns (frequency: 75.648MHz)
+  Total number of paths / destination ports: 7696 / 16
+-------------------------------------------------------------------------
+Delay:               13.219ns (Levels of Logic = 7)
+  Source:            elevator_ctrl/moving_4 (LATCH)
+  Destination:       elevator_ctrl/moving_9 (LATCH)
+  Source Clock:      elevator_ctrl/moving_not0001 falling
+  Destination Clock: elevator_ctrl/moving_not0001 falling
+
+  Data Path: elevator_ctrl/moving_4 to elevator_ctrl/moving_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               3   0.633   1.246  elevator_ctrl/moving_4 (elevator_ctrl/moving_4)
+     LUT4:I0->O            1   0.551   0.996  elevator_ctrl/moving_cmp_eq002125 (elevator_ctrl/moving_cmp_eq002125)
+     LUT4:I1->O           15   0.551   1.188  elevator_ctrl/moving_cmp_eq002176 (elevator_ctrl/moving_cmp_eq0021)
+     MUXF5:S->O           28   0.621   2.025  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     LUT4:I1->O           16   0.551   1.263  elevator_ctrl/moving_cmp_eq00141 (elevator_ctrl/moving_cmp_eq0014)
+     LUT4:I3->O            1   0.551   0.869  elevator_ctrl/moving_mux0000<9>49 (elevator_ctrl/moving_mux0000<9>49)
+     LUT4:I2->O            1   0.551   0.869  elevator_ctrl/moving_mux0000<9>68 (elevator_ctrl/moving_mux0000<9>68)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/moving_mux0000<9>90 (elevator_ctrl/moving_mux0000<9>)
+     LD:D                      0.203          elevator_ctrl/moving_9
+    ----------------------------------------
+    Total                     13.219ns (4.763ns logic, 8.456ns route)
+                                       (36.0% logic, 64.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'elevator_ctrl/current_work_done_not0002'
+  Clock period: 2.320ns (frequency: 431.034MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               2.320ns (Levels of Logic = 1)
+  Source:            elevator_ctrl/current_work_done (LATCH)
+  Destination:       elevator_ctrl/current_work_done (LATCH)
+  Source Clock:      elevator_ctrl/current_work_done_not0002 falling
+  Destination Clock: elevator_ctrl/current_work_done_not0002 falling
+
+  Data Path: elevator_ctrl/current_work_done to elevator_ctrl/current_work_done
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCP:G->Q             3   0.633   0.933  elevator_ctrl/current_work_done (elevator_ctrl/current_work_done)
+     LUT4:I3->O            3   0.551   0.000  elevator_ctrl/current_work_done_mux0000 (elevator_ctrl/current_work_done_mux0000)
+     LDCP:D                    0.203          elevator_ctrl/current_work_done
+    ----------------------------------------
+    Total                      2.320ns (1.387ns logic, 0.933ns route)
+                                       (59.8% logic, 40.2% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'elevator_ctrl/plate_type_not0001'
+  Clock period: 4.551ns (frequency: 219.732MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               4.551ns (Levels of Logic = 2)
+  Source:            elevator_ctrl/plate_type (LATCH)
+  Destination:       elevator_ctrl/plate_type (LATCH)
+  Source Clock:      elevator_ctrl/plate_type_not0001 falling
+  Destination Clock: elevator_ctrl/plate_type_not0001 falling
+
+  Data Path: elevator_ctrl/plate_type to elevator_ctrl/plate_type
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q              10   0.633   1.473  elevator_ctrl/plate_type (elevator_ctrl/plate_type)
+     LUT2:I0->O            1   0.551   1.140  elevator_ctrl/plate_type_mux000046 (elevator_ctrl/plate_type_mux000046)
+     LUT4:I0->O            1   0.551   0.000  elevator_ctrl/plate_type_mux000050 (elevator_ctrl/plate_type_mux0000)
+     LD:D                      0.203          elevator_ctrl/plate_type
+    ----------------------------------------
+    Total                      4.551ns (1.938ns logic, 2.613ns route)
+                                       (42.6% logic, 57.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clock'
+  Total number of paths / destination ports: 120 / 48
+-------------------------------------------------------------------------
+Offset:              9.218ns (Levels of Logic = 3)
+  Source:            reset (PAD)
+  Destination:       ORDERS/orders_3_1 (FF)
+  Destination Clock: clock rising
+
+  Data Path: reset to ORDERS/orders_3_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           692   0.821   4.560  reset_IBUF (reset_IBUF)
+     LUT4:I3->O            4   0.551   1.256  ORDERS/license_plates_0_and000031 (ORDERS/license_plates_0_and0000_bdd2)
+     LUT3:I0->O            2   0.551   0.877  ORDERS/license_plates_3_and000011 (ORDERS/license_plates_3_and0000)
+     FDE:CE                    0.602          ORDERS/orders_3_0
+    ----------------------------------------
+    Total                      9.218ns (2.525ns logic, 6.693ns route)
+                                       (27.4% logic, 72.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'ORDERS/in_mode_internal'
+  Total number of paths / destination ports: 2304 / 2
+-------------------------------------------------------------------------
+Offset:              19.559ns (Levels of Logic = 15)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       target_flr/target_place (LATCH)
+  Destination Clock: ORDERS/in_mode_internal falling
+
+  Data Path: leakage_floor<0> to target_flr/target_place
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            18   0.821   1.756  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT3:I0->O            3   0.551   1.246  empty_sedan_and00071 (empty_sedan_and0007)
+     LUT4:I0->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>111 (Madd_empty_sedan_addsub0003_xor<0>11)
+     MUXF5:I1->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.256  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I0->O            1   0.551   0.827  target_flr/target_place_mux000058_SW0 (N311)
+     LUT4:I3->O            1   0.551   0.869  target_flr/target_place_mux000058 (target_flr/target_place_mux000058)
+     LUT3:I2->O            1   0.551   0.000  target_flr/target_place_mux0000108_F (N435)
+     MUXF5:I0->O           1   0.360   0.869  target_flr/target_place_mux0000108 (target_flr/target_place_mux0000108)
+     LUT3:I2->O            2   0.551   0.000  target_flr/target_place_mux0000177 (target_flr/target_place_mux0000)
+     LDCP:D                    0.203          target_flr/target_place
+    ----------------------------------------
+    Total                     19.559ns (7.956ns logic, 11.603ns route)
+                                       (40.7% logic, 59.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/moving_not0001'
+  Total number of paths / destination ports: 688992 / 16
+-------------------------------------------------------------------------
+Offset:              29.360ns (Levels of Logic = 22)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       elevator_ctrl/moving_9 (LATCH)
+  Destination Clock: elevator_ctrl/moving_not0001 falling
+
+  Data Path: leakage_floor<0> to elevator_ctrl/moving_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            18   0.821   1.756  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT3:I0->O            3   0.551   1.246  empty_sedan_and00071 (empty_sedan_and0007)
+     LUT4:I0->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>111 (Madd_empty_sedan_addsub0003_xor<0>11)
+     MUXF5:I1->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   2.025  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     LUT4:I1->O           16   0.551   1.263  elevator_ctrl/moving_cmp_eq00141 (elevator_ctrl/moving_cmp_eq0014)
+     LUT4:I3->O            1   0.551   0.869  elevator_ctrl/moving_mux0000<9>49 (elevator_ctrl/moving_mux0000<9>49)
+     LUT4:I2->O            1   0.551   0.869  elevator_ctrl/moving_mux0000<9>68 (elevator_ctrl/moving_mux0000<9>68)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/moving_mux0000<9>90 (elevator_ctrl/moving_mux0000<9>)
+     LD:D                      0.203          elevator_ctrl/moving_9
+    ----------------------------------------
+    Total                     29.360ns (11.431ns logic, 17.929ns route)
+                                       (38.9% logic, 61.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/newly_parked_license_plate_not00011'
+  Total number of paths / destination ports: 91035 / 20
+-------------------------------------------------------------------------
+Offset:              29.502ns (Levels of Logic = 22)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       elevator_ctrl/newly_parked_spot_3 (LATCH)
+  Destination Clock: elevator_ctrl/newly_parked_license_plate_not00011 falling
+
+  Data Path: leakage_floor<0> to elevator_ctrl/newly_parked_spot_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            18   0.821   1.756  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT3:I0->O            3   0.551   1.246  empty_sedan_and00071 (empty_sedan_and0007)
+     LUT4:I0->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>111 (Madd_empty_sedan_addsub0003_xor<0>11)
+     MUXF5:I1->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT3:I1->O            1   0.551   0.869  target_flr/target_floor<2>254_SW0 (N26)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/moving_cmp_eq00033_SW0_F (N411)
+     MUXF5:I0->O           2   0.360   0.903  elevator_ctrl/moving_cmp_eq00033_SW0 (N18)
+     LUT4:I3->O           48   0.551   2.284  elevator_ctrl/moving_cmp_eq00033 (elevator_ctrl/moving_cmp_eq0003)
+     LUT4:I0->O            4   0.551   1.112  elevator_ctrl/newly_parked_spot_0_mux000021 (elevator_ctrl/N82)
+     LUT2:I1->O            1   0.551   0.000  elevator_ctrl/newly_parked_spot_3_mux00001 (elevator_ctrl/newly_parked_spot_3_mux0000)
+     LD:D                      0.203          elevator_ctrl/newly_parked_spot_3
+    ----------------------------------------
+    Total                     29.502ns (11.431ns logic, 18.071ns route)
+                                       (38.7% logic, 61.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/next_state_not0001'
+  Total number of paths / destination ports: 39045 / 3
+-------------------------------------------------------------------------
+Offset:              29.784ns (Levels of Logic = 24)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       elevator_ctrl/next_state_2 (LATCH)
+  Destination Clock: elevator_ctrl/next_state_not0001 falling
+
+  Data Path: leakage_floor<0> to elevator_ctrl/next_state_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            18   0.821   1.756  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT3:I0->O            3   0.551   1.246  empty_sedan_and00071 (empty_sedan_and0007)
+     LUT4:I0->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>111 (Madd_empty_sedan_addsub0003_xor<0>11)
+     MUXF5:I1->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT3:I1->O            1   0.551   0.869  target_flr/target_floor<2>254_SW0 (N26)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/moving_cmp_eq00033_SW0_F (N411)
+     MUXF5:I0->O           2   0.360   0.903  elevator_ctrl/moving_cmp_eq00033_SW0 (N18)
+     LUT4:I3->O           48   0.551   2.013  elevator_ctrl/moving_cmp_eq00033 (elevator_ctrl/moving_cmp_eq0003)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/next_state_mux0000<2>85_SW01 (elevator_ctrl/next_state_mux0000<2>85_SW0)
+     MUXF5:I1->O           2   0.360   0.945  elevator_ctrl/next_state_mux0000<2>85_SW0_f5 (N341)
+     LUT4:I2->O            1   0.551   0.000  elevator_ctrl/next_state_mux0000<2>85_F (N441)
+     MUXF5:I0->O           3   0.360   0.000  elevator_ctrl/next_state_mux0000<2>85 (elevator_ctrl/next_state_mux0000<2>)
+     LDCP:D                    0.203          elevator_ctrl/next_state_2
+    ----------------------------------------
+    Total                     29.784ns (12.151ns logic, 17.633ns route)
+                                       (40.8% logic, 59.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/newly_parked_cmp_eq0002'
+  Total number of paths / destination ports: 60690 / 3
+-------------------------------------------------------------------------
+Offset:              31.242ns (Levels of Logic = 24)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       elevator_ctrl/next_floor_0 (LATCH)
+  Destination Clock: elevator_ctrl/newly_parked_cmp_eq0002 falling
+
+  Data Path: leakage_floor<0> to elevator_ctrl/next_floor_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            18   0.821   1.756  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT3:I0->O            3   0.551   1.246  empty_sedan_and00071 (empty_sedan_and0007)
+     LUT4:I0->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>111 (Madd_empty_sedan_addsub0003_xor<0>11)
+     MUXF5:I1->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT3:I1->O            1   0.551   0.869  target_flr/target_floor<2>254_SW0 (N26)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/moving_cmp_eq00033_SW0_F (N411)
+     MUXF5:I0->O           2   0.360   0.903  elevator_ctrl/moving_cmp_eq00033_SW0 (N18)
+     LUT4:I3->O           48   0.551   2.140  elevator_ctrl/moving_cmp_eq00033 (elevator_ctrl/moving_cmp_eq0003)
+     LUT4:I1->O            1   0.551   1.140  elevator_ctrl/next_floor_mux0000<0>5 (elevator_ctrl/next_floor_mux0000<0>5)
+     LUT3:I0->O            1   0.551   0.000  elevator_ctrl/next_floor_mux0000<0>961 (elevator_ctrl/next_floor_mux0000<0>961)
+     MUXF5:I1->O           2   0.360   0.945  elevator_ctrl/next_floor_mux0000<0>96_f5 (elevator_ctrl/next_floor_mux0000<0>96)
+     LUT3:I2->O            2   0.551   0.000  elevator_ctrl/next_floor_mux0000<0>124 (elevator_ctrl/next_floor_mux0000<0>)
+     LDCP:D                    0.203          elevator_ctrl/next_floor_0
+    ----------------------------------------
+    Total                     31.242ns (12.342ns logic, 18.900ns route)
+                                       (39.5% logic, 60.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/current_work_done_not0002'
+  Total number of paths / destination ports: 4335 / 1
+-------------------------------------------------------------------------
+Offset:              27.695ns (Levels of Logic = 21)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       elevator_ctrl/current_work_done (LATCH)
+  Destination Clock: elevator_ctrl/current_work_done_not0002 falling
+
+  Data Path: leakage_floor<0> to elevator_ctrl/current_work_done
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            18   0.821   1.756  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT3:I0->O            3   0.551   1.246  empty_sedan_and00071 (empty_sedan_and0007)
+     LUT4:I0->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>111 (Madd_empty_sedan_addsub0003_xor<0>11)
+     MUXF5:I1->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT3:I1->O            1   0.551   0.869  target_flr/target_floor<2>254_SW0 (N26)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/moving_cmp_eq00033_SW0_F (N411)
+     MUXF5:I0->O           2   0.360   0.903  elevator_ctrl/moving_cmp_eq00033_SW0 (N18)
+     LUT4:I3->O           48   0.551   2.140  elevator_ctrl/moving_cmp_eq00033 (elevator_ctrl/moving_cmp_eq0003)
+     LUT4:I1->O            3   0.551   0.000  elevator_ctrl/current_work_done_mux0000 (elevator_ctrl/current_work_done_mux0000)
+     LDCP:D                    0.203          elevator_ctrl/current_work_done
+    ----------------------------------------
+    Total                     27.695ns (10.880ns logic, 16.815ns route)
+                                       (39.3% logic, 60.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/newly_parked_not0001'
+  Total number of paths / destination ports: 4335 / 1
+-------------------------------------------------------------------------
+Offset:              27.695ns (Levels of Logic = 21)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       elevator_ctrl/newly_parked (LATCH)
+  Destination Clock: elevator_ctrl/newly_parked_not0001 falling
+
+  Data Path: leakage_floor<0> to elevator_ctrl/newly_parked
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            18   0.821   1.756  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT3:I0->O            3   0.551   1.246  empty_sedan_and00071 (empty_sedan_and0007)
+     LUT4:I0->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>111 (Madd_empty_sedan_addsub0003_xor<0>11)
+     MUXF5:I1->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT3:I1->O            1   0.551   0.869  target_flr/target_floor<2>254_SW0 (N26)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/moving_cmp_eq00033_SW0_F (N411)
+     MUXF5:I0->O           2   0.360   0.903  elevator_ctrl/moving_cmp_eq00033_SW0 (N18)
+     LUT4:I3->O           48   0.551   2.140  elevator_ctrl/moving_cmp_eq00033 (elevator_ctrl/moving_cmp_eq0003)
+     LUT3:I1->O            1   0.551   0.000  elevator_ctrl/newly_parked_mux00001 (elevator_ctrl/newly_parked_mux0000)
+     LD:D                      0.203          elevator_ctrl/newly_parked
+    ----------------------------------------
+    Total                     27.695ns (10.880ns logic, 16.815ns route)
+                                       (39.3% logic, 60.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/car_out_ready_not0001'
+  Total number of paths / destination ports: 19073 / 1
+-------------------------------------------------------------------------
+Offset:              29.506ns (Levels of Logic = 23)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       elevator_ctrl/car_out_ready (LATCH)
+  Destination Clock: elevator_ctrl/car_out_ready_not0001 falling
+
+  Data Path: leakage_floor<0> to elevator_ctrl/car_out_ready
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            18   0.821   1.756  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT3:I0->O            3   0.551   1.246  empty_sedan_and00071 (empty_sedan_and0007)
+     LUT4:I0->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>111 (Madd_empty_sedan_addsub0003_xor<0>11)
+     MUXF5:I1->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     MUXF5:S->O            1   0.621   0.827  elevator_ctrl/car_out_ready_cmp_eq00003_SW0_f5 (N16)
+     LUT4:I3->O            2   0.551   0.945  elevator_ctrl/car_out_ready_cmp_eq00003 (elevator_ctrl/car_out_ready_cmp_eq0000)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/car_out_ready_mux0000120_SW0_F (N429)
+     MUXF5:I0->O           1   0.360   1.140  elevator_ctrl/car_out_ready_mux0000120_SW0 (N393)
+     LUT4:I0->O            1   0.551   0.000  elevator_ctrl/car_out_ready_mux0000120 (elevator_ctrl/car_out_ready_mux0000)
+     LD:D                      0.203          elevator_ctrl/car_out_ready
+    ----------------------------------------
+    Total                     29.506ns (11.861ns logic, 17.645ns route)
+                                       (40.2% logic, 59.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'elevator_ctrl/plate_type_not0001'
+  Total number of paths / destination ports: 8670 / 1
+-------------------------------------------------------------------------
+Offset:              29.358ns (Levels of Logic = 22)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       elevator_ctrl/plate_type (LATCH)
+  Destination Clock: elevator_ctrl/plate_type_not0001 falling
+
+  Data Path: leakage_floor<0> to elevator_ctrl/plate_type
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            18   0.821   1.756  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT3:I0->O            3   0.551   1.246  empty_sedan_and00071 (empty_sedan_and0007)
+     LUT4:I0->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>111 (Madd_empty_sedan_addsub0003_xor<0>11)
+     MUXF5:I1->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT3:I1->O            1   0.551   0.869  target_flr/target_floor<2>254_SW0 (N26)
+     LUT3:I2->O            1   0.551   0.000  elevator_ctrl/moving_cmp_eq00033_SW0_F (N411)
+     MUXF5:I0->O           2   0.360   0.903  elevator_ctrl/moving_cmp_eq00033_SW0 (N18)
+     LUT4:I3->O           48   0.551   2.140  elevator_ctrl/moving_cmp_eq00033 (elevator_ctrl/moving_cmp_eq0003)
+     LUT3:I1->O            4   0.551   1.112  elevator_ctrl/next_floor_mux0000<2>51 (elevator_ctrl/N31)
+     LUT4:I1->O            1   0.551   0.000  elevator_ctrl/plate_type_mux000050 (elevator_ctrl/plate_type_mux0000)
+     LD:D                      0.203          elevator_ctrl/plate_type
+    ----------------------------------------
+    Total                     29.358ns (11.431ns logic, 17.927ns route)
+                                       (38.9% logic, 61.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'elevator_ctrl/plate_type_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.411ns (Levels of Logic = 1)
+  Source:            elevator_ctrl/plate_type (LATCH)
+  Destination:       plate_type (PAD)
+  Source Clock:      elevator_ctrl/plate_type_not0001 falling
+
+  Data Path: elevator_ctrl/plate_type to plate_type
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q              10   0.633   1.134  elevator_ctrl/plate_type (elevator_ctrl/plate_type)
+     OBUF:I->O                 5.644          plate_type_OBUF (plate_type)
+    ----------------------------------------
+    Total                      7.411ns (6.277ns logic, 1.134ns route)
+                                       (84.7% logic, 15.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ORDERS/in_mode_internal'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            target_flr/target_place_1 (LATCH)
+  Destination:       target_place (PAD)
+  Source Clock:      ORDERS/in_mode_internal falling
+
+  Data Path: target_flr/target_place_1 to target_place
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCP:G->Q             1   0.633   0.801  target_flr/target_place_1 (target_flr/target_place_1)
+     OBUF:I->O                 5.644          target_place_OBUF (target_place)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_1_15_cmp_eq0000'
+  Total number of paths / destination ports: 1584 / 24
+-------------------------------------------------------------------------
+Offset:              25.022ns (Levels of Logic = 15)
+  Source:            parked_1_3 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_1_15_cmp_eq0000 falling
+
+  Data Path: parked_1_3 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             2   0.633   1.216  parked_1_3 (parked_1_3)
+     LUT4:I0->O            2   0.551   1.216  leak_empty_cmp_eq0006162 (leak_empty_cmp_eq0006162)
+     LUT4:I0->O            7   0.551   1.405  target_flr/and0000_cmp_eq000176 (target_flr/and0000_cmp_eq0001)
+     LUT3:I0->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     25.022ns (13.018ns logic, 12.004ns route)
+                                       (52.0% logic, 48.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_3_31_cmp_eq0000'
+  Total number of paths / destination ports: 1600 / 24
+-------------------------------------------------------------------------
+Offset:              24.803ns (Levels of Logic = 15)
+  Source:            parked_3_31 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_3_31_cmp_eq0000 falling
+
+  Data Path: parked_3_31 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             4   0.633   1.256  parked_3_31 (parked_3_31)
+     LUT4:I0->O            3   0.551   1.246  leak_empty_cmp_eq0004112 (leak_empty_cmp_eq0004112)
+     LUT4:I0->O            6   0.551   1.071  leak_empty_cmp_eq0004176 (empty_suv_cmp_eq0000)
+     LUT4:I2->O            7   0.551   1.261  target_flr/_and00021 (target_flr/_and0002)
+     LUT4:I1->O            1   0.551   0.000  target_flr/Mmux__COND_15_51 (target_flr/Mmux__COND_15_51)
+     MUXF5:I1->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     24.803ns (13.018ns logic, 11.785ns route)
+                                       (52.5% logic, 47.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_3_15_cmp_eq0000'
+  Total number of paths / destination ports: 1120 / 24
+-------------------------------------------------------------------------
+Offset:              25.480ns (Levels of Logic = 15)
+  Source:            parked_3_15 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_3_15_cmp_eq0000 falling
+
+  Data Path: parked_3_15 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             4   0.633   1.256  parked_3_15 (parked_3_15)
+     LUT4:I0->O            1   0.551   1.140  leak_empty_cmp_eq0004212 (leak_empty_cmp_eq0004212)
+     LUT4:I0->O           21   0.551   1.854  leak_empty_cmp_eq0004276 (_cmp_eq0002)
+     LUT4:I0->O            7   0.551   1.261  target_flr/_and00021 (target_flr/_and0002)
+     LUT4:I1->O            1   0.551   0.000  target_flr/Mmux__COND_15_51 (target_flr/Mmux__COND_15_51)
+     MUXF5:I1->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     25.480ns (13.018ns logic, 12.462ns route)
+                                       (51.1% logic, 48.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_5_15_cmp_eq0000'
+  Total number of paths / destination ports: 784 / 24
+-------------------------------------------------------------------------
+Offset:              24.908ns (Levels of Logic = 15)
+  Source:            parked_5_3 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_5_15_cmp_eq0000 falling
+
+  Data Path: parked_5_3 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             2   0.633   1.216  parked_5_3 (parked_5_3)
+     LUT4:I0->O            2   0.551   1.216  leak_empty_cmp_eq0002262 (leak_empty_cmp_eq0002262)
+     LUT4:I0->O            3   0.551   1.246  target_flr/and0004_cmp_eq000176 (target_flr/and0004_cmp_eq0001)
+     LUT4:I0->O            7   0.551   1.261  target_flr/_and00041 (target_flr/_and0004)
+     LUT4:I1->O            1   0.551   0.000  target_flr/Mmux__COND_15_5 (target_flr/Mmux__COND_15_5)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_3_f5 (target_flr/Mmux__COND_15_3_f5)
+     MUXF6:I1->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     24.908ns (13.018ns logic, 11.890ns route)
+                                       (52.3% logic, 47.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_5_31_cmp_eq0000'
+  Total number of paths / destination ports: 1008 / 24
+-------------------------------------------------------------------------
+Offset:              24.677ns (Levels of Logic = 15)
+  Source:            parked_5_19 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_5_31_cmp_eq0000 falling
+
+  Data Path: parked_5_19 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             2   0.633   1.216  parked_5_19 (parked_5_19)
+     LUT4:I0->O            3   0.551   1.246  leak_empty_cmp_eq0002162 (leak_empty_cmp_eq0002162)
+     LUT4:I0->O            4   0.551   0.985  target_flr/and0004_cmp_eq000076 (target_flr/and0004_cmp_eq0000)
+     LUT4:I2->O            7   0.551   1.261  target_flr/_and00041 (target_flr/_and0004)
+     LUT4:I1->O            1   0.551   0.000  target_flr/Mmux__COND_15_5 (target_flr/Mmux__COND_15_5)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_3_f5 (target_flr/Mmux__COND_15_3_f5)
+     MUXF6:I1->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     24.677ns (13.018ns logic, 11.659ns route)
+                                       (52.8% logic, 47.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_7_15_cmp_eq0000'
+  Total number of paths / destination ports: 624 / 24
+-------------------------------------------------------------------------
+Offset:              25.565ns (Levels of Logic = 15)
+  Source:            parked_7_15 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_7_15_cmp_eq0000 falling
+
+  Data Path: parked_7_15 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             4   0.633   1.256  parked_7_15 (parked_7_15)
+     LUT4:I0->O            1   0.551   1.140  leak_empty_cmp_eq0000212 (leak_empty_cmp_eq0000212)
+     LUT4:I0->O           22   0.551   1.939  leak_empty_cmp_eq0000276 (_cmp_eq0006)
+     LUT4:I0->O            7   0.551   1.261  target_flr/_and00061 (target_flr/_and0006)
+     LUT4:I1->O            1   0.551   0.000  target_flr/Mmux__COND_15_4 (target_flr/Mmux__COND_15_4)
+     MUXF5:I1->O           1   0.360   0.000  target_flr/Mmux__COND_15_3_f5 (target_flr/Mmux__COND_15_3_f5)
+     MUXF6:I1->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     25.565ns (13.018ns logic, 12.547ns route)
+                                       (50.9% logic, 49.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_7_31_cmp_eq0000'
+  Total number of paths / destination ports: 800 / 24
+-------------------------------------------------------------------------
+Offset:              24.681ns (Levels of Logic = 15)
+  Source:            parked_7_19 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_7_31_cmp_eq0000 falling
+
+  Data Path: parked_7_19 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             2   0.633   1.216  parked_7_19 (parked_7_19)
+     LUT4:I0->O            3   0.551   1.246  leak_empty_cmp_eq0000162 (leak_empty_cmp_eq0000162)
+     LUT4:I0->O            5   0.551   0.989  target_flr/and0006_cmp_eq000076 (target_flr/and0006_cmp_eq0000)
+     LUT4:I2->O            7   0.551   1.261  target_flr/_and00061 (target_flr/_and0006)
+     LUT4:I1->O            1   0.551   0.000  target_flr/Mmux__COND_15_4 (target_flr/Mmux__COND_15_4)
+     MUXF5:I1->O           1   0.360   0.000  target_flr/Mmux__COND_15_3_f5 (target_flr/Mmux__COND_15_3_f5)
+     MUXF6:I1->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     24.681ns (13.018ns logic, 11.663ns route)
+                                       (52.7% logic, 47.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clock'
+  Total number of paths / destination ports: 893 / 19
+-------------------------------------------------------------------------
+Offset:              22.453ns (Levels of Logic = 13)
+  Source:            elevator_ctrl/current_floor_1 (FF)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      clock rising
+
+  Data Path: elevator_ctrl/current_floor_1 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             41   0.720   2.244  elevator_ctrl/current_floor_1 (elevator_ctrl/current_floor_1)
+     LUT2:I0->O           14   0.551   1.255  target_flr/Mrom__old_visit_371 (target_flr/Mrom__old_visit_37)
+     LUT4:I2->O            1   0.551   0.000  target_flr/Mmux__COND_15_4 (target_flr/Mmux__COND_15_4)
+     MUXF5:I1->O           1   0.360   0.000  target_flr/Mmux__COND_15_3_f5 (target_flr/Mmux__COND_15_3_f5)
+     MUXF6:I1->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     22.453ns (12.003ns logic, 10.450ns route)
+                                       (53.5% logic, 46.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_4_31_cmp_eq0000'
+  Total number of paths / destination ports: 10384 / 23
+-------------------------------------------------------------------------
+Offset:              30.455ns (Levels of Logic = 19)
+  Source:            parked_4_16 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_4_31_cmp_eq0000 falling
+
+  Data Path: parked_4_16 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             2   0.633   1.216  parked_4_16 (parked_4_16)
+     LUT4:I0->O            2   0.551   1.216  target_flr/and0003_cmp_eq000012 (leak_empty_cmp_eq0003162)
+     LUT4:I0->O            7   0.551   1.261  target_flr/and0003_cmp_eq000076 (empty_sedan_cmp_eq0000)
+     LUT4:I1->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>111 (Madd_empty_sedan_addsub0003_xor<0>11)
+     MUXF5:I1->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     30.455ns (15.031ns logic, 15.424ns route)
+                                       (49.4% logic, 50.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_4_15_cmp_eq0000'
+  Total number of paths / destination ports: 6432 / 23
+-------------------------------------------------------------------------
+Offset:              30.343ns (Levels of Logic = 18)
+  Source:            parked_4_0 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_4_15_cmp_eq0000 falling
+
+  Data Path: parked_4_0 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             2   0.633   1.216  parked_4_0 (parked_4_0)
+     LUT4:I0->O            1   0.551   1.140  target_flr/and0003_cmp_eq000112 (leak_empty_cmp_eq0003262)
+     LUT4:I0->O           21   0.551   1.515  target_flr/and0003_cmp_eq000176 (_cmp_eq0003)
+     MUXF5:S->O            5   0.621   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     30.343ns (14.741ns logic, 15.602ns route)
+                                       (48.6% logic, 51.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_2_15_cmp_eq0000'
+  Total number of paths / destination ports: 10384 / 23
+-------------------------------------------------------------------------
+Offset:              31.282ns (Levels of Logic = 19)
+  Source:            parked_2_0 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_2_15_cmp_eq0000 falling
+
+  Data Path: parked_2_0 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             2   0.633   1.216  parked_2_0 (parked_2_0)
+     LUT4:I0->O            1   0.551   1.140  target_flr/and0001_cmp_eq000112 (leak_empty_cmp_eq0005162)
+     LUT4:I0->O           27   0.551   2.163  target_flr/and0001_cmp_eq000176 (_cmp_eq0001)
+     LUT4:I0->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>112 (Madd_empty_sedan_addsub0003_xor<0>111)
+     MUXF5:I0->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     31.282ns (15.031ns logic, 16.251ns route)
+                                       (48.1% logic, 51.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_6_15_cmp_eq0000'
+  Total number of paths / destination ports: 2512 / 23
+-------------------------------------------------------------------------
+Offset:              28.869ns (Levels of Logic = 17)
+  Source:            parked_6_0 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_6_15_cmp_eq0000 falling
+
+  Data Path: parked_6_0 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             2   0.633   1.216  parked_6_0 (parked_6_0)
+     LUT4:I0->O            1   0.551   1.140  target_flr/and0005_cmp_eq000112 (leak_empty_cmp_eq0001262)
+     LUT4:I0->O           22   0.551   1.795  target_flr/and0005_cmp_eq000176 (_cmp_eq0005)
+     LUT4:I1->O            3   0.551   1.102  empty_sedan_and00001 (empty_sedan_and0000)
+     LUT4:I1->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     28.869ns (14.120ns logic, 14.749ns route)
+                                       (48.9% logic, 51.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_6_31_cmp_eq0000'
+  Total number of paths / destination ports: 2512 / 23
+-------------------------------------------------------------------------
+Offset:              28.058ns (Levels of Logic = 17)
+  Source:            parked_6_28 (LATCH)
+  Destination:       target_floor<2> (PAD)
+  Source Clock:      parked_6_31_cmp_eq0000 falling
+
+  Data Path: parked_6_28 to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             3   0.633   1.246  parked_6_28 (parked_6_28)
+     LUT4:I0->O            3   0.551   1.246  target_flr/and0005_cmp_eq000062 (leak_empty_cmp_eq0001112)
+     LUT4:I0->O            3   0.551   0.975  leak_empty_cmp_eq0001176 (empty_sedan_cmp_eq0001)
+     LUT3:I2->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     28.058ns (14.120ns logic, 13.938ns route)
+                                       (50.3% logic, 49.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'elevator_ctrl/moving_not0001'
+  Total number of paths / destination ports: 64 / 19
+-------------------------------------------------------------------------
+Offset:              13.421ns (Levels of Logic = 4)
+  Source:            elevator_ctrl/moving_4 (LATCH)
+  Destination:       target_floor<1> (PAD)
+  Source Clock:      elevator_ctrl/moving_not0001 falling
+
+  Data Path: elevator_ctrl/moving_4 to target_floor<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               3   0.633   1.246  elevator_ctrl/moving_4 (elevator_ctrl/moving_4)
+     LUT4:I0->O            1   0.551   0.996  elevator_ctrl/moving_cmp_eq002125 (elevator_ctrl/moving_cmp_eq002125)
+     LUT4:I1->O           15   0.551   1.188  elevator_ctrl/moving_cmp_eq002176 (elevator_ctrl/moving_cmp_eq0021)
+     MUXF5:S->O           56   0.621   1.991  target_flr/target_floor<1>195 (target_floor_1_OBUF)
+     OBUF:I->O                 5.644          target_floor_1_OBUF (target_floor<1>)
+    ----------------------------------------
+    Total                     13.421ns (8.000ns logic, 5.421ns route)
+                                       (59.6% logic, 40.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'elevator_ctrl/car_out_ready_not0001'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              9.051ns (Levels of Logic = 2)
+  Source:            elevator_ctrl/car_out_ready (LATCH)
+  Destination:       fee<7> (PAD)
+  Source Clock:      elevator_ctrl/car_out_ready_not0001 falling
+
+  Data Path: elevator_ctrl/car_out_ready to fee<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               8   0.633   1.422  elevator_ctrl/car_out_ready (elevator_ctrl/car_out_ready)
+     LUT4:I0->O            1   0.551   0.801  fee<7>228 (fee_7_OBUF)
+     OBUF:I->O                 5.644          fee_7_OBUF (fee<7>)
+    ----------------------------------------
+    Total                      9.051ns (6.828ns logic, 2.223ns route)
+                                       (75.4% logic, 24.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'elevator_ctrl/newly_parked_license_plate_not00011'
+  Total number of paths / destination ports: 216 / 8
+-------------------------------------------------------------------------
+Offset:              14.939ns (Levels of Logic = 5)
+  Source:            elevator_ctrl/newly_parked_spot_0 (LATCH)
+  Destination:       fee<7> (PAD)
+  Source Clock:      elevator_ctrl/newly_parked_license_plate_not00011 falling
+
+  Data Path: elevator_ctrl/newly_parked_spot_0 to fee<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q              63   0.633   2.370  elevator_ctrl/newly_parked_spot_0 (elevator_ctrl/newly_parked_spot_0)
+     LUT2:I0->O            8   0.551   1.151  parked_1_31_or000111 (N21)
+     LUT4:I2->O            1   0.551   1.140  fee<7>39 (fee<7>39)
+     LUT4:I0->O            1   0.551   0.996  fee<7>70 (fee<7>70)
+     LUT4:I1->O            1   0.551   0.801  fee<7>228 (fee_7_OBUF)
+     OBUF:I->O                 5.644          fee_7_OBUF (fee<7>)
+    ----------------------------------------
+    Total                     14.939ns (8.481ns logic, 6.458ns route)
+                                       (56.8% logic, 43.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'parked_2_31_cmp_eq0000'
+  Total number of paths / destination ports: 32 / 17
+-------------------------------------------------------------------------
+Offset:              16.033ns (Levels of Logic = 8)
+  Source:            parked_2_16 (LATCH)
+  Destination:       target_floor<1> (PAD)
+  Source Clock:      parked_2_31_cmp_eq0000 falling
+
+  Data Path: parked_2_16 to target_floor<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             4   0.633   1.256  parked_2_16 (parked_2_16)
+     LUT4:I0->O            1   0.551   1.140  target_flr/and0001_cmp_eq000012 (target_flr/and0001_cmp_eq000012)
+     LUT4:I0->O            1   0.551   0.000  target_flr/target_floor<1>1411 (target_flr/target_floor<1>1411)
+     MUXF5:I1->O           1   0.360   0.869  target_flr/target_floor<1>141_f5 (target_flr/target_floor<1>141)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<1>169_F (N421)
+     MUXF5:I0->O           2   0.360   1.216  target_flr/target_floor<1>169 (target_flr/target_floor<1>169)
+     LUT4:I0->O            1   0.551   0.000  target_flr/target_floor<1>195_G (N424)
+     MUXF5:I1->O          56   0.360   1.991  target_flr/target_floor<1>195 (target_floor_1_OBUF)
+     OBUF:I->O                 5.644          target_floor_1_OBUF (target_floor<1>)
+    ----------------------------------------
+    Total                     16.033ns (9.561ns logic, 6.472ns route)
+                                       (59.6% logic, 40.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'elevator_ctrl/newly_parked'
+  Total number of paths / destination ports: 32 / 17
+-------------------------------------------------------------------------
+Offset:              17.755ns (Levels of Logic = 8)
+  Source:            parked_1_19 (LATCH)
+  Destination:       target_floor<0> (PAD)
+  Source Clock:      elevator_ctrl/newly_parked falling
+
+  Data Path: parked_1_19 to target_floor<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             3   0.633   1.246  parked_1_19 (parked_1_19)
+     LUT4:I0->O            1   0.551   1.140  parked_1_left_not000021 (parked_1_left_not000021)
+     LUT4:I0->O           17   0.551   1.540  target_flr/target_floor<0>212 (parked_1_left_not0000)
+     LUT2:I1->O            1   0.551   0.869  target_flr/target_floor<0>223 (target_flr/target_floor<0>223)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<0>281_F (N419)
+     MUXF5:I0->O           3   0.360   1.246  target_flr/target_floor<0>281 (target_flr/target_floor<0>281)
+     LUT4:I0->O            1   0.551   0.000  target_flr/target_floor<0>311_G (N426)
+     MUXF5:I1->O          51   0.360   1.962  target_flr/target_floor<0>311 (target_floor_0_OBUF)
+     OBUF:I->O                 5.644          target_floor_0_OBUF (target_floor<0>)
+    ----------------------------------------
+    Total                     17.755ns (9.752ns logic, 8.003ns route)
+                                       (54.9% logic, 45.1% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 4998 / 12
+-------------------------------------------------------------------------
+Delay:               29.401ns (Levels of Logic = 19)
+  Source:            leakage_floor<0> (PAD)
+  Destination:       target_floor<2> (PAD)
+
+  Data Path: leakage_floor<0> to target_floor<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            18   0.821   1.756  leakage_floor_0_IBUF (leakage_floor_0_IBUF)
+     LUT3:I0->O            3   0.551   1.246  empty_sedan_and00071 (empty_sedan_and0007)
+     LUT4:I0->O            1   0.551   0.000  Madd_empty_sedan_addsub0003_xor<0>111 (Madd_empty_sedan_addsub0003_xor<0>11)
+     MUXF5:I1->O           5   0.360   1.260  Madd_empty_sedan_addsub0003_xor<0>11_f5 (empty_sedan_addsub0001<0>)
+     LUT3:I0->O            3   0.551   0.975  Madd_empty_sedan_addsub0004_lut<0>1 (Madd_empty_sedan_addsub0004_lut<0>)
+     LUT4:I2->O           10   0.551   1.329  full_sedan1 (full_sedan_OBUF)
+     LUT3:I1->O            2   0.551   1.216  target_flr/_and00001 (target_flr/_and0000)
+     LUT4:I0->O            1   0.551   0.000  target_flr/Mmux__COND_15_6 (target_flr/Mmux__COND_15_6)
+     MUXF5:I0->O           1   0.360   0.000  target_flr/Mmux__COND_15_4_f5 (target_flr/Mmux__COND_15_4_f5)
+     MUXF6:I0->O           4   0.342   1.112  target_flr/Mmux__COND_15_2_f6 (target_flr/_COND_15)
+     LUT4:I1->O            2   0.551   1.072  target_flr/closest_floor_mux0000<19>11 (target_flr/N11)
+     LUT4:I1->O            1   0.551   0.869  target_flr/target_floor<2>161_SW0 (N323)
+     LUT4:I2->O            1   0.551   0.000  target_flr/target_floor<2>161_F (N439)
+     MUXF5:I0->O           1   0.360   0.996  target_flr/target_floor<2>161 (target_flr/target_floor<2>161)
+     LUT2:I1->O            1   0.551   0.000  target_flr/target_floor<2>2062 (target_flr/target_floor<2>2062)
+     MUXF5:I0->O           2   0.360   1.072  target_flr/target_floor<2>206_f5 (target_flr/target_floor<2>206)
+     LUT4:I1->O            1   0.551   0.000  target_flr/target_floor<2>254_F (N427)
+     MUXF5:I0->O          28   0.360   1.830  target_flr/target_floor<2>254 (target_floor_2_OBUF)
+     OBUF:I->O                 5.644          target_floor_2_OBUF (target_floor<2>)
+    ----------------------------------------
+    Total                     29.401ns (14.668ns logic, 14.733ns route)
+                                       (49.9% logic, 50.1% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 13.69 secs
  
 --> 
 
-Total memory usage is 4530884 kilobytes
 
-Number of errors   :    3 (   0 filtered)
-Number of warnings :  278 (   0 filtered)
-Number of infos    :   11 (   0 filtered)
+Total memory usage is 553344 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  312 (   0 filtered)
+Number of infos    :   12 (   0 filtered)
 
