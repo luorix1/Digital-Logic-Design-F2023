@@ -58,6 +58,12 @@ module parking_lot_top_tb (
 
 	reg [7:0] clk_cnt;
 	
+	wire in_mode_internal, out_mode_internal;
+	wire [15:0] license_plate_internal;
+	wire [2:0] curr_state_for_test;
+	wire [2:0] target_floor;
+	wire target_place;
+	
 		
 
 	parking_lot_top PARKING_LOT_TOP(
@@ -82,7 +88,13 @@ module parking_lot_top_tb (
         .empty_suv (empty_suv),
         .empty_sedan (empty_sedan),
         .full_suv (full_suv),
-        .full_sedan (full_sedan)
+        .full_sedan (full_sedan),
+		  .in_mode_internal(in_mode_internal),
+		  .out_mode_internal(out_mode_internal),
+		  .license_plate_internal(license_plate_internal),
+		  .curr_state_for_test(curr_state_for_test),
+		  .target_floor(target_floor),
+		  .target_place(target_place)
 		);
  
 	
@@ -186,7 +198,17 @@ module parking_lot_top_tb (
 		$display("reset : %b \n", reset);
 		$display("Parking fee : %d \n", fee);
 		$display("current plate type  :  %b \n", plate_type);
-		$display("moving  :  %d %d %d %d\n", moving[15:12], moving[11:8], moving[7:4], moving[3:0]);
+		$display("current in_mode  :  %b \n", in_mode);
+		$display("current out_mode  :  %b \n", out_mode);
+		$display("current license_plate  :  %d %d %d %d \n", license_plate[15:12], license_plate[11:8], license_plate[7:4], license_plate[3:0]);
+		$display("current in_mode_internal  :  %b \n", in_mode_internal);
+		$display("current out_mode_internal  :  %b \n", out_mode_internal);
+		
+		$display("current target_floor  :  %d \n", target_floor);
+		$display("current target_place  :  %b \n", target_place);
+		$display("current curr_state_for_test  :  %b %b %b\n", curr_state_for_test[2], curr_state_for_test[1], curr_state_for_test[0]);
+		$display("moving  :  %d %d %d %d\n", moving[15:12], moving[11:8], moving[7:4], moving[3:0]);		$display("current license_plate_internal  :  %d %d %d %d \n", license_plate_internal[15:12], license_plate_internal[11:8], license_plate_internal[7:4], license_plate_internal[3:0]);
+
 		$display("floor 7  : %b | %d %d %d %d | %d %d %d %d \n", (current_floor == 7)? 1'b1 : 1'b0, parked_7[31:28], parked_7[27:24], parked_7[23:20], parked_7[19:16], parked_7[15:12], parked_7[11:8], parked_7[7:4], parked_7[3:0]);
 		$display("floor 6  : %b | %d %d %d %d | %d %d %d %d \n", (current_floor == 6)? 1'b1 : 1'b0, parked_6[31:28], parked_6[27:24], parked_6[23:20], parked_6[19:16], parked_6[15:12], parked_6[11:8], parked_6[7:4], parked_6[3:0]);
 		$display("floor 5  : %b | %d %d %d %d | %d %d %d %d \n", (current_floor == 5)? 1'b1 : 1'b0, parked_5[31:28], parked_5[27:24], parked_5[23:20], parked_5[19:16], parked_5[15:12], parked_5[11:8], parked_5[7:4], parked_5[3:0]);

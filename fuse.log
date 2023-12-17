@@ -1,15 +1,13 @@
-Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.exe -prj /home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top_tb_beh.prj parking_lot_top_tb work.glbl 
-ISim P.20131013 (signature 0xfbc00daa)
-Number of CPUs detected in this system: 32
-Turning on mult-threading, number of parallel sub-compilation jobs: 64 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.exe -prj C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top_tb_beh.prj work.parking_lot_top_tb work.glbl 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 16
+Turning on mult-threading, number of parallel sub-compilation jobs: 32 
 Determining compilation order of HDL files
-Analyzing Verilog file "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.v" into library work
-Analyzing Verilog file "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top_tb.v" into library work
-Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Analyzing Verilog file "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top.v" into library work
+Analyzing Verilog file "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top_tb.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 82964 KB
-Fuse CPU Usage: 840 ms
 Compiling module parking_fee_calculator
 Compiling module target_floor
 Compiling module elevator_controller
@@ -18,9 +16,7 @@ Compiling module parking_lot_top
 Compiling module parking_lot_top_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
 Compiled 7 Verilog Units
-Built simulation executable /home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.exe
-Fuse Memory Usage: 4313904 KB
-Fuse CPU Usage: 910 ms
-GCC CPU Usage: 1240 ms
+Built simulation executable C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.exe
+Fuse Memory Usage: 31044 KB
+Fuse CPU Usage: 265 ms

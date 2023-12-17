@@ -259,6 +259,7 @@ module order_queue(
 
       else begin
 			if ((out_mode | in_mode)) begin
+				$display("Enqueue");
 				license_plates[rear] = license_plate;
             orders[rear] = {out_mode, in_mode};
             rear = rear + 1;
@@ -268,7 +269,8 @@ module order_queue(
          empty_reg = (front == rear);
          
 			if (ready && !empty_reg) begin
-				{in_mode_internal, out_mode_internal} = orders[front];
+				$display("Dequeue");
+				{out_mode_internal, in_mode_internal} = orders[front];
             order_license_plate = license_plates[front];
             front = front + 1;
          end
@@ -299,13 +301,15 @@ module elevator_controller(
 	 input target_place, // destination left or right? 0 -> left / 1 -> right
 	 
 	 // Outputs
+	 output reg current_work_done,
     output reg car_out_ready,
 	 output reg [2:0] current_floor,
     output reg [15:0] moving,
 	 output reg plate_type,
 	 output reg newly_parked,
 	 output reg [15:0] newly_parked_license_plate,
-	 output reg [3:0] newly_parked_spot // first 3 bits are floor, last 1 bit is spot
+	 output reg [3:0] newly_parked_spot, // first 3 bits are floor, last 1 bit is spot
+	 output [2:0] curr_state_for_test
 );
 	// States
 	reg [2:0] STATE_RESET = 3'b000;
@@ -317,19 +321,21 @@ module elevator_controller(
 
    reg [2:0] current_state, next_state;
 	 
+	assign curr_state_for_test = current_state;
 	reg [2:0] next_floor; // JYH: next floor elevator will go to
-
+	
    // State transition logic
    always @(posedge clock or posedge reset) begin
-		$display("Elevator module state transition");
+		if (current_state!=next_state) $display("Elevator module state transition");
 		if (reset) begin
 			current_state <= STATE_RESET;
-			current_floor = 0;
+			current_floor <= 0;
 			//moving = 0;
 			//plate_type = 0;
 		end
 		else begin
 			current_state <= next_state;
+			current_floor <= next_floor;
 		end
 	end
 
@@ -340,15 +346,18 @@ module elevator_controller(
 			//       Otherwise, stay in STATE_RESET
 			STATE_RESET: begin
 				moving = 0;
-				current_floor = 0;
+				//current_floor = 0;
 				newly_parked = 0;
 				car_out_ready = 1;
 				plate_type = 0;
+				current_work_done = 1;
 				next_state = in_mode ? STATE_CAR_REASSIGN : out_mode? STATE_CAR_OUT_SEARCH : STATE_RESET;
+				next_floor =0 ;
 			end
 					
 			// NOTE: STATE_CAR_IN
 			STATE_CAR_IN: begin
+				current_work_done = 0;
 				if (license_plate[0] != plate_type) begin
 					plate_type = ~plate_type;
 					next_floor = current_floor;
@@ -394,6 +403,7 @@ module elevator_controller(
 			// NOTE: STATE_CAR_OUT_SEARCH
 			// 		 In STATE_CAR_OUT_SEARCH, target_floor & target_place denote position of car to be removed from parking lot
 			STATE_CAR_OUT_SEARCH: begin //CJY: out_mode==1, moving==0
+				current_work_done = 0;
 				car_out_ready = 0;
 				if (current_floor == target_floor) begin
 					newly_parked = 1;
@@ -442,6 +452,7 @@ module elevator_controller(
 				
 			// NOTE: STATE_CAR_OUT_EXPORT
 			STATE_CAR_OUT_EXPORT: begin
+				current_work_done = 0;
 				newly_parked = 0;
 				if (current_floor == target_floor) begin  // target_floor = 0 for STATE_CAR_OUT_EXPORT
 					next_floor = current_floor;
@@ -486,6 +497,7 @@ module elevator_controller(
 
 			// NOTE: STATE_CAR_REASSIGN
 			STATE_CAR_REASSIGN: begin
+				current_work_done = 0;
 				newly_parked = 0;
 				car_out_ready = 0;
 				
@@ -510,6 +522,7 @@ module elevator_controller(
 			
 			// NOTE: STATE_NO_ORDER
 			STATE_NO_ORDER: begin
+				current_work_done = 0;
 				car_out_ready=1;
 				if(current_floor!=0) begin // Has already started returning to floor 0
 					next_floor = current_floor-1;
@@ -534,6 +547,7 @@ module elevator_controller(
 				
 			// NOTE: Default case to ensure combinational logic
 			default: begin
+				current_work_done = 0;
 				newly_parked = 0;
 				car_out_ready = 0;
 				next_state = STATE_RESET;
@@ -569,18 +583,25 @@ module parking_lot_top(
    output [3:0] empty_suv, // max value of empty_suv is 4'b0111
    output [3:0] empty_sedan, // max value of empty_sedan is 4'b0101
    output full_suv,
-   output full_sedan
+   output full_sedan,
+	output in_mode_internal, // JYH
+	output out_mode_internal, // JYH
+	output [15:0] license_plate_internal,
+	output [2:0] curr_state_for_test,
+	output [2:0] target_floor,
+	output target_place
 );
-	wire in_mode_internal; // JYH
-	wire out_mode_internal; // JYH
-	wire [15:0] license_plate_internal; // JYH 
+	//wire in_mode_internal; // JYH
+	//wire out_mode_internal; // JYH
+	//wire [15:0] license_plate_internal; // JYH 
 	 
 	// Custom variables
-	reg current_work_done; // current task complete
+	wire current_work_done; 
+	// current task complete
 	 
 	// JYH: Destination position
-	wire [2:0] target_floor;
-	wire target_place;
+	//wire [2:0] target_floor;
+	//wire target_place;
 	
 	// HJW: Wires for newly parked car info
 	wire newly_parked;
@@ -591,9 +612,9 @@ module parking_lot_top(
 	// Parking Fee wire -> 15:8 (left), 7:0 (right)
 	wire [15:0] parked_1_fee, parked_2_fee, parked_3_fee, parked_4_fee, parked_5_fee, parked_6_fee, parked_7_fee;
 	 
-	parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(parked_1[31:16]!=0), .fee(parked_1_fee[15:8])); // 장애인 자리라 사실 enable counting 꺼도 될려나1
-	parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(parked_2[31:16]!=0), .fee(parked_2_fee[15:8])); // 장애인 자리라 사실 enable counting 꺼도 될려나2
-	parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(parked_3[31:16]!=0), .fee(parked_3_fee[15:8])); // 별개로 이 짓이 가능한지는 몰?루...? .enable_counting(parked_2[31:16]==0) wire에 따로 assign을 하는게 나을라나... 
+	parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(parked_1[31:16]!=0), .fee(parked_1_fee[15:8])); // �애�리�실 enable counting 꺼도 �려
+	parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(parked_2[31:16]!=0), .fee(parked_2_fee[15:8])); // �애�리�실 enable counting 꺼도 �려
+	parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(parked_3[31:16]!=0), .fee(parked_3_fee[15:8])); // 별개�짓이 가�한지��..? .enable_counting(parked_2[31:16]==0) wire�로 assign�는겘을�나... 
 	parking_fee_calculator parked_4_left ( .clock(clock), .reset(reset), .license_plate(parked_4[31:16]), .enable_counting(parked_4[31:16]!=0), .fee(parked_4_fee[15:8])); 
 	parking_fee_calculator parked_5_left ( .clock(clock), .reset(reset), .license_plate(parked_5[31:16]), .enable_counting(parked_5[31:16]!=0), .fee(parked_5_fee[15:8])); 
 	parking_fee_calculator parked_6_left ( .clock(clock), .reset(reset), .license_plate(parked_6[31:16]), .enable_counting(parked_6[31:16]!=0), .fee(parked_6_fee[15:8])); 
@@ -678,12 +699,14 @@ module parking_lot_top(
       .current_floor(current_floor),
 		  
 		// Outputs
+		.current_work_done(current_work_done),
 		.car_out_ready(car_out_ready),
 		.moving(moving),
 		.plate_type(plate_type),
 		.newly_parked(newly_parked),
 		.newly_parked_license_plate(newly_parked_license_plate),
-		.newly_parked_spot(newly_parked_spot)
+		.newly_parked_spot(newly_parked_spot),
+		.curr_state_for_test(curr_state_for_test)
 	);
 	 
 	// JYH: RESET logic here

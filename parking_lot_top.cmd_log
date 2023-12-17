@@ -136,3 +136,9 @@ xst -intstyle ise -ifn "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_
 xst -intstyle ise -ifn "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.xst" -ofn "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.syr" 
 xst -intstyle ise -ifn "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.xst" -ofn "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.syr" 
 xst -intstyle ise -ifn "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.xst" -ofn "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.syr" 
+xst -intstyle ise -ifn "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top.xst" -ofn "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top.syr" 
+xst -intstyle ise -ifn "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top.xst" -ofn "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc tlc_top.ucf -p xc3s200-ft256-4 parking_lot_top.ngc parking_lot_top.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc tlc_top.ucf -p xc3s200-ft256-4 parking_lot_top.ngc parking_lot_top.ngd  
+xst -intstyle ise -ifn "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top.xst" -ofn "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top.syr" 
+xst -intstyle ise -ifn "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top.xst" -ofn "C:/Users/Xilinx_projects/Digital-Logic-Design-F2023/parking_lot_top.syr" 
