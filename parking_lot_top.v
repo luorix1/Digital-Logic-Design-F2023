@@ -780,10 +780,22 @@ module elevator_controller(
 			STATE_NO_ORDER: begin
 				//car_out_ready=1;
 				if(current_floor!=0) begin // Has already started returning to floor 0
-					next_floor = current_floor-1;
-					current_work_done = 1;
-					// NEW
-					next_state=(leakage & !leak_empty & plate_type == leakage_floor[0]) ? STATE_CAR_OUT_SEARCH : STATE_NO_ORDER;
+					if(in_mode) begin
+						next_floor = current_floor;
+						current_work_done = 0;
+						next_state=STATE_CAR_IN;
+					end
+					else if(out_mode) begin
+						next_floor=current_floor;
+						current_work_done = 0;
+						next_state = STATE_CAR_OUT_SEARCH;
+					end
+					else begin
+						next_floor = current_floor-1;
+						current_work_done = 1;
+						// NEW
+						next_state=(leakage & !leak_empty & plate_type == leakage_floor[0]) ? STATE_CAR_OUT_SEARCH : STATE_NO_ORDER;
+					end
 				end
 				
 				else if(in_mode) begin
