@@ -133,7 +133,7 @@ module parking_lot_top_tb (
 		leakage = 1'b0;
 		leakage_floor = 3'b000;
 				
-		# 40
+		# 10
 		license_plate = 16'b1000_0111_0101_0100; // 8754
 		in_mode = 1'b1;
 		out_mode = 1'b0;

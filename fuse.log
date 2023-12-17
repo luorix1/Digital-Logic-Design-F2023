@@ -9,7 +9,7 @@ Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into li
 Starting static elaboration
 Completed static elaboration
 Fuse Memory Usage: 83040 KB
-Fuse CPU Usage: 830 ms
+Fuse CPU Usage: 840 ms
 Compiling module parking_fee_calculator
 Compiling module target_floor
 Compiling module return_position
@@ -19,9 +19,8 @@ Compiling module parking_lot_top
 Compiling module parking_lot_top_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
 Compiled 8 Verilog Units
 Built simulation executable /home/luorix/Desktop/DLD/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.exe
 Fuse Memory Usage: 4315256 KB
-Fuse CPU Usage: 920 ms
-GCC CPU Usage: 1540 ms
+Fuse CPU Usage: 930 ms
+GCC CPU Usage: 1580 ms
