@@ -1,5 +1,5 @@
 ISim log file
-Running: /home/luorix/Desktop/DLD/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/luorix/Desktop/DLD/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.wdb 
+Running: /home/luorix/Desktop/DLD2/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/luorix/Desktop/DLD2/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.wdb 
 ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -280,6 +280,7 @@ floor 0  : 1
 
 
 Elevator module state transition 5 -> 1
+hi
  9  4  2  3 is onboard elevator. Current floor : 0
 
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
@@ -395,6 +396,7 @@ floor 0  : 0
 
 Elevator module same state 1 -> 1
 Dequeue zeros
+hi
 Elevator position: 1 --> 0
 
 
@@ -450,6 +452,8 @@ floor 0  : 1
 Elevator module same state 1 -> 1
 Enqueue
 Dequeue
+hi
+hi
  8  7  5  4 is onboard elevator. Current floor : 0
 
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
@@ -563,7 +567,7 @@ floor 0  : 0
 Elevator module same state 1 -> 1
  8  7  5  4 is getting out of elevator. Current floor : 2
 
-Parking fee =  16 cents
+Parking fee =   0 cents
 
 Elevator position: 1 --> 2
 
@@ -574,7 +578,7 @@ clock count :  10
 
 reset : 0 
 
-Parking fee :  16 
+Parking fee :   0 
 
 current plate type  :  0 
 
@@ -629,7 +633,7 @@ clock count :  11
 
 reset : 0 
 
-Parking fee :  16 
+Parking fee :   0 
 
 current plate type  :  0 
 
@@ -682,7 +686,7 @@ clock count :  12
 
 reset : 0 
 
-Parking fee :  16 
+Parking fee :   1 
 
 current plate type  :  0 
 
@@ -726,7 +730,6 @@ floor 0  : 0
 
 
 Elevator module state transition 1 -> 2
-hello1
  8  7  5  4 is onboard elevator. Current floor : 2
 
 
@@ -841,7 +844,7 @@ clock count :  15
 
 reset : 0 
 
-Parking fee :  20 
+Parking fee :   2 
 
 current plate type  :  0 
 
@@ -887,7 +890,7 @@ floor 0  : 0
 Elevator module same state 3 -> 3
  8  7  5  4 is getting out of elevator. Current floor : 0
 
-Parking fee =  22 cents
+Parking fee =   2 cents
 
 Elevator position: 1 --> 0
 
@@ -898,7 +901,7 @@ clock count :  16
 
 reset : 0 
 
-Parking fee :  22 
+Parking fee :   2 
 
 current plate type  :  0 
 
@@ -952,7 +955,7 @@ clock count :  17
 
 reset : 0 
 
-Parking fee :  24 
+Parking fee :   2 
 
 current plate type  :  0 
 
@@ -1005,7 +1008,7 @@ clock count :  18
 
 reset : 0 
 
-Parking fee :  26 
+Parking fee :   2 
 
 current plate type  :  0 
 
@@ -1058,7 +1061,7 @@ clock count :  19
 
 reset : 0 
 
-Parking fee :  28 
+Parking fee :   2 
 
 current plate type  :  0 
 
@@ -1111,7 +1114,7 @@ clock count :  20
 
 reset : 0 
 
-Parking fee :  30 
+Parking fee :   2 
 
 current plate type  :  0 
 
@@ -1155,4 +1158,5 @@ floor 0  : 1
 
 
 Elevator module same state 4 -> 4
-Stopped at time : 215 ns : File "/home/luorix/Desktop/DLD/Digital-Logic-Design-F2023/parking_lot_top_tb.v" Line 165
+Stopped at time : 215 ns : File "/home/luorix/Desktop/DLD2/Digital-Logic-Design-F2023/parking_lot_top_tb.v" Line 165
+# exit 0
