@@ -146,6 +146,13 @@ module parking_lot_top_tb (
 		out_mode = 1'b0;
 		leakage = 1'b0;
 		leakage_floor = 3'b000;
+		
+		# 50
+		license_plate = 16'b0000_0000_0000_0000; 
+		in_mode = 1'b0;
+		out_mode = 1'b0;
+		leakage = 1'b1;
+		leakage_floor = 3'b001;
 
 		# 70
 		license_plate = 16'b1000_0111_0101_0100; // 8754
@@ -203,6 +210,9 @@ module parking_lot_top_tb (
 		$display("current license_plate  :  %d %d %d %d \n", license_plate[15:12], license_plate[11:8], license_plate[7:4], license_plate[3:0]);
 		$display("current in_mode_internal  :  %b \n", in_mode_internal);
 		$display("current out_mode_internal  :  %b \n", out_mode_internal);
+		
+		$display("current leakage:  %b \n", leakage);
+		$display("current leakage_floor:  %b \n", leakage_floor);
 		
 		$display("current target_floor  :  %d \n", target_floor);
 		$display("current target_place  :  %b \n", target_place);

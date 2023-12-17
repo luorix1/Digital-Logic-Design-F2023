@@ -33,6 +33,10 @@ current in_mode_internal  :  x
 
 current out_mode_internal  :  x 
 
+current leakage:  x 
+
+current leakage_floor:  xxx 
+
 current target_floor  :  0 
 
 current target_place  :  x 
@@ -86,6 +90,10 @@ current license_plate  :   x  x  x  x
 current in_mode_internal  :  0 
 
 current out_mode_internal  :  0 
+
+current leakage:  x 
+
+current leakage_floor:  xxx 
 
 current target_floor  :  0 
 
@@ -141,6 +149,10 @@ current in_mode_internal  :  0
 
 current out_mode_internal  :  0 
 
+current leakage:  x 
+
+current leakage_floor:  xxx 
+
 current target_floor  :  0 
 
 current target_place  :  x 
@@ -194,6 +206,10 @@ current license_plate  :   x  x  x  x
 current in_mode_internal  :  0 
 
 current out_mode_internal  :  0 
+
+current leakage:  x 
+
+current leakage_floor:  xxx 
 
 current target_floor  :  0 
 
@@ -249,6 +265,10 @@ current in_mode_internal  :  0
 
 current out_mode_internal  :  0 
 
+current leakage:  x 
+
+current leakage_floor:  xxx 
+
 current target_floor  :  0 
 
 current target_place  :  x 
@@ -302,6 +322,10 @@ current license_plate  :   9  4  2  3
 current in_mode_internal  :  0 
 
 current out_mode_internal  :  0 
+
+current leakage:  0 
+
+current leakage_floor:  000 
 
 current target_floor  :  0 
 
@@ -358,6 +382,10 @@ current in_mode_internal  :  1
 
 current out_mode_internal  :  0 
 
+current leakage:  0 
+
+current leakage_floor:  000 
+
 current target_floor  :  0 
 
 current target_place  :  x 
@@ -412,6 +440,10 @@ current in_mode_internal  :  1
 
 current out_mode_internal  :  0 
 
+current leakage:  0 
+
+current leakage_floor:  000 
+
 current target_floor  :  0 
 
 current target_place  :  0 
@@ -444,8 +476,6 @@ floor 0  : 1
 This should happen!
 Elevator module state transition 5 -> 1
 Enqueue
-1st
-4th
  9  4  2  3 is onboard elevator. Current floor : 0
 
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
@@ -470,6 +500,10 @@ current license_plate  :   0  0  0  0
 current in_mode_internal  :  1 
 
 current out_mode_internal  :  0 
+
+current leakage:  0 
+
+current leakage_floor:  000 
 
 current target_floor  :  1 
 
@@ -502,8 +536,6 @@ floor 0  : 1
 
 This should happen!
 Elevator module same state 1 -> 1
-2nd
-3rd
  9  4  2  3 is getting out of elevator. Current floor : 1
 
 Parking fee =   0 cents
@@ -532,6 +564,10 @@ current license_plate  :   0  0  0  0
 current in_mode_internal  :  1 
 
 current out_mode_internal  :  0 
+
+current leakage:  0 
+
+current leakage_floor:  000 
 
 current target_floor  :  0 
 
@@ -565,8 +601,6 @@ floor 0  : 0
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 Dequeue
-3rd
-1st
 Elevator position: 1 --> 0
 
 
@@ -589,6 +623,10 @@ current license_plate  :   0  0  0  0
 current in_mode_internal  :  1 
 
 current out_mode_internal  :  0 
+
+current leakage:  0 
+
+current leakage_floor:  000 
 
 current target_floor  :  0 
 
@@ -621,8 +659,6 @@ floor 0  : 1
 
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
-1st
-4th
  8  7  5  4 is onboard elevator. Current floor : 0
 
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
@@ -647,6 +683,10 @@ current license_plate  :   0  0  0  0
 current in_mode_internal  :  1 
 
 current out_mode_internal  :  0 
+
+current leakage:  0 
+
+current leakage_floor:  000 
 
 current target_floor  :  2 
 
@@ -679,7 +719,6 @@ floor 0  : 1
 
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
-4th
 Elevator position: 0 --> 1
 
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 1
@@ -704,6 +743,10 @@ current license_plate  :   0  0  0  0
 current in_mode_internal  :  1 
 
 current out_mode_internal  :  0 
+
+current leakage:  0 
+
+current leakage_floor:  000 
 
 current target_floor  :  2 
 
@@ -737,13 +780,13 @@ floor 0  : 0
 FEE ACTUALLY INCREASED
 This should happen!
 Elevator module same state 1 -> 1
-2nd
-3rd
  8  7  5  4 is getting out of elevator. Current floor : 2
 
 Parking fee =   0 cents
 
 Elevator position: 1 --> 2
+
+Leakage at floor 1!
 
 
 -----------------
@@ -765,6 +808,10 @@ current license_plate  :   0  0  0  0
 current in_mode_internal  :  1 
 
 current out_mode_internal  :  0 
+
+current leakage:  1 
+
+current leakage_floor:  001 
 
 current target_floor  :  0 
 
@@ -799,9 +846,9 @@ FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 Dequeue zeros
-3rd
-3rd
 Elevator position: 2 --> 1
+
+Leakage at floor 1!
 
 
 -----------------
@@ -824,7 +871,11 @@ current in_mode_internal  :  0
 
 current out_mode_internal  :  0 
 
-current target_floor  :  0 
+current leakage:  1 
+
+current leakage_floor:  001 
+
+current target_floor  :  1 
 
 current target_place  :  0 
 
@@ -855,9 +906,10 @@ floor 0  : 0
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module state transition 1 -> 4
-Dequeue zeros
-Elevator position: 1 --> 0
+Elevator module state transition 1 -> 2
+ 9  4  2  3 is onboard elevator. Current floor : 1
+
+Leakage at floor 1!
 
 
 -----------------
@@ -872,21 +924,25 @@ current plate type  :  0
 
 current in_mode  :  0 
 
-current out_mode  :  1 
+current out_mode  :  0 
 
-current license_plate  :   8  7  5  4 
+current license_plate  :   0  0  0  0 
 
 current in_mode_internal  :  0 
 
 current out_mode_internal  :  0 
 
-current target_floor  :  0 
+current leakage:  1 
+
+current leakage_floor:  001 
+
+current target_floor  :  4 
 
 current target_place  :  0 
 
-current curr_state_for_test  :  1 0 0
+current curr_state_for_test  :  0 1 0
 
-moving  :   0  0  0  0
+moving  :   9  4  2  3
 
 current license_plate_internal  :   0  0  0  0 
 
@@ -902,18 +958,16 @@ floor 3  : 0 |  0  0  0  0 |  0  0  0  0
 
 floor 2  : 0 |  0  0  0  0 |  8  7  5  4 
 
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0 
+floor 1  : 1 |  0  0  0  0 |  0  0  0  0 
 
-floor 0  : 1 
+floor 0  : 0 
 
 ------------------------------------------
 
 
 FEE ACTUALLY INCREASED
-Elevator module same state 4 -> 4
-Enqueue
-Dequeue
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+Elevator module state transition 2 -> 3
+Leakage at floor 1!
 
 
 -----------------
@@ -934,7 +988,369 @@ current license_plate  :   0  0  0  0
 
 current in_mode_internal  :  0 
 
+current out_mode_internal  :  0 
+
+current leakage:  1 
+
+current leakage_floor:  001 
+
+current target_floor  :  3 
+
+current target_place  :  0 
+
+current curr_state_for_test  :  0 1 1
+
+moving  :   9  4  2  3
+
+current license_plate_internal  :   0  0  0  0 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 0 |  0  0  0  0 |  8  7  5  4 
+
+floor 1  : 1 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 0 
+
+------------------------------------------
+
+
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+Elevator position: 1 --> 2
+
+Leakage at floor 1!
+
+
+-----------------
+
+clock count :  17 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  0 
+
+current license_plate  :   0  0  0  0 
+
+current in_mode_internal  :  0 
+
+current out_mode_internal  :  0 
+
+current leakage:  1 
+
+current leakage_floor:  001 
+
+current target_floor  :  3 
+
+current target_place  :  0 
+
+current curr_state_for_test  :  0 1 1
+
+moving  :   9  4  2  3
+
+current license_plate_internal  :   0  0  0  0 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 1 |  0  0  0  0 |  8  7  5  4 
+
+floor 1  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 0 
+
+------------------------------------------
+
+
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+ 9  4  2  3 is getting out of elevator. Current floor : 3
+
+Parking fee =   0 cents
+
+Elevator position: 2 --> 3
+
+Leakage at floor 1!
+
+
+-----------------
+
+clock count :  18 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  0 
+
+current license_plate  :   0  0  0  0 
+
+current in_mode_internal  :  0 
+
+current out_mode_internal  :  0 
+
+current leakage:  1 
+
+current leakage_floor:  001 
+
+current target_floor  :  0 
+
+current target_place  :  0 
+
+current curr_state_for_test  :  0 1 1
+
+moving  :   0  0  0  0
+
+current license_plate_internal  :   0  0  0  0 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 1 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 0 |  0  0  0  0 |  8  7  5  4 
+
+floor 1  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 0 
+
+------------------------------------------
+
+
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+Elevator position: 3 --> 2
+
+Leakage at floor 1!
+
+
+-----------------
+
+clock count :  19 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  0 
+
+current license_plate  :   0  0  0  0 
+
+current in_mode_internal  :  0 
+
+current out_mode_internal  :  0 
+
+current leakage:  1 
+
+current leakage_floor:  001 
+
+current target_floor  :  0 
+
+current target_place  :  1 
+
+current curr_state_for_test  :  0 1 1
+
+moving  :   0  0  0  0
+
+current license_plate_internal  :   0  0  0  0 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 1 |  0  0  0  0 |  8  7  5  4 
+
+floor 1  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 0 
+
+------------------------------------------
+
+
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+Elevator position: 2 --> 1
+
+
+-----------------
+
+clock count :  20 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  1 
+
+current license_plate  :   8  7  5  4 
+
+current in_mode_internal  :  0 
+
+current out_mode_internal  :  0 
+
+current leakage:  0 
+
+current leakage_floor:  000 
+
+current target_floor  :  0 
+
+current target_place  :  0 
+
+current curr_state_for_test  :  0 1 1
+
+moving  :   0  0  0  0
+
+current license_plate_internal  :   0  0  0  0 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 0 |  0  0  0  0 |  8  7  5  4 
+
+floor 1  : 1 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 0 
+
+------------------------------------------
+
+
+Elevator module same state 3 -> 3
+Enqueue
+Elevator position: 1 --> 0
+
+
+-----------------
+
+clock count :  21 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  0 
+
+current license_plate  :   0  0  0  0 
+
+current in_mode_internal  :  0 
+
+current out_mode_internal  :  0 
+
+current leakage:  0 
+
+current leakage_floor:  000 
+
+current target_floor  :  0 
+
+current target_place  :  0 
+
+current curr_state_for_test  :  0 1 1
+
+moving  :   0  0  0  0
+
+current license_plate_internal  :   0  0  0  0 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 0 |  0  0  0  0 |  8  7  5  4 
+
+floor 1  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 1 
+
+------------------------------------------
+
+
+Elevator module state transition 3 -> 4
+Dequeue
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+
+-----------------
+
+clock count :  22 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  0 
+
+current license_plate  :   0  0  0  0 
+
+current in_mode_internal  :  0 
+
 current out_mode_internal  :  1 
+
+current leakage:  0 
+
+current leakage_floor:  000 
 
 current target_floor  :  0 
 
@@ -958,346 +1374,14 @@ floor 3  : 0 |  0  0  0  0 |  0  0  0  0
 
 floor 2  : 0 |  0  0  0  0 |  8  7  5  4 
 
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0 
+floor 1  : 0 |  0  0  0  0 |  0  0  0  0 
 
 floor 0  : 1 
 
 ------------------------------------------
 
 
-FEE ACTUALLY INCREASED
 Elevator module state transition 4 -> 2
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-
------------------
-
-clock count :  17 
-
-reset : 0 
-
-Parking fee :   0 
-
-current plate type  :  0 
-
-current in_mode  :  0 
-
-current out_mode  :  0 
-
-current license_plate  :   0  0  0  0 
-
-current in_mode_internal  :  0 
-
-current out_mode_internal  :  1 
-
-current target_floor  :  2 
-
-current target_place  :  1 
-
-current curr_state_for_test  :  0 1 0
-
-moving  :   0  0  0  0
-
-current license_plate_internal  :   8  7  5  4 
-
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 2  : 0 |  0  0  0  0 |  8  7  5  4 
-
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0 
-
-floor 0  : 1 
-
-------------------------------------------
-
-
-FEE ACTUALLY INCREASED
-Elevator module same state 2 -> 2
-Elevator position: 0 --> 1
-
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 1
-
-
------------------
-
-clock count :  18 
-
-reset : 0 
-
-Parking fee :   0 
-
-current plate type  :  0 
-
-current in_mode  :  0 
-
-current out_mode  :  0 
-
-current license_plate  :   0  0  0  0 
-
-current in_mode_internal  :  0 
-
-current out_mode_internal  :  1 
-
-current target_floor  :  2 
-
-current target_place  :  1 
-
-current curr_state_for_test  :  0 1 0
-
-moving  :   0  0  0  0
-
-current license_plate_internal  :   8  7  5  4 
-
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 2  : 0 |  0  0  0  0 |  8  7  5  4 
-
-floor 1  : 1 |  9  4  2  3 |  0  0  0  0 
-
-floor 0  : 0 
-
-------------------------------------------
-
-
-FEE ACTUALLY INCREASED
-Elevator module same state 2 -> 2
- 8  7  5  4 is onboard elevator. Current floor : 2
-
-Elevator position: 1 --> 2
-
-
------------------
-
-clock count :  19 
-
-reset : 0 
-
-Parking fee :   0 
-
-current plate type  :  0 
-
-current in_mode  :  0 
-
-current out_mode  :  0 
-
-current license_plate  :   0  0  0  0 
-
-current in_mode_internal  :  0 
-
-current out_mode_internal  :  1 
-
-current target_floor  :  0 
-
-current target_place  :  1 
-
-current curr_state_for_test  :  0 1 0
-
-moving  :   8  7  5  4
-
-current license_plate_internal  :   8  7  5  4 
-
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0 
-
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0 
-
-floor 0  : 0 
-
-------------------------------------------
-
-
-FEE ACTUALLY INCREASED
-Elevator module state transition 2 -> 3
-
------------------
-
-clock count :  20 
-
-reset : 0 
-
-Parking fee :   0 
-
-current plate type  :  0 
-
-current in_mode  :  0 
-
-current out_mode  :  0 
-
-current license_plate  :   0  0  0  0 
-
-current in_mode_internal  :  0 
-
-current out_mode_internal  :  1 
-
-current target_floor  :  0 
-
-current target_place  :  1 
-
-current curr_state_for_test  :  0 1 1
-
-moving  :   8  7  5  4
-
-current license_plate_internal  :   8  7  5  4 
-
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0 
-
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0 
-
-floor 0  : 0 
-
-------------------------------------------
-
-
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-Elevator position: 2 --> 1
-
-
------------------
-
-clock count :  21 
-
-reset : 0 
-
-Parking fee :   2 
-
-current plate type  :  0 
-
-current in_mode  :  0 
-
-current out_mode  :  0 
-
-current license_plate  :   0  0  0  0 
-
-current in_mode_internal  :  0 
-
-current out_mode_internal  :  1 
-
-current target_floor  :  0 
-
-current target_place  :  1 
-
-current curr_state_for_test  :  0 1 1
-
-moving  :   8  7  5  4
-
-current license_plate_internal  :   8  7  5  4 
-
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 1  : 1 |  9  4  2  3 |  0  0  0  0 
-
-floor 0  : 0 
-
-------------------------------------------
-
-
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
- 8  7  5  4 is getting out of elevator. Current floor : 0
-
-Parking fee =   2 cents
-
-Elevator position: 1 --> 0
-
-
------------------
-
-clock count :  22 
-
-reset : 0 
-
-Parking fee :   2 
-
-current plate type  :  0 
-
-current in_mode  :  0 
-
-current out_mode  :  0 
-
-current license_plate  :   0  0  0  0 
-
-current in_mode_internal  :  0 
-
-current out_mode_internal  :  1 
-
-current target_floor  :  0 
-
-current target_place  :  1 
-
-current curr_state_for_test  :  0 1 1
-
-moving  :   0  0  0  0
-
-current license_plate_internal  :   8  7  5  4 
-
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0 
-
-floor 0  : 1 
-
-------------------------------------------
-
-
-FEE ACTUALLY INCREASED
-Elevator module state transition 3 -> 2
-Dequeue zeros
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 
@@ -1319,7 +1403,360 @@ current license_plate  :   0  0  0  0
 
 current in_mode_internal  :  0 
 
+current out_mode_internal  :  1 
+
+current leakage:  0 
+
+current leakage_floor:  000 
+
+current target_floor  :  2 
+
+current target_place  :  1 
+
+current curr_state_for_test  :  0 1 0
+
+moving  :   0  0  0  0
+
+current license_plate_internal  :   8  7  5  4 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 0 |  0  0  0  0 |  8  7  5  4 
+
+floor 1  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 1 
+
+------------------------------------------
+
+
+Elevator module same state 2 -> 2
+Elevator position: 0 --> 1
+
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 1
+
+
+-----------------
+
+clock count :  24 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  0 
+
+current license_plate  :   0  0  0  0 
+
+current in_mode_internal  :  0 
+
+current out_mode_internal  :  1 
+
+current leakage:  0 
+
+current leakage_floor:  000 
+
+current target_floor  :  2 
+
+current target_place  :  1 
+
+current curr_state_for_test  :  0 1 0
+
+moving  :   0  0  0  0
+
+current license_plate_internal  :   8  7  5  4 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 0 |  0  0  0  0 |  8  7  5  4 
+
+floor 1  : 1 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 0 
+
+------------------------------------------
+
+
+Elevator module same state 2 -> 2
+ 8  7  5  4 is onboard elevator. Current floor : 2
+
+Elevator position: 1 --> 2
+
+
+-----------------
+
+clock count :  25 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  0 
+
+current license_plate  :   0  0  0  0 
+
+current in_mode_internal  :  0 
+
+current out_mode_internal  :  1 
+
+current leakage:  0 
+
+current leakage_floor:  000 
+
+current target_floor  :  0 
+
+current target_place  :  1 
+
+current curr_state_for_test  :  0 1 0
+
+moving  :   8  7  5  4
+
+current license_plate_internal  :   8  7  5  4 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 1 |  0  0  0  0 |  0  0  0  0 
+
+floor 1  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 0 
+
+------------------------------------------
+
+
+Elevator module state transition 2 -> 3
+
+-----------------
+
+clock count :  26 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  0 
+
+current license_plate  :   0  0  0  0 
+
+current in_mode_internal  :  0 
+
+current out_mode_internal  :  1 
+
+current leakage:  0 
+
+current leakage_floor:  000 
+
+current target_floor  :  0 
+
+current target_place  :  1 
+
+current curr_state_for_test  :  0 1 1
+
+moving  :   8  7  5  4
+
+current license_plate_internal  :   8  7  5  4 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 1 |  0  0  0  0 |  0  0  0  0 
+
+floor 1  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 0 
+
+------------------------------------------
+
+
+Elevator module same state 3 -> 3
+Elevator position: 2 --> 1
+
+
+-----------------
+
+clock count :  27 
+
+reset : 0 
+
+Parking fee :   7 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  0 
+
+current license_plate  :   0  0  0  0 
+
+current in_mode_internal  :  0 
+
+current out_mode_internal  :  1 
+
+current leakage:  0 
+
+current leakage_floor:  000 
+
+current target_floor  :  0 
+
+current target_place  :  1 
+
+current curr_state_for_test  :  0 1 1
+
+moving  :   8  7  5  4
+
+current license_plate_internal  :   8  7  5  4 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 1  : 1 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 0 
+
+------------------------------------------
+
+
+Elevator module same state 3 -> 3
+ 8  7  5  4 is getting out of elevator. Current floor : 0
+
+Parking fee =   7 cents
+
+Elevator position: 1 --> 0
+
+
+-----------------
+
+clock count :  28 
+
+reset : 0 
+
+Parking fee :   7 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  0 
+
+current license_plate  :   0  0  0  0 
+
+current in_mode_internal  :  0 
+
+current out_mode_internal  :  1 
+
+current leakage:  0 
+
+current leakage_floor:  000 
+
+current target_floor  :  0 
+
+current target_place  :  1 
+
+current curr_state_for_test  :  0 1 1
+
+moving  :   0  0  0  0
+
+current license_plate_internal  :   8  7  5  4 
+
+floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 2  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 1  : 0 |  0  0  0  0 |  0  0  0  0 
+
+floor 0  : 1 
+
+------------------------------------------
+
+
+Elevator module state transition 3 -> 2
+Dequeue zeros
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+
+-----------------
+
+clock count :  29 
+
+reset : 0 
+
+Parking fee :   0 
+
+current plate type  :  0 
+
+current in_mode  :  0 
+
+current out_mode  :  0 
+
+current license_plate  :   0  0  0  0 
+
+current in_mode_internal  :  0 
+
 current out_mode_internal  :  0 
+
+current leakage:  0 
+
+current leakage_floor:  000 
 
 current target_floor  :  0 
 
@@ -1343,21 +1780,20 @@ floor 3  : 0 |  0  0  0  0 |  0  0  0  0
 
 floor 2  : 0 |  0  0  0  0 |  0  0  0  0 
 
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0 
+floor 1  : 0 |  0  0  0  0 |  0  0  0  0 
 
 floor 0  : 1 
 
 ------------------------------------------
 
 
-FEE ACTUALLY INCREASED
 Elevator module state transition 2 -> 4
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 
 -----------------
 
-clock count :  24 
+clock count :  30 
 
 reset : 0 
 
@@ -1374,6 +1810,10 @@ current license_plate  :   0  0  0  0
 current in_mode_internal  :  0 
 
 current out_mode_internal  :  0 
+
+current leakage:  0 
+
+current leakage_floor:  000 
 
 current target_floor  :  0 
 
@@ -1397,70 +1837,13 @@ floor 3  : 0 |  0  0  0  0 |  0  0  0  0
 
 floor 2  : 0 |  0  0  0  0 |  0  0  0  0 
 
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0 
+floor 1  : 0 |  0  0  0  0 |  0  0  0  0 
 
 floor 0  : 1 
 
 ------------------------------------------
 
 
-FEE ACTUALLY INCREASED
 Elevator module same state 4 -> 4
 Dequeue zeros
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-
------------------
-
-clock count :  25 
-
-reset : 0 
-
-Parking fee :   0 
-
-current plate type  :  0 
-
-current in_mode  :  0 
-
-current out_mode  :  0 
-
-current license_plate  :   0  0  0  0 
-
-current in_mode_internal  :  0 
-
-current out_mode_internal  :  0 
-
-current target_floor  :  0 
-
-current target_place  :  1 
-
-current curr_state_for_test  :  1 0 0
-
-moving  :   0  0  0  0
-
-current license_plate_internal  :   0  0  0  0 
-
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0 
-
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0 
-
-floor 0  : 1 
-
-------------------------------------------
-
-
-FEE ACTUALLY INCREASED
-Elevator module same state 4 -> 4
-Dequeue zeros
-Stopped at time : 265 ns : File "/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top_tb.v" Line 165
-# exit 0
+Stopped at time : 315 ns : File "/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top_tb.v" Line 172

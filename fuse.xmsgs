@@ -5,5 +5,32 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top.v" Line 178: Syntax error near &quot;<arg fmt="%s" index="1">=</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top.v" Line 188: Syntax error near &quot;<arg fmt="%s" index="1">=</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top.v" Line 198: Syntax error near &quot;<arg fmt="%s" index="1">=</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top.v" Line 208: Syntax error near &quot;<arg fmt="%s" index="1">=</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top.v" Line 213: Syntax error near &quot;<arg fmt="%s" index="1">=</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="598" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top.v" Line 124: Module &lt;<arg fmt="%s" index="1">target_floor</arg>&gt; ignored due to previous errors.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="598" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top.v" Line 463: Module &lt;<arg fmt="%s" index="1">order_queue</arg>&gt; ignored due to previous errors.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="598" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top.v" Line 524: Module &lt;<arg fmt="%s" index="1">elevator_controller</arg>&gt; ignored due to previous errors.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="598" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-main/parking_lot_top.v" Line 937: Module &lt;<arg fmt="%s" index="1">parking_lot_top</arg>&gt; ignored due to previous errors.
+</msg>
+
 </messages>
 

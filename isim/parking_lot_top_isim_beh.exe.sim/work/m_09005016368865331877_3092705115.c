@@ -4534,6 +4534,6 @@ LAB538:    xsi_set_current_line(732, ng0);
 extern void work_m_09005016368865331877_3092705115_init()
 {
 	static char *pe[] = {(void *)Cont_465_0,(void *)Always_469_1,(void *)Always_487_2};
-	xsi_register_didat("work_m_09005016368865331877_3092705115", "isim/parking_lot_top_tb_isim_beh.exe.sim/work/m_09005016368865331877_3092705115.didat");
+	xsi_register_didat("work_m_09005016368865331877_3092705115", "isim/parking_lot_top_isim_beh.exe.sim/work/m_09005016368865331877_3092705115.didat");
 	xsi_register_executes(pe);
 }
