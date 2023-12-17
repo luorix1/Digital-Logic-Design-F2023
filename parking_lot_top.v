@@ -502,6 +502,7 @@ module elevator_controller(
 			// NOTE: STATE_CAR_IN
 			STATE_CAR_IN: begin
 				if (current_floor == 0 & moving[15:0] == 0) begin
+					$display("1st");
 					if (license_plate == 0) begin
 						current_work_done = 1;
 					end
@@ -517,12 +518,12 @@ module elevator_controller(
 						else current_work_done = 1;
 						moving = license_plate;
 					end
-					
 					next_state = STATE_CAR_IN;
 					next_floor = current_floor;
 				end
 				
-				else if (current_floor == target_floor) begin 
+				else if (current_floor == target_floor) begin
+					$display("2nd");
 					// Designated parking spot now contains car
 					if (moving != 0) begin
 						newly_parked = 1; // only allowed to be TRUE in this case!
@@ -530,26 +531,32 @@ module elevator_controller(
 						newly_parked_spot[3:1] = target_floor;
 						newly_parked_spot[0] = target_place;
 						current_work_done = 1;
+						
+						moving[15:0] = 0; // car has left elevator (now parked)
+						next_state = (leakage && !leak_empty) | out_mode ? STATE_CAR_OUT_SEARCH : STATE_NO_ORDER;
 					end
-
+					
 					else begin
 						newly_parked = 0;
 						current_work_done = 0;
+						
+						moving = license_plate;
+						next_state = STATE_CAR_IN;
 					end
 					
-					moving[15:0] = 0; // car has left elevator (now parked)
-					next_state = (leakage && !leak_empty) | out_mode ? STATE_CAR_OUT_SEARCH : STATE_NO_ORDER; // CJY: next_state = (if leak&not empty - OUT_SEARCH. if out_mode - OUT_SEARCH, if in_mode - IN, else - NO_ORDER
 					next_floor = current_floor;
 					//current_work_done = 1;
 				end
 				
 				else if (current_floor > target_floor) begin
+					$display("3rd");
 					newly_parked = 0;
 					next_floor = current_floor - 1; // current floor > target floor
 					next_state = (in_mode | out_mode) ? STATE_CAR_IN : STATE_NO_ORDER;
 				end
 
 				else begin
+						$display("4th");
 					newly_parked = 0;
 					next_floor = current_floor + 1; // current floor < target floor
 					if (next_floor == target_floor) begin

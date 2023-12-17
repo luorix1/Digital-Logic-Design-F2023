@@ -147,3 +147,4 @@ ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc tlc_top.ucf -p xc3s200-ft256-4
 ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s200-ft256-4 parking_lot_top.ngc parking_lot_top.ngd  
 map -intstyle ise -p xc3s200-ft256-4 -cm area -ir off -pr off -c 100 -o parking_lot_top_map.ncd parking_lot_top.ngd parking_lot_top.pcf 
 map -intstyle ise -p xc3s200-ft256-4 -cm area -ir off -pr off -c 100 -o parking_lot_top_map.ncd parking_lot_top.ngd parking_lot_top.pcf 
+xst -intstyle ise -ifn "/home/luorix/Desktop/DLD/Digital-Logic-Design-F2023/parking_lot_top.xst" -ofn "/home/luorix/Desktop/DLD/Digital-Logic-Design-F2023/parking_lot_top.syr" 
