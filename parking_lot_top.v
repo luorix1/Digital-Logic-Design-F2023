@@ -438,7 +438,6 @@ module elevator_controller(
 				else if (current_floor == target_floor) begin 
 					// Designated parking spot now contains car
 					if (moving != 0) begin
-						$display("hello");
 						newly_parked = 1; // only allowed to be TRUE in this case!
 						newly_parked_license_plate = moving[15:0];
 						newly_parked_spot[3:1] = target_floor;
@@ -478,7 +477,10 @@ module elevator_controller(
 			STATE_CAR_OUT_SEARCH: begin //CJY: out_mode==1, moving==0
 				current_work_done = 0;
 				car_out_ready = 0;
-				if (current_floor != 0 & plate_type != license_plate[0]) begin
+				if (target_floor == 0) begin
+					current_work_done = 1;
+				end
+				else if (current_floor != 0 & plate_type != license_plate[0]) begin
 					next_state = STATE_CAR_OUT_SEARCH;
 					next_floor = current_floor - 1;
 				end
@@ -489,6 +491,7 @@ module elevator_controller(
 				end
 				
 				else if (current_floor == target_floor) begin
+					$display("hello1");
 					newly_parked = 1;
 					newly_parked_license_plate = 0;
 					newly_parked_spot = {target_floor, target_place};
@@ -498,6 +501,7 @@ module elevator_controller(
 						4'b0011: moving = parked_1[15:0];
 						4'b0100: moving = parked_2[31:16];
 						4'b0101: moving = parked_2[15:0];
+						4'b0110: moving = parked_3[31:16];
 						4'b0110: moving = parked_3[31:16];
 						4'b0111: moving = parked_3[15:0];
 						4'b1000: moving = parked_4[31:16];
@@ -514,17 +518,24 @@ module elevator_controller(
 					next_state = STATE_CAR_OUT_EXPORT;
 					next_floor = current_floor;
 				end
-					
-				else if (current_floor > target_floor) begin
+				
+				else if (moving == 0 & current_floor > target_floor) begin
+					$display("hello2");
 					newly_parked = 0;
 					next_floor = current_floor - 1; // current floor > target floor
+					next_state = STATE_CAR_OUT_SEARCH;
+				end
+				
+				else if (moving == 0 & current_floor < target_floor) begin
+					newly_parked = 0;
+					next_floor = current_floor + 1; //current floor < target floor
 					next_state = STATE_CAR_OUT_SEARCH;
 				end
 
 				else begin
 					newly_parked = 0;
-					next_floor = current_floor + 1; // current floor < target floor
-					next_state = STATE_CAR_OUT_SEARCH;
+					next_floor = current_floor;
+					next_state = STATE_CAR_OUT_EXPORT;
 				end	
 			end
 				
@@ -533,7 +544,9 @@ module elevator_controller(
 				current_work_done = 0;
 				newly_parked = 0;
 				if (current_floor == target_floor) begin  // target_floor = 0 for STATE_CAR_OUT_EXPORT
-					current_work_done = 1; // NEW
+					current_work_done = 1;
+					moving = 0;
+					
 					next_floor = current_floor;
 					//car_out_ready = 1; // Means that the car is ready to be removed from parking lot
 					
