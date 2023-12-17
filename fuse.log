@@ -7,9 +7,10 @@ Analyzing Verilog file "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_
 Analyzing Verilog file "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top_tb.v" into library work
 Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
+WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top.v" Line 628: Target <plate_type> of concurrent assignment or output port connection should be a net type.
 Completed static elaboration
 Fuse Memory Usage: 82952 KB
-Fuse CPU Usage: 840 ms
+Fuse CPU Usage: 830 ms
 Compiling module parking_fee_calculator
 Compiling module target_floor
 Compiling module elevator_controller
@@ -21,6 +22,6 @@ Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
 Compiled 7 Verilog Units
 Built simulation executable /home/luorix/Desktop/Digital-Logic-Design-F2023/parking_lot_top_tb_isim_beh.exe
-Fuse Memory Usage: 4313900 KB
-Fuse CPU Usage: 920 ms
-GCC CPU Usage: 1280 ms
+Fuse Memory Usage: 4313916 KB
+Fuse CPU Usage: 910 ms
+GCC CPU Usage: 1240 ms
