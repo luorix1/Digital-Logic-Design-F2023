@@ -1,10 +1,13 @@
 // Parking fee calculator
 // Module for calculating parking fee for each parking space
 module parking_fee_calculator(
+	// Inputs
 	input clock,
 	input reset,
 	input [15:0] license_plate, // JYH: use license plate for determining car type, handicapped status, fee per cycle
-	input enable_counting,
+	input enable_counting, // use logic to start counting when car is parked and end counting when car removal request occurs
+	
+	// Outputs
 	output reg [7:0] fee
 );
 	reg [31:0] cycle_count; // Assuming 32-bit counter for simplicity
@@ -21,13 +24,96 @@ module parking_fee_calculator(
 		else if (enable_counting) begin // JYH: logic for fee calculation
 			// Increase cycle_count
 			cycle_count <= cycle_count + 1;
-			
+		end
+		
+		else begin
 			// If handicapped vehicle, fee = 0
 			if (license_plate[15:12] == 4'b1001) fee <= 0;
+			
 			// If hybrid vehicle, fee = 1 per CLK cycle
 			else if (license_plate[15:12] == 4'b1000) fee <= cycle_count;
+			
 			// For all other vehicles, fee = 2 per CLK cycle
          else fee <= cycle_count*2;
+			
+			cycle_count <= 0;
+			fee <= 0;
+		end
+	end
+endmodule
+
+// Return position
+// Module for returning position of car based on license plate
+module return_position(
+	input[15:0] license_plate,
+	input [31:0] parked_1,
+	input [31:0] parked_2,
+	input [31:0] parked_3,
+	input [31:0] parked_4,
+	input [31:0] parked_5,
+	input [31:0] parked_6,
+	input [31:0] parked_7,
+	output reg [3:0] position
+);
+	always @(*) begin
+		if(license_plate[15:0] == parked_1[15:0]) begin
+			position = 4'b0001;
+		end
+		
+		else if(license_plate[15:0]==parked_1[31:16]) begin
+			position = 4'b0000;
+		end
+
+		else if(license_plate[15:0]==parked_2[15:0]) begin
+			position = 4'b0101;
+		end
+
+		else if(license_plate[15:0]==parked_2[31:16]) begin
+			position = 4'b0100;
+		end
+
+		else if(license_plate[15:0]==parked_3[15:0]) begin
+			position = 4'b0111;
+		end
+
+		else if(license_plate[15:0]==parked_3[31:16]) begin
+			position = 4'b0110;
+		end
+
+		else if(license_plate[15:0]==parked_4[15:0]) begin
+			position = 4'b1001;
+		end
+
+		else if(license_plate[15:0]==parked_4[31:16]) begin
+			position = 4'b1000;
+		end
+
+		else if(license_plate[15:0]==parked_5[15:0]) begin
+			position = 4'b1011;
+		end
+
+		else if(license_plate[15:0]==parked_5[31:16]) begin
+			position = 4'b1010;
+		end
+
+		else if(license_plate[15:0]==parked_6[15:0]) begin
+			position = 4'b1101;
+		end
+
+		else if(license_plate[15:0]==parked_6[31:16]) begin
+			position = 4'b1100;
+		end
+
+		else if(license_plate[15:0]==parked_7[15:0]) begin
+			position = 4'b1111;
+		end
+
+		else if(license_plate[15:0]==parked_7[31:16]) begin
+			position = 4'b1110;
+		end
+		
+		else begin
+			position = 4'b0000;
 		end
 	end
 endmodule
@@ -36,6 +122,7 @@ endmodule
 // Module for calculating target floor of elevator (used for parking car, removing car, and moving car to deal with leakage)
 module target_floor(
 	// Inputs
+	input clock,
 	input [15:0] license_plate,
    input in_mode,
    input out_mode,
@@ -451,7 +538,7 @@ module elevator_controller(
 					end
 					
 					moving[15:0] = 0; // car has left elevator (now parked)
-					next_state = (leakage && !leak_empty) | out_mode ? STATE_CAR_OUT_SEARCH : in_mode ? STATE_CAR_IN : STATE_NO_ORDER; // CJY: next_state = (if leak&not empty - OUT_SEARCH. if out_mode - OUT_SEARCH, if in_mode - IN, else - NO_ORDER
+					next_state = (leakage && !leak_empty) | out_mode ? STATE_CAR_OUT_SEARCH : STATE_NO_ORDER; // CJY: next_state = (if leak&not empty - OUT_SEARCH. if out_mode - OUT_SEARCH, if in_mode - IN, else - NO_ORDER
 					next_floor = current_floor;
 					//current_work_done = 1;
 				end
@@ -459,7 +546,7 @@ module elevator_controller(
 				else if (current_floor > target_floor) begin
 					newly_parked = 0;
 					next_floor = current_floor - 1; // current floor > target floor
-					next_state = STATE_CAR_IN;
+					next_state = (in_mode | out_mode) ? STATE_CAR_IN : STATE_NO_ORDER;
 				end
 
 				else begin
@@ -468,7 +555,7 @@ module elevator_controller(
 					if (next_floor == target_floor) begin
 						car_out_ready=1;
 					end
-					next_state = STATE_CAR_IN;
+					next_state = (in_mode | out_mode) ? STATE_CAR_IN : STATE_NO_ORDER;
 				end	
 			end
 
@@ -491,7 +578,6 @@ module elevator_controller(
 				end
 				
 				else if (current_floor == target_floor) begin
-					$display("hello1");
 					newly_parked = 1;
 					newly_parked_license_plate = 0;
 					newly_parked_spot = {target_floor, target_place};
@@ -520,7 +606,6 @@ module elevator_controller(
 				end
 				
 				else if (moving == 0 & current_floor > target_floor) begin
-					$display("hello2");
 					newly_parked = 0;
 					next_floor = current_floor - 1; // current floor > target floor
 					next_state = STATE_CAR_OUT_SEARCH;
@@ -614,25 +699,28 @@ module elevator_controller(
 			
 			// NOTE: STATE_NO_ORDER
 			STATE_NO_ORDER: begin
-				current_work_done = 0;
 				car_out_ready=1;
 				if(current_floor!=0) begin // Has already started returning to floor 0
 					next_floor = current_floor-1;
+					current_work_done = 1;
 					next_state=STATE_NO_ORDER;
 				end
 				
 				else if(in_mode) begin
 					next_floor = current_floor;
+					current_work_done = 0;
 					next_state=STATE_CAR_IN;
 				end
 				
 				else if(out_mode) begin
 					next_floor=current_floor;
+					current_work_done = 0;
 					next_state = STATE_CAR_OUT_SEARCH;
 				end
 				
 				else begin
 					next_floor = current_floor;
+					current_work_done = 1;
 					next_state = STATE_NO_ORDER;
 				end
 			end
@@ -703,22 +791,96 @@ module parking_lot_top(
 	// JYH: Logic for fee calculation at each parking spot
 	// Parking Fee wire -> 15:8 (left), 7:0 (right)
 	wire [15:0] parked_1_fee, parked_2_fee, parked_3_fee, parked_4_fee, parked_5_fee, parked_6_fee, parked_7_fee;
-	 
-	parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(parked_1[31:16]!=0), .fee(parked_1_fee[15:8])); // 애리실 enable counting 꺼도 려
-	parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(parked_2[31:16]!=0), .fee(parked_2_fee[15:8])); // 애리실 enable counting 꺼도 려
-	parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(parked_3[31:16]!=0), .fee(parked_3_fee[15:8])); // 별개짓이 가한지..? .enable_counting(parked_2[31:16]==0) wire로 assign는겘을나... 
-	parking_fee_calculator parked_4_left ( .clock(clock), .reset(reset), .license_plate(parked_4[31:16]), .enable_counting(parked_4[31:16]!=0), .fee(parked_4_fee[15:8])); 
-	parking_fee_calculator parked_5_left ( .clock(clock), .reset(reset), .license_plate(parked_5[31:16]), .enable_counting(parked_5[31:16]!=0), .fee(parked_5_fee[15:8])); 
-	parking_fee_calculator parked_6_left ( .clock(clock), .reset(reset), .license_plate(parked_6[31:16]), .enable_counting(parked_6[31:16]!=0), .fee(parked_6_fee[15:8])); 
-	parking_fee_calculator parked_7_left ( .clock(clock), .reset(reset), .license_plate(parked_7[31:16]), .enable_counting(parked_7[31:16]!=0), .fee(parked_7_fee[15:8])); 
 	
-	parking_fee_calculator parked_1_right ( .clock(clock), .reset(reset), .license_plate(parked_1[15:0]), .enable_counting(parked_1[15:0]==0), .fee(parked_1_fee[7:0])); 
-	parking_fee_calculator parked_2_right ( .clock(clock), .reset(reset), .license_plate(parked_2[15:0]), .enable_counting(parked_2[15:0]==0), .fee(parked_2_fee[7:0])); 
-	parking_fee_calculator parked_3_right ( .clock(clock), .reset(reset), .license_plate(parked_3[15:0]), .enable_counting(parked_3[15:0]==0), .fee(parked_3_fee[7:0]));
-	parking_fee_calculator parked_4_right ( .clock(clock), .reset(reset), .license_plate(parked_4[15:0]), .enable_counting(parked_4[15:0]==0), .fee(parked_4_fee[7:0]));  
-	parking_fee_calculator parked_5_right ( .clock(clock), .reset(reset), .license_plate(parked_5[15:0]), .enable_counting(parked_5[15:0]==0), .fee(parked_5_fee[7:0])); 
-	parking_fee_calculator parked_6_right ( .clock(clock), .reset(reset), .license_plate(parked_6[15:0]), .enable_counting(parked_6[15:0]==0), .fee(parked_6_fee[7:0])); 
-	parking_fee_calculator parked_7_right ( .clock(clock), .reset(reset), .license_plate(parked_7[15:0]), .enable_counting(parked_7[15:0]==0), .fee(parked_7_fee[7:0])); 
+	// Registers for checking if we should stop counting for a certain parking spot
+	reg stop_count_1_left, stop_count_1_right;
+	reg stop_count_2_left, stop_count_2_right;
+	reg stop_count_3_left, stop_count_3_right;
+	reg stop_count_4_left, stop_count_4_right;
+	reg stop_count_5_left, stop_count_5_right;
+	reg stop_count_6_left, stop_count_6_right;
+	reg stop_count_7_left, stop_count_7_right;
+	
+	// [3:0] register for position at which to stop counting
+	wire [3:0] stop_count_pos;
+	
+	always @(*) begin
+		if (reset) begin
+			stop_count_1_left = 0;
+			stop_count_1_right = 0;
+			stop_count_2_left = 0;
+			stop_count_2_right = 0;
+			stop_count_3_left = 0;
+			stop_count_3_right = 0;
+			stop_count_4_left = 0;
+			stop_count_4_right = 0;
+			stop_count_5_left = 0;
+			stop_count_5_right = 0;
+			stop_count_6_left = 0;
+			stop_count_6_right = 0;
+			stop_count_7_left = 0;
+			stop_count_7_right = 0;
+		end
+		
+		else begin
+			case (stop_count_pos)
+				4'b0010: stop_count_1_left = 1;
+				4'b0011: stop_count_1_right = 1;
+				4'b0100: stop_count_2_left = 1;
+				4'b0101: stop_count_2_right = 1;
+				4'b0110: stop_count_3_left = 1;
+				4'b0111: stop_count_3_right = 1;
+				4'b1000: stop_count_4_left = 1;
+				4'b1001: stop_count_4_right = 1;
+				4'b1010: stop_count_5_left = 1;
+				4'b1011: stop_count_5_right = 1;
+				4'b1100: stop_count_6_left = 1;
+				4'b1101: stop_count_6_right = 1;
+				4'b1110: stop_count_7_left = 1;
+				4'b1111: stop_count_7_right = 1;
+				default: stop_count_1_right = 1; // Useless default case for combinational logic
+			endcase
+			
+			if (car_out_ready) begin
+				case (newly_parked_spot)
+					4'b0010: stop_count_1_left = 0;
+					4'b0011: stop_count_1_right = 0;
+					4'b0100: stop_count_2_left = 0;
+					4'b0101: stop_count_2_right = 0;
+					4'b0110: stop_count_3_left = 0;
+					4'b0111: stop_count_3_right = 0;
+					4'b1000: stop_count_4_left = 0;
+					4'b1001: stop_count_4_right = 0;
+					4'b1010: stop_count_5_left = 0;
+					4'b1011: stop_count_5_right = 0;
+					4'b1100: stop_count_6_left = 0;
+					4'b1101: stop_count_6_right = 0;
+					4'b1110: stop_count_7_left = 0;
+					4'b1111: stop_count_7_right = 0;
+					default: stop_count_1_right = 0; // Useless default case for combinational logic
+				endcase
+			end
+			
+			else begin
+			end
+		end
+	end
+	 
+	parking_fee_calculator parked_1_left ( .clock(clock), .reset(reset), .license_plate(parked_1[31:16]), .enable_counting(~stop_count_1_left & parked_1[31:16]!=0), .fee(parked_1_fee[15:8]));
+	parking_fee_calculator parked_2_left ( .clock(clock), .reset(reset), .license_plate(parked_2[31:16]), .enable_counting(~stop_count_2_left & parked_2[31:16]!=0), .fee(parked_2_fee[15:8]));
+	parking_fee_calculator parked_3_left ( .clock(clock), .reset(reset), .license_plate(parked_3[31:16]), .enable_counting(~stop_count_3_left & parked_3[31:16]!=0), .fee(parked_3_fee[15:8]));
+	parking_fee_calculator parked_4_left ( .clock(clock), .reset(reset), .license_plate(parked_4[31:16]), .enable_counting(~stop_count_4_left & parked_4[31:16]!=0), .fee(parked_4_fee[15:8])); 
+	parking_fee_calculator parked_5_left ( .clock(clock), .reset(reset), .license_plate(parked_5[31:16]), .enable_counting(~stop_count_5_left & parked_5[31:16]!=0), .fee(parked_5_fee[15:8])); 
+	parking_fee_calculator parked_6_left ( .clock(clock), .reset(reset), .license_plate(parked_6[31:16]), .enable_counting(~stop_count_6_left & parked_6[31:16]!=0), .fee(parked_6_fee[15:8])); 
+	parking_fee_calculator parked_7_left ( .clock(clock), .reset(reset), .license_plate(parked_7[31:16]), .enable_counting(~stop_count_7_left & parked_7[31:16]!=0), .fee(parked_7_fee[15:8])); 
+	
+	parking_fee_calculator parked_1_right ( .clock(clock), .reset(reset), .license_plate(parked_1[15:0]), .enable_counting(~stop_count_1_right & parked_1[15:0]!=0), .fee(parked_1_fee[7:0])); 
+	parking_fee_calculator parked_2_right ( .clock(clock), .reset(reset), .license_plate(parked_2[15:0]), .enable_counting(~stop_count_2_right & parked_2[15:0]!=0), .fee(parked_2_fee[7:0])); 
+	parking_fee_calculator parked_3_right ( .clock(clock), .reset(reset), .license_plate(parked_3[15:0]), .enable_counting(~stop_count_3_right & parked_3[15:0]!=0), .fee(parked_3_fee[7:0]));
+	parking_fee_calculator parked_4_right ( .clock(clock), .reset(reset), .license_plate(parked_4[15:0]), .enable_counting(~stop_count_4_right & parked_4[15:0]!=0), .fee(parked_4_fee[7:0]));  
+	parking_fee_calculator parked_5_right ( .clock(clock), .reset(reset), .license_plate(parked_5[15:0]), .enable_counting(~stop_count_5_right & parked_5[15:0]!=0), .fee(parked_5_fee[7:0])); 
+	parking_fee_calculator parked_6_right ( .clock(clock), .reset(reset), .license_plate(parked_6[15:0]), .enable_counting(~stop_count_6_right & parked_6[15:0]!=0), .fee(parked_6_fee[7:0])); 
+	parking_fee_calculator parked_7_right ( .clock(clock), .reset(reset), .license_plate(parked_7[15:0]), .enable_counting(~stop_count_7_right & parked_7[15:0]!=0), .fee(parked_7_fee[7:0])); 
 	
 	// JYH: LOGIC of full_suv, full_sedan, empty_suv, empty_sedan
 	assign empty_suv = (leakage_floor != 1 & parked_1[15:0]==0) + (leakage_floor != 3 & parked_3[31:16]==0) + (leakage_floor != 3 & parked_3[15:0]==0) + (leakage_floor != 5 & parked_5[31:16]==0) + (leakage_floor != 5 & parked_5[15:0]==0) + (leakage_floor != 7 & parked_7[31:16]==0) + (leakage_floor != 7 & parked_7[15:0]==0); // FIXME: Apply leakage
@@ -747,6 +909,7 @@ module parking_lot_top(
 	 
 	 target_floor target_flr (
 		// Inputs
+		.clock(clock),
 		.license_plate(license_plate_internal),
 		.in_mode(in_mode_internal),
 		.out_mode(out_mode_internal),
@@ -766,6 +929,18 @@ module parking_lot_top(
 		.moving(moving),
 		.target_floor(target_floor),
 		.target_place(target_place)
+	 );
+	 
+	 return_position return_pos (
+		.license_plate(license_plate),
+		.parked_1(parked_1),
+		.parked_2(parked_2),
+		.parked_3(parked_3),
+		.parked_4(parked_4),
+		.parked_5(parked_5),
+		.parked_6(parked_6),
+		.parked_7(parked_7),
+      .position(stop_count_pos)
 	 );
 
     // Instantiate Elevator Controller
