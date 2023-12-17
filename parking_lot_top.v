@@ -13,31 +13,30 @@ module parking_fee_calculator(
 	reg [31:0] cycle_count; // Assuming 32-bit counter for simplicity
 
 	// Next state logic
-   always @(posedge clock or posedge reset) begin
+   always @(posedge clock) begin
 		// If RESET signal given, cycle_count = 0 and fee = 0
 		if (reset) begin
-			cycle_count <= 0;
-         fee <= 0;
+			cycle_count = 0;
+         fee = 0;
       end
       
 		// While enable_counting = 1, cycle_count += 1 per CLK cycle & fee calculated
 		else if (enable_counting) begin // JYH: logic for fee calculation
+			$display("FEE ACTUALLY INCREASED");
 			// Increase cycle_count
-			cycle_count <= cycle_count + 1;
+			cycle_count = cycle_count + 1;
+			// If handicapped vehicle, fee = 0
+			if (license_plate[15:12] == 4'b1001) fee = 0;
+			
+			// If hybrid vehicle, fee = 1 per CLK cycle
+			else if (license_plate[15:12] == 4'b1000) fee = cycle_count;
+			
+			// For all other vehicles, fee = 2 per CLK cycle
+         else fee = cycle_count*2;
 		end
 		
 		else begin
-			// If handicapped vehicle, fee = 0
-			if (license_plate[15:12] == 4'b1001) fee <= 0;
-			
-			// If hybrid vehicle, fee = 1 per CLK cycle
-			else if (license_plate[15:12] == 4'b1000) fee <= cycle_count;
-			
-			// For all other vehicles, fee = 2 per CLK cycle
-         else fee <= cycle_count*2;
-			
-			cycle_count <= 0;
-			fee <= 0;
+			cycle_count = 0;
 		end
 	end
 endmodule
@@ -46,7 +45,7 @@ endmodule
 // Module for returning position of car based on license plate
 module return_position(
 	input out_mode,
-	input[15:0] license_plate,
+	input [15:0] license_plate,
 	input [31:0] parked_1,
 	input [31:0] parked_2,
 	input [31:0] parked_3,
@@ -57,13 +56,13 @@ module return_position(
 	output reg [3:0] position
 );
 	always @(*) begin
-		if (!out_mode) begin
+		if (out_mode) begin
 			if(license_plate[15:0] == parked_1[15:0]) begin
-				position = 4'b0001;
+				position = 4'b0011;
 			end
 			
 			else if(license_plate[15:0]==parked_1[31:16]) begin
-				position = 4'b0000;
+				position = 4'b0010;
 			end
 
 			else if(license_plate[15:0]==parked_2[15:0]) begin
@@ -493,7 +492,7 @@ module elevator_controller(
 				moving = 0;
 				//current_floor = 0;
 				newly_parked = 0;
-				car_out_ready = 1;
+				//car_out_ready = 1;
 				plate_type = 0;
 				if (in_mode | out_mode) current_work_done = 0;
 				else current_work_done = 1;
@@ -567,7 +566,7 @@ module elevator_controller(
 					newly_parked = 0;
 					next_floor = current_floor + 1; // current floor < target floor
 					if (next_floor == target_floor) begin
-						car_out_ready=1;
+						//car_out_ready=1;
 					end
 					if (in_mode) next_state = STATE_CAR_IN;
 					else if (out_mode) next_state = STATE_CAR_OUT_SEARCH;
@@ -716,7 +715,7 @@ module elevator_controller(
 			
 			// NOTE: STATE_NO_ORDER
 			STATE_NO_ORDER: begin
-				car_out_ready=1;
+				//car_out_ready=1;
 				if(current_floor!=0) begin // Has already started returning to floor 0
 					next_floor = current_floor-1;
 					current_work_done = 1;
@@ -878,8 +877,8 @@ module parking_lot_top(
 				endcase
 			end
 			
-			else begin
-			end
+			//else begin
+			//end
 		end
 	end
 	 
