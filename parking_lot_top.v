@@ -171,51 +171,6 @@ module target_floor(
 			suv =      (moving[0] == 1); // odd number = suv
 		end
 		
-		else if (!leak_empty & moving == 0 & leakage & current_floor == leakage_floor) begin
-			case (leakage_floor)
-				3'b001 : begin
-					disabled = parked_1[31:16] == 4'b0101 ?
-					sedan =    (moving[0] == 0); // even number = sedan
-					suv =      (moving[0] == 1); // odd number = suv
-				end
-				3'b010 : begin
-					disabled = parked_1[31:16] == 4'b0101 | parked_1[15:12] == 4'b0101;
-					sedan =    1; // even number = sedan
-					suv =      0; // odd number = suv
-				end
-				3'b011 : begin
-					disabled = parked_1[31:16] == 4'b0101 ?
-					sedan =    (moving[0] == 0); // even number = sedan
-					suv =      (moving[0] == 1); // odd number = suv
-				end
-				3'b100 : begin
-					disabled = parked_4[31:16] == 4'b0101 | parked_4[15:12] == 4'b0101;
-					sedan =    1; // even number = sedan
-					suv =      0; // odd number = suv
-				end
-				3'b101 : begin
-					disabled = parked_1[31:16] == 4'b0101 ?
-					sedan =    (moving[0] == 0); // even number = sedan
-					suv =      (moving[0] == 1); // odd number = suv
-				end
-				3'b110 : begin
-					disabled = parked_6[31:16] == 4'b0101 | parked_6[15:12] == 4'b0101;
-					sedan =    1; // even number = sedan
-					suv =      0; // odd number = suv
-				end
-				3'b111 : begin
-					disabled = parked_1[31:16] == 4'b0101 ?
-					sedan =    (moving[0] == 0); // even number = sedan
-					suv =      (moving[0] == 1); // odd number = suv
-				end
-				default: begin
-					disabled = parked_1[31:16] == 4'b0101 ?
-					sedan =    1; // even number = sedan
-					suv =      0; // odd number = suv
-				end
-			endcase
-		end
-		
 		else begin
 			disabled = (license_plate[15:12] == 4'b1001);
 			sedan =    (license_plate[0] == 0); // even number = sedan
@@ -717,7 +672,14 @@ module elevator_controller(
 					endcase
 					
 					// NEW
-					next_state = (leakage && leakage_floor == current_floor) ? STATE_CAR_MOVE_LEAKAGE : STATE_CAR_OUT_EXPORT;
+					if (leakage & (leakage_floor == current_floor)) begin
+						next_state = STATE_CAR_MOVE_LEAKAGE ;
+					end
+					
+					else begin
+						next_state = STATE_CAR_OUT_EXPORT;
+					end
+					
 					next_floor = current_floor;
 				end
 				
@@ -736,7 +698,7 @@ module elevator_controller(
 				else begin
 					newly_parked = 0;
 					next_floor = current_floor;
-					next_state = STATE_CAR_OUT_EXPORT;
+					next_state = (leakage & (leakage_floor == current_floor)) ? STATE_CAR_MOVE_LEAKAGE : STATE_CAR_OUT_EXPORT;
 				end	
 			end
 				
@@ -874,23 +836,36 @@ module elevator_controller(
 						next_state = STATE_CAR_MOVE_LEAKAGE;
 					end
 				
-					else begin
+					else begin // not sure if useful
 						next_floor = current_floor > target_floor ? current_floor - 1 : current_floor + 1;
 						next_state = STATE_CAR_MOVE_LEAKAGE;
 					end
 				end
 				
-				else if (leakage & current_floor != leakage_floor) begin
-					// FIXME: moving == 0, != 0
-					if (moving == 0) begin
-						next_floor = current_floor > target_floor ? current_floor - 1 : current_floor + 1;
+				else if (leakage & current_floor == target_floor) begin
+					if (moving != 0) begin
+						if (current_floor == target_floor) begin
+							newly_parked = 1;
+							newly_parked_license_plate = moving;
+							$display("insert moving to newly_parked_license_plate: %b -> %b \n", moving, newly_parked_license_plate);
+							newly_parked_spot = {target_floor, target_place};
+						end
+						
+						else begin
+						end
+						next_floor = current_floor;
 					end
-					
 					else begin
-						next_floor = current_floor;
-						next_floor = current_floor;
 					end
-					next_state = STATE_CAR_MOVE_LEAKAGE;
+					moving = 0;
+					next_state = STATE_NO_ORDER;
+				end
+				
+				else if (leakage & current_floor != target_floor) begin
+					if (moving != 0) begin
+						next_floor = next_floor > target_floor ? next_floor - 1 : next_floor + 1;
+						next_state = STATE_CAR_MOVE_LEAKAGE;
+					end
 				end
 				
 				else begin // no leakage now
