@@ -5,8 +5,8 @@ WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING: File "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 875.  For instance PARKING_LOT_TOP/ORDERS/, width 1 of formal port new_car is not equal to width 16 of actual signal new_car.
-WARNING: File "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.v" Line 116.  For instance parking_lot_top_tb/PARKING_LOT_TOP/, width 16 of formal port todo_license_plate is not equal to width 1 of actual signal todo_license_plate.
+WARNING: File "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 840.  For instance PARKING_LOT_TOP/ORDERS/, width 1 of formal port new_car is not equal to width 16 of actual signal new_car.
+WARNING: File "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.v" Line 113.  For instance parking_lot_top_tb/PARKING_LOT_TOP/, width 16 of formal port todo_license_plate is not equal to width 1 of actual signal todo_license_plate.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
@@ -42,8 +42,10 @@ plate type  :  x
 fee leakage:  xxxxxxxx 
 ------------------------------------------
 
+HERE
+HELLOHELLO
 Elevator module same state x -> 0
-todo_exists = 0, todo_in = 0
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
 car on dummy  0 0 0 0
 from STATE_RESET : todo_in is 0
 Start Simulation!!!
@@ -63,22 +65,35 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  0  0  0  0 |  0  0  0  0
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  0 
 fee leakage:  00000000 
 ------------------------------------------
 
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+HELLOHELLO
 Elevator module same state 0 -> 0
 Error !!!!!!!!!!!!!!
-todo_exists = 0, todo_in = 0
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
 car on dummy  0 0 0 0
 from STATE_RESET : todo_in is 0
 
@@ -96,22 +111,33 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  0  0  0  0 |  0  0  0  0
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  0 
 fee leakage:  00000000 
 ------------------------------------------
 
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module same state 0 -> 0
 (!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
 car on dummy  0 0 0 0
 from STATE_RESET : todo_in is 0
 
@@ -129,22 +155,33 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  0  0  0  0 |  0  0  0  0
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  0 
 fee leakage:  00000000 
 ------------------------------------------
 
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module same state 0 -> 0
 (!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
 car on dummy  0 0 0 0
 from STATE_RESET : todo_in is 0
 
@@ -162,26 +199,37 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  0  0  0  0 |  0  0  0  0
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  0 
 fee leakage:  00000000 
 ------------------------------------------
 
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module same state 0 -> 0
 license_plate first digit :  9
 license_plate first digit :  4
 license_plate first digit :  2
 license_plate first digit :  3
 todo_license_plate car # :  9 4 2 3
-todo_exists = 1, todo_in = 1
+todo_exists = 1, todo_in = 1, todo_out = 0, todo_leak_move = 0
 car on dummy  9 4 2 3
 from STATE_RESET : todo_in is 1
 
@@ -199,21 +247,33 @@ current todo_leak_move  :  0
 current todo_license_plate  :  1 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  0  0  0  0 |  0  0  0  0
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  0 
 fee leakage:  00000000 
 ------------------------------------------
 
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+HERE
 Elevator module state transition 0 -> 1
-todo_exists = 1, todo_in = 1
+todo_exists = 1, todo_in = 1, todo_out = 0, todo_leak_move = 0
 car on dummy  9 4 2 3
 in STATE_CAR_IN
 target_floor = 0
@@ -234,22 +294,34 @@ current todo_out  :  0
 current todo_leak_move  :  0 
 current todo_license_plate  :  1 
 current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  0  0  0  0 |  0  0  0  0
+current target_place  :  1
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+HERE
 Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
+todo_exists = 1, todo_in = 1, todo_out = 0, todo_leak_move = 0
 car on dummy  9 4 2 3
 in STATE_CAR_IN
 target_floor = 0
@@ -274,30 +346,39 @@ current todo_out  :  0
 current todo_leak_move  :  0 
 current todo_license_plate  :  1 
 current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  0  0  0  0 |  0  0  0  0
+current target_place  :  1
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   9  4  2  3
 plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+HERE
 Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
+todo_exists = 1, todo_in = 1, todo_out = 0, todo_leak_move = 0
 car on dummy  9 4 2 3
 in STATE_CAR_IN
-target_floor = 1
+target_floor = 7
 current_floor = 1
 moving =  9 4 2 3
-park_change = 1, new_car = 37923, moving =     0
- 9  4  2  3 is getting out of elevator. Current floor : 1
-
 
 -----------------
 clock count :   8 
@@ -311,29 +392,40 @@ current todo_in  :  1
 current todo_out  :  0 
 current todo_leak_move  :  0 
 current todo_license_plate  :  1 
-current target_floor  :  1
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  0  0  0  0 |  0  0  0  0
+current target_floor  :  7
+current target_place  :  1
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 1 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
-moving  :   0  0  0  0
+moving  :   9  4  2  3
 plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+HERE
 Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
+todo_exists = 1, todo_in = 1, todo_out = 0, todo_leak_move = 0
 car on dummy  9 4 2 3
-dummy empty happening
 in STATE_CAR_IN
-target_floor = 0
-current_floor = 1
-moving =  0 0 0 0
+target_floor = 7
+current_floor = 2
+moving =  9 4 2 3
 
 -----------------
 clock count :   9 
@@ -342,32 +434,45 @@ in_mode : 0
 out_mode : 0 
 current leakage:  0 
 current leakage_floor:  000 
-current todo_exists  :  0 
-current todo_in  :  0 
+current todo_exists  :  1 
+current todo_in  :  1 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  0  0  0  0
+current todo_license_plate  :  1 
+current target_floor  :  7
+current target_place  :  1
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 1 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
-moving  :   0  0  0  0
+moving  :   9  4  2  3
 plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module state transition 1 -> 3
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
-car on dummy  0 0 0 0
-in STATE_NO_ORDER
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+HERE
+Elevator module same state 1 -> 1
+todo_exists = 1, todo_in = 1, todo_out = 0, todo_leak_move = 0
+car on dummy  9 4 2 3
+in STATE_CAR_IN
+target_floor = 7
+current_floor = 3
+moving =  9 4 2 3
 
 -----------------
 clock count :  10 
@@ -376,113 +481,145 @@ in_mode : 1
 out_mode : 0 
 current leakage:  0 
 current leakage_floor:  000 
-current todo_exists  :  0 
-current todo_in  :  0 
+current todo_exists  :  1 
+current todo_in  :  1 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
+current todo_license_plate  :  1 
+current target_floor  :  7
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
-moving  :   0  0  0  0
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 1 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
+moving  :   9  4  2  3
 plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-license_plate first digit :  8
-license_plate first digit :  7
-license_plate first digit :  5
-license_plate first digit :  4
-todo_license_plate car # :  8 7 5 4
-todo_exists = 1, todo_in = 1
-car on dummy  8 7 5 4
-in STATE_NO_ORDER
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+HERE
+Elevator module same state 1 -> 1
+Enqueue
+todo_exists = 1, todo_in = 1, todo_out = 0, todo_leak_move = 0
+car on dummy  9 4 2 3
+in STATE_CAR_IN
+target_floor = 7
+current_floor = 4
+moving =  9 4 2 3
+Leakage at floor 3!
+
 
 -----------------
 clock count :  11 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  1 
 current todo_in  :  1 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
+current todo_license_plate  :  1 
+current target_floor  :  7
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
-moving  :   0  0  0  0
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 1 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
+moving  :   9  4  2  3
 plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module state transition 3 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  8 7 5 4
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+HERE
+Elevator module same state 1 -> 1
+todo_exists = 1, todo_in = 1, todo_out = 0, todo_leak_move = 0
+car on dummy  9 4 2 3
 in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in plate_type change
+target_floor = 7
+current_floor = 5
+moving =  9 4 2 3
+Leakage at floor 3!
+
 
 -----------------
 clock count :  12 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  1 
 current todo_in  :  1 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
+current todo_license_plate  :  1 
+current target_floor  :  7
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
-moving  :   0  0  0  0
-plate type  :  0 
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 1 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
+moving  :   9  4  2  3
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+HERE
 Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  8 7 5 4
+todo_exists = 1, todo_in = 1, todo_out = 0, todo_leak_move = 0
+car on dummy  9 4 2 3
 in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in boarding car
-todo_license_plate first digit :  8
-moving first digit :  8
- 8  7  5  4 is onboard elevator. Current floor : 0
+target_floor = 7
+current_floor = 6
+moving =  9 4 2 3
+Leakage at floor 3!
 
 
 -----------------
@@ -490,76 +627,102 @@ clock count :  13
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  1 
 current todo_in  :  1 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
+current todo_license_plate  :  1 
+current target_floor  :  7
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
-moving  :   8  7  5  4
-plate type  :  0 
+floor 7  : 0 |  1  4  2  3 |  0  0  0  0
+floor 6  : 1 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
+moving  :   9  4  2  3
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+HERE
 Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  8 7 5 4
+todo_exists = 1, todo_in = 1, todo_out = 0, todo_leak_move = 0
+car on dummy  9 4 2 3
 in STATE_CAR_IN
-target_floor = 2
-current_floor = 1
-moving =  8 7 5 4
+target_floor = 7
+current_floor = 7
+moving =  9 4 2 3
+park_change = 1, new_car =  9 d  4  2, moving =  3    0
+ 9  4  2  3 is getting out of elevator. Current floor : 7
+
+Leakage at floor 3!
+
 
 -----------------
 clock count :  14 
-license_plate  :   0  0  0  0 
+license_plate  :   8  7  5  4 
 in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+out_mode : 1 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  1 
 current todo_in  :  1 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  2
+current todo_license_plate  :  1 
+current target_floor  :  7
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  0  0  0  0
+floor 7  : 1 |  1  4  2  3 |  0  0  0  0
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
-moving  :   8  7  5  4
-plate type  :  0 
+moving  :   0  0  0  0
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+HERE
 Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  8 7 5 4
+Enqueue
+todo_exists = 1, todo_in = 1, todo_out = 0, todo_leak_move = 0
+car on dummy  9 4 2 3
+dummy empty happening
 in STATE_CAR_IN
-target_floor = 2
-current_floor = 2
-moving =  8 7 5 4
-2nd floor car in checkpoint #2
-parked_2[15:0] = 34644, moving[15:0] = 34644
-park_change = 1, new_car = 34644, moving =     0
- 8  7  5  4 is getting out of elevator. Current floor : 2
+target_floor = 0
+current_floor = 7
+moving =  0 0 0 0
+Leakage at floor 3!
 
 
 -----------------
@@ -567,248 +730,328 @@ clock count :  15
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
 current todo_license_plate  :  0 
-current target_floor  :  2
+current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
+floor 7  : 1 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
 moving  :   0  0  0  0
-plate type  :  0 
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  8 7 5 4
-dummy empty happening
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 2
-moving =  0 0 0 0
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module state transition 1 -> 3
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 9
+in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  16 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  1 
 current todo_in  :  0 
 current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
+current todo_leak_move  :  1 
+current todo_license_plate  :  1 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 1 |  0  0  0  0 |  8  7  5  4
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 1 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
 moving  :   0  0  0  0
-plate type  :  0 
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module state transition 1 -> 3
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
-car on dummy  0 0 0 0
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 9
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  17 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  1 
 current todo_in  :  0 
 current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  8  7  5  4
-floor 1  : 1 |  9  4  2  3 |  0  0  0  0
+current todo_leak_move  :  1 
+current todo_license_plate  :  1 
+current target_floor  :  3
+current target_place  :  0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 1 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
 moving  :   0  0  0  0
-plate type  :  0 
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
-car on dummy  0 0 0 0
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 9
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  18 
-license_plate  :   8  7  5  4 
+license_plate  :   0  0  0  0 
 in_mode : 0 
-out_mode : 1 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
+out_mode : 0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  1 
 current todo_in  :  0 
 current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  8  7  5  4
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
+current todo_leak_move  :  1 
+current todo_license_plate  :  1 
+current target_floor  :  3
+current target_place  :  0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 1 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
 moving  :   0  0  0  0
-plate type  :  0 
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
-license_plate first digit :  8
-license_plate first digit :  7
-license_plate first digit :  5
-license_plate first digit :  4
-todo_license_plate car # :  8 7 5 4
-todo_exists = 1, todo_in = 0
-car on dummy  8 7 5 4
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 9
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  19 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  1 
 current todo_in  :  0 
-current todo_out  :  1 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  8  7  5  4
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
+current todo_out  :  0 
+current todo_leak_move  :  1 
+current todo_license_plate  :  1 
+current target_floor  :  3
+current target_place  :  0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 1 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
 moving  :   0  0  0  0
-plate type  :  0 
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module state transition 3 -> 2
-todo_exists = 1, todo_in = 0
-car on dummy  8 7 5 4
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 9
 in STATE_CAR_OUT
+remove car at this stage!
+new_spot: 011 0
+Leakage at floor 3!
+
 
 -----------------
 clock count :  20 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  1 
 current todo_in  :  0 
-current todo_out  :  1 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  2
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  8  7  5  4
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
-moving  :   0  0  0  0
-plate type  :  0 
+current todo_out  :  0 
+current todo_leak_move  :  1 
+current todo_license_plate  :  1 
+current target_floor  :  3
+current target_place  :  0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 1 |  1  4  2  9 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
+moving  :   x  x  x  x
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module same state 2 -> 2
-todo_exists = 1, todo_in = 0
-car on dummy  8 7 5 4
-in STATE_CAR_OUT
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module state transition 2 -> 1
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 9
+dummy empty happening
+in STATE_CAR_IN
+target_floor = 3
+current_floor = 3
+moving =  x x x x
+park_change = 1, new_car =  x d  x  x, moving =  x    0
+Leakage at floor 3!
+
 
 -----------------
 clock count :  21 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
 current todo_in  :  0 
-current todo_out  :  1 
+current todo_out  :  0 
 current todo_leak_move  :  0 
 current todo_license_plate  :  0 
-current target_floor  :  2
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  8  7  5  4
-floor 1  : 1 |  9  4  2  3 |  0  0  0  0
+current target_floor  :  3
+current target_place  :  0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 1 |  0  0  0  0 |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
 moving  :   0  0  0  0
-plate type  :  0 
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module same state 2 -> 2
-todo_exists = 1, todo_in = 0
-car on dummy  8 7 5 4
-in STATE_CAR_OUT
-remove car at this stage!
- 8  7  5  4 is onboard elevator. Current floor : 2
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module state transition 1 -> 3
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 1
+dummy empty happening
+in STATE_NO_ORDER
+Leakage at floor 3!
 
 
 -----------------
@@ -816,105 +1059,134 @@ clock count :  22
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
 current todo_in  :  0 
-current todo_out  :  1 
+current todo_out  :  0 
 current todo_leak_move  :  0 
 current todo_license_plate  :  0 
-current target_floor  :  2
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 1 |  0  0  0  0 |  8  7  5  4
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
+current target_floor  :  0
+current target_place  :  0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 1 |  x  x  x  x |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
-moving  :   8  7  5  4
-plate type  :  0 
+moving  :   0  0  0  0
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module same state 2 -> 2
-todo_exists = 1, todo_in = 0
-car on dummy  8 7 5 4
-dummy empty happening
-in STATE_CAR_OUT
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 1
+in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  23 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  1 
 current todo_in  :  0 
 current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
+current todo_leak_move  :  1 
+current todo_license_plate  :  1 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  1  4  2  1
+floor 2  : 1 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
-moving  :   8  7  5  4
-plate type  :  0 
+moving  :   0  0  0  0
+plate type  :  1 
 fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module same state 2 -> 2
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
-car on dummy  0 0 0 0
-in STATE_CAR_OUT
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 1
+in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  24 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  1 
 current todo_in  :  0 
 current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
+current todo_leak_move  :  1 
+current todo_license_plate  :  1 
+current target_floor  :  3
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  0  0  0  0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 1 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
-moving  :   8  7  5  4
-plate type  :  0 
-fee leakage:  00000100 
+moving  :   0  0  0  0
+plate type  :  1 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module same state 2 -> 2
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
-car on dummy  0 0 0 0
-in STATE_CAR_OUT
- 8  7  5  4 is getting out of elevator. Current floor : 0
-
-Parking fee =   4 cents
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 1
+in STATE_NO_ORDER
+Leakage at floor 3!
 
 
 -----------------
@@ -922,149 +1194,185 @@ clock count :  25
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  1 
 current todo_in  :  0 
 current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
+current todo_leak_move  :  1 
+current todo_license_plate  :  1 
+current target_floor  :  3
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  1  4  2  1
+floor 2  : 1 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
 moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000100 
+plate type  :  1 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module state transition 2 -> 3
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
-car on dummy  0 0 0 0
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 1
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  26 
-license_plate  :   5  7  5  5 
-in_mode : 1 
+license_plate  :   0  0  0  0 
+in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  1 
 current todo_in  :  0 
 current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
+current todo_leak_move  :  1 
+current todo_license_plate  :  1 
+current target_floor  :  3
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 1 |  x  x  x  x |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
 moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000100 
+plate type  :  1 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-license_plate first digit :  5
-license_plate first digit :  7
-license_plate first digit :  5
-license_plate first digit :  5
-todo_license_plate car # :  5 7 5 5
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_NO_ORDER
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module state transition 3 -> 2
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 1
+in STATE_CAR_OUT
+remove car at this stage!
+new_spot: 011 1
+Leakage at floor 3!
+
 
 -----------------
 clock count :  27 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  1 
-current todo_in  :  1 
+current todo_in  :  0 
 current todo_out  :  0 
-current todo_leak_move  :  0 
+current todo_leak_move  :  1 
 current todo_license_plate  :  1 
-current target_floor  :  0
+current target_floor  :  3
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000100 
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 1 |  x  x  x  x |  1  4  2  1
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
+moving  :   x  x  x  x
+plate type  :  1 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module state transition 3 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module state transition 2 -> 1
+todo_exists = 1, todo_in = 0, todo_out = 0, todo_leak_move = 1
+car on dummy  1 4 2 1
+dummy empty happening
 in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in plate_type change
+target_floor = 3
+current_floor = 3
+moving =  x x x x
+park_change = 1, new_car =  x d  x  x, moving =  x    0
+Leakage at floor 3!
+
 
 -----------------
 clock count :  28 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  0
+current todo_license_plate  :  0 
+current target_floor  :  3
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 1 |  x  x  x  x |  0  0  0  0
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000100 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in boarding car
-todo_license_plate first digit :  5
-moving first digit :  5
- 5  7  5  5 is onboard elevator. Current floor : 0
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module state transition 1 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
 
 
 -----------------
@@ -1072,38 +1380,43 @@ clock count :  29
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
+current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  0  0  0  0
-floor 0  : 1
-moving  :   5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 1 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 0
+moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000100 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 1
-current_floor = 1
-moving =  5 7 5 5
-park_change = 1, new_car = 22357, moving =     0
- 5  7  5  5 is getting out of elevator. Current floor : 1
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
 
 
 -----------------
@@ -1111,22 +1424,22 @@ clock count :  30
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  1
+current todo_license_plate  :  0 
+current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  0  0  0  0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 1 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
 moving  :   0  0  0  0
 plate type  :  1 
@@ -1134,22 +1447,29 @@ fee leakage:  00000000
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-dummy empty happening
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 1
-moving =  0 0 0 0
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  31 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  0 
 current todo_in  :  0 
 current todo_out  :  0 
@@ -1157,13 +1477,13 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 1 |  9  4  2  7 |  6  4  2  5
 floor 0  : 0
 moving  :   0  0  0  0
 plate type  :  1 
@@ -1172,19 +1492,28 @@ fee leakage:  00000000
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module state transition 1 -> 3
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
 car on dummy  0 0 0 0
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  32 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  0 
 current todo_in  :  0 
 current todo_out  :  0 
@@ -1192,34 +1521,43 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000010 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
 car on dummy  0 0 0 0
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  33 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  0 
 current todo_in  :  0 
 current todo_out  :  0 
@@ -1227,34 +1565,43 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000100 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
 car on dummy  0 0 0 0
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  34 
-license_plate  :   5  7  5  5 
-in_mode : 1 
+license_plate  :   0  0  0  0 
+in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  0 
 current todo_in  :  0 
 current todo_out  :  0 
@@ -1262,71 +1609,78 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000110 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
-license_plate first digit :  5
-license_plate first digit :  7
-license_plate first digit :  5
-license_plate first digit :  5
-todo_license_plate car # :  5 7 5 5
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  35 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
+current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00001000 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module state transition 3 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in boarding car
-todo_license_plate first digit :  5
-moving first digit :  5
- 5  7  5  5 is onboard elevator. Current floor : 0
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
 
 
 -----------------
@@ -1334,113 +1688,131 @@ clock count :  36
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
+current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
-moving  :   5  7  5  5
+moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00001010 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 1
-moving =  5 7 5 5
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  37 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
+current todo_license_plate  :  0 
+current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
+moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00001100 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 2
-moving =  5 7 5 5
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  38 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
+current todo_license_plate  :  0 
+current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  0  0  0  0
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
+moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00001110 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 3
-moving =  5 7 5 5
-park_change = 1, new_car = 22357, moving =     0
- 5  7  5  5 is getting out of elevator. Current floor : 3
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
 
 
 -----------------
@@ -1448,23 +1820,23 @@ clock count :  39
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
+current todo_license_plate  :  0 
+current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 1 |  0  0  0  0 |  0  0  0  0
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
 fee leakage:  00000000 
@@ -1472,22 +1844,28 @@ fee leakage:  00000000
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-dummy empty happening
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 3
-moving =  0 0 0 0
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  40 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  0 
 current todo_in  :  0 
 current todo_out  :  0 
@@ -1495,14 +1873,14 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
 fee leakage:  00000000 
@@ -1510,19 +1888,28 @@ fee leakage:  00000000
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module state transition 1 -> 3
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
 car on dummy  0 0 0 0
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  41 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  0 
 current todo_in  :  0 
 current todo_out  :  0 
@@ -1530,34 +1917,43 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000010 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
 car on dummy  0 0 0 0
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  42 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  0 
 current todo_in  :  0 
 current todo_out  :  0 
@@ -1565,34 +1961,43 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000100 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
 car on dummy  0 0 0 0
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  43 
-license_plate  :   5  7  5  5 
-in_mode : 1 
+license_plate  :   0  0  0  0 
+in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  0 
 current todo_in  :  0 
 current todo_out  :  0 
@@ -1600,237 +2005,87 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000110 
+fee leakage:  00000000 
 ------------------------------------------
 
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
-license_plate first digit :  5
-license_plate first digit :  7
-license_plate first digit :  5
-license_plate first digit :  5
-todo_license_plate car # :  5 7 5 5
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  44 
-license_plate  :   5  7  5  5 
-in_mode : 1 
+license_plate  :   0  0  0  0 
+in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
+current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00001000 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module state transition 3 -> 1
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in boarding car
-todo_license_plate first digit :  5
-moving first digit :  5
- 5  7  5  5 is onboard elevator. Current floor : 0
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
 
 
 -----------------
 clock count :  45 
-license_plate  :   5  7  5  5 
-in_mode : 1 
+license_plate  :   0  0  0  0 
+in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 1
-moving  :   5  7  5  5
-plate type  :  1 
-fee leakage:  00001010 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 1
-moving =  5 7 5 5
-
------------------
-clock count :  46 
-license_plate  :   5  7  5  5 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  5
-plate type  :  1 
-fee leakage:  00001100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 2
-moving =  5 7 5 5
-
------------------
-clock count :  47 
-license_plate  :   5  7  5  5 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  5
-plate type  :  1 
-fee leakage:  00001110 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 3
-moving =  5 7 5 5
-park_change = 1, new_car = 22357, moving =     0
- 5  7  5  5 is getting out of elevator. Current floor : 3
-
-
------------------
-clock count :  48 
-license_plate  :   5  7  5  5 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  1 
-fee leakage:  00010000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-dummy empty happening
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 3
-moving =  0 0 0 0
-
------------------
-clock count :  49 
-license_plate  :   5  7  5  5 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  0 
 current todo_in  :  0 
 current todo_out  :  0 
@@ -1838,136 +2093,342 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00010010 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module state transition 1 -> 3
-Dequeue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_NO_ORDER
-
------------------
-clock count :  50 
-license_plate  :   3  8  5  1 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  1 
-fee leakage:  00010100 
-------------------------------------------
-
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
 in STATE_NO_ORDER
+Leakage at floor 3!
+
+
+-----------------
+clock count :  46 
+license_plate  :   0  0  0  0 
+in_mode : 0 
+out_mode : 0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
+current todo_out  :  0 
+current todo_leak_move  :  0 
+current todo_license_plate  :  0 
+current target_floor  :  0
+current target_place  :  1
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
+moving  :   0  0  0  0
+plate type  :  1 
+fee leakage:  00000000 
+------------------------------------------
+
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
+
+
+-----------------
+clock count :  47 
+license_plate  :   0  0  0  0 
+in_mode : 0 
+out_mode : 0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
+current todo_out  :  0 
+current todo_leak_move  :  0 
+current todo_license_plate  :  0 
+current target_floor  :  0
+current target_place  :  1
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
+moving  :   0  0  0  0
+plate type  :  1 
+fee leakage:  00000000 
+------------------------------------------
+
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
+
+
+-----------------
+clock count :  48 
+license_plate  :   0  0  0  0 
+in_mode : 0 
+out_mode : 0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
+current todo_out  :  0 
+current todo_leak_move  :  0 
+current todo_license_plate  :  0 
+current target_floor  :  0
+current target_place  :  1
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
+moving  :   0  0  0  0
+plate type  :  1 
+fee leakage:  00000000 
+------------------------------------------
+
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
+
+
+-----------------
+clock count :  49 
+license_plate  :   0  0  0  0 
+in_mode : 0 
+out_mode : 0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
+current todo_out  :  0 
+current todo_leak_move  :  0 
+current todo_license_plate  :  0 
+current target_floor  :  0
+current target_place  :  1
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
+moving  :   0  0  0  0
+plate type  :  1 
+fee leakage:  00000000 
+------------------------------------------
+
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
+
+
+-----------------
+clock count :  50 
+license_plate  :   0  0  0  0 
+in_mode : 0 
+out_mode : 0 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
+current todo_out  :  0 
+current todo_leak_move  :  0 
+current todo_license_plate  :  0 
+current target_floor  :  0
+current target_place  :  1
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
+moving  :   0  0  0  0
+plate type  :  1 
+fee leakage:  00000000 
+------------------------------------------
+
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  51 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
+current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
+floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00010110 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
 in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  52 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
+current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00011000 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module state transition 3 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in boarding car
-todo_license_plate first digit :  5
-moving first digit :  5
- 5  7  5  5 is onboard elevator. Current floor : 0
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
 
 
 -----------------
@@ -1975,160 +2436,52 @@ clock count :  53
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
+current leakage:  1 
+current leakage_floor:  011 
+current todo_exists  :  0 
+current todo_in  :  0 
 current todo_out  :  0 
 current todo_leak_move  :  0 
-current todo_license_plate  :  1 
+current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
-moving  :   5  7  5  5
+moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00011010 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 1
-moving =  5 7 5 5
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+FEE ACTUALLY INCREASED
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
+car on dummy  0 0 0 0
+in STATE_NO_ORDER
+Leakage at floor 3!
+
 
 -----------------
 clock count :  54 
 license_plate  :   0  0  0  0 
 in_mode : 0 
 out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  5
-plate type  :  1 
-fee leakage:  00011100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 2
-moving =  5 7 5 5
-
------------------
-clock count :  55 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  5
-plate type  :  1 
-fee leakage:  00011110 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 3
-moving =  5 7 5 5
-park_change = 1, new_car = 22357, moving =     0
- 5  7  5  5 is getting out of elevator. Current floor : 3
-
-
------------------
-clock count :  56 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  1 
-fee leakage:  00100000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-dummy empty happening
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 3
-moving =  0 0 0 0
-
------------------
-clock count :  57 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
+current leakage:  1 
+current leakage_floor:  011 
 current todo_exists  :  0 
 current todo_in  :  0 
 current todo_out  :  0 
@@ -2136,1647 +2489,31 @@ current todo_leak_move  :  0
 current todo_license_plate  :  0 
 current target_floor  :  0
 current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  1 
-fee leakage:  00100010 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module state transition 1 -> 3
-Dequeue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_NO_ORDER
-
------------------
-clock count :  58 
-license_plate  :   9  5  2  2 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  1 
-fee leakage:  00100100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_NO_ORDER
-
------------------
-clock count :  59 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  1 
-fee leakage:  00100110 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_NO_ORDER
-
------------------
-clock count :  60 
-license_plate  :   9  5  3  2 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
+floor 7  : 0 |  1  4  2  3 |  9  4  2  3
+floor 6  : 0 |  8  4  2  8 |  0  0  0  0
+floor 5  : 0 |  9  4  3  9 |  9  4  3  1
+floor 4  : 0 |  5  4  2  4 |  5  4  2  6
+floor 3  : 0 |  x  x  x  x |  x  x  x  x
+floor 2  : 0 |  9  4  2  0 |  6  4  2  2
+floor 1  : 0 |  9  4  2  7 |  6  4  2  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00101000 
+fee leakage:  00000000 
 ------------------------------------------
 
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module state transition 3 -> 1
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in boarding car
-todo_license_plate first digit :  5
-moving first digit :  5
- 5  7  5  5 is onboard elevator. Current floor : 0
-
-
------------------
-clock count :  61 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 1
-moving  :   5  7  5  5
-plate type  :  1 
-fee leakage:  00101010 
-------------------------------------------
-
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 1
-moving =  5 7 5 5
-
------------------
-clock count :  62 
-license_plate  :   5  7  5  5 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  5
-plate type  :  1 
-fee leakage:  00101100 
-------------------------------------------
-
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 2
-moving =  5 7 5 5
-
------------------
-clock count :  63 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  5
-plate type  :  1 
-fee leakage:  00101110 
-------------------------------------------
-
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-in STATE_CAR_IN
-target_floor = 3
-current_floor = 3
-moving =  5 7 5 5
-park_change = 1, new_car = 22357, moving =     0
- 5  7  5  5 is getting out of elevator. Current floor : 3
-
-
------------------
-clock count :  64 
-license_plate  :   5  7  5  5 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  1 
-current target_floor  :  3
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  1 
-fee leakage:  00110000 
-------------------------------------------
-
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 5
-dummy empty happening
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 3
-moving =  0 0 0 0
-
------------------
-clock count :  65 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
-current todo_in  :  0 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  1 
-fee leakage:  00110010 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module state transition 1 -> 3
-(!todo_exists && queue_empty) with no in out  0 0 0 0
-todo_exists = 0, todo_in = 0
+Elevator module same state 3 -> 3
+todo_exists = 0, todo_in = 0, todo_out = 0, todo_leak_move = 0
 car on dummy  0 0 0 0
 in STATE_NO_ORDER
-
------------------
-clock count :  66 
-license_plate  :   5  7  5  2 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
-current todo_in  :  0 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  1 
-fee leakage:  00110100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-license_plate first digit :  5
-license_plate first digit :  7
-license_plate first digit :  5
-license_plate first digit :  2
-todo_license_plate car # :  5 7 5 2
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 2
-in STATE_NO_ORDER
-
------------------
-clock count :  67 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  1 
-fee leakage:  00110110 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 2
-in STATE_NO_ORDER
-
------------------
-clock count :  68 
-license_plate  :   5  7  5  4 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 1
-moving  :   0  0  0  0
-plate type  :  1 
-fee leakage:  00111000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module state transition 3 -> 1
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 2
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in plate_type change
-
------------------
-clock count :  69 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 1
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00111010 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 2
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in boarding car
-todo_license_plate first digit :  5
-moving first digit :  5
- 5  7  5  2 is onboard elevator. Current floor : 0
-
-
------------------
-clock count :  70 
-license_plate  :   5  7  0  8 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 1
-moving  :   5  7  5  2
-plate type  :  0 
-fee leakage:  00111100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 2
-in STATE_CAR_IN
-target_floor = 2
-current_floor = 1
-moving =  5 7 5 2
-
------------------
-clock count :  71 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  2
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  0  0  0  0
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  2
-plate type  :  0 
-fee leakage:  00111110 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 2
-in STATE_CAR_IN
-target_floor = 2
-current_floor = 2
-moving =  5 7 5 2
-2nd floor car in checkpoint #2
-parked_2[15:0] = 22354, moving[15:0] = 22354
-park_change = 1, new_car = 22354, moving =     0
- 5  7  5  2 is getting out of elevator. Current floor : 2
-
-
------------------
-clock count :  72 
-license_plate  :   5  7  5  0 
-in_mode : 1 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  2
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  0  0  0  0
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-Enqueue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 2
-dummy empty happening
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 2
-moving =  0 0 0 0
-
------------------
-clock count :  73 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
-current todo_in  :  0 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module state transition 1 -> 3
-Dequeue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 4
-in STATE_NO_ORDER
-
------------------
-clock count :  74 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000010 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 4
-in STATE_NO_ORDER
-
------------------
-clock count :  75 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 1
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module state transition 3 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 4
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in boarding car
-todo_license_plate first digit :  5
-moving first digit :  5
- 5  7  5  4 is onboard elevator. Current floor : 0
-
-
------------------
-clock count :  76 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 1
-moving  :   5  7  5  4
-plate type  :  0 
-fee leakage:  00000110 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 4
-in STATE_CAR_IN
-target_floor = 4
-current_floor = 1
-moving =  5 7 5 4
-
------------------
-clock count :  77 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  4
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  4
-plate type  :  0 
-fee leakage:  00001000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 4
-in STATE_CAR_IN
-target_floor = 4
-current_floor = 2
-moving =  5 7 5 4
-
------------------
-clock count :  78 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  4
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  4
-plate type  :  0 
-fee leakage:  00001010 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 4
-in STATE_CAR_IN
-target_floor = 4
-current_floor = 3
-moving =  5 7 5 4
-
------------------
-clock count :  79 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  4
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  0  0  0  0 |  0  0  0  0
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  4
-plate type  :  0 
-fee leakage:  00001100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 4
-in STATE_CAR_IN
-target_floor = 4
-current_floor = 4
-moving =  5 7 5 4
-park_change = 1, new_car = 22356, moving =     0
- 5  7  5  4 is getting out of elevator. Current floor : 4
-
-
------------------
-clock count :  80 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  4
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 1 |  0  0  0  0 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 4
-dummy empty happening
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 4
-moving =  0 0 0 0
-
------------------
-clock count :  81 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
-current todo_in  :  0 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 1 |  5  7  5  4 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module state transition 1 -> 3
-Dequeue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 0 8
-in STATE_NO_ORDER
-
------------------
-clock count :  82 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  0  0  0  0
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000010 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 0 8
-in STATE_NO_ORDER
-
------------------
-clock count :  83 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 0 8
-in STATE_NO_ORDER
-
------------------
-clock count :  84 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000110 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 0 8
-in STATE_NO_ORDER
-
------------------
-clock count :  85 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 1
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00001000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module state transition 3 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 0 8
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in boarding car
-todo_license_plate first digit :  5
-moving first digit :  5
- 5  7  0  8 is onboard elevator. Current floor : 0
-
-
------------------
-clock count :  86 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 1
-moving  :   5  7  0  8
-plate type  :  0 
-fee leakage:  00001010 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 0 8
-in STATE_CAR_IN
-target_floor = 4
-current_floor = 1
-moving =  5 7 0 8
-
------------------
-clock count :  87 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  4
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  0  8
-plate type  :  0 
-fee leakage:  00001100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 0 8
-in STATE_CAR_IN
-target_floor = 4
-current_floor = 2
-moving =  5 7 0 8
-
------------------
-clock count :  88 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  4
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  0  8
-plate type  :  0 
-fee leakage:  00001110 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 0 8
-in STATE_CAR_IN
-target_floor = 4
-current_floor = 3
-moving =  5 7 0 8
-
------------------
-clock count :  89 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  4
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  0  0  0  0
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  0  8
-plate type  :  0 
-fee leakage:  00010000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 0 8
-in STATE_CAR_IN
-target_floor = 4
-current_floor = 4
-moving =  5 7 0 8
-park_change = 1, new_car = 22280, moving =     0
- 5  7  0  8 is getting out of elevator. Current floor : 4
-
-
------------------
-clock count :  90 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  4
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 1 |  5  7  5  4 |  0  0  0  0
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 0 8
-dummy empty happening
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 4
-moving =  0 0 0 0
-
------------------
-clock count :  91 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  0 
-current todo_in  :  0 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  1
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 1 |  5  7  5  4 |  5  7  0  8
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module state transition 1 -> 3
-Dequeue
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 0
-in STATE_NO_ORDER
-
------------------
-clock count :  92 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  5  7  0  8
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000010 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 0
-in STATE_NO_ORDER
-
------------------
-clock count :  93 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  5  7  0  8
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 0
-in STATE_NO_ORDER
-
------------------
-clock count :  94 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  5  7  0  8
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00000110 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 3 -> 3
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 0
-in STATE_NO_ORDER
-
------------------
-clock count :  95 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  5  7  0  8
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 1
-moving  :   0  0  0  0
-plate type  :  0 
-fee leakage:  00001000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module state transition 3 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 0
-in STATE_CAR_IN
-target_floor = 0
-current_floor = 0
-moving =  0 0 0 0
-in boarding car
-todo_license_plate first digit :  5
-moving first digit :  5
- 5  7  5  0 is onboard elevator. Current floor : 0
-
-
------------------
-clock count :  96 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  0
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  5  7  0  8
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 1
-moving  :   5  7  5  0
-plate type  :  0 
-fee leakage:  00001010 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 0
-in STATE_CAR_IN
-target_floor = 6
-current_floor = 1
-moving =  5 7 5 0
-
------------------
-clock count :  97 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  6
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  5  7  0  8
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 1 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  0
-plate type  :  0 
-fee leakage:  00001100 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 0
-in STATE_CAR_IN
-target_floor = 6
-current_floor = 2
-moving =  5 7 5 0
-
------------------
-clock count :  98 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  6
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  5  7  0  8
-floor 3  : 0 |  0  0  0  0 |  5  7  5  5
-floor 2  : 1 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  0
-plate type  :  0 
-fee leakage:  00001110 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 0
-in STATE_CAR_IN
-target_floor = 6
-current_floor = 3
-moving =  5 7 5 0
-
------------------
-clock count :  99 
-license_plate  :   0  0  0  0 
-in_mode : 0 
-out_mode : 0 
-current leakage:  0 
-current leakage_floor:  000 
-current todo_exists  :  1 
-current todo_in  :  1 
-current todo_out  :  0 
-current todo_leak_move  :  0 
-current todo_license_plate  :  0 
-current target_floor  :  6
-current target_place  :  0
-floor 7  : 0 |  0  0  0  0 |  0  0  0  0
-floor 6  : 0 |  0  0  0  0 |  0  0  0  0
-floor 5  : 0 |  0  0  0  0 |  0  0  0  0
-floor 4  : 0 |  5  7  5  4 |  5  7  0  8
-floor 3  : 1 |  0  0  0  0 |  5  7  5  5
-floor 2  : 0 |  0  0  0  0 |  5  7  5  2
-floor 1  : 0 |  9  4  2  3 |  5  7  5  5
-floor 0  : 0
-moving  :   5  7  5  0
-plate type  :  0 
-fee leakage:  00010000 
-------------------------------------------
-
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-FEE ACTUALLY INCREASED
-Elevator module same state 1 -> 1
-todo_exists = 1, todo_in = 1
-car on dummy  5 7 5 0
-in STATE_CAR_IN
-target_floor = 6
-current_floor = 4
-moving =  5 7 5 0
+Stopped at time : 555 ns : File "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.v" Line 372

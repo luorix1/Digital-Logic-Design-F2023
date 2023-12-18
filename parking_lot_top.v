@@ -1,45 +1,3 @@
-// Parking fee calculator
-// Module for calculating parking fee for each parking space
-module parking_fee_calculator(
-	// Inputs
-	input clock,
-	input reset,
-	input [15:0] license_plate, // JYH: use license plate for determining car type, handicapped status, fee per cycle
-	input enable_counting, // use logic to start counting when car is parked and end counting when car removal request occurs
-	
-	// Outputs
-	output reg [7:0] fee
-);
-	reg [31:0] cycle_count; // Assuming 32-bit counter for simplicity
-
-	// Next state logic
-   always @(negedge clock or posedge reset) begin
-		// If RESET signal given, cycle_count = 0 and fee = 0
-		if (reset) begin
-			cycle_count = 0;
-         fee = 0;
-      end
-		
-		// While enable_counting = 1, cycle_count += 1 per CLK cycle & fee calculated
-		else if (enable_counting) begin // JYH: logic for fee calculation
-			$display("FEE ACTUALLY INCREASED");
-			// Increase cycle_count
-			cycle_count = cycle_count + 1;
-			// If handicapped vehicle, fee = 0
-			if (license_plate[15:12] == 4'b1001) fee = 0;
-			
-			// If hybrid vehicle, fee = 1 per CLK cycle
-			else if (license_plate[15:12] == 4'b1000) fee = cycle_count;
-			
-			// For all other vehicles, fee = 2 per CLK cycle
-         else fee = cycle_count*2;
-		end
-		
-		else begin
-		end
-	end
-endmodule
-
 // Return position
 // Module for returning position of car based on license plate
 module return_position(
@@ -172,8 +130,6 @@ module target_floor(
 		// one-hot for each parking space
 		// possible[i] = 1 : ith floor empty & without leakage
 		// possible[i] = 0 : ith floor occupied
-		//$display("%b \n", possible);
-		//$display("license plate last digit: %b \n", license_plate[0]);
 		possible [0] = 1; //always reachable
 		possible [1] = (leakage_floor != 3'b001) & ((suv | full_sedan) & ((parked_1[31:16] == 0) & (disabled) | (parked_1[15:0] == 0)));
 		possible [2] = (leakage_floor != 3'b010) & ((sedan) & ((parked_2[31:16]==0) & (disabled) | (parked_2[15:0] == 0)));
@@ -251,6 +207,7 @@ module target_floor(
 			closest_for_out = 3'b111;
 		end
 		else begin
+			$display("HERE");
 			closest_for_out=0;
 		end
 		
@@ -286,6 +243,7 @@ module target_floor(
 			closest_for_leak = visit[2:0];
 		end
 		else begin
+			$display("HELLOHELLO");
 			closest_for_leak = 0;
 		end
 	end
@@ -503,7 +461,7 @@ module order_queue(
 			$display("Error !!!!!!!!!!!!!!");
 			todo_exists=0;
 		end 
-		$display("todo_exists = %d, todo_in = %d", todo_exists, todo_in);
+		$display("todo_exists = %d, todo_in = %d, todo_out = %d, todo_leak_move = %d", todo_exists, todo_in, todo_out, todo_leak_move );
 		$display("car on dummy %d%d%d%d",todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0] );
 		// dummy 비우는 역할
 		if(!reset & (park_change==1) & (todo_license_plate!=0)) begin
@@ -677,7 +635,7 @@ module elevator_controller(
 						moving[15:0] = 0;
 						next_floor = current_floor;
 						next_state = todo_in? STATE_CAR_IN : todo_out? STATE_CAR_OUT : todo_leak_move? STATE_CAR_OUT : STATE_NO_ORDER;
-						$display("park_change = %d, new_car = %d, moving = %d", park_change, new_car, moving);
+						$display("park_change = %d, new_car = %d % d %d %d, moving = %d", park_change, new_car[15:12], new_car[11:8], new_car[7:4], new_car[3:0], moving);
 					end
 				end
 				else if(target_floor > current_floor) begin
@@ -713,9 +671,6 @@ module elevator_controller(
 					end
 					else begin // 주차 층에서 차 빼기
 						$display("remove car at this stage!");
-						park_change = 1;
-						new_car=0;
-						new_spot={target_floor, target_place};
 						case(target_floor)
 							3'b001: if(target_place==0) begin
 											moving = parked_1[31:16];
@@ -733,13 +688,15 @@ module elevator_controller(
 											moving = parked_2[15:0];
 											parked_2[15:0] = 0;
 										end
-							3'b011: 	if(target_place==0) begin
-											moving = parked_3[31:16];
-											parked_3[31:16] = 0;
-										end
-										else begin
-											moving = parked_3[15:0];
-											parked_3[15:0] = 0;
+							3'b011: 	begin
+											if(target_place==0) begin
+												moving = parked_3[31:16];
+												parked_3[31:16] = 0;
+											end
+											else begin
+												moving = parked_3[15:0];
+												parked_3[15:0] = 0;
+											end
 										end
 							3'b100:	if(target_place==0) begin
 											moving = parked_4[31:16];
@@ -773,8 +730,14 @@ module elevator_controller(
 											moving = parked_7[15:0];
 											parked_7[15:0] = 0;
 										end
-							default: parked_1[15:0] = 0;
+							default: moving = 0;
 						endcase
+						
+						park_change = 1;
+						new_car = 0;
+						new_spot = {target_floor, target_place};
+						$display("new_spot: %b %b", target_floor, target_place);
+						
 						next_floor = current_floor;
 						next_state = todo_leak_move? STATE_CAR_IN : STATE_CAR_OUT;
 					end
@@ -785,6 +748,7 @@ module elevator_controller(
 					next_state = STATE_CAR_OUT;
 				end
 				else if(target_floor < current_floor) begin
+					$display("suspect");
 					park_change=0;
 					next_floor = current_floor - 1;
 					if (next_floor == target_floor) begin
@@ -800,6 +764,7 @@ module elevator_controller(
 				$display("in STATE_NO_ORDER");
 				if(current_floor == target_floor) begin
 					next_floor = current_floor;
+					moving = 0; // FIXME: Temporary fix because of leakage floor car removal
 					next_state = todo_in? STATE_CAR_IN : todo_out? STATE_CAR_OUT : todo_leak_move? STATE_CAR_OUT : STATE_NO_ORDER; // leak의 경우도 출고처럼 시작.
 				end
 				else if(target_floor > current_floor) begin
