@@ -8,31 +8,31 @@
 <msg type="warning" file="HDLCompiler" num="687" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 320: Illegal redeclaration of module &lt;<arg fmt="%s" index="1">parking_fee_calculator</arg>&gt;.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1019: Target &lt;<arg fmt="%s" index="1">parked_1</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1028: Target &lt;<arg fmt="%s" index="1">parked_1</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1020: Target &lt;<arg fmt="%s" index="1">parked_2</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1029: Target &lt;<arg fmt="%s" index="1">parked_2</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1021: Target &lt;<arg fmt="%s" index="1">parked_3</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1030: Target &lt;<arg fmt="%s" index="1">parked_3</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1022: Target &lt;<arg fmt="%s" index="1">parked_4</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1031: Target &lt;<arg fmt="%s" index="1">parked_4</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1023: Target &lt;<arg fmt="%s" index="1">parked_5</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1032: Target &lt;<arg fmt="%s" index="1">parked_5</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1024: Target &lt;<arg fmt="%s" index="1">parked_6</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1033: Target &lt;<arg fmt="%s" index="1">parked_6</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1025: Target &lt;<arg fmt="%s" index="1">parked_7</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1034: Target &lt;<arg fmt="%s" index="1">parked_7</arg>&gt; of concurrent assignment or output port connection should be a net type.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.v" Line 96: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">todo_license_plate</arg>&gt;. Formal port size is <arg fmt="%d" index="2">16</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.v" Line 116: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">todo_license_plate</arg>&gt;. Formal port size is <arg fmt="%d" index="2">16</arg>-bit while actual signal size is <arg fmt="%d" index="1">1</arg>-bit.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1063: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">new_car</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">16</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1072: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">new_car</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">16</arg>-bit.
 </msg>
 
 </messages>

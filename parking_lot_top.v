@@ -833,6 +833,15 @@ module parking_lot_top(
    input out_mode,
    input leakage,
    input [2:0] leakage_floor,
+	
+	// Optional inputs for testing
+	input [31:0] init_parked_1,
+   input [31:0] init_parked_2,
+   input [31:0] init_parked_3,
+   input [31:0] init_parked_4,
+   input [31:0] init_parked_5,
+   input [31:0] init_parked_6,
+   input [31:0] init_parked_7,
    
 	// Outputs
 	//flag change output reg
@@ -1073,13 +1082,13 @@ module parking_lot_top(
 	always @(negedge clock) begin
 		if (reset) begin
 		//flag change output reg
-			parked_1[31:0] <= 0;
-			parked_2[31:0] <= 0;
-			parked_3[31:0] <= 0;
-			parked_4[31:0] <= 0;
-			parked_5[31:0] <= 0;
-			parked_6[31:0] <= 0;
-			parked_7[31:0] <= 0;
+			parked_1[31:0] <= init_parked_1;
+			parked_2[31:0] <= init_parked_2;
+			parked_3[31:0] <= init_parked_3;
+			parked_4[31:0] <= init_parked_4;
+			parked_5[31:0] <= init_parked_5;
+			parked_6[31:0] <= init_parked_6;
+			parked_7[31:0] <= init_parked_7;
 			//todo_exists=0;
 			//todo_in=0;
 			//todo_out=0;
