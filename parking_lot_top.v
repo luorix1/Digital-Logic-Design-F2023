@@ -19,7 +19,7 @@ module parking_fee_calculator(
 			cycle_count = 0;
          fee = 0;
       end
-      
+		
 		// While enable_counting = 1, cycle_count += 1 per CLK cycle & fee calculated
 		else if (enable_counting) begin // JYH: logic for fee calculation
 			$display("FEE ACTUALLY INCREASED");
@@ -36,7 +36,84 @@ module parking_fee_calculator(
 		end
 		
 		else begin
-			cycle_count = 0;
+		end
+	end
+endmodule
+
+// Return position
+// Module for returning position of car based on license plate
+module return_position(
+	input out_mode,
+	input [15:0] license_plate,
+	input [31:0] parked_1,
+	input [31:0] parked_2,
+	input [31:0] parked_3,
+	input [31:0] parked_4,
+	input [31:0] parked_5,
+	input [31:0] parked_6,
+	input [31:0] parked_7,
+	output reg [3:0] position
+);
+	always @(*) begin
+		if (out_mode) begin
+			if(license_plate[15:0] == parked_1[15:0]) begin
+				position = 4'b0011;
+			end
+			
+			else if(license_plate[15:0]==parked_1[31:16]) begin
+				position = 4'b0010;
+			end
+
+			else if(license_plate[15:0]==parked_2[15:0]) begin
+				position = 4'b0101;
+			end
+
+			else if(license_plate[15:0]==parked_2[31:16]) begin
+				position = 4'b0100;
+			end
+
+			else if(license_plate[15:0]==parked_3[15:0]) begin
+				position = 4'b0111;
+			end
+
+			else if(license_plate[15:0]==parked_3[31:16]) begin
+				position = 4'b0110;
+			end
+
+			else if(license_plate[15:0]==parked_4[15:0]) begin
+				position = 4'b1001;
+			end
+
+			else if(license_plate[15:0]==parked_4[31:16]) begin
+				position = 4'b1000;
+			end
+
+			else if(license_plate[15:0]==parked_5[15:0]) begin
+				position = 4'b1011;
+			end
+
+			else if(license_plate[15:0]==parked_5[31:16]) begin
+				position = 4'b1010;
+			end
+
+			else if(license_plate[15:0]==parked_6[15:0]) begin
+				position = 4'b1101;
+			end
+
+			else if(license_plate[15:0]==parked_6[31:16]) begin
+				position = 4'b1100;
+			end
+
+			else if(license_plate[15:0]==parked_7[15:0]) begin
+				position = 4'b1111;
+			end
+
+			else if(license_plate[15:0]==parked_7[31:16]) begin
+				position = 4'b1110;
+			end
+		end
+		else begin
+			position = 4'b0000;
 		end
 	end
 endmodule
@@ -466,7 +543,9 @@ module elevator_controller(
 	 output reg [2:0] current_floor,
     output reg [15:0] moving,
 	 output reg plate_type,
-	 //new morning
+	 // fee calculation
+	 output reg car_out_ready,
+	 // change in parking status
 	 output reg park_change,
 	 output reg [15:0] new_car,
 	 output reg [3:0] new_spot
@@ -708,6 +787,9 @@ module elevator_controller(
 				else if(target_floor < current_floor) begin
 					park_change=0;
 					next_floor = current_floor - 1;
+					if (next_floor == target_floor) begin
+						car_out_ready = 1;
+					end
 					next_state = STATE_CAR_OUT;
 				end
 			end
@@ -789,13 +871,13 @@ module parking_lot_top(
 	wire [15:0] parked_1_fee, parked_2_fee, parked_3_fee, parked_4_fee, parked_5_fee, parked_6_fee, parked_7_fee;
 	
 	// Registers for checking if we should stop counting for a certain parking spot
-	reg stop_count_1_left, stop_count_1_right;
-	reg stop_count_2_left, stop_count_2_right;
-	reg stop_count_3_left, stop_count_3_right;
-	reg stop_count_4_left, stop_count_4_right;
-	reg stop_count_5_left, stop_count_5_right;
-	reg stop_count_6_left, stop_count_6_right;
-	reg stop_count_7_left, stop_count_7_right;
+	reg stop_count_1_left, stop_count_1_right, reset_count_1_left, reset_count_1_right;
+	reg stop_count_2_left, stop_count_2_right, reset_count_2_left, reset_count_2_right;
+	reg stop_count_3_left, stop_count_3_right, reset_count_3_left, reset_count_3_right;
+	reg stop_count_4_left, stop_count_4_right, reset_count_4_left, reset_count_4_right;
+	reg stop_count_5_left, stop_count_5_right, reset_count_5_left, reset_count_5_right;
+	reg stop_count_6_left, stop_count_6_right, reset_count_6_left, reset_count_6_right;
+	reg stop_count_7_left, stop_count_7_right, reset_count_7_left, reset_count_7_right;
 	
 	// [3:0] register for position at which to stop counting
 	wire [3:0] stop_count_pos;
@@ -888,8 +970,9 @@ module parking_lot_top(
 	//       Parked cars must be removed!
 	
 	wire car_out_ready; // elevator_controller needs signal that car is ready to be removed
-
-	 target_floor target_flr (
+	
+	// Instantiate target floor calculator
+	target_floor target_flr (
 		// Inputs
 		.clock(clock),
 		.license_plate(todo_license_plate),
@@ -912,7 +995,21 @@ module parking_lot_top(
 		// Outputs
 		.target_floor(target_floor),
 		.target_place(target_place)
-	 );
+	);
+	 
+	// Instantiate position finer
+	return_position return_pos (
+		.out_mode(out_mode),
+		.license_plate(license_plate),
+		.parked_1(parked_1),
+		.parked_2(parked_2),
+		.parked_3(parked_3),
+		.parked_4(parked_4),
+		.parked_5(parked_5),
+		.parked_6(parked_6),
+		.parked_7(parked_7),
+		.position(stop_count_pos)
+	);
 
     // Instantiate Elevator Controller
     elevator_controller elevator_ctrl (
@@ -935,7 +1032,9 @@ module parking_lot_top(
 		.leakage(leakage),
 		.leakage_floor(leakage_floor),
       .current_floor(current_floor),
+		
 		// Outputs
+		.car_out_ready(car_out_ready),
 		.moving(moving),
 		.plate_type(plate_type),
 		.park_change(park_change),
@@ -1010,9 +1109,7 @@ module parking_lot_top(
 		end
 	end
 	 
-	// JYH: Fee output logic
-	always @(negedge clock) begin
-		$display("parked_2_fee: %d   |  %d", parked_2_fee[15:8], parked_2_fee[7:0]);
+	always @(*) begin
 		if (car_out_ready) begin
 			case (new_spot)
 				4'b0010: fee = parked_1_fee[15:8];

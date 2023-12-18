@@ -5,7 +5,7 @@ WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING: File "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 784.  For instance PARKING_LOT_TOP/ORDERS/, width 1 of formal port new_car is not equal to width 16 of actual signal new_car.
+WARNING: File "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 866.  For instance PARKING_LOT_TOP/ORDERS/, width 1 of formal port new_car is not equal to width 16 of actual signal new_car.
 WARNING: File "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.v" Line 96.  For instance parking_lot_top_tb/PARKING_LOT_TOP/, width 16 of formal port todo_license_plate is not equal to width 1 of actual signal todo_license_plate.
 Time resolution is 1 ps
 # onerror resume
@@ -42,7 +42,6 @@ plate type  :  x
 fee leakage:  xxxxxxxx 
 ------------------------------------------
 
-parked_2_fee:   x   |    x
 Elevator module same state x -> 0
 todo_exists = 0, todo_in = 0
 car on dummy  0 0 0 0
@@ -77,7 +76,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 Elevator module same state 0 -> 0
 Error !!!!!!!!!!!!!!
 todo_exists = 0, todo_in = 0
@@ -111,7 +109,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 Elevator module same state 0 -> 0
 (!todo_exists && queue_empty) with no in out  0 0 0 0
 todo_exists = 0, todo_in = 0
@@ -145,7 +142,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 Elevator module same state 0 -> 0
 (!todo_exists && queue_empty) with no in out  0 0 0 0
 todo_exists = 0, todo_in = 0
@@ -179,7 +175,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 Elevator module same state 0 -> 0
 license_plate first digit :  9
 license_plate first digit :  4
@@ -217,7 +212,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 Elevator module state transition 0 -> 1
 todo_exists = 1, todo_in = 1
 car on dummy  9 4 2 3
@@ -254,7 +248,6 @@ plate type  :  1
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
 car on dummy  9 4 2 3
@@ -295,7 +288,6 @@ plate type  :  1
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
 car on dummy  9 4 2 3
@@ -334,7 +326,6 @@ plate type  :  1
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
 car on dummy  9 4 2 3
@@ -371,7 +362,6 @@ plate type  :  1
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 Elevator module state transition 1 -> 3
 (!todo_exists && queue_empty) with no in out  0 0 0 0
@@ -406,7 +396,6 @@ plate type  :  1
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
 license_plate first digit :  8
@@ -445,7 +434,6 @@ plate type  :  1
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 Elevator module state transition 3 -> 1
 todo_exists = 1, todo_in = 1
@@ -483,7 +471,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
@@ -525,7 +512,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
@@ -562,7 +548,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
@@ -604,7 +589,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
@@ -642,7 +626,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module state transition 1 -> 3
@@ -678,7 +661,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    1
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
@@ -714,7 +696,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    2
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
@@ -754,7 +735,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    3
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module state transition 3 -> 2
@@ -789,8 +769,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    4
-FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 2 -> 2
 todo_exists = 1, todo_in = 0
@@ -824,8 +802,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    5
-FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 2 -> 2
 todo_exists = 1, todo_in = 0
@@ -862,8 +838,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    6
-FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 2 -> 2
 todo_exists = 1, todo_in = 0
@@ -898,7 +872,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 Elevator module same state 2 -> 2
 (!todo_exists && queue_empty) with no in out  0 0 0 0
@@ -930,10 +903,9 @@ floor 1  : 1 |  9  4  2  3 |  0  0  0  0
 floor 0  : 0
 moving  :   8  7  5  4
 plate type  :  0 
-fee leakage:  00000000 
+fee leakage:  00000100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 Elevator module same state 2 -> 2
 (!todo_exists && queue_empty) with no in out  0 0 0 0
@@ -942,7 +914,7 @@ car on dummy  0 0 0 0
 in STATE_CAR_OUT
  8  7  5  4 is getting out of elevator. Current floor : 0
 
-Parking fee =   0 cents
+Parking fee =   4 cents
 
 
 -----------------
@@ -969,10 +941,9 @@ floor 1  : 0 |  9  4  2  3 |  0  0  0  0
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  0 
-fee leakage:  00000000 
+fee leakage:  00000100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 Elevator module state transition 2 -> 3
 (!todo_exists && queue_empty) with no in out  0 0 0 0
@@ -1004,10 +975,9 @@ floor 1  : 0 |  9  4  2  3 |  0  0  0  0
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  0 
-fee leakage:  00000000 
+fee leakage:  00000100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
 license_plate first digit :  5
@@ -1043,10 +1013,9 @@ floor 1  : 0 |  9  4  2  3 |  0  0  0  0
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  0 
-fee leakage:  00000000 
+fee leakage:  00000100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 Elevator module state transition 3 -> 1
 todo_exists = 1, todo_in = 1
@@ -1081,10 +1050,9 @@ floor 1  : 0 |  9  4  2  3 |  0  0  0  0
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00000100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
@@ -1123,10 +1091,9 @@ floor 1  : 0 |  9  4  2  3 |  0  0  0  0
 floor 0  : 1
 moving  :   5  7  5  5
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00000100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
@@ -1166,7 +1133,6 @@ plate type  :  1
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
@@ -1204,7 +1170,7 @@ plate type  :  1
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
+FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module state transition 1 -> 3
 (!todo_exists && queue_empty) with no in out  0 0 0 0
@@ -1236,10 +1202,10 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00000010 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
+FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
 (!todo_exists && queue_empty) with no in out  0 0 0 0
@@ -1271,10 +1237,10 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00000100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
+FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
 (!todo_exists && queue_empty) with no in out  0 0 0 0
@@ -1306,10 +1272,10 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00000110 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
+FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
 license_plate first digit :  3
@@ -1345,10 +1311,10 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00001000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
+FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module state transition 3 -> 1
 todo_exists = 1, todo_in = 1
@@ -1387,10 +1353,10 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 1
 moving  :   3  8  5  1
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00001010 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
+FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
@@ -1424,10 +1390,10 @@ floor 1  : 1 |  9  4  2  3 |  5  7  5  5
 floor 0  : 0
 moving  :   3  8  5  1
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00001100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
+FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
@@ -1461,10 +1427,10 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 0
 moving  :   3  8  5  1
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00001110 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
+FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
@@ -1504,7 +1470,7 @@ plate type  :  1
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
+FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
 todo_exists = 1, todo_in = 1
@@ -1542,7 +1508,6 @@ plate type  :  1
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module state transition 1 -> 3
@@ -1575,10 +1540,9 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 0
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00000010 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
@@ -1611,10 +1575,9 @@ floor 1  : 1 |  9  4  2  3 |  5  7  5  5
 floor 0  : 0
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00000100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 3 -> 3
@@ -1651,10 +1614,9 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  1 
-fee leakage:  00000000 
+fee leakage:  00000110 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module state transition 3 -> 1
@@ -1690,10 +1652,9 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 1
 moving  :   0  0  0  0
 plate type  :  0 
-fee leakage:  00000000 
+fee leakage:  00001000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
@@ -1733,10 +1694,9 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 1
 moving  :   9  5  2  2
 plate type  :  0 
-fee leakage:  00000000 
+fee leakage:  00001010 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
@@ -1771,10 +1731,9 @@ floor 1  : 1 |  9  4  2  3 |  5  7  5  5
 floor 0  : 0
 moving  :   9  5  2  2
 plate type  :  0 
-fee leakage:  00000000 
+fee leakage:  00001100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
@@ -1816,7 +1775,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 Elevator module same state 1 -> 1
@@ -1855,7 +1813,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -1892,7 +1849,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -1929,7 +1885,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -1970,7 +1925,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -2014,7 +1968,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -2053,7 +2006,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -2094,10 +2046,9 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 0
 moving  :   0  0  0  0
 plate type  :  0 
-fee leakage:  00000000 
+fee leakage:  00000100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -2134,10 +2085,9 @@ floor 1  : 0 |  9  4  2  3 |  5  7  5  5
 floor 0  : 0
 moving  :   0  0  0  0
 plate type  :  0 
-fee leakage:  00000000 
+fee leakage:  00000100 
 ------------------------------------------
 
-parked_2_fee:   0   |    7
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -2175,7 +2125,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -2213,7 +2162,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -2251,7 +2199,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -2289,7 +2236,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
@@ -2327,7 +2273,6 @@ plate type  :  0
 fee leakage:  00000000 
 ------------------------------------------
 
-parked_2_fee:   0   |    0
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
 FEE ACTUALLY INCREASED
