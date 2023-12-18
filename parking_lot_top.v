@@ -1,3 +1,46 @@
+// Parking fee calculator
+// Module for calculating parking fee for each parking space
+module parking_fee_calculator(
+	// Inputs
+	input clock,
+	input reset,
+	input [15:0] license_plate, // JYH: use license plate for determining car type, handicapped status, fee per cycle
+	input enable_counting, // use logic to start counting when car is parked and end counting when car removal request occurs
+	
+	// Outputs
+	output reg [7:0] fee
+);
+	reg [31:0] cycle_count; // Assuming 32-bit counter for simplicity
+
+	// Next state logic
+   always @(negedge clock) begin
+		// If RESET signal given, cycle_count = 0 and fee = 0
+		if (reset) begin
+			cycle_count = 0;
+         fee = 0;
+      end
+      
+		// While enable_counting = 1, cycle_count += 1 per CLK cycle & fee calculated
+		else if (enable_counting) begin // JYH: logic for fee calculation
+			$display("FEE ACTUALLY INCREASED");
+			// Increase cycle_count
+			cycle_count = cycle_count + 1;
+			// If handicapped vehicle, fee = 0
+			if (license_plate[15:12] == 4'b1001) fee = 0;
+			
+			// If hybrid vehicle, fee = 1 per CLK cycle
+			else if (license_plate[15:12] == 4'b1000) fee = cycle_count;
+			
+			// For all other vehicles, fee = 2 per CLK cycle
+         else fee = cycle_count*2;
+		end
+		
+		else begin
+			cycle_count = 0;
+		end
+	end
+endmodule
+
 // Target floor
 // Module for calculating target floor of elevator (used for parking car, removing car, and moving car to deal with leakage)
 module target_floor(
@@ -64,8 +107,8 @@ module target_floor(
 		possible [7] = (leakage_floor != 3'b111) & ((suv | full_sedan) & ((parked_7[31:16] == 0) | (parked_7[15:0] == 0)));
 		closest_for_in = possible[1]?1:possible[2]?2:possible[3]?3:possible[4]?4:possible[5]?5:possible[6]?6:possible[7]?7:0;
 		case(closest_for_in)
-			3'b001 : target_place = (parked_1[31:16]==0)?0:1;
-			3'b010 : target_place = (parked_2[31:16]==0)?0:1;
+			3'b001 : target_place = (parked_1[31:16]==0 & disabled)?0:1;
+			3'b010 : target_place = (parked_2[31:16]==0 & disabled)?0:1;
 			3'b011 : target_place = (parked_3[31:16]==0)?0:1;
 			3'b100 : target_place = (parked_4[31:16]==0)?0:1;
 			3'b101 : target_place = (parked_5[31:16]==0)?0:1;
@@ -495,7 +538,7 @@ module elevator_controller(
 							moving[7:4] = todo_license_plate[7:4];
 							moving[3:0] = todo_license_plate[3:0];
 							$display("moving first digit : %d", moving[15:12]);
-							next_floor = current_floor;
+							next_floor = current_floor + 1;
 							next_state = STATE_CAR_IN;
 						end
 					end
@@ -969,6 +1012,7 @@ module parking_lot_top(
 	 
 	// JYH: Fee output logic
 	always @(negedge clock) begin
+		$display("parked_2_fee: %d   |  %d", parked_2_fee[15:8], parked_2_fee[7:0]);
 		if (car_out_ready) begin
 			case (new_spot)
 				4'b0010: fee = parked_1_fee[15:8];
