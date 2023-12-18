@@ -1,3 +1,81 @@
+// Return position
+// Module for returning position of car based on license plate
+module return_position(
+	input out_mode,
+	input [15:0] license_plate,
+	input [31:0] parked_1,
+	input [31:0] parked_2,
+	input [31:0] parked_3,
+	input [31:0] parked_4,
+	input [31:0] parked_5,
+	input [31:0] parked_6,
+	input [31:0] parked_7,
+	output reg [3:0] position
+);
+	always @(*) begin
+		if (out_mode) begin
+			if(license_plate[15:0] == parked_1[15:0]) begin
+				position = 4'b0011;
+			end
+			
+			else if(license_plate[15:0]==parked_1[31:16]) begin
+				position = 4'b0010;
+			end
+
+			else if(license_plate[15:0]==parked_2[15:0]) begin
+				position = 4'b0101;
+			end
+
+			else if(license_plate[15:0]==parked_2[31:16]) begin
+				position = 4'b0100;
+			end
+
+			else if(license_plate[15:0]==parked_3[15:0]) begin
+				position = 4'b0111;
+			end
+
+			else if(license_plate[15:0]==parked_3[31:16]) begin
+				position = 4'b0110;
+			end
+
+			else if(license_plate[15:0]==parked_4[15:0]) begin
+				position = 4'b1001;
+			end
+
+			else if(license_plate[15:0]==parked_4[31:16]) begin
+				position = 4'b1000;
+			end
+
+			else if(license_plate[15:0]==parked_5[15:0]) begin
+				position = 4'b1011;
+			end
+
+			else if(license_plate[15:0]==parked_5[31:16]) begin
+				position = 4'b1010;
+			end
+
+			else if(license_plate[15:0]==parked_6[15:0]) begin
+				position = 4'b1101;
+			end
+
+			else if(license_plate[15:0]==parked_6[31:16]) begin
+				position = 4'b1100;
+			end
+
+			else if(license_plate[15:0]==parked_7[15:0]) begin
+				position = 4'b1111;
+			end
+
+			else if(license_plate[15:0]==parked_7[31:16]) begin
+				position = 4'b1110;
+			end
+		end
+		else begin
+			position = 4'b0000;
+		end
+	end
+endmodule
+
 // Target floor
 // Module for calculating target floor of elevator (used for parking car, removing car, and moving car to deal with leakage)
 module target_floor(
@@ -481,6 +559,10 @@ module elevator_controller(
 	 output reg [2:0] current_floor,
     output reg [15:0] moving,
 	 output reg plate_type,
+	 
+	 // fee calculation
+	 output reg car_out_ready,
+	 
 	 //new morning
 	 output reg park_change,
 	 output reg [15:0] new_car,
@@ -719,6 +801,9 @@ module elevator_controller(
 				else if(target_floor < current_floor) begin
 					park_change=0;
 					next_floor = current_floor - 1;
+					if (next_floor == target_floor) begin
+						car_out_ready = 1;
+					end
 					next_state = STATE_CAR_OUT;
 				end
 			end
@@ -924,6 +1009,20 @@ module parking_lot_top(
 		.target_floor(target_floor),
 		.target_place(target_place)
 	 );
+	 
+	// Instantiate position finer
+	return_position return_pos (
+		.out_mode(out_mode),
+		.license_plate(license_plate),
+		.parked_1(parked_1),
+		.parked_2(parked_2),
+		.parked_3(parked_3),
+		.parked_4(parked_4),
+		.parked_5(parked_5),
+		.parked_6(parked_6),
+		.parked_7(parked_7),
+		.position(stop_count_pos)
+	);
 
     // Instantiate Elevator Controller
     elevator_controller elevator_ctrl (
@@ -946,7 +1045,9 @@ module parking_lot_top(
 		.leakage(leakage),
 		.leakage_floor(leakage_floor),
       .current_floor(current_floor),
+		
 		// Outputs
+		.car_out_ready(car_out_ready),
 		.moving(moving),
 		.plate_type(plate_type),
 		.park_change(park_change),
