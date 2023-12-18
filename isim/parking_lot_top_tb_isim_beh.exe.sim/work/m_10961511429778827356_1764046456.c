@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb.v";
+static const char *ng0 = "/home/luorix/Desktop/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb.v";
 static int ng1[] = {0, 0};
 static const char *ng2 = "%d %d %d %d is onboard elevator. Current floor : %d\n";
 static const char *ng3 = "%d %d %d %d is getting out of elevator. Current floor : %d\n";

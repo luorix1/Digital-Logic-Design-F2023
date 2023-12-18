@@ -1,11 +1,11 @@
 ISim log file
-Running: /home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb_isim_beh.wdb 
+Running: /home/luorix/Desktop/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/luorix/Desktop/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb_isim_beh.wdb 
 ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING: File "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 863.  For instance PARKING_LOT_TOP/ORDERS/, width 1 of formal port new_car is not equal to width 16 of actual signal new_car.
+WARNING: File "/home/luorix/Desktop/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 863.  For instance PARKING_LOT_TOP/ORDERS/, width 1 of formal port new_car is not equal to width 16 of actual signal new_car.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
@@ -951,4 +951,4 @@ empty_suv=0111
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-Stopped at time : 415 ns : File "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb.v" Line 160
+Stopped at time : 415 ns : File "/home/luorix/Desktop/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb.v" Line 160
