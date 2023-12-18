@@ -207,7 +207,7 @@ module target_floor(
 			closest_for_out = 3'b111;
 		end
 		else begin
-			$display("HERE");
+//			$display("HERE");
 			closest_for_out=0;
 		end
 		
@@ -243,7 +243,7 @@ module target_floor(
 			closest_for_leak = visit[2:0];
 		end
 		else begin
-			$display("HELLOHELLO");
+//			$display("HELLOHELLO");
 			closest_for_leak = 0;
 		end
 	end
@@ -296,7 +296,7 @@ module parking_fee_calculator(
       
 		// While enable_counting = 1, cycle_count += 1 per CLK cycle & fee calculated
 		else if (enable_counting) begin // JYH: logic for fee calculation
-			$display("FEE ACTUALLY INCREASED");
+//			$display("FEE ACTUALLY INCREASED");
 			// Increase cycle_count
 			cycle_count = cycle_count + 1;
 			// If handicapped vehicle, fee = 0
@@ -362,7 +362,7 @@ module order_queue(
 	
       else if (todo_exists) begin // if todo is going on, put in queue
 			if(in_mode | out_mode) begin
-				$display("Enqueue");
+//				$display("Enqueue");
 				license_plates[rear] = license_plate;
 				orders[rear] = {in_mode, out_mode};
 				rear = rear + 1;
@@ -430,7 +430,7 @@ module order_queue(
 		end 
 		//goto_queue
 		else if (!todo_exists & !queue_empty) begin
-			$display("Dequeue");
+//			$display("Dequeue");
 			{todo_in, todo_out} = orders[front];
 			todo_leak_move = 0; 
 			todo_license_plate = license_plates[front];
@@ -444,28 +444,28 @@ module order_queue(
 			todo_out = out_mode;
 			todo_leak_move = 0;
 			todo_exists=in_mode|out_mode;
-			$display("license_plate first digit : %d", license_plate[15:12]); //
-			$display("license_plate first digit : %d", license_plate[11:8]); //
-			$display("license_plate first digit : %d", license_plate[7:4]); //
-			$display("license_plate first digit : %d", license_plate[3:0]); //
+//			$display("license_plate first digit : %d", license_plate[15:12]); //
+//			$display("license_plate first digit : %d", license_plate[11:8]); //
+//			$display("license_plate first digit : %d", license_plate[7:4]); //
+//			$display("license_plate first digit : %d", license_plate[3:0]); //
 			todo_license_plate[15:12] = license_plate[15:12];
 			todo_license_plate[11:8] = license_plate[11:8];
 			todo_license_plate[7:4] = license_plate[7:4];
 			todo_license_plate[3:0] = license_plate[3:0];
-			$display("todo_license_plate car # : %d%d%d%d",todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0] );
+//			$display("todo_license_plate car # : %d%d%d%d",todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0] );
 		end
 		else if(!todo_exists & queue_empty & !in_mode & !out_mode) begin
-			$display("(!todo_exists && queue_empty) with no in out %d%d%d%d",todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0] );
+//			$display("(!todo_exists && queue_empty) with no in out %d%d%d%d",todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0] );
 		end
 		else begin 
 			$display("Error !!!!!!!!!!!!!!");
 			todo_exists=0;
 		end 
-		$display("todo_exists = %d, todo_in = %d, todo_out = %d, todo_leak_move = %d", todo_exists, todo_in, todo_out, todo_leak_move );
-		$display("car on dummy %d%d%d%d",todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0] );
+//		$display("todo_exists = %d, todo_in = %d, todo_out = %d, todo_leak_move = %d", todo_exists, todo_in, todo_out, todo_leak_move );
+//		$display("car on dummy %d%d%d%d",todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0] );
 		// dummy 비우는 역할
 		if(!reset & (park_change==1) & (todo_license_plate!=0)) begin
-			$display("dummy empty happening");
+//			$display("dummy empty happening");
 			todo_license_plate = 0;
 			todo_in=0;
 			todo_out=0;
@@ -569,12 +569,12 @@ module elevator_controller(
 						end
 						else begin // 차 올리기
 							$display("in boarding car");
-							$display("todo_license_plate first digit : %d", todo_license_plate[15:12]);
+//							$display("todo_license_plate first digit : %d", todo_license_plate[15:12]);
 							moving[15:12] = todo_license_plate[15:12];
 							moving[11:8] = todo_license_plate[11:8];
 							moving[7:4] = todo_license_plate[7:4];
 							moving[3:0] = todo_license_plate[3:0];
-							$display("moving first digit : %d", moving[15:12]);
+//							$display("moving first digit : %d", moving[15:12]);
 							next_floor = current_floor + 1;
 							next_state = STATE_CAR_IN;
 						end
@@ -588,13 +588,13 @@ module elevator_controller(
 											parked_1[15:0] = moving[15:0];
 										end
 							3'b010:	if(target_place==0) begin
-											$display("2nd floor car in checkpoint #1");
+//											$display("2nd floor car in checkpoint #1");
 											parked_2[31:16] = moving[15:0];
 										end
 										else begin
-											$display("2nd floor car in checkpoint #2");
+//											$display("2nd floor car in checkpoint #2");
 											parked_2[15:0] = moving[15:0];
-											$display("parked_2[15:0] = %d, moving[15:0] = %d", parked_2[15:0], moving[15:0]);
+//											$display("parked_2[15:0] = %d, moving[15:0] = %d", parked_2[15:0], moving[15:0]);
 										end
 							3'b011: 	if(target_place==0) begin
 											parked_3[31:16] = moving[15:0];
@@ -736,7 +736,7 @@ module elevator_controller(
 						park_change = 1;
 						new_car = 0;
 						new_spot = {target_floor, target_place};
-						$display("new_spot: %b %b", target_floor, target_place);
+//						$display("new_spot: %b %b", target_floor, target_place);
 						
 						next_floor = current_floor;
 						next_state = todo_leak_move? STATE_CAR_IN : STATE_CAR_OUT;
@@ -748,7 +748,7 @@ module elevator_controller(
 					next_state = STATE_CAR_OUT;
 				end
 				else if(target_floor < current_floor) begin
-					$display("suspect");
+//					$display("suspect");
 					park_change=0;
 					next_floor = current_floor - 1;
 					if (next_floor == target_floor) begin
@@ -1046,7 +1046,8 @@ module parking_lot_top(
 	// JYH: RESET logic here
 	always @(negedge clock) begin
 		if (reset) begin
-		//flag change output reg
+			//flag change output reg
+			// NOTE: You can use custom init_parked_i to model busy parking lot.
 			parked_1[31:0] <= init_parked_1;
 			parked_2[31:0] <= init_parked_2;
 			parked_3[31:0] <= init_parked_3;

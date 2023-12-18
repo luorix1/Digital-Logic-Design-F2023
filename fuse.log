@@ -15,11 +15,11 @@ WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon
 WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 997: Target <parked_5> of concurrent assignment or output port connection should be a net type.
 WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 998: Target <parked_6> of concurrent assignment or output port connection should be a net type.
 WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 999: Target <parked_7> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:189 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.v" Line 113: Size mismatch in connection of port <todo_license_plate>. Formal port size is 16-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.v" Line 116: Size mismatch in connection of port <todo_license_plate>. Formal port size is 16-bit while actual signal size is 1-bit.
 WARNING:HDLCompiler:189 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1037: Size mismatch in connection of port <new_car>. Formal port size is 1-bit while actual signal size is 16-bit.
 Completed static elaboration
-Fuse Memory Usage: 83120 KB
-Fuse CPU Usage: 840 ms
+Fuse Memory Usage: 83108 KB
+Fuse CPU Usage: 850 ms
 Compiling module parking_fee_calculator
 Compiling module target_floor
 Compiling module return_position
@@ -32,5 +32,5 @@ Time Resolution for simulation is 1ps.
 Compiled 8 Verilog Units
 Built simulation executable /home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb_isim_beh.exe
 Fuse Memory Usage: 4314300 KB
-Fuse CPU Usage: 940 ms
-GCC CPU Usage: 1770 ms
+Fuse CPU Usage: 950 ms
+GCC CPU Usage: 1710 ms

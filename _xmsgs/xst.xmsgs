@@ -5,7 +5,16 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;parking_lot_top.v&quot; line 849 </arg>&apos;<arg fmt="%s" index="2">car_out_ready</arg>&apos; has not been declared
+<msg type="error" file="HDLCompilers" num="91" delta="new" ><arg fmt="%s" index="1">&quot;../../Downloads/testcases(v2)/simple_car_leakage_move_floor1_long.v&quot; line 93 </arg>Module &apos;<arg fmt="%s" index="2">parking_lot_top</arg>&apos; does not have a port named &apos;<arg fmt="%s" index="3">in_mode_internal</arg>&apos;
+</msg>
+
+<msg type="error" file="HDLCompilers" num="91" delta="new" ><arg fmt="%s" index="1">&quot;../../Downloads/testcases(v2)/simple_car_leakage_move_floor1_long.v&quot; line 94 </arg>Module &apos;<arg fmt="%s" index="2">parking_lot_top</arg>&apos; does not have a port named &apos;<arg fmt="%s" index="3">out_mode_internal</arg>&apos;
+</msg>
+
+<msg type="error" file="HDLCompilers" num="91" delta="new" ><arg fmt="%s" index="1">&quot;../../Downloads/testcases(v2)/simple_car_leakage_move_floor1_long.v&quot; line 95 </arg>Module &apos;<arg fmt="%s" index="2">parking_lot_top</arg>&apos; does not have a port named &apos;<arg fmt="%s" index="3">license_plate_internal</arg>&apos;
+</msg>
+
+<msg type="error" file="HDLCompilers" num="91" delta="new" ><arg fmt="%s" index="1">&quot;../../Downloads/testcases(v2)/simple_car_leakage_move_floor1_long.v&quot; line 96 </arg>Module &apos;<arg fmt="%s" index="2">parking_lot_top</arg>&apos; does not have a port named &apos;<arg fmt="%s" index="3">curr_state_for_test</arg>&apos;
 </msg>
 
 </messages>

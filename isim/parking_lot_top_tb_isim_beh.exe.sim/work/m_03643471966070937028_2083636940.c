@@ -38,8 +38,6 @@ static unsigned int ng13[] = {6U, 0U};
 static int ng14[] = {6, 0};
 static unsigned int ng15[] = {7U, 0U};
 static int ng16[] = {7, 0};
-static const char *ng17 = "HERE";
-static const char *ng18 = "HELLOHELLO";
 
 
 
@@ -2728,9 +2726,7 @@ LAB540:    t33 = (t52 + 4);
 
 LAB542:    xsi_set_current_line(209, ng0);
 
-LAB545:    xsi_set_current_line(210, ng0);
-    xsi_vlogfile_write(1, 0, 0, ng17, 1, t0);
-    xsi_set_current_line(211, ng0);
+LAB545:    xsi_set_current_line(211, ng0);
     t2 = ((char*)((ng2)));
     t3 = (t0 + 5128);
     xsi_vlogvar_assign_value(t3, t2, 0, 0, 3);
@@ -3048,9 +3044,7 @@ LAB585:    xsi_set_current_line(242, ng0);
 
 LAB589:    xsi_set_current_line(245, ng0);
 
-LAB592:    xsi_set_current_line(246, ng0);
-    xsi_vlogfile_write(1, 0, 0, ng18, 1, t0);
-    xsi_set_current_line(247, ng0);
+LAB592:    xsi_set_current_line(247, ng0);
     t2 = ((char*)((ng2)));
     t6 = (t0 + 5288);
     xsi_vlogvar_assign_value(t6, t2, 0, 0, 3);

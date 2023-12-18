@@ -108,20 +108,39 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling verilog file "parking_lot_top.v" in library work
-Module <parking_fee_calculator> compiled
 Module <return_position> compiled
 Module <target_floor> compiled
+Module <parking_fee_calculator> compiled
 Module <order_queue> compiled
 Module <elevator_controller> compiled
-ERROR:HDLCompilers:28 - "parking_lot_top.v" line 849 'car_out_ready' has not been declared
 Module <parking_lot_top> compiled
-Analysis of file <"parking_lot_top.prj"> failed.
+No errors in compilation
+Analysis of file <"parking_lot_top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+ERROR:HDLCompilers:246 - "parking_lot_top.v" line 992 Reference to vector reg 'parked_1' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "parking_lot_top.v" line 992 Connection to output port 'parked_1' must be a net lvalue
+ERROR:HDLCompilers:246 - "parking_lot_top.v" line 993 Reference to vector reg 'parked_2' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "parking_lot_top.v" line 993 Connection to output port 'parked_2' must be a net lvalue
+ERROR:HDLCompilers:246 - "parking_lot_top.v" line 994 Reference to vector reg 'parked_3' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "parking_lot_top.v" line 994 Connection to output port 'parked_3' must be a net lvalue
+ERROR:HDLCompilers:246 - "parking_lot_top.v" line 995 Reference to vector reg 'parked_4' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "parking_lot_top.v" line 995 Connection to output port 'parked_4' must be a net lvalue
+ERROR:HDLCompilers:246 - "parking_lot_top.v" line 996 Reference to vector reg 'parked_5' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "parking_lot_top.v" line 996 Connection to output port 'parked_5' must be a net lvalue
+ERROR:HDLCompilers:246 - "parking_lot_top.v" line 997 Reference to vector reg 'parked_6' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "parking_lot_top.v" line 997 Connection to output port 'parked_6' must be a net lvalue
+ERROR:HDLCompilers:246 - "parking_lot_top.v" line 998 Reference to vector reg 'parked_7' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "parking_lot_top.v" line 998 Connection to output port 'parked_7' must be a net lvalue
 --> 
 
 
-Total memory usage is 489824 kilobytes
+Total memory usage is 502192 kilobytes
 
-Number of errors   :    1 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
+Number of errors   :   14 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

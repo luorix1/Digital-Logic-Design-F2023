@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.xst" -ofn "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.syr" 
