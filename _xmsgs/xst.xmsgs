@@ -5,7 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompilers" num="28" delta="new" ><arg fmt="%s" index="1">&quot;parking_lot_top.v&quot; line 849 </arg>&apos;<arg fmt="%s" index="2">car_out_ready</arg>&apos; has not been declared
+<msg type="error" file="HDLCompilers" num="28" delta="old" ><arg fmt="%s" index="1">&quot;parking_lot_top.v&quot; line 919 </arg>&apos;<arg fmt="%s" index="2">car_out_ready</arg>&apos; has not been declared
 </msg>
 
 </messages>

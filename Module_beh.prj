@@ -1,3 +1,2 @@
 verilog work "parking_lot_top.v"
-verilog work "../../../Downloads/Digital-Logic-Design-F2023/parking_lot_top_new.v"
 verilog work "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

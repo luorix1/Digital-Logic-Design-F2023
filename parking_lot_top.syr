@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: parking_lot_top.prj
@@ -108,18 +108,18 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling verilog file "parking_lot_top.v" in library work
-Module <parking_fee_calculator> compiled
 Module <return_position> compiled
 Module <target_floor> compiled
+Module <parking_fee_calculator> compiled
 Module <order_queue> compiled
 Module <elevator_controller> compiled
-ERROR:HDLCompilers:28 - "parking_lot_top.v" line 849 'car_out_ready' has not been declared
+ERROR:HDLCompilers:28 - "parking_lot_top.v" line 919 'car_out_ready' has not been declared
 Module <parking_lot_top> compiled
 Analysis of file <"parking_lot_top.prj"> failed.
 --> 
 
 
-Total memory usage is 489824 kilobytes
+Total memory usage is 489792 kilobytes
 
 Number of errors   :    1 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
