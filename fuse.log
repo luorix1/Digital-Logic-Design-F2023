@@ -4,22 +4,22 @@ Number of CPUs detected in this system: 32
 Turning on mult-threading, number of parallel sub-compilation jobs: 64 
 Determining compilation order of HDL files
 Analyzing Verilog file "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" into library work
-WARNING:HDLCompiler:687 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 320: Illegal redeclaration of module <parking_fee_calculator>.
+WARNING:HDLCompiler:687 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 325: Illegal redeclaration of module <parking_fee_calculator>.
 Analyzing Verilog file "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.v" into library work
 Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1028: Target <parked_1> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1029: Target <parked_2> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1030: Target <parked_3> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1031: Target <parked_4> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1032: Target <parked_5> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1033: Target <parked_6> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1034: Target <parked_7> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1120: Target <parked_1> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1121: Target <parked_2> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1122: Target <parked_3> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1123: Target <parked_4> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1124: Target <parked_5> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1125: Target <parked_6> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1126: Target <parked_7> of concurrent assignment or output port connection should be a net type.
 WARNING:HDLCompiler:189 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb.v" Line 116: Size mismatch in connection of port <todo_license_plate>. Formal port size is 16-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:189 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1072: Size mismatch in connection of port <new_car>. Formal port size is 1-bit while actual signal size is 16-bit.
+WARNING:HDLCompiler:189 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1164: Size mismatch in connection of port <new_car>. Formal port size is 1-bit while actual signal size is 16-bit.
 Completed static elaboration
-Fuse Memory Usage: 83248 KB
-Fuse CPU Usage: 830 ms
+Fuse Memory Usage: 83144 KB
+Fuse CPU Usage: 840 ms
 Compiling module parking_fee_calculator
 Compiling module target_floor
 Compiling module return_position
@@ -29,8 +29,9 @@ Compiling module parking_lot_top
 Compiling module parking_lot_top_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
 Compiled 8 Verilog Units
 Built simulation executable /home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb_isim_beh.exe
-Fuse Memory Usage: 4314332 KB
-Fuse CPU Usage: 930 ms
-GCC CPU Usage: 1710 ms
+Fuse Memory Usage: 4314328 KB
+Fuse CPU Usage: 940 ms
+GCC CPU Usage: 1860 ms

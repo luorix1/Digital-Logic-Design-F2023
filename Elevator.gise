@@ -81,7 +81,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1702874788" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1702874788">
+    <transform xil_pn:end_ts="1702880214" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1702880214">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="data_reg.v"/>
@@ -102,26 +102,19 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1702874687" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1702874687">
+    <transform xil_pn:end_ts="1702880235" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1702880235">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="data_reg.v"/>
       <outfile xil_pn:name="make_clk.v"/>
       <outfile xil_pn:name="output_logic.v"/>
       <outfile xil_pn:name="parking_lot_top.v"/>
       <outfile xil_pn:name="parking_lot_top_tb.v"/>
     </transform>
-    <transform xil_pn:end_ts="1702874689" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="8551814472324103724" xil_pn:start_ts="1702874687">
+    <transform xil_pn:end_ts="1702880237" xil_pn:in_ck="-3398025115424614643" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="8551814472324103724" xil_pn:start_ts="1702880235">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
@@ -130,12 +123,9 @@
       <outfile xil_pn:name="parking_lot_top_tb_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1702874689" xil_pn:in_ck="-814574656686889493" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="8605055020675548047" xil_pn:start_ts="1702874689">
+    <transform xil_pn:end_ts="1702880237" xil_pn:in_ck="-814574656686889493" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="8605055020675548047" xil_pn:start_ts="1702880237">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="parking_lot_top_tb_isim_beh.wdb"/>

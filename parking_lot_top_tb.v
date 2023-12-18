@@ -136,20 +136,20 @@ module parking_lot_top_tb (
 	initial begin
 		# 5
 		reset=1;
-//		init_parked_1 = {16'b1001_0100_0010_0111, 16'b0110_0100_0010_0101}; // 9427, 6425
-//		init_parked_2 = {16'b1001_0100_0010_0000, 16'b0110_0100_0010_0010}; // 9420, 6422
-//		init_parked_3 = {16'b0001_0100_0010_1001, 16'b0001_0100_0010_0001}; // 1429, 1421
-//		init_parked_4 = {16'b0101_0100_0010_0100, 16'b0101_0100_0010_0110}; // 5424, 5426
-//		init_parked_5 = {16'b1001_0100_0011_1001, 16'b1001_0100_0011_0001}; // 9439, 9431
-//		init_parked_6 = {16'b1000_0100_0010_1000, 16'b0000_0000_0000_0000}; // 8428, 0000
-//		init_parked_7 = {16'b0001_0100_0010_0011, 16'b0000_0000_0000_0000}; // 1423, 0000
-		init_parked_1 = 0;
-		init_parked_2 = 0;
-		init_parked_3 = 0;
-		init_parked_4 = 0;
-		init_parked_5 = 0;
-		init_parked_6 = 0;
-		init_parked_7 = 0;
+		init_parked_1 = {16'b1001_0100_0010_0111, 16'b0110_0100_0010_0101}; // 9427, 6425
+		init_parked_2 = {16'b1001_0100_0010_0000, 16'b0110_0100_0010_0010}; // 9420, 6422
+		init_parked_3 = {16'b0001_0100_0010_1001, 16'b0001_0100_0010_0001}; // 1429, 1421
+		init_parked_4 = {16'b0101_0100_0010_0100, 16'b0101_0100_0010_0110}; // 5424, 5426
+		init_parked_5 = {16'b1001_0100_0011_1001, 16'b1001_0100_0011_0001}; // 9439, 9431
+		init_parked_6 = {16'b1000_0100_0010_1000, 16'b0000_0000_0000_0000}; // 8428, 0000
+		init_parked_7 = {16'b0001_0100_0010_0011, 16'b0000_0000_0000_0000}; // 1423, 0000
+//		init_parked_1 = 0;
+//		init_parked_2 = 0;
+//		init_parked_3 = 0;
+//		init_parked_4 = 0;
+//		init_parked_5 = 0;
+//		init_parked_6 = 0;
+//		init_parked_7 = 0;
 		
 		# 10
 		reset = 0;
@@ -161,7 +161,7 @@ module parking_lot_top_tb (
 		leakage = 1'b0;
 		leakage_floor = 3'b000;
 
-		# 20
+		# 10
 		license_plate = 16'b1001_0100_0010_0011; // 9423
 		in_mode = 1'b1;
 		out_mode = 1'b0;
@@ -172,207 +172,214 @@ module parking_lot_top_tb (
 		license_plate = 16'b0000_0000_0000_0000; 
 		in_mode = 1'b0;
 		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
+		leakage = 1'b1;
+		leakage_floor = 3'b100;
+		
+		# 10
+		license_plate = 16'b0000_0000_0000_0000; 
+		in_mode = 1'b0;
+		out_mode = 1'b0;
+		leakage = 1'b1;
+		leakage_floor = 3'b100;
 				
 		# 50
 		license_plate = 16'b1000_0111_0101_0100; // 8754
 		in_mode = 1'b1;
 		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
+		leakage = 1'b1;
+		leakage_floor = 3'b100;
 		
-		# 10
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 70
+//		license_plate = 16'b1000_0111_0101_0100; // 8754
+//		in_mode = 1'b0;
+//		out_mode = 1'b1;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 70
+//		license_plate = 16'b0101_0111_0101_0101; // 5755
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 70
+//		license_plate = 16'b0110_0111_0101_0101; // 6755
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 70
+//		license_plate = 16'b0101_0111_0101_0101; // 8755
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 70
+//		license_plate = 16'b0011_1000_0101_0001; // 3851
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 70
+//		license_plate = 16'b1001_0101_0010_0010; // 9522
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b1001_0101_0011_0010; // 9532
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0101_0111_0101_0101; // 1755
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0101_0111_0101_0101; // 2755
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0101_0111_0101_0010; // 5752
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0101_0111_0101_0100; // 5754
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0101_0111_0000_1000; // 5708
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0000_0000_0000_0000; 
+//		in_mode = 1'b0;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+//		
+//		# 10
+//		license_plate = 16'b0101_0111_0101_0000; // 5750
+//		in_mode = 1'b1;
+//		out_mode = 1'b0;
+//		leakage = 1'b0;
+//		leakage_floor = 3'b000;
+		
+		# 180
 		license_plate = 16'b0000_0000_0000_0000; 
 		in_mode = 1'b0;
 		out_mode = 1'b0;
 		leakage = 1'b0;
 		leakage_floor = 3'b000;
 		
-		# 70
-		license_plate = 16'b1000_0111_0101_0100; // 8754
-		in_mode = 1'b0;
-		out_mode = 1'b1;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
 		
 		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 70
-		license_plate = 16'b0101_0111_0101_0101; // 5755
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 70
-		license_plate = 16'b0101_0111_0101_0101; // 6755
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 70
-		license_plate = 16'b0101_0111_0101_0101; // 8755
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 70
-		license_plate = 16'b0011_1000_0101_0001; // 3851
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 70
-		license_plate = 16'b1001_0101_0010_0010; // 9522
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b1001_0101_0011_0010; // 9532
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0101_0111_0101_0101; // 1755
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0101_0111_0101_0101; // 2755
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0101_0111_0101_0010; // 5752
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0101_0111_0101_0100; // 5754
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0101_0111_0000_1000; // 5708
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0101_0111_0101_0000; // 5750
-		in_mode = 1'b1;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		# 10
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b0;
-		leakage_floor = 3'b000;
-		
-		
-		# 500
 		$finish;
 		
 	end

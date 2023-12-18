@@ -309,7 +309,12 @@ module target_floor(
 		else if(todo_leak_move & plate_type==suv) begin
 			target_floor = leakage_floor;
 		end
+		else if (leakage & moving == 0) begin
+			target_floor = leakage_floor;
+		end
 		else begin
+			$display("%b %b %b", todo_leak_move, leakage, moving);
+			$display("HELLO");
 			target_floor = 0;
 		end
 	end
@@ -389,7 +394,7 @@ module order_queue(
    reg [2:0] front, rear; //# of orders in QUEUE, used for tail
    reg queue_empty;
 
-   always @(negedge clock) begin
+   always @(negedge clock or posedge reset) begin
 		if (reset) begin
          front = 3'b0;
          rear = 3'b0;
@@ -413,6 +418,9 @@ module order_queue(
 		end
 		
 		else if (!todo_exists & leakage) begin
+			$display("This is new");
+			$display("leakage_floor == 3'b100: %b", leakage_floor==3'b100);
+			$display("parked_4 status: %b   %b", parked_4[31:16], parked_4[15:0]);
 			if(leakage_floor==3'b001 & parked_1[31:16]) begin
 				{todo_exists, todo_in, todo_out, todo_leak_move} = 4'b1001;
 				todo_license_plate[15:0] = parked_1[31:16];
@@ -439,10 +447,12 @@ module order_queue(
 			end
 			else if(leakage_floor==3'b100 & parked_4[31:16]) begin
 				{todo_exists, todo_in, todo_out, todo_leak_move} = 4'b1001;
+				$display("reached case 1");
 				todo_license_plate[15:0] = parked_4[31:16];
 			end
 			else if(leakage_floor==3'b100 & parked_4[15:0]) begin
 				{todo_exists, todo_in, todo_out, todo_leak_move} = 4'b1001;
+				$display("reached case 2");
 				todo_license_plate[15:0] = parked_4[15:0];
 			end
 			else if(leakage_floor==3'b101 & parked_5[31:16]) begin
@@ -504,6 +514,7 @@ module order_queue(
 			todo_exists=0;
 		end 
 		$display("todo_exists = %d, todo_in = %d", todo_exists, todo_in);
+		$display("todo_leak_move = %d", todo_leak_move);
 		$display("car on dummy %d%d%d%d",todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0] );
 		// dummy 비우는 역할
 		if(!reset & (park_change==1) & (todo_license_plate!=0)) begin
@@ -676,6 +687,7 @@ module elevator_controller(
 						new_spot[0] = target_place;
 						moving[15:0] = 0;
 						next_floor = current_floor;
+						$display("todo_leak_move: %b", todo_leak_move);
 						next_state = todo_in? STATE_CAR_IN : todo_out? STATE_CAR_OUT : todo_leak_move? STATE_CAR_OUT : STATE_NO_ORDER;
 						$display("park_change = %d, new_car = %d, moving = %d", park_change, new_car, moving);
 					end
@@ -799,8 +811,88 @@ module elevator_controller(
 				park_change=0;
 				$display("in STATE_NO_ORDER");
 				if(current_floor == target_floor) begin
-					next_floor = current_floor;
-					next_state = todo_in? STATE_CAR_IN : todo_out? STATE_CAR_OUT : todo_leak_move? STATE_CAR_OUT : STATE_NO_ORDER; // leak의 경우도 출고처럼 시작.
+					// Leakage case (leakage, elevator at leakage floor)
+					if (leakage & current_floor == leakage_floor) begin
+						if (moving == 0) begin
+							park_change = 1;
+							new_car=0;
+							new_spot={target_floor, target_place};
+							case(target_floor)
+								3'b001: if(target_place==0) begin
+												moving = parked_1[31:16];
+												parked_1[31:16] = 0;
+											end
+											else begin
+												moving = parked_1[15:0];
+												parked_1[15:0] = 0;
+											end
+								3'b010:	if(target_place==0) begin
+												moving = parked_2[31:16];
+												parked_2[31:16] = 0;
+											end
+											else begin
+												moving = parked_2[15:0];
+												parked_2[15:0] = 0;
+											end
+								3'b011: 	if(target_place==0) begin
+												moving = parked_3[31:16];
+												parked_3[31:16] = 0;
+											end
+											else begin
+												moving = parked_3[15:0];
+												parked_3[15:0] = 0;
+											end
+								3'b100:	if(target_place==0) begin
+												moving = parked_4[31:16];
+												parked_4[31:16] = 0;
+											end
+											else begin
+												moving = parked_4[15:0];
+												parked_4[15:0] = 0;
+											end
+								3'b101: 	if(target_place==0) begin
+												moving = parked_5[31:16];
+												parked_5[31:16] = 0;
+											end
+											else begin
+												moving = parked_5[15:0];
+												parked_5[15:0] = 0;
+											end
+								3'b110:	if(target_place==0) begin
+												moving = parked_6[31:16];
+												parked_6[31:16] = 0;
+											end
+											else begin
+												moving = parked_6[15:0];
+												parked_6[15:0] = 0;
+											end
+								3'b111: 	if(target_place==0) begin
+												moving = parked_7[31:16];
+												parked_7[31:16] = 0;
+											end
+											else begin
+												moving = parked_7[15:0];
+												parked_7[15:0] = 0;
+											end
+								default: begin
+									moving = 0;
+								end
+							endcase
+							next_floor = current_floor;
+							next_state = todo_leak_move? STATE_CAR_IN : STATE_CAR_OUT;
+						end
+						
+						// Dummy case for combinational logic
+						else begin
+							$display("ERROR: Must not reach this case!");
+						end
+					end
+					
+					// Normal case (no leakage, elevator at 0th floor)
+					else begin
+						next_floor = current_floor;
+						next_state = todo_in? STATE_CAR_IN : todo_out? STATE_CAR_OUT : todo_leak_move? STATE_CAR_OUT : STATE_NO_ORDER; // leak의 경우도 출고처럼 시작.
+					end
 				end
 				else if(target_floor > current_floor) begin
 					next_floor = current_floor + 1;
