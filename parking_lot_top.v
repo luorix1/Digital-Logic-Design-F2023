@@ -45,15 +45,15 @@ module target_floor(
 	reg [2:0] n6 = 3'b110;
 	reg [2:0] n7 = 3'b111;
    reg [20:0] visit; // visit sequence
-	always @(posedge clock) begin // to calculate all in / out / leak cases
+	always @(negedge clock) begin // to calculate all in / out / leak cases
 		disabled = (license_plate[15:12] == 4'b1001);
 		sedan =    (license_plate[0] == 0); // even number = sedan
 		suv =      (license_plate[0] == 1); // odd number = suv
 		// one-hot for each parking space
 		// possible[i] = 1 : ith floor empty & without leakage
 		// possible[i] = 0 : ith floor occupied
-		$display("%b \n", possible);
-		$display("license plate last digit: %b \n", license_plate[0]);
+		//$display("%b \n", possible);
+		//$display("license plate last digit: %b \n", license_plate[0]);
 		possible [0] = 1; //always reachable
 		possible [1] = (leakage_floor != 3'b001) & ((suv | full_sedan) & ((parked_1[31:16] == 0) & (disabled) | (parked_1[15:0] == 0)));
 		possible [2] = (leakage_floor != 3'b010) & ((sedan) & ((parked_2[31:16]==0) & (disabled) | (parked_2[15:0] == 0)));
@@ -170,7 +170,7 @@ module target_floor(
 		end
 	end
 
-   always @(*) begin
+   always @(negedge clock) begin
 		if (todo_in & moving==0) begin
 			target_floor = 0;
 		end
@@ -209,7 +209,7 @@ module parking_fee_calculator(
 	reg [31:0] cycle_count; // Assuming 32-bit counter for simplicity
 
 	// Next state logic
-   always @(posedge clock) begin
+   always @(negedge clock) begin
 		// If RESET signal given, cycle_count = 0 and fee = 0
 		if (reset) begin
 			cycle_count = 0;
@@ -269,7 +269,7 @@ module order_queue(
    reg [2:0] front, rear; //# of orders in QUEUE, used for tail
    reg queue_empty;
 
-   always @(posedge clock) begin
+   always @(negedge clock) begin
 		if (reset) begin
          front = 3'b0;
          rear = 3'b0;
@@ -440,7 +440,7 @@ module elevator_controller(
 	reg [2:0] next_floor; // JYH: next floor elevator will go to
 	
    // State transition logic
-   always @(posedge clock or posedge reset) begin
+   always @(negedge clock or posedge reset) begin
 		if (current_state!=next_state) $display("Elevator module state transition %d -> %d", current_state, next_state);
 		else $display("Elevator module same state %d -> %d", current_state, next_state);
 		
@@ -458,7 +458,7 @@ module elevator_controller(
 	end
 
    // NEW! Next state logic
-   always @(negedge clock) begin
+   always @(posedge clock) begin
 		case (current_state)
 			// NOTE: STATE_RESET can go to either STATE_CAR_IN if in_mode = 1, or STATE_CAR_OUT if out_mode = 1
 			//       Otherwise, stay in STATE_RESET
@@ -757,7 +757,7 @@ module parking_lot_top(
 	// [3:0] register for position at which to stop counting
 	wire [3:0] stop_count_pos;
 	
-	always @(*) begin
+	always @(negedge clock) begin
 		if (reset) begin
 			stop_count_1_left = 0;
 			stop_count_1_right = 0;
@@ -928,7 +928,7 @@ module parking_lot_top(
 	);
 	 
 	// JYH: RESET logic here
-	always @(*) begin
+	always @(negedge clock) begin
 		if (reset) begin
 		//flag change output reg
 			parked_1[31:0] <= 0;
@@ -968,7 +968,7 @@ module parking_lot_top(
 	end
 	 
 	// JYH: Fee output logic
-	always @(*) begin
+	always @(negedge clock) begin
 		if (car_out_ready) begin
 			case (new_spot)
 				4'b0010: fee = parked_1_fee[15:8];

@@ -231,7 +231,7 @@ module parking_lot_top_tb (
 		
 	end
 
-	always @(posedge clock) begin
+	always @(negedge clock) begin
 	
 		//reset_start
 		if(reset==0 & pre_reset==1) begin
@@ -322,10 +322,11 @@ module parking_lot_top_tb (
 
 	task check_out(input[15:0] pre_moving, input[15:0] moving, input[2:0] current_floor, input[7:0] fee);
 		begin
-			$display("%b %b", pre_moving, moving);
 			if((pre_moving != moving) & moving==0) begin
 				$display("%d %d %d %d is getting out of elevator. Current floor : %d\n", pre_moving[15:12], pre_moving[11:8], pre_moving[7:4], pre_moving[3:0], current_floor);
-				$display("Parking fee = %d cents\n", fee);
+				if (current_floor == 0) begin
+					$display("Parking fee = %d cents\n", fee);
+				end
 			end
 		end
 	endtask
