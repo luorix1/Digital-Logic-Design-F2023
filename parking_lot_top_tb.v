@@ -41,7 +41,7 @@ module parking_lot_top_tb (
 	wire full_suv;
 	wire full_sedan;
 	
-	// for test
+	// for test 
 	reg pre_reset;
 
 	reg [31:0] pre_parked_1;
@@ -89,10 +89,11 @@ module parking_lot_top_tb (
         .empty_sedan (empty_sedan),
         .full_suv (full_suv),
         .full_sedan (full_sedan),
-		  .in_mode_internal(in_mode_internal),
-		  .out_mode_internal(out_mode_internal),
-		  .license_plate_internal(license_plate_internal),
-		  .curr_state_for_test(curr_state_for_test),
+		  .todo_exists (todo_exists),
+		  .todo_in (todo_in),
+		  .todo_out (todo_out),
+		  .todo_leak_move (todo_leak_move),
+		  .todo_license_plate(todo_license_plate),
 		  .target_floor(target_floor),
 		  .target_place(target_place)
 		);
@@ -118,8 +119,15 @@ module parking_lot_top_tb (
 		
 		# 10
 		reset = 0;
+		
+		# 10
+		license_plate = 16'b0000_0000_0000_0000; 
+		in_mode = 1'b0;
+		out_mode = 1'b0;
+		leakage = 1'b0;
+		leakage_floor = 3'b000;
 
-		# 40
+		# 20
 		license_plate = 16'b1001_0100_0010_0011; // 9423
 		in_mode = 1'b1;
 		out_mode = 1'b0;
@@ -133,7 +141,7 @@ module parking_lot_top_tb (
 		leakage = 1'b0;
 		leakage_floor = 3'b000;
 				
-		# 10
+		# 50
 		license_plate = 16'b1000_0111_0101_0100; // 8754
 		in_mode = 1'b1;
 		out_mode = 1'b0;
@@ -147,13 +155,6 @@ module parking_lot_top_tb (
 		leakage = 1'b0;
 		leakage_floor = 3'b000;
 		
-		# 50
-		license_plate = 16'b0000_0000_0000_0000; 
-		in_mode = 1'b0;
-		out_mode = 1'b0;
-		leakage = 1'b1;
-		leakage_floor = 3'b001;
-
 		# 70
 		license_plate = 16'b1000_0111_0101_0100; // 8754
 		in_mode = 1'b0;
@@ -168,7 +169,64 @@ module parking_lot_top_tb (
 		leakage = 1'b0;
 		leakage_floor = 3'b000;
 		
-		# 100
+		# 70
+		license_plate = 16'b0101_0111_0101_0101; // 6755
+		in_mode = 1'b1;
+		out_mode = 1'b0;
+		leakage = 1'b0;
+		leakage_floor = 3'b000;
+		
+		# 10
+		license_plate = 16'b0000_0000_0000_0000; 
+		in_mode = 1'b0;
+		out_mode = 1'b0;
+		leakage = 1'b0;
+		leakage_floor = 3'b000;
+		
+		# 70
+		license_plate = 16'b0011_1000_0101_0001; // 3851
+		in_mode = 1'b1;
+		out_mode = 1'b0;
+		leakage = 1'b0;
+		leakage_floor = 3'b000;
+		
+		# 10
+		license_plate = 16'b0000_0000_0000_0000; 
+		in_mode = 1'b0;
+		out_mode = 1'b0;
+		leakage = 1'b0;
+		leakage_floor = 3'b000;
+		
+		# 70
+		license_plate = 16'b1001_0101_0010_0010; // 9522
+		in_mode = 1'b1;
+		out_mode = 1'b0;
+		leakage = 1'b0;
+		leakage_floor = 3'b000;
+		
+		# 10
+		license_plate = 16'b0000_0000_0000_0000; 
+		in_mode = 1'b0;
+		out_mode = 1'b0;
+		leakage = 1'b0;
+		leakage_floor = 3'b000;
+		
+		# 70
+		license_plate = 16'b1001_0101_0011_0010; // 9532
+		in_mode = 1'b1;
+		out_mode = 1'b0;
+		leakage = 1'b0;
+		leakage_floor = 3'b000;
+		
+		# 10
+		license_plate = 16'b0000_0000_0000_0000; 
+		in_mode = 1'b0;
+		out_mode = 1'b0;
+		leakage = 1'b0;
+		leakage_floor = 3'b000;
+		
+		
+		# 10
 		$finish;
 		
 	end
@@ -192,7 +250,7 @@ module parking_lot_top_tb (
 
 		if (pre_reset == 0 & reset == 0) begin		//  check during simulation
 			if( (current_floor > pre_current_floor + 1 ) | (current_floor < pre_current_floor - 1 ) ) begin
-				$display("Minus points!!!! Elevator moved more than two floors in one cycle : %d -> %d\n", pre_current_floor, current_floor);
+				//$display("Minus points!!!! Elevator moved more than two floors in one cycle : %d -> %d\n", pre_current_floor, current_floor);
 			end
 
 			// additional condition you want
@@ -200,34 +258,36 @@ module parking_lot_top_tb (
 		end
 
 		// display output
-		$display("\n-----------------\n");
-		$display("clock count : %d \n", clk_cnt);
-		$display("reset : %b \n", reset);
-		$display("Parking fee : %d \n", fee);
-		$display("current plate type  :  %b \n", plate_type);
-		$display("current in_mode  :  %b \n", in_mode);
-		$display("current out_mode  :  %b \n", out_mode);
-		$display("current license_plate  :  %d %d %d %d \n", license_plate[15:12], license_plate[11:8], license_plate[7:4], license_plate[3:0]);
-		$display("current in_mode_internal  :  %b \n", in_mode_internal);
-		$display("current out_mode_internal  :  %b \n", out_mode_internal);
+		$display("\n-----------------");
+		$display("clock count : %d ", clk_cnt);
+		$display("license_plate  :  %d %d %d %d ", license_plate[15:12], license_plate[11:8], license_plate[7:4], license_plate[3:0]);
+		$display("in_mode : %d ", in_mode);
+		$display("out_mode : %d ", out_mode);
+		$display("current leakage:  %b ", leakage);
+		$display("current leakage_floor:  %b ", leakage_floor);
 		
-		$display("current leakage:  %b \n", leakage);
-		$display("current leakage_floor:  %b \n", leakage_floor);
+		$display("current todo_exists  :  %b ", todo_exists);
+		$display("current todo_in  :  %b ", todo_in);
+		$display("current todo_out  :  %b ", todo_out);
+		$display("current todo_leak_move  :  %b ", todo_leak_move);
 		
-		$display("current target_floor  :  %d \n", target_floor);
-		$display("current target_place  :  %b \n", target_place);
-		$display("current curr_state_for_test  :  %b %b %b\n", curr_state_for_test[2], curr_state_for_test[1], curr_state_for_test[0]);
-		$display("moving  :  %d %d %d %d\n", moving[15:12], moving[11:8], moving[7:4], moving[3:0]);		$display("current license_plate_internal  :  %d %d %d %d \n", license_plate_internal[15:12], license_plate_internal[11:8], license_plate_internal[7:4], license_plate_internal[3:0]);
+		
+		$display("current target_floor  :  %d", target_floor); 
+		$display("current target_place  :  %b", target_place);
+		//$display("todo_license_plate  :  %d %d %d %d \n", todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0]);
 
-		$display("floor 7  : %b | %d %d %d %d | %d %d %d %d \n", (current_floor == 7)? 1'b1 : 1'b0, parked_7[31:28], parked_7[27:24], parked_7[23:20], parked_7[19:16], parked_7[15:12], parked_7[11:8], parked_7[7:4], parked_7[3:0]);
-		$display("floor 6  : %b | %d %d %d %d | %d %d %d %d \n", (current_floor == 6)? 1'b1 : 1'b0, parked_6[31:28], parked_6[27:24], parked_6[23:20], parked_6[19:16], parked_6[15:12], parked_6[11:8], parked_6[7:4], parked_6[3:0]);
-		$display("floor 5  : %b | %d %d %d %d | %d %d %d %d \n", (current_floor == 5)? 1'b1 : 1'b0, parked_5[31:28], parked_5[27:24], parked_5[23:20], parked_5[19:16], parked_5[15:12], parked_5[11:8], parked_5[7:4], parked_5[3:0]);
-		$display("floor 4  : %b | %d %d %d %d | %d %d %d %d \n", (current_floor == 4)? 1'b1 : 1'b0, parked_4[31:28], parked_4[27:24], parked_4[23:20], parked_4[19:16], parked_4[15:12], parked_4[11:8], parked_4[7:4], parked_4[3:0]);
-		$display("floor 3  : %b | %d %d %d %d | %d %d %d %d \n", (current_floor == 3)? 1'b1 : 1'b0, parked_3[31:28], parked_3[27:24], parked_3[23:20], parked_3[19:16], parked_3[15:12], parked_3[11:8], parked_3[7:4], parked_3[3:0]);
-		$display("floor 2  : %b | %d %d %d %d | %d %d %d %d \n", (current_floor == 2)? 1'b1 : 1'b0, parked_2[31:28], parked_2[27:24], parked_2[23:20], parked_2[19:16], parked_2[15:12], parked_2[11:8], parked_2[7:4], parked_2[3:0]);
-		$display("floor 1  : %b | %d %d %d %d | %d %d %d %d \n", (current_floor == 1)? 1'b1 : 1'b0, parked_1[31:28], parked_1[27:24], parked_1[23:20], parked_1[19:16], parked_1[15:12], parked_1[11:8], parked_1[7:4], parked_1[3:0]);
-		$display("floor 0  : %b \n", (current_floor == 0)? 1'b1 : 1'b0);
-		$display("------------------------------------------\n\n");
+		$display("floor 7  : %b | %d %d %d %d | %d %d %d %d", (current_floor == 7)? 1'b1 : 1'b0, parked_7[31:28], parked_7[27:24], parked_7[23:20], parked_7[19:16], parked_7[15:12], parked_7[11:8], parked_7[7:4], parked_7[3:0]);
+		$display("floor 6  : %b | %d %d %d %d | %d %d %d %d", (current_floor == 6)? 1'b1 : 1'b0, parked_6[31:28], parked_6[27:24], parked_6[23:20], parked_6[19:16], parked_6[15:12], parked_6[11:8], parked_6[7:4], parked_6[3:0]);
+		$display("floor 5  : %b | %d %d %d %d | %d %d %d %d", (current_floor == 5)? 1'b1 : 1'b0, parked_5[31:28], parked_5[27:24], parked_5[23:20], parked_5[19:16], parked_5[15:12], parked_5[11:8], parked_5[7:4], parked_5[3:0]);
+		$display("floor 4  : %b | %d %d %d %d | %d %d %d %d", (current_floor == 4)? 1'b1 : 1'b0, parked_4[31:28], parked_4[27:24], parked_4[23:20], parked_4[19:16], parked_4[15:12], parked_4[11:8], parked_4[7:4], parked_4[3:0]);
+		$display("floor 3  : %b | %d %d %d %d | %d %d %d %d", (current_floor == 3)? 1'b1 : 1'b0, parked_3[31:28], parked_3[27:24], parked_3[23:20], parked_3[19:16], parked_3[15:12], parked_3[11:8], parked_3[7:4], parked_3[3:0]);
+		$display("floor 2  : %b | %d %d %d %d | %d %d %d %d", (current_floor == 2)? 1'b1 : 1'b0, parked_2[31:28], parked_2[27:24], parked_2[23:20], parked_2[19:16], parked_2[15:12], parked_2[11:8], parked_2[7:4], parked_2[3:0]);
+		$display("floor 1  : %b | %d %d %d %d | %d %d %d %d", (current_floor == 1)? 1'b1 : 1'b0, parked_1[31:28], parked_1[27:24], parked_1[23:20], parked_1[19:16], parked_1[15:12], parked_1[11:8], parked_1[7:4], parked_1[3:0]);
+		$display("floor 0  : %b", (current_floor == 0)? 1'b1 : 1'b0);
+		$display("moving  :  %d %d %d %d", moving[15:12], moving[11:8], moving[7:4], moving[3:0]);		
+		$display("plate type  :  %b ", plate_type);
+		$display("fee leakage:  %b ", fee);
+		$display("------------------------------------------\n");
 		
 		
 		
