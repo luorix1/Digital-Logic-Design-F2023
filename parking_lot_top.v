@@ -13,7 +13,7 @@ module parking_fee_calculator(
 	reg [31:0] cycle_count; // Assuming 32-bit counter for simplicity
 
 	// Next state logic
-   always @(negedge clock) begin
+   always @(negedge clock or posedge reset) begin
 		// If RESET signal given, cycle_count = 0 and fee = 0
 		if (reset) begin
 			cycle_count = 0;

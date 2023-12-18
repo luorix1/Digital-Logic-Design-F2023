@@ -19,7 +19,7 @@ WARNING:HDLCompiler:189 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon
 WARNING:HDLCompiler:189 - "/home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top.v" Line 1072: Size mismatch in connection of port <new_car>. Formal port size is 1-bit while actual signal size is 16-bit.
 Completed static elaboration
 Fuse Memory Usage: 83248 KB
-Fuse CPU Usage: 830 ms
+Fuse CPU Usage: 850 ms
 Compiling module parking_fee_calculator
 Compiling module target_floor
 Compiling module return_position
@@ -29,8 +29,9 @@ Compiling module parking_lot_top
 Compiling module parking_lot_top_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
 Compiled 8 Verilog Units
 Built simulation executable /home/luorix/Desktop/Digital-Logic-Design-F2023-jjoon0-patch-2/parking_lot_top_tb_isim_beh.exe
 Fuse Memory Usage: 4314332 KB
-Fuse CPU Usage: 930 ms
-GCC CPU Usage: 1710 ms
+Fuse CPU Usage: 960 ms
+GCC CPU Usage: 1770 ms

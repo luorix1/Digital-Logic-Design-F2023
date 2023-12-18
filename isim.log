@@ -3780,4 +3780,3 @@ in STATE_CAR_IN
 target_floor = 6
 current_floor = 4
 moving =  5 7 5 0
-# exit 0
