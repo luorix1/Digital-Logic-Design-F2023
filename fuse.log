@@ -8,16 +8,16 @@ Analyzing Verilog file "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w
 Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 WARNING:HDLCompiler:1016 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb.v" Line 68: Port todo_exists is not connected to this instance
-WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1018: Target <parked_1> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1019: Target <parked_2> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1020: Target <parked_3> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1021: Target <parked_4> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1022: Target <parked_5> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1023: Target <parked_6> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1024: Target <parked_7> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:189 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1061: Size mismatch in connection of port <new_car>. Formal port size is 1-bit while actual signal size is 16-bit.
+WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1016: Target <parked_1> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1017: Target <parked_2> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1018: Target <parked_3> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1019: Target <parked_4> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1020: Target <parked_5> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1021: Target <parked_6> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:329 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1022: Target <parked_7> of concurrent assignment or output port connection should be a net type.
+WARNING:HDLCompiler:189 - "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 1059: Size mismatch in connection of port <new_car>. Formal port size is 1-bit while actual signal size is 16-bit.
 Completed static elaboration
-Fuse Memory Usage: 83084 KB
+Fuse Memory Usage: 83076 KB
 Fuse CPU Usage: 840 ms
 Compiling module parking_fee_calculator
 Compiling module target_floor
@@ -28,9 +28,8 @@ Compiling module parking_lot_top
 Compiling module parking_lot_top_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
 Compiled 8 Verilog Units
 Built simulation executable /home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb_isim_beh.exe
-Fuse Memory Usage: 4314256 KB
+Fuse Memory Usage: 4314252 KB
 Fuse CPU Usage: 940 ms
-GCC CPU Usage: 1660 ms
+GCC CPU Usage: 1640 ms

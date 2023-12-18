@@ -130,8 +130,8 @@ module target_floor(
 		// one-hot for each parking space
 		// possible[i] = 1 : ith floor empty & without leakage
 		// possible[i] = 0 : ith floor occupied
-		////$display("%b \n", possible);
-		////$display("license plate last digit: %b \n", license_plate[0]);
+		////
+		////
 		possible [0] = 1; //always reachable
 		possible [1] = (leakage_floor != 3'b001) & ((suv | full_sedan) & ((parked_1[31:16] == 0) & (disabled) | (parked_1[15:0] == 0)));
 		possible [2] = (leakage_floor != 3'b010) & ((sedan) & ((parked_2[31:16]==0) & (disabled) | (parked_2[15:0] == 0)));
@@ -352,7 +352,7 @@ module order_queue(
    always @(negedge clock) begin//negedge clock) begin
 	
 		if(!reset & (park_change==1) & (todo_license_plate!=0)) begin
-			//$display("dummy empty happening");
+			//
 			todo_license_plate = 0;
 			todo_in=0;
 			todo_out=0;
@@ -476,7 +476,7 @@ module order_queue(
 	
       else if (todo_exists) begin // if todo is going on, put in queue
 			if(in_mode | out_mode) begin
-				//$display("Enqueue");
+				//
 				license_plates[rear] = license_plate;
 				orders[rear] = {in_mode, out_mode};
 				rear = rear + 1;
@@ -485,7 +485,7 @@ module order_queue(
 		end
 		//goto_queue
 		else if (!todo_exists & !queue_empty) begin
-			//$display("Dequeue");
+			//
 			{todo_in, todo_out} = orders[front];
 			todo_leak_move = 0; 
 			todo_license_plate = license_plates[front];
@@ -494,34 +494,34 @@ module order_queue(
 		end 
 		 
 		else if ((!todo_exists & queue_empty) && (in_mode|out_mode)) begin
-			////$display("(!todo_exists && queue_empty) %d %d %d", in_mode, out_mode, license_plate[0]);
+			////
 			todo_in = in_mode;
 			todo_out = out_mode;
 			todo_leak_move = 0;
 			todo_exists=in_mode|out_mode;
-			//$display("license_plate first digit : %d", license_plate[15:12]); //
-			//$display("license_plate first digit : %d", license_plate[11:8]); //
-			//$display("license_plate first digit : %d", license_plate[7:4]); //
-			//$display("license_plate first digit : %d", license_plate[3:0]); //
+			// //
+			// //
+			// //
+			// //
 			todo_license_plate[15:12] = license_plate[15:12];
 			todo_license_plate[11:8] = license_plate[11:8];
 			todo_license_plate[7:4] = license_plate[7:4];
 			todo_license_plate[3:0] = license_plate[3:0];
-			//$display("todo_license_plate car # : %d%d%d%d",todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0] );
+			//
 		end
 		else if(!todo_exists & queue_empty & !in_mode & !out_mode) begin
-			//$display("(!todo_exists && queue_empty) with no in out %d%d%d%d",todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0] );
+			//
 		end
 		else begin 
-			//$display("Error !!!!!!!!!!!!!!");
+			//
 			todo_exists=0;
 		end 
-		//$display("todo_exists = %d, todo_in = %d, todo_out = %d, todo_leak_move = %d", todo_exists, todo_in, todo_out, todo_leak_move);
-		//$display("car on dummy %d%d%d%d",todo_license_plate[15:12], todo_license_plate[11:8], todo_license_plate[7:4], todo_license_plate[3:0] );
+		//
+		//
 		/*
 		// dummy empty
 		if(!reset & (park_change==1) & (todo_license_plate!=0)) begin
-			//$display("dummy empty happening");
+			//
 			todo_license_plate = 0;
 			todo_in=0;
 			todo_out=0;
@@ -577,8 +577,8 @@ module elevator_controller(
 	
    // State transition logic
    always @(negedge clock or posedge reset) begin
-		//if (current_state!=next_state) $display("Elevator module state transition %d -> %d", current_state, next_state);
-		//else $display("Elevator module same state %d -> %d", current_state, next_state);
+		//if (current_state!=next_state) 
+		//else 
 		
 		if (reset) begin
 			current_state <= STATE_RESET;
@@ -697,7 +697,7 @@ module elevator_controller(
 
 			// NOTE: STATE_CAR_OUT
 			STATE_CAR_OUT: begin
-				//$display("in STATE_CAR_OUT");
+				//
 				if(target_floor==current_floor) begin // 3 possible states : 1. 출고 2. 판 바꾸기 3. 주차장에서 차 빼기
 					if(moving!=0) begin // car out of parking lot
 						if(target_floor == 0) begin
@@ -722,7 +722,7 @@ module elevator_controller(
 						next_state = STATE_CAR_OUT;
 					end
 					else begin // 차 빼기
-						//$display("remove car at this stage!");
+						//
 						park_change = 1;
 						new_car=0;
 						new_spot={target_floor, target_place};
@@ -772,7 +772,7 @@ module elevator_controller(
 							default: moving = 0;
 						endcase
 						next_floor = current_floor;
-						//$display("calling from line 685 todo_leak_move = %d", todo_leak_move);
+						//
 						next_state = STATE_CAR_OUT;
 					end
 				end
@@ -794,7 +794,7 @@ module elevator_controller(
 			// NOTE: STATE_NO_ORDER
 			STATE_NO_ORDER: begin // target_floor臾댁"嫄0痢
 				park_change=0;
-				//$display("in STATE_NO_ORDER");
+				//
 				if(current_floor == target_floor) begin
 					next_floor = current_floor;
 					next_state = todo_in? STATE_CAR_IN : todo_out? STATE_CAR_OUT : todo_leak_move? STATE_CAR_OUT : STATE_NO_ORDER; // leak寃쎌슦異쒓퀬泥섎읆 쒖옉.
@@ -811,7 +811,7 @@ module elevator_controller(
 	
 			// NOTE: Default case to ensure combinational logic
 			default: begin
-				//$display("in default state");
+				//
 				park_change=0;
 				next_state = STATE_RESET;
 			end 
@@ -1067,7 +1067,7 @@ module parking_lot_top(
 	 
 	// JYH: RESET logic here
 	always @(negedge clock) begin
-		$display("%b", parked_1_fee[7:0]);
+		
 		if (reset) begin
 		//flag change output reg
 			parked_1[31:0] <= 0;

@@ -5,7 +5,7 @@ WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING: File "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 865.  For instance PARKING_LOT_TOP/ORDERS/, width 1 of formal port new_car is not equal to width 16 of actual signal new_car.
+WARNING: File "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top.v" Line 863.  For instance PARKING_LOT_TOP/ORDERS/, width 1 of formal port new_car is not equal to width 16 of actual signal new_car.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
@@ -33,7 +33,6 @@ empty_suv=xxxx
 empty_sedan=xxxx
 full_suv=x
 full_sedan=x
-xxxxxxxx
 Start Simulation!!!
 
 input
@@ -57,7 +56,6 @@ empty_suv=xxxx
 empty_sedan=xxxx
 full_suv=x
 full_sedan=x
-00000000
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
@@ -81,7 +79,6 @@ empty_suv=xxxx
 empty_sedan=xxxx
 full_suv=x
 full_sedan=x
-00000000
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
@@ -105,7 +102,6 @@ empty_suv=xxxx
 empty_sedan=xxxx
 full_suv=x
 full_sedan=x
-00000000
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
@@ -129,11 +125,10 @@ empty_suv=xxxx
 empty_sedan=xxxx
 full_suv=x
 full_sedan=x
-00000000
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
-license_plate= 8 4 2 3 
+license_plate= 9 4 2 3 
 in_mode=1 
 out_mode=0 
 leakage=0 
@@ -153,7 +148,6 @@ empty_suv=xxxx
 empty_sedan=xxxx
 full_suv=x
 full_sedan=x
-00000000
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
@@ -177,12 +171,11 @@ empty_suv=0111
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00000000
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
-license_plate= 0 0 0 0 
-in_mode=0 
+license_plate= 8 7 5 4 
+in_mode=1 
 out_mode=0 
 leakage=0 
 leakage_floor=000 
@@ -201,8 +194,7 @@ empty_suv=0111
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00000000
- 8  4  2  3 is onboard elevator. Current floor : 0
+ 9  4  2  3 is onboard elevator. Current floor : 0
 
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
@@ -220,15 +212,14 @@ parked_4= 0 0 0 0  0 0 0 0
 parked_5= 0 0 0 0  0 0 0 0
 parked_6= 0 0 0 0  0 0 0 0
 parked_7= 0 0 0 0  0 0 0 0
-moving= 8 4 2 3
+moving= 9 4 2 3
 plate_type=1 
 fee=00000000 
 empty_suv=0111 
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00000000
- 8  4  2  3 is getting out of elevator. Current floor : 1
+ 9  4  2  3 is getting out of elevator. Current floor : 1
 
 Parking fee =   0 cents
 
@@ -253,87 +244,14 @@ empty_suv=0111
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00000000
 input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  8 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=1 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000000
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  8 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=1 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000000
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  8 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=1 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000001
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 8 4 2 3 
+license_plate= 8 7 5 4 
 in_mode=0 
 out_mode=1 
 leakage=0 
 leakage_floor=000 
 output
-parked_1= 0 0 0 0  8 4 2 3
+parked_1= 9 4 2 3  0 0 0 0
 parked_2= 0 0 0 0  0 0 0 0
 parked_3= 0 0 0 0  0 0 0 0
 parked_4= 0 0 0 0  0 0 0 0
@@ -343,13 +261,10 @@ parked_7= 0 0 0 0  0 0 0 0
 moving= 0 0 0 0
 plate_type=1 
 fee=00000000 
-empty_suv=0110 
+empty_suv=0111 
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-HERE
-HERE
-00000010
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
@@ -359,7 +274,7 @@ out_mode=0
 leakage=0 
 leakage_floor=000 
 output
-parked_1= 0 0 0 0  8 4 2 3
+parked_1= 9 4 2 3  0 0 0 0
 parked_2= 0 0 0 0  0 0 0 0
 parked_3= 0 0 0 0  0 0 0 0
 parked_4= 0 0 0 0  0 0 0 0
@@ -367,97 +282,248 @@ parked_5= 0 0 0 0  0 0 0 0
 parked_6= 0 0 0 0  0 0 0 0
 parked_7= 0 0 0 0  0 0 0 0
 moving= 0 0 0 0
-plate_type=1 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000011
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  8 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=0 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000100
- 8  4  2  3 is onboard elevator. Current floor : 1
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  8 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 8 4 2 3
-plate_type=0 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000100
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  0 0 0 0
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 8 4 2 3
 plate_type=0 
 fee=00000000 
 empty_suv=0111 
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00000100
- 8  4  2  3 is getting out of elevator. Current floor : 0
+ 8  7  5  4 is onboard elevator. Current floor : 0
+
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 8 7 5 4
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 8 7 5 4
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+ 8  7  5  4 is getting out of elevator. Current floor : 2
+
+Parking fee =   0 cents
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  8 7 5 4
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0100
+full_suv=0
+full_sedan=0
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  8 7 5 4
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0100
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  8 7 5 4
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=1 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0100
+full_suv=0
+full_sedan=0
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  8 7 5 4
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=1 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0100
+full_suv=0
+full_sedan=0
+ 8  7  5  4 is onboard elevator. Current floor : 2
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  8 7 5 4
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 8 7 5 4
+plate_type=1 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0100
+full_suv=0
+full_sedan=0
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 8 7 5 4
+plate_type=1 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 8 7 5 4
+plate_type=1 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+ 8  7  5  4 is getting out of elevator. Current floor : 0
 
 Parking fee =   4 cents
 
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
-license_plate= 6 4 2 3 
-in_mode=1 
+license_plate= 0 0 0 0 
+in_mode=0 
 out_mode=0 
 leakage=0 
 leakage_floor=000 
 output
-parked_1= 0 0 0 0  0 0 0 0
+parked_1= 9 4 2 3  0 0 0 0
 parked_2= 0 0 0 0  0 0 0 0
 parked_3= 0 0 0 0  0 0 0 0
 parked_4= 0 0 0 0  0 0 0 0
@@ -465,13 +531,12 @@ parked_5= 0 0 0 0  0 0 0 0
 parked_6= 0 0 0 0  0 0 0 0
 parked_7= 0 0 0 0  0 0 0 0
 moving= 0 0 0 0
-plate_type=0 
+plate_type=1 
 fee=00000100 
 empty_suv=0111 
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00000100
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
@@ -481,31 +546,7 @@ out_mode=0
 leakage=0 
 leakage_floor=000 
 output
-parked_1= 0 0 0 0  0 0 0 0
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=0 
-fee=00000000 
-empty_suv=0111 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000100
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  0 0 0 0
+parked_1= 9 4 2 3  0 0 0 0
 parked_2= 0 0 0 0  0 0 0 0
 parked_3= 0 0 0 0  0 0 0 0
 parked_4= 0 0 0 0  0 0 0 0
@@ -519,9 +560,6 @@ empty_suv=0111
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00000100
- 6  4  2  3 is onboard elevator. Current floor : 0
-
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
@@ -531,275 +569,7 @@ out_mode=0
 leakage=0 
 leakage_floor=000 
 output
-parked_1= 0 0 0 0  0 0 0 0
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 6 4 2 3
-plate_type=1 
-fee=00000000 
-empty_suv=0111 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000100
- 6  4  2  3 is getting out of elevator. Current floor : 1
-
-Parking fee =   0 cents
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  0 0 0 0
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=1 
-fee=00000000 
-empty_suv=0111 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000100
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  6 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=1 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000100
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  6 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=1 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000000
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  6 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=1 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000010
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 6 4 2 3 
-in_mode=0 
-out_mode=1 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  6 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=1 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-HERE
-HERE
-00000100
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  6 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=1 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00000110
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  6 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=0 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00001000
- 6  4  2  3 is onboard elevator. Current floor : 1
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  6 4 2 3
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 6 4 2 3
-plate_type=0 
-fee=00000000 
-empty_suv=0110 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00001000
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  0 0 0 0
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 6 4 2 3
-plate_type=0 
-fee=00000000 
-empty_suv=0111 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00001000
- 6  4  2  3 is getting out of elevator. Current floor : 0
-
-Parking fee =   8 cents
-
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  0 0 0 0
-parked_2= 0 0 0 0  0 0 0 0
-parked_3= 0 0 0 0  0 0 0 0
-parked_4= 0 0 0 0  0 0 0 0
-parked_5= 0 0 0 0  0 0 0 0
-parked_6= 0 0 0 0  0 0 0 0
-parked_7= 0 0 0 0  0 0 0 0
-moving= 0 0 0 0
-plate_type=0 
-fee=00001000 
-empty_suv=0111 
-empty_sedan=0101
-full_suv=0
-full_sedan=0
-00001000
-Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
-
-input
-license_plate= 0 0 0 0 
-in_mode=0 
-out_mode=0 
-leakage=0 
-leakage_floor=000 
-output
-parked_1= 0 0 0 0  0 0 0 0
+parked_1= 9 4 2 3  0 0 0 0
 parked_2= 0 0 0 0  0 0 0 0
 parked_3= 0 0 0 0  0 0 0 0
 parked_4= 0 0 0 0  0 0 0 0
@@ -813,7 +583,6 @@ empty_suv=0111
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00001000
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
@@ -823,7 +592,7 @@ out_mode=0
 leakage=0 
 leakage_floor=000 
 output
-parked_1= 0 0 0 0  0 0 0 0
+parked_1= 9 4 2 3  0 0 0 0
 parked_2= 0 0 0 0  0 0 0 0
 parked_3= 0 0 0 0  0 0 0 0
 parked_4= 0 0 0 0  0 0 0 0
@@ -837,7 +606,6 @@ empty_suv=0111
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00001000
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
@@ -847,7 +615,7 @@ out_mode=0
 leakage=0 
 leakage_floor=000 
 output
-parked_1= 0 0 0 0  0 0 0 0
+parked_1= 9 4 2 3  0 0 0 0
 parked_2= 0 0 0 0  0 0 0 0
 parked_3= 0 0 0 0  0 0 0 0
 parked_4= 0 0 0 0  0 0 0 0
@@ -861,7 +629,6 @@ empty_suv=0111
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00001000
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
@@ -871,7 +638,7 @@ out_mode=0
 leakage=0 
 leakage_floor=000 
 output
-parked_1= 0 0 0 0  0 0 0 0
+parked_1= 9 4 2 3  0 0 0 0
 parked_2= 0 0 0 0  0 0 0 0
 parked_3= 0 0 0 0  0 0 0 0
 parked_4= 0 0 0 0  0 0 0 0
@@ -885,7 +652,6 @@ empty_suv=0111
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00001000
 Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
 
 input
@@ -895,7 +661,7 @@ out_mode=0
 leakage=0 
 leakage_floor=000 
 output
-parked_1= 0 0 0 0  0 0 0 0
+parked_1= 9 4 2 3  0 0 0 0
 parked_2= 0 0 0 0  0 0 0 0
 parked_3= 0 0 0 0  0 0 0 0
 parked_4= 0 0 0 0  0 0 0 0
@@ -909,6 +675,280 @@ empty_suv=0111
 empty_sedan=0101
 full_suv=0
 full_sedan=0
-00001000
-Stopped at time : 375 ns : File "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb.v" Line 174
-# exit 0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Minus points!!!! Elevator moved more than two floors in one cycle : 0 -> 0
+
+input
+license_plate= 0 0 0 0 
+in_mode=0 
+out_mode=0 
+leakage=0 
+leakage_floor=000 
+output
+parked_1= 9 4 2 3  0 0 0 0
+parked_2= 0 0 0 0  0 0 0 0
+parked_3= 0 0 0 0  0 0 0 0
+parked_4= 0 0 0 0  0 0 0 0
+parked_5= 0 0 0 0  0 0 0 0
+parked_6= 0 0 0 0  0 0 0 0
+parked_7= 0 0 0 0  0 0 0 0
+moving= 0 0 0 0
+plate_type=0 
+fee=00000000 
+empty_suv=0111 
+empty_sedan=0101
+full_suv=0
+full_sedan=0
+Stopped at time : 415 ns : File "/home/luorix/Downloads/Digital-Logic-Design-F2023-1218_w-leakage/parking_lot_top_tb.v" Line 160
