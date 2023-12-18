@@ -982,7 +982,7 @@ module parking_lot_top(
 	);
 	 
 	// JYH: RESET logic here
-	always @(negedge clock) begin
+	always @(posedge clock) begin
 		if (reset) begin
 		//flag change output reg
 			parked_1[31:0] <= 0;
